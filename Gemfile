@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Use sqlserver as the database for Active Record
+gem 'tiny_tds', '~> 1.0', '>= 1.0.3'
+gem 'activerecord-sqlserver-adapter', '~> 4.2', '>= 4.2.12'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
