@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sedes</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th><strong>Cod.Sede</strong></th>
+    <th><strong>Nombre</strong></th>
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @t_sedes.each do |t_sede| %>
+      <tr>
+        <td><%= t_sede.nCodSede %></td>
+        <td><%= t_sede.cNombre %></td>
+        
+        <td><%= link_to 'Ver', t_sede %></td>
+        <td><%= link_to 'Editar', edit_t_sede_path(t_sede) %></td>
+        <td><%= link_to 'Borrar', t_sede, method: :delete, data: { confirm: '¿Está usted seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New T sede', new_t_sede_path %>
