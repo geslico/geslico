@@ -2,6 +2,16 @@
 
 <h1>Usuarios</h1>
 
+
+<%= form_tag("/t_usuarios", method: "get") do %>
+  <%= label_tag(:cCodUsuario, "Código:") %>
+  <%= text_field_tag(:cCodUsuario) %>
+  <%= label_tag(:cNombre, "Nombre:") %>
+  <%= text_field_tag(:cNombre) %>
+  <%= submit_tag("Buscar") %>
+<% end %>
+
+
 <table>
   <thead>
     <tr>
