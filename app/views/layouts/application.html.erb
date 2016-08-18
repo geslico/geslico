@@ -5,11 +5,21 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <h1>Geslico</h1>
+  <a href="http://localhost:3000">Principal</a> 
+  <a href="http://localhost:3000/t_usuarios">Usuarios</a> 
+  <a href="http://localhost:3000/t_sedes">Sedes</a> 
+  <hr>
 </head>
+
+
 <body>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
-<footer>:: Geslico 2016-05 ::</footer>
+
+
+	<footer>:: Geslico 2016-05 ::</footer>
 </html>

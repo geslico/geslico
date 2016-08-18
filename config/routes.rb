@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :t_sedes
   resources :t_usuarios
   get 'welcome/index'
 
