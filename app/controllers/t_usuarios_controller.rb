@@ -4,7 +4,10 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios
   # GET /t_usuarios.json
   def index
+    #@t_usuarios = TUsuario.all
     @t_usuarios = TUsuario.all
+    @t_usuarios = @t_usuarios.cCodUsuario(params[:cCodUsuario]) if params[:cCodUsuario].present?
+    @t_usuarios = @t_usuarios.cNombre(params[:cNombre]) if params[:cNombre].present?
   end
 
   # GET /t_usuarios/1
