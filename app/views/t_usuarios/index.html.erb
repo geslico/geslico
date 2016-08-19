@@ -19,7 +19,7 @@
       <th><strong>Nombre</strong></th>
       <th><strong>Correo</strong></th>
       <th><strong>Estado</strong></th>
-      <th colspan="3"></th>
+      <th colspan="1"></th>
     </tr>
   </thead>
 
@@ -31,8 +31,7 @@
         <td><%= t_usuario.cCorreo %></td>
         <td><%= t_usuario.bActivo %></td>
         <td><%= link_to 'Ver', t_usuario %></td>
-        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>
-        <td><%= link_to 'Borrar', t_usuario, method: :delete, data: { confirm: '¿Está usted seguro?' } %></td>
+<!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
       </tr>
     <% end %>
   </tbody>
@@ -40,4 +39,4 @@
 
 <br>
 
-<%= link_to 'Nuevo Usuario', new_t_usuario_path %>
+<!-- <%= link_to 'Nuevo Usuario', new_t_usuario_path %>-->
