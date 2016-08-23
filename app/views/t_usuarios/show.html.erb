@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
-<p>
-	<table>
-	<tr>
-		<td>Código</td>
-		<td><%= @t_usuario.cCodUsuario %></td>
-		</tr>
-		<tr>
-		<td>Nombre</td>
-		<td><%= @t_usuario.cNombre %></td>
-		</tr>
-		<tr>
-		<tr>
-		<td>Correo</td>
-		<td><%= @t_usuario.cCorreo %></td>
-		</tr>
-		<tr>
-		<td>Activo</td>
-		<td><%= @t_usuario.bActivo %></td>
-		</tr>
-	</table>
-</p>
+<div class="row">
+	<aside class="col-md-4">
+		<section class="user_info">
+			<h3>
+			Código: <%= @t_usuario.cCodUsuario %>
+			</h3>
+			<h1>
+			Nombre: <%= @t_usuario.cNombre %>
+			</h1>
+			<h3>
+			Correo: <%= @t_usuario.cCorreo %>
+			</h3>
+			<h3>
+			Activo: <%= @t_usuario.bActivo %>
+			</h3>
+		</section>
+	</aside>
+</div>
 <!-- <%= link_to 'Edit', edit_t_usuario_path(@t_usuario) %> | -->
 <%= link_to 'Back', t_usuarios_path %>

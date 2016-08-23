@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :t_sedes
   resources :t_usuarios
-  resources :t_sedes
+
   get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
