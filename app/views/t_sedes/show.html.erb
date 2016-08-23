@@ -1,4 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> |
+<p>
+	<table>
+	<tr>
+		<td>Código</td>
+		<td><%= @t_sede.nCodSede %></td>
+	</tr>
+	<tr>
+		<td>Nombre</td>
+		<td><%= @t_sede.cNombre %></td>
+	</tr>
+				
+	</table>
+</p>
+<!-- 
+<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
 <%= link_to 'Back', t_sedes_path %>

@@ -2,6 +2,16 @@
 
 <h1>Sedes</h1>
 
+<%= form_tag("/t_sedes", method: "get") do %>
+  <%= label_tag(:nCodSede, "Código:") %>
+  <%= text_field_tag(:nCodSede) %>
+  
+  <%= label_tag(:cNombre, "Nombre:") %>
+  <%= text_field_tag(:cNombre) %>
+
+  <%= submit_tag("Buscar") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -27,4 +37,4 @@
 
 <br>
 
-<%= link_to 'New T sede', new_t_sede_path %>
+<!--<%= link_to 'New T sede', new_t_sede_path %>-->
