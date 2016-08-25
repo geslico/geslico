@@ -1,42 +1,52 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Usuarios</h1>
+<section>
 
+  <h1>Usuarios</h1>
 
-<%= form_tag("/t_usuarios", method: "get") do %>
-  <%= label_tag(:cCodUsuario, "Código:") %>
-  <%= text_field_tag(:cCodUsuario) %>
-  <%= label_tag(:cNombre, "Nombre:") %>
-  <%= text_field_tag(:cNombre) %>
-  <%= submit_tag("Buscar") %>
-<% end %>
-
-
-<table>
-  <thead>
-    <tr>
-      <th><strong>Cod.Usuario</strong></th>
-      <th><strong>Nombre</strong></th>
-      <th><strong>Correo</strong></th>
-      <th><strong>Estado</strong></th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @t_usuarios.each do |t_usuario| %>
-      <tr>
-        <td><%= t_usuario.cCodUsuario %></td>
-        <td><%= t_usuario.cNombre %></td>
-        <td><%= t_usuario.cCorreo %></td>
-        <td><%= t_usuario.bActivo %></td>
-        <td><%= link_to 'Ver', t_usuario %></td>
-<!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
-      </tr>
+  <div>
+    <%= form_tag("/t_usuarios", method: "get") do %>
+      <%= label_tag(:cCodUsuario, "Código") %>
+      <%= text_field_tag(:cCodUsuario) %>
+      <%= label_tag(:cNombre, "Nombre") %>
+      <%= text_field_tag(:cNombre) %><br>
+      <%= label_tag(:cCorreo, "Correo") %>
+      <%= text_field_tag(:cCorreo) %>
+      <%= label_tag(:bActivo, "Activo") %>
+      <%= select_tag(:bActivo, options_for_select([["",nil], ["Sí",true], ["No", false]])) %><br>
+      
+      <%= submit_tag("Buscar") %>
     <% end %>
-  </tbody>
-</table>
+    <!--<%= link_to 'Nuevo Usuario', new_t_usuario_path %>-->
+  </div>
 
-<br>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Cod.Usuario</strong></th>
+          <th><strong>Nombre</strong></th>
+          <th><strong>Correo</strong></th>
+          <th><strong>Estado</strong></th>
 
-<!-- <%= link_to 'Nuevo Usuario', new_t_usuario_path %>-->
+          <th><strong>Estado</strong></th>
+          <th colspan="1"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @t_usuarios.each do |t_usuario| %>
+          <tr>
+            <td><%= t_usuario.cCodUsuario %></td>
+            <td><%= t_usuario.cNombre %></td>
+            <td><%= t_usuario.cCorreo %></td>
+            <td><%= t_usuario.bActivo %></td>
+
+            <td><%= link_to 'Ver', t_usuario %></td>
+    <!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
