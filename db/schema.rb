@@ -1553,7 +1553,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "TUsos", id: false, force: :cascade do |t|
   end
 
-  create_table "TUsuarios", id: false, force: :cascade do |t|
+  create_table "TUsuarios", nId: false, force: :cascade do |t|
   end
 
   add_index "TUsuarios", ["cCodUsuario"], name: "IX_CodUsuario", unique: true

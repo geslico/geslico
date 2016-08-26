@@ -33,7 +33,7 @@ class TUsuariosController < ApplicationController
 
     respond_to do |format|
       if @t_usuario.save
-        format.html { redirect_to @t_usuario, notice: 'T usuario was successfully created.' }
+        format.html { redirect_to @t_usuario, notice: 'Usuario creado correctamente.' }
         format.json { render :show, status: :created, location: @t_usuario }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class TUsuariosController < ApplicationController
   def update
     respond_to do |format|
       if @t_usuario.update(t_usuario_params)
-        format.html { redirect_to @t_usuario, notice: 'T usuario was successfully updated.' }
+        format.html { redirect_to @t_usuario, notice: 'Usuario modificado correctamente.' }
         format.json { render :show, status: :ok, location: @t_usuario }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class TUsuariosController < ApplicationController
   def destroy
     @t_usuario.destroy
     respond_to do |format|
-      format.html { redirect_to t_usuarios_url, notice: 'T usuario was successfully destroyed.' }
+      format.html { redirect_to t_usuarios_url, notice: 'Usuario eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -74,6 +74,7 @@ class TUsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_usuario_params
-      params.fetch(:t_usuario, {})
+      params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
+                                   :password_confirmation)
     end
 end

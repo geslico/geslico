@@ -10,8 +10,31 @@
       </ul>
     </div>
   <% end %>
-  <h1><%=@t_usuario.cCodUsuario %></h1>
-  <div class="actions">
-    <%= f.submit %>
+
+
+  <div>
+    <%= f.label :cCodUsuario, "Cod.Usuario" %>
+    <%= f.text_field :cCodUsuario %>
+    
+    <%= f.label :bActivo, "Activo" %>
+    <%= f.select(:bActivo, options_for_select([["Sí",true], ["No", false]])) %><br/>
+
+    <%= f.label :cNombre, "Nombre Usuario" %>
+    <%= f.text_field :cNombre %>
+
+    <%= f.label :cCorreo, "Correo" %>
+    <%= f.text_field :cCorreo %><br/>
+
+    <%= f.label :password, "Password" %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password_confirmation, "Confirmación" %>
+    <%= f.password_field :password_confirmation %><br/>
+
   </div>
+  <div class="actions">
+  <%= f.submit "Crear Usuario"%> 
+  </div>
+
 <% end %>
+

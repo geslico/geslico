@@ -9,7 +9,7 @@ class TUsuarioTest < ActiveSupport::TestCase
     assert @t_usuarios.valid?
   end
 
-  test "código should be present" do
+  test "Código should be present" do
     @t_usuarios.cCodUsuario = ""
     assert_not @t_usuarios.valid?
   end
