@@ -4,7 +4,7 @@ class TUsuario < ActiveRecord::Base
 	self.table_name ="geslico.dbo.TUsuarios"
 	scope :cCodUsuario, -> (cCodUsuario) { where cCodUsuario: cCodUsuario }
 	scope :cNombre, -> (cNombre) { where("cNombre like ?", "%#{cNombre}%")}
-	scope :cClave, -> (cClave) { where cClave: cCodUsuario }
+	scope :cClave, -> (cClave) { where cClave: cClave }
 	scope :cCorreo, -> (cCorreo) { where("cCorreo like ?", "%#{cCorreo}%")}
 	scope :bActivo, -> (bActivo) { where bActivo: bActivo }
 
