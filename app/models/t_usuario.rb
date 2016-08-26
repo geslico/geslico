@@ -8,11 +8,14 @@ class TUsuario < ActiveRecord::Base
 	scope :cCorreo, -> (cCorreo) { where("cCorreo like ?", "%#{cCorreo}%")}
 	scope :bActivo, -> (bActivo) { where bActivo: bActivo }
 
+	before_save { self.cCodUsuario = cCodUsuario.downcase }
   	before_save { self.cCorreo = cCorreo.downcase }
 
 	#Validaciones sobre el usuario
-	validates :cCodUsuario, presence: true
+	validates :cCodUsuario, presence: true, length: { minimum: 6 }
+	validates :cNombre, presence: true
   	validates :password, presence: true, length: { minimum: 6 }
+  	validates :bActivo, presence: true
 
 	has_secure_password #implementa la autenticación con bcrypt
 
