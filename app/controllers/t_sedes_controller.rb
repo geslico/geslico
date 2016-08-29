@@ -1,4 +1,5 @@
 class TSedesController < ApplicationController
+  before_action :logged_in_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_t_sede, only: [:show, :edit, :update, :destroy]
 
   # GET /t_sedes
@@ -73,4 +74,12 @@ class TSedesController < ApplicationController
     def t_sede_params
       params.fetch(:t_sede, {})
     end
+        
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+  end
 end

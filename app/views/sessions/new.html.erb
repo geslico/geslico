@@ -1,0 +1,19 @@
+
+<% provide(:title, "Iniciar Sesión") %>
+<h1>Iniciar Sesión</h1>
+
+<div>
+  <div>
+    <%= form_for(:session, url: login_path) do |f| %>
+
+      <%= f.label :cCodUsuario, "Cod.Usuario" %>
+      <%= f.text_field :cCodUsuario %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Iniciar Sesión" %>
+    <% end %>
+
+  </div>
+</div>
