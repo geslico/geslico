@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  #lvd001- Con esta instrucción saltamos el before_action :require_login del application_controller.rb, 
+  # evitamos así caer en un bucle
+  skip_before_action :require_login, only: [:new, :create]
+  
   def new
   end
 
@@ -12,7 +16,7 @@ class SessionsController < ApplicationController
       redirect_to '/main'
 
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Combinación de Código de usuario/password incorrecta'
       render 'new'
     end
   end

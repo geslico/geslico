@@ -1,4 +1,5 @@
 class TUsuariosController < ApplicationController
+  before_action :logged_in_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_t_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /t_usuarios
@@ -78,4 +79,11 @@ class TUsuariosController < ApplicationController
       params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
                                    :password_confirmation)
     end
+
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+  end
 end
