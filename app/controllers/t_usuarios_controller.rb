@@ -15,6 +15,7 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios/1
   # GET /t_usuarios/1.json
   def show
+    @t_usuario = TUsuario.find(params[:id])
   end
 
   # GET /t_usuarios/new
