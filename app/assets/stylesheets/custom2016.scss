@@ -1,0 +1,106 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* Header */
+
+
+body{
+	margin:			0 auto;
+	border:			0px;
+	padding:		0px;
+	background:		whitesmoke; 
+	width:			100%;
+	min-height: 	100%;	
+	background-image: url("firma_madrid_blanco.png");
+    background-repeat: repeat;
+}
+
+header{
+	margin:			0 auto;
+	background:		#003DF6;
+	width:			100%;
+	height:			60px;
+	display:		block;
+}
+
+div{
+	display:		block;
+	margin: 0 0 0 0;
+}
+
+#header{
+	margin:			0 auto;
+	background:		#003DF6;
+	width:			100%;
+	max-width:		1020px;
+	height:			60px;
+	display:		block;
+	font-family:	Lato, Verdana;
+	font-weight:	Bold;
+}
+
+#nav{
+	margin:			0 auto;
+	width:			100%;
+	max-width:		1020px;
+	display:		block;
+
+}
+#titulo{
+	position:	relative; 
+	left:		30px;
+	display:	inline;
+	background:	#003DF6;
+	float:		left;
+	height:		60px;
+	color:white
+}
+
+#firmamadrid{	
+	margin:			0 auto;
+	position:	relative; 
+	right:		30px;
+	display:	inline;
+	background:	#003DF6;
+	float:		right;
+	height:		60px;	
+}
+	
+#imgfirma{	
+	position: relative;
+	margin:			0 auto;
+	}
+
+#content{
+	margin:			0 auto;
+	width:			100%;	
+	max-width:		1020px;
+	display:		block;
+	font-family:	Gills Sans Regular;	
+	background:		white;	    	
+
+}
+
+
+footer{	
+	margin:			0 auto;
+	background:		#003DF6;
+	width:			100%;
+	height:			30px;
+	display:		block;	
+	}
+
+#footer{	
+	margin:			0 auto;
+	background:		#003DF6;
+	width:			100%;
+	max-width:		1020px;
+	height:			30px;
+	display:		block;		
+	font-family:	Lato, Verdana;
+	font-weight:	Bold;
+	color:			white;
+	
+    
+}

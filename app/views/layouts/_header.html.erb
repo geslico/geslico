@@ -1,16 +1,19 @@
 <header>
-    <div>
-      <h1>GESLICO</h1>
-      <h3></h3>
-      <nav>
-        <ul>
-			<% if logged_in? %>
-				<li><%= link_to "Sedes", t_sedes_path %></li>
-				<li><%= link_to "Usuarios", t_usuarios_path %></li>
-				<li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
-
-			<% end %>
-        </ul>
-      </nav>
-    </div>
+<div id="header">
+  <div id="titulo">
+    <H3>GESLICO</H3>
+  </div>
+  <div id="firmamadrid"><br/>
+    <%= image_tag("firma_madrid_blanco.png", id:"imgfirma") %>
+  </div>
+</div>
 </header>
+<nav  id="nav">
+  <ul>
+  <% if logged_in? %>
+  <li><%= link_to "Sedes", t_sedes_path %></li>
+  <li><%= link_to "Usuarios", t_usuarios_path %></li>
+  <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
+  <% end %>
+  </ul>
+</nav>

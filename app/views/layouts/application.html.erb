@@ -11,11 +11,15 @@
 
 
 <body>
-  <%= render 'layouts/header' %>
-  <div class="container">
-	   <%= yield %>
-  </div>
-  <%= debug(params) if Rails.env.development? %>
+
+    <%= render 'layouts/header' %>
+    
+    <div id="content">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 

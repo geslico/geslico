@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<section>
-
+<section> 
+<div class="container">
   <h1>Usuarios</h1>
 
-  <div>
+
     <%= form_tag("/t_usuarios", method: "get") do %>
       <%= label_tag(:cCodUsuario, "Código") %>
       <%= text_field_tag(:cCodUsuario) %>
@@ -15,12 +14,12 @@
       <%= label_tag(:bActivo, "Activo") %>
       <%= select_tag(:bActivo, options_for_select([["",nil], ["Sí",true], ["No", false]])) %><br>
       
-      <%= submit_tag("Buscar") %>
+      <%= submit_tag("Buscar") %> 
     <% end %>
 <%= link_to 'Nuevo Usuario', new_t_usuario_path %>
   </div>
 
-  <div>
+  <div class="container">
     <table>
       <thead>
         <tr>
