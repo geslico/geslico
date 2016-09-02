@@ -1,0 +1,37 @@
+//Lato
+
+@font-face {
+  font-family: 'Lato';
+  src: font-url('lato-light.eot');
+  src: font-url('lato-light.eot?#iefix') format('embedded-opentype'),
+       font-url('lato-light.woff2') format('woff2'),
+       font-url('lato-light.woff') format('woff'),
+       font-url('lato-light.ttf') format('truetype'),
+       font-url('lato-light.svg#latolight') format('svg');
+  font-weight: lighter;
+  font-style: normal
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: font-url('lato-regular.eot');
+  src: font-url('lato-regular.eot?#iefix') format('embedded-opentype'),
+       font-url('lato-regular.woff2') format('woff2'),
+       font-url('lato-regular.woff') format('woff'),
+       font-url('lato-regular.ttf') format('truetype'),
+       font-url('lato-regular.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: font-url('lato-bold.eot');
+  src: font-url('lato-bold.eot?#iefix') format('embedded-opentype'),
+       font-url('lato-bold.woff2') format('woff2'),
+       font-url('lato-bold.woff') format('woff'),
+       font-url('lato-bold.ttf') format('truetype'),
+       font-url('lato-bold.svg#latobold') format('svg');
+  font-weight: bold;
+  font-style: normal
+}
