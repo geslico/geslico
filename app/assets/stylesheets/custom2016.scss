@@ -1,19 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
+*{
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+}
+  
 /* Header */
-
 
 body{
 	margin:			0 auto;
 	border:			0px;
 	padding:		0px;
-	background:		whitesmoke; 
 	width:			100%;
 	min-height: 	100%;	
-	background-image: url("firma_madrid_blanco.png");
-    background-repeat: repeat;
 }
 
 header{
@@ -26,7 +26,7 @@ header{
 
 div{
 	display:		block;
-	margin: 0 0 0 0;
+	margin: 		0 0 0 0;
 }
 
 #header{
@@ -45,62 +45,57 @@ div{
 	width:			100%;
 	max-width:		1020px;
 	display:		block;
-
 }
+
 #titulo{
-	position:	relative; 
-	left:		30px;
-	display:	inline;
-	background:	#003DF6;
-	float:		left;
-	height:		60px;
-	color:white
+	position:		relative; 
+	display:		inline;
+	background:		#003DF6;
+	float:			left;
+	height:			60px;
+	color:			white
 }
 
 #firmamadrid{	
 	margin:			0 auto;
-	position:	relative; 
-	right:		30px;
-	display:	inline;
-	background:	#003DF6;
-	float:		right;
-	height:		60px;	
+	position:		relative; 
+	right:			30px;
+	display:		inline;
+	background:		#003DF6;
+	float:			right;
+	height:			60px;	
 }
 	
 #imgfirma{	
-	position: relative;
+	position: 		relative;
 	margin:			0 auto;
-	}
+}
 
 #content{
-	margin:			0 auto;
-	width:			100%;	
+	margin:			0 auto;		
+	height:			100%;
 	max-width:		1020px;
 	display:		block;
 	font-family:	Gills Sans Regular;	
-	background:		white;	    	
-
+	background:		white;	
+	padding-top:	2%;
+	padding-bottom:	2%;
 }
 
-
-footer{	
-	margin:			0 auto;
+footer{		
 	background:		#003DF6;
 	width:			100%;
-	height:			30px;
-	display:		block;	
-	}
+	//position:		absolute;
+	bottom:			0;
+}
 
 #footer{	
 	margin:			0 auto;
 	background:		#003DF6;
 	width:			100%;
 	max-width:		1020px;
-	height:			30px;
-	display:		block;		
+	height:			30px;		
 	font-family:	Lato, Verdana;
 	font-weight:	Bold;
-	color:			white;
-	
-    
+	color:			white; 
 }
