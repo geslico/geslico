@@ -1,20 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "lato";
 
 *{
 	box-sizing: border-box;
 	-moz-box-sizing:border-box;
+ 	-webkit-box-sizing: border-box;
+	font-family: 'Lato';
 }
   
 /* Header */
 
-body{
-	margin:			0 auto;
-	border:			0px;
-	padding:		0px;
-	width:			100%;
-	min-height: 	100%;	
-}
+
 
 header{
 	margin:			0 auto;
@@ -22,6 +19,14 @@ header{
 	width:			100%;
 	height:			60px;
 	display:		block;
+}
+
+body{
+	margin:			0 auto;
+	border:			0px;
+	padding:		0px;
+	width:			100%;
+	min-height: 	100%;	
 }
 
 div{
@@ -36,15 +41,64 @@ div{
 	max-width:		1020px;
 	height:			60px;
 	display:		block;
-	font-family:	Lato, Verdana;
 	font-weight:	Bold;
+}
+header h3{
+	text-decoration:none;  
+}
+
+header h3 a{
+	color:			white;
+	text-decoration: none;   
+	cursor:			pointer; 
+	letter-spacing: 5px;
+}
+header h3 a:hover{
+	color:			white;
 }
 
 #nav{
 	margin:			0 auto;
 	width:			100%;
 	max-width:		1020px;
-	display:		block;
+	overflow:		hidden;
+	margin-top:		15px;
+	height: 		50px;
+}
+
+#nav ul li{
+    list-style: 	none;
+    float: 			left;	    
+    width:			33.33%;
+    text-align:		center;
+    font-size: 		24px;
+    color:			#003DF6;    
+}
+
+#nav ul{
+	padding: 		0;
+}
+
+#nav ul li span{
+     position: 		relative;
+}
+
+#nav ul li a{
+	text-decoration: none;    
+}
+
+#nav ul li span:after{
+    content: 		"";
+    width: 			0%;
+    position: 		absolute;
+    left: 			0;
+    bottom: 		-15px;
+    background: 	#003DF6;
+    height: 		2px;
+}
+
+#nav ul li:hover span:after{
+    width: 100%;
 }
 
 #titulo{
@@ -53,7 +107,8 @@ div{
 	background:		#003DF6;
 	float:			left;
 	height:			60px;
-	color:			white
+	color:			white;
+	margin-left:	30px;
 }
 
 #firmamadrid{	
@@ -76,7 +131,6 @@ div{
 	height:			100%;
 	max-width:		1020px;
 	display:		block;
-	font-family:	Gills Sans Regular;	
 	background:		white;	
 	padding-top:	2%;
 	padding-bottom:	2%;
@@ -85,8 +139,8 @@ div{
 footer{		
 	background:		#003DF6;
 	width:			100%;
-	//position:		absolute;
 	bottom:			0;
+	height: 		60px;	
 }
 
 #footer{	
@@ -94,8 +148,12 @@ footer{
 	background:		#003DF6;
 	width:			100%;
 	max-width:		1020px;
-	height:			30px;		
-	font-family:	Lato, Verdana;
-	font-weight:	Bold;
+	height:			60px;	
 	color:			white; 
+	font-weight:	Bold;
+}
+
+#footer h4{
+	margin-left:	30px;
+	padding-top:	20px;
 }
