@@ -17,6 +17,8 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios/1.json
   def show
     @t_usuario = TUsuario.find(params[:id])
+    #@t_usuarios_programa = @t_usuario.TUsuariosPrograma.all
+    #@t_programa = @t_usuario.TPrograma.all
   end
 
   # GET /t_usuarios/new
@@ -77,7 +79,9 @@ class TUsuariosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_usuario_params
       params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :nIdUsuario, :nCodPrograma)
+      #params.require(:t_usuarios_programa).permit(:nIdUsuario, :nCodPrograma)
+      #params.require(:t_programa).permit(:nCodPrograma)
     end
 
     def logged_in_user

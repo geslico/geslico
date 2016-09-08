@@ -2,11 +2,24 @@
 <section> 
 <div class="container">
 
-			Código: <%= @t_usuario.cCodUsuario %>
-			Nombre: <%= @t_usuario.cNombre %>
-			Correo: <%= @t_usuario.cCorreo %>
+	Código: <%= @t_usuario.cCodUsuario %>
+	Nombre: <%= @t_usuario.cNombre %>
+	Correo: <%= @t_usuario.cCorreo %>
+	Activo: <%= @t_usuario.bActivo %>
 
-			Activo: <%= @t_usuario.bActivo %>
+	<div class="dtable">
+		<div class="drow">
+			<div class="dfield">Programa</div><div class="dfield">Permiso</div>
+		</div>
+		<% @t_usuario.TUsuariosPrograma.each do |t_usuarios_programa| %>
+		<div class="drow">
+			<div class="dfield"><%= t_usuarios_programa.TPrograma.sPrograma %></div>
+			<div class="dfield"><%= t_usuarios_programa.sPermiso %></div>
+		</div>
+		<% end %>
+	</div>
+
+	
 <!-- <%= link_to 'Edit', edit_t_usuario_path(@t_usuario) %> | -->
 
 </div>
