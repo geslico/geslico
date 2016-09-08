@@ -16,9 +16,9 @@
       
       <%= submit_tag("Buscar") %> 
     <% end %>
-<%= link_to 'Nuevo Usuario', new_t_usuario_path %>
-  </div>
 
+  </div>
+<%= paginate(@t_usuarios) %>
   <div class="container">
     <table>
       <thead>
@@ -47,5 +47,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= paginate(@t_usuarios) %>
   </div>
 </section>

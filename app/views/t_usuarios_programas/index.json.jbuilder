@@ -1,0 +1,1 @@
+json.array! @t_usuarios_programas, partial: 't_usuarios_programas/t_usuarios_programa', as: :t_usuarios_programa

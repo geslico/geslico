@@ -6,7 +6,7 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios.json
   def index
     #@t_usuarios = TUsuario.all
-    @t_usuarios = TUsuario.all
+    @t_usuarios = TUsuario.page(params[:page]).per(30)
     @t_usuarios = @t_usuarios.cCodUsuario(params[:cCodUsuario]) if params[:cCodUsuario].present?
     @t_usuarios = @t_usuarios.cNombre(params[:cNombre]) if params[:cNombre].present?
     @t_usuarios = @t_usuarios.cCorreo(params[:cCorreo]) if params[:cCorreo].present?
@@ -77,7 +77,9 @@ class TUsuariosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_usuario_params
       params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
-                                   :password_confirmation)
+                                   :password_confirmation, :nIdUsuario, :nCodPrograma)
+      #params.require(:t_usuarios_programa).permit(:nIdUsuario, :nCodPrograma)
+      #params.require(:t_programa).permit(:nCodPrograma)
     end
 
     def logged_in_user

@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   get    'main'   => 'static_pages#main'
   
   resources :t_sedes
-  resources :t_usuarios
+  
+  resources :t_usuarios do
+    resources :t_usuarios_programas do
+      resources :t_programas 
+    end   
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
