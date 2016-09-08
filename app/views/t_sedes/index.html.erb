@@ -12,6 +12,7 @@
   <%= submit_tag("Buscar") %>
 <% end %>
 
+<%= paginate(@t_sedes) %>
 <table>
   <thead>
     <tr>
@@ -34,7 +35,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= paginate(@t_sedes) %>
 <br>
 
 <!--<%= link_to 'New T sede', new_t_sede_path %>-->

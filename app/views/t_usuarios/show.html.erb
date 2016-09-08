@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <section> 
+<%= link_to 'Back', t_usuarios_path %>
 <div class="container">
 
 	Código: <%= @t_usuario.cCodUsuario %>
@@ -11,10 +12,10 @@
 		<div class="drow">
 			<div class="dfield">Programa</div><div class="dfield">Permiso</div>
 		</div>
-		<% @t_usuario.TUsuariosPrograma.each do |t_usuarios_programa| %>
+		<% @t_usuario.TUsuariosPrograma.each do |t| %>
 		<div class="drow">
-			<div class="dfield"><%= t_usuarios_programa.TPrograma.sPrograma %></div>
-			<div class="dfield"><%= t_usuarios_programa.sPermiso %></div>
+			<div class="dfield"><%= t.TPrograma.sPrograma %></div>
+			<div class="dfield"><%= t.sPermiso %></div>
 		</div>
 		<% end %>
 	</div>

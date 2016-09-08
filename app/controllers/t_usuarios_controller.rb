@@ -6,7 +6,7 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios.json
   def index
     #@t_usuarios = TUsuario.all
-    @t_usuarios = TUsuario.all
+    @t_usuarios = TUsuario.page(params[:page]).per(30)
     @t_usuarios = @t_usuarios.cCodUsuario(params[:cCodUsuario]) if params[:cCodUsuario].present?
     @t_usuarios = @t_usuarios.cNombre(params[:cNombre]) if params[:cNombre].present?
     @t_usuarios = @t_usuarios.cCorreo(params[:cCorreo]) if params[:cCorreo].present?
@@ -17,8 +17,6 @@ class TUsuariosController < ApplicationController
   # GET /t_usuarios/1.json
   def show
     @t_usuario = TUsuario.find(params[:id])
-    #@t_usuarios_programa = @t_usuario.TUsuariosPrograma.all
-    #@t_programa = @t_usuario.TPrograma.all
   end
 
   # GET /t_usuarios/new
