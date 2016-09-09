@@ -1,0 +1,1 @@
+json.partial! "t_contajes/t_contaje", t_contaje: @t_contaje

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
+
 <html>
+
   <head>
     <title>Geslico</title>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -15,14 +18,15 @@
       <%= render 'layouts/header' %>
       
       <div id="content">
+        
         <%= render 'layouts/flash' %>
+
         <%= yield %>
+
       </div>
       <%= render 'layouts/footer' %>
 
  
-
-
   </body>
 
 </html>

@@ -1,0 +1,118 @@
+<thead> 
+</thead>
+  
+<tbody >
+
+  <div id="contajes">   
+
+    <section id="sedes" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=300 && t_contaje.nCodContaje<400  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>   
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+    <section id="radio" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=800 && t_contaje.nCodContaje<900  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>   
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+    <section id="moviles" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=120 && t_contaje.nCodContaje<200  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>   
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+    <section id="fijos" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=100 && t_contaje.nCodContaje<120  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>   
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+
+    <section id="edr" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=700 && t_contaje.nCodContaje<800  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>   
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+
+    <section id="datos" class="SeccionesContajes">      
+      
+      <% @t_contajes.each do |t_contaje| %>
+
+        <% if t_contaje.nCodContaje>=500 && t_contaje.nCodContaje<600  %>
+
+            <div id="lineasContajes">
+              <p><%= t_contaje.cLiteral %></p>
+              <p><%= t_contaje.nContador %></p>    
+            </div>
+
+        <% end %>
+
+      <% end %>
+
+    </section>
+
+  </div>
+
+</tbody>
+
+
+
+
