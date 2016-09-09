@@ -1,0 +1,45 @@
+
+#contajes p {
+	font-size:		0.96em;
+	font-family: 	'Lato';
+}
+
+#contajes{
+	overflow:		hidden;
+	width:			100%;
+}
+
+.SeccionesContajes{
+	float:				left;
+	width:				14.16%;
+	margin-right:		3%;
+	border-style: 		solid;
+	border-right-width: 1px;
+	border-top-width: 	0px;
+	border-left-width: 	0px;
+	border-bottom-width: 0px;
+	border-color:		black;	
+	padding-right: 		15px;
+	padding-top:		35px;
+	min-height: 		385px;
+}
+
+#contajes section:last-child{
+	margin-right:	0%;
+	border-right-width: 0px;
+}
+
+.SeccionesContajes #lineasContajes p{
+	float:			left;
+}
+
+.SeccionesContajes #lineasContajes p:first-child{
+	text-align:		left;	
+	width:			75%;
+}
+
+.SeccionesContajes #lineasContajes p:last-child{
+	text-align:		right;	
+	width:			25%;
+	color:			#003DF6;
+}

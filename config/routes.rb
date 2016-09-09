@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'static_pages/main'
+
+  #get 'static_pages/main'
+  #get 'static_pages/about'
 
   root 'sessions#new'
 
@@ -8,8 +10,10 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-  get    'main'   => 'static_pages#main'
-  
+  get    'main'    => 'static_pages#main'
+  get    'about'    => 'static_pages#about'
+
+  resources :t_contajes
   resources :t_sedes
   
   resources :t_usuarios do

@@ -1,6 +1,5 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "lato";
 
 *{
 	box-sizing: border-box;
@@ -9,29 +8,13 @@
 	font-family: 'Lato';
 }
   
-/* Header */
-
-
-
+/* HEADER */
 header{
 	margin:			0 auto;
 	background:		#003DF6;
 	width:			100%;
 	height:			60px;
 	display:		block;
-}
-
-body{
-	margin:			0 auto;
-	border:			0px;
-	padding:		0px;
-	width:			100%;
-	min-height: 	100%;	
-}
-
-div{
-	display:		block;
-	margin: 		0 0 0 0;
 }
 
 #header{
@@ -43,20 +26,19 @@ div{
 	display:		block;
 	font-weight:	Bold;
 }
-header h3{
-	text-decoration:none;  
-}
 
-header h3 a{
+#header h3 a{
 	color:			white;
 	text-decoration: none;   
 	cursor:			pointer; 
 	letter-spacing: 5px;
 }
-header h3 a:hover{
+#header h3 a:hover{
 	color:			white;
+	background:		transparent;
 }
 
+/* NAV */
 #nav{
 	margin:			0 auto;
 	width:			100%;
@@ -66,25 +48,28 @@ header h3 a:hover{
 	height: 		50px;
 }
 
-#nav ul li{
-    list-style: 	none;
-    float: 			left;	    
-    width:			33.33%;
-    text-align:		center;
-    font-size: 		24px;
-    color:			#003DF6;    
-}
-
 #nav ul{
 	padding: 		0;
+	overflow:		hidden;
+	height: 100%;
+}
+
+#nav ul li {
+    list-style: 	none;
+    float: 			left;	    
+    width:			14.16%;
+	margin-right:	3%;
+    text-align:		center;
+    font-size: 		24px;     
+    padding-right: 	15px; 
+}
+
+#nav ul li:last-child{
+	margin-right:	0%;			
 }
 
 #nav ul li span{
      position: 		relative;
-}
-
-#nav ul li a{
-	text-decoration: none;    
 }
 
 #nav ul li span:after{
@@ -99,6 +84,15 @@ header h3 a:hover{
 
 #nav ul li:hover span:after{
     width: 100%;
+}
+
+#nav ul li a{
+	text-decoration: none;   
+	color:			#003DF6;  
+}
+
+#nav ul li a:hover{	
+    background: transparent;
 }
 
 #titulo{
@@ -126,16 +120,33 @@ header h3 a:hover{
 	margin:			0 auto;
 }
 
+
+/* BODY */
+body{
+	margin:			0 auto;
+	border:			0px;
+	padding:		0px;
+	width:			100%;
+	min-height: 	100%;	
+}
+
+div{
+	display:		block;
+	margin: 		0 0 0 0;
+}
+
 #content{
 	margin:			0 auto;		
 	height:			100%;
 	max-width:		1020px;
 	display:		block;
 	background:		white;	
-	padding-top:	2%;
-	padding-bottom:	2%;
+	padding-top:	0%;
+	padding-bottom:	1%;
+	overflow:		hidden;
 }
 
+/* FOOTER */
 footer{		
 	background:		#003DF6;
 	width:			100%;
@@ -151,9 +162,30 @@ footer{
 	height:			60px;	
 	color:			white; 
 	font-weight:	Bold;
+	overflow: hidden;	
 }
 
-#footer h4{
-	margin-left:	30px;
-	padding-top:	20px;
+#footer div{
+	float:			left;	
+}
+
+#footer #tituloFooter{
+	padding-left:	30px;	
+	width:			70%;
+	height: 		100%;
+	padding-top: 	1%;
+}
+
+#footer #enlacesFooter{
+	padding-right:	30px;	
+	width:			30%;
+	height: 		100%;
+	font-size:		1.12em;
+	padding-top: 	2%;
+}
+
+#footer #enlacesFooter a{
+	float:			right;
+	color:			white;
+	margin-left:	20px;
 }

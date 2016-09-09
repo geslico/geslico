@@ -1,3 +1,14 @@
 <footer>
-	<div id="footer"><h4>Ayuntamiento de Madrid 2016</h4> </div>
+	<div id="footer">
+
+		<div id="tituloFooter">
+			<h4>Ayuntamiento de Madrid 2016</h4> 
+		</div>
+			
+		<div id="enlacesFooter">
+		  	<%= link_to "Cerrar Sesión", logout_path, method: "delete" %>		  	
+			<%= link_to "Usuarios", t_usuarios_path %>
+  		</div>
+	</div>
+	
 </footer>

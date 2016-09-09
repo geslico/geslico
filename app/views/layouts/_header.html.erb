@@ -2,10 +2,9 @@
 
   <div id="header">
 
-    <div id="titulo">
-      
+    <div id="titulo">      
 
-      <H3><a><%= link_to "GESLICO", main_path %></a></H3>
+      <H3><a><%= link_to "GESLICO", t_contajes_path %></a></H3>
 
     </div>
 
@@ -20,9 +19,12 @@
 <nav  id="nav">
   <ul>
     <% if logged_in? %>
-    <li><span><a><%= link_to "Sedes", t_sedes_path %></a></span></li>
-    <li><span><a><%= link_to "Usuarios", t_usuarios_path %></a></span></li>
-    <li><span><a><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></a></span></li>
+      <li><span><%= link_to "Sedes", t_sedes_path %></span></li>
+      <li><span><%= link_to "Radio", t_sedes_path %></span></li>
+      <li><span><%= link_to "Movil", t_sedes_path %></span></li>      
+      <li><span><%= link_to "Fija", t_sedes_path %></span></li>
+      <li><span><%= link_to "Electronica", t_sedes_path %></span></li>
+      <li><span><%= link_to "Datos", t_sedes_path %></span></li>      
     <% end %>
   </ul>
 </nav>

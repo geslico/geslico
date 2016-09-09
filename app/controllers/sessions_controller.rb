@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
     if t_usuario && t_usuario.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in t_usuario
-      redirect_to '/main'
+      redirect_to '/t_contajes'
 
     else
       flash.now[:danger] = 'Combinación de Código de usuario/password incorrecta'
