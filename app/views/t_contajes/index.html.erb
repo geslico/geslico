@@ -1,4 +1,11 @@
 <thead> 
+
+<script type="text/javascript">
+  setTimeout(function()
+    {  location.reload();},10000) // Refresh page every 10000 milliseconds = 10s
+</script>
+
+
 </thead>
   
 <tbody >
@@ -9,7 +16,7 @@
       
       <% @t_contajes.each do |t_contaje| %>
 
-        <% if t_contaje.nCodContaje>=300 && t_contaje.nCodContaje<400  %> 
+        <% if t_contaje.nCodContaje>=300 && t_contaje.nCodContaje<399 %> 
 
             <div id="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
@@ -26,7 +33,7 @@
       
       <% @t_contajes.each do |t_contaje| %>
 
-        <% if t_contaje.nCodContaje>=800 && t_contaje.nCodContaje<900  %>
+        <% if t_contaje.nCodContaje>=800 && t_contaje.nCodContaje<899  %>
 
             <div id="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
@@ -41,13 +48,13 @@
 
     <section id="moviles" class="SeccionesContajes">      
       
-      <% @t_contajes.each do |t_contaje| %>
+      <% @t_contajes_movil.each do |t_contaje_movil| %>
 
-        <% if t_contaje.nCodContaje>=120 && t_contaje.nCodContaje<200  %>
+        <% if t_contaje_movil.nCodContaje>=120 && t_contaje_movil.nCodContaje<199 %>
 
             <div id="lineasContajes">
-              <p><%= t_contaje.cLiteral %></p>
-              <p><%= t_contaje.nContador %></p>   
+              <p><%= t_contaje_movil.cLiteral %></p>
+              <p><%= t_contaje_movil.nContador %></p>   
             </div>
 
         <% end %>
@@ -58,13 +65,13 @@
 
     <section id="fijos" class="SeccionesContajes">      
       
-      <% @t_contajes.each do |t_contaje| %>
+      <% @t_contajes_fijas.each do |t_contaje_fijas| %>
 
-        <% if t_contaje.nCodContaje>=200 && t_contaje.nCodContaje<300  %>
+        <% if t_contaje_fijas.nCodContaje>=200 && t_contaje_fijas.nCodContaje<299  %>
 
             <div id="lineasContajes">
-              <p><%= t_contaje.cLiteral %></p>
-              <p><%= t_contaje.nContador %></p>   
+              <p><%= t_contaje_fijas.cLiteral %></p>
+              <p><%= t_contaje_fijas.nContador %></p>   
             </div>
 
         <% end %>
@@ -76,13 +83,13 @@
 
     <section id="edr" class="SeccionesContajes">      
       
-      <% @t_contajes.each do |t_contaje| %>
+      <% @t_contajes_electronica.each do |t_contaje_electronica| %>
 
-        <% if t_contaje.nCodContaje>=700 && t_contaje.nCodContaje<800  %>
+        <% if t_contaje_electronica.nCodContaje>=700 && t_contaje_electronica.nCodContaje<799 %>
 
             <div id="lineasContajes">
-              <p><%= t_contaje.cLiteral %></p>
-              <p><%= t_contaje.nContador %></p>   
+              <p><%= t_contaje_electronica.cLiteral %></p>
+              <p><%= t_contaje_electronica.nContador %></p>   
             </div>
 
         <% end %>
@@ -96,7 +103,7 @@
       
       <% @t_contajes.each do |t_contaje| %>
 
-        <% if t_contaje.nCodContaje>=500 && t_contaje.nCodContaje<600  %>
+        <% if t_contaje.nCodContaje>=500 && t_contaje.nCodContaje<599  %>
 
             <div id="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
@@ -111,6 +118,7 @@
 
   </div>
 
+  
 </tbody>
 
 
