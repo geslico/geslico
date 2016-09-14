@@ -1024,6 +1024,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "TFacturasMovilesVarios", id: false, force: :cascade do |t|
   end
 
+  create_table "TFechasCargas", id: false, force: :cascade do |t|
+  end
+
   create_table "TGSalto", id: false, force: :cascade do |t|
   end
 
@@ -1553,10 +1556,10 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "TUsos", id: false, force: :cascade do |t|
   end
 
-  create_table "TUsuarios", nId: false, force: :cascade do |t|
+  create_table "TUsuarios", id: false, force: :cascade do |t|
   end
 
-  add_index "TUsuarios", ["cCodUsuario"], name: "IX_CodUsuario", unique: true
+  add_index "TUsuarios", ["cCodUsuario"], name: "IX_TUsuarios_cCodUsuario", unique: true
 
   create_table "TUsuariosGeslicoUsers", id: false, force: :cascade do |t|
   end
@@ -1832,6 +1835,15 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "aux_mov_sin", id: false, force: :cascade do |t|
   end
 
+  create_table "bck_TChecklico", id: false, force: :cascade do |t|
+  end
+
+  create_table "bck_TUsuarios", id: false, force: :cascade do |t|
+  end
+
+  create_table "bck_TUsuariosProgramas", id: false, force: :cascade do |t|
+  end
+
   create_table "edgeEDR", id: false, force: :cascade do |t|
   end
 
@@ -1920,8 +1932,8 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "TCentralitas", "TSedes", column: "nCodSede", primary_key: "nCodSede", name: "FK_TSedes_TCentralitas"
   add_foreign_key "TCentralitas", "TTiposCentralita", column: "nCodTipoCentralita", primary_key: "nCodTipoCentralita", name: "FK_TCentralitas_TTiposCentralita"
   add_foreign_key "TChecklico", "TProgramas", column: "nTipoTarea", primary_key: "nCodPrograma", name: "FK_TChecklico_TProgramas1"
-  add_foreign_key "TChecklico", "TUsuarios", column: "nIdSupervisor", primary_key: "nIdUsuario", name: "FK_TChecklico_TUsuarios2"
-  add_foreign_key "TChecklico", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TChecklico_TUsuarios1"
+  add_foreign_key "TChecklico", "TUsuarios", column: "nIdSupervisor", primary_key: "nIdUsuario", name: "FK_TChecklico_TUsuariosSupervisor"
+  add_foreign_key "TChecklico", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TChecklico_TUsuariosResponsable"
   add_foreign_key "TCoberturasTeoricas", "TUsos", column: "nCodUso", primary_key: "nCodUso", name: "FK_TCoberturasTeoricas_TUsos"
   add_foreign_key "TComponentesRed", "TCatalogoRed", column: "nCodTipoComponente", primary_key: "nCodTipoComponente", name: "FK_TComponentesRed_TCatalogoRed"
   add_foreign_key "TComponentesRed", "TElectronicaRed", column: "nCodElectronicaRed", primary_key: "nCodElectronicaRed", name: "FK_TComponentesRed_TElectronicaRed"
@@ -2074,7 +2086,8 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "TTiposUnidad", "TTiposUnidad", column: "cTipounidad", primary_key: "cTipounidad", name: "FK_TTiposUnidad_TTiposUnidad"
   add_foreign_key "TTracksMK775", "TLineas", column: "nLinea", primary_key: "nLinea", name: "FK_TTracksMK775_TLineas"
   add_foreign_key "TUnidades", "TTiposUnidad", column: "nOrderArea", primary_key: "cTipounidad", name: "FK_TUnidades_TTiposUnidad"
-  add_foreign_key "TUsuariosProgramas", "TProgramas", column: "nCodPrograma", primary_key: "nCodPrograma", name: "FK_TUsuariosProgramas_TProgramas"
+  add_foreign_key "TUsuarios", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuarios_TUsuarios"
+  add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TProgramas"
   add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TUsuarios"
   add_foreign_key "TVLanes", "TElectronicaRed", column: "nCodElectronicaRed", primary_key: "nCodElectronicaRed", name: "FK_TVLanes_TElectronicaRed"
   add_foreign_key "TVariableFacturacion", "TCatalogoFacturacion", column: "nIdFacturacion", primary_key: "nId", name: "FK_TVariableFacturacion_TCatalogoFacturacion"

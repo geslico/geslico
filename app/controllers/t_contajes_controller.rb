@@ -12,6 +12,7 @@ class TContajesController < ApplicationController
     @t_contajes_fijas = TContaje.select("TOP 11 *").where("nCodContaje>=200 and nCodContaje<299").order("NEWID()");
     @t_contajes_electronica = TContaje.select("TOP 11 *").where("nCodContaje>=700 and nCodContaje<799").order("NEWID()");
     @t_contajes_movil = TContaje.select("TOP 11 *").where("nCodContaje>=120 and nCodContaje<199").order("NEWID()");
+
   end
 
   # GET /t_contajes/1
@@ -35,7 +36,7 @@ class TContajesController < ApplicationController
 
     respond_to do |format|
       if @t_contaje.save
-        format.html { redirect_to @t_contaje, notice: 'T contaje was successfully created.' }
+        format.htmlategorie ategorie{ redirect_to @t_contaje, notice: 'T contaje was successfully created.' }
         format.json { render :show, status: :created, location: @t_contaje }
       else
         format.html { render :new }
@@ -78,4 +79,6 @@ class TContajesController < ApplicationController
     def t_contaje_params
       params.fetch(:t_contaje, {})
     end
+
+    
 end
