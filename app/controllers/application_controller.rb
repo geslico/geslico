@@ -1,20 +1,33 @@
 class ApplicationController < ActionController::Base
 
-	#lvd001-Control de login en toda la aplicación, si el usuario no se 
-	#ha validado se invoca la pagina de login para que lo haga 
-	before_action :require_login
+	before_action :set_locale	
+	before_action :require_login # lvd001-Control de login en toda la aplicación, si el usuario no se ha validado se invoca la pagina de login para que lo haga 
 	
+
+	def set_locale
+	  I18n.locale = params[:locale] || I18n.default_locale
+	end
+
+	def default_url_options(options={})
+	  { locale: I18n.locale }
+	end
 
 	protect_from_forgery with: :exception
 	include SessionsHelper
 
 	private
 
-		def require_login
-		unless logged_in?
-			flash[:error] = "Debe iniciar sesión"
+	def require_login
+	unless logged_in?
+			flash[:danger] = "Debe iniciar sesión"
 			redirect_to login_url 
 		end
-	end
+	end 
 
+	def logged_in_user
+  	unless logged_in?
+         flash[:danger] = "Debe iniciar sesión"
+         redirect_to login_url
+       end
+	end
 end

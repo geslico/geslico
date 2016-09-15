@@ -1,16 +1,18 @@
 class TSedesController < ApplicationController
+  
   before_action :logged_in_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_t_sede, only: [:show, :edit, :update, :destroy]
 
   # GET /t_sedes
   # GET /t_sedes.json
-  def index
-    #@t_sedes = TSede.order("nCodSede DESC").all
+  def index    
     @t_sedes = TSede.page(params[:page]).per(30)
 
     @t_sedes = @t_sedes.nCodSede(params[:nCodSede]) if params[:nCodSede].present?
     @t_sedes = @t_sedes.cNombre(params[:cNombre]) if params[:cNombre].present?
+    @t_sedes = @t_sedes.cDireccion(params[:cDireccion]) if params[:cDireccion].present?
 
+    
   end
 
   # GET /t_sedes/1
@@ -77,12 +79,5 @@ class TSedesController < ApplicationController
     def t_sede_params
       params.fetch(:t_sede, {})
     end
-        
-
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-  end
+  
 end
