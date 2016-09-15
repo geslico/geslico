@@ -1,3 +1,4 @@
+
 var URLActual
 var b
 var refreshId
@@ -5,7 +6,7 @@ var refreshId
 URLActual = window.location;
 b = URLActual.toString();
 
-if(b.search('t_contajes')>0) 
+if(b.search('welcome')>0) 
 { 
 	$('#contajes').ready(
 		
@@ -24,10 +25,10 @@ function loadContajes() {
 	URLActual = window.location;
 	b = URLActual.toString();
 
-	if(b.search('t_contajes')>0) 
+	if(b.search('welcome')>0) 
 	{
 		console.log("Hola sandra");	      
-  		$('#contajes').load('/t_contajes #contajes');
+  		$('#contajes').load('/welcome #contajes');
 	}
 	else
 	{
