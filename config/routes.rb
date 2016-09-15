@@ -1,35 +1,33 @@
 Rails.application.routes.draw do
-  
 
-  
-  #get 'static_pages/main'
-  #get 'static_pages/about'
+  scope "(:locale)", locale: /es|en/ do
 
-  root 'sessions#new'
+    root 'sessions#new'
 
-  get 'sessions/new'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  delete 'logout'  => 'sessions#destroy'
-  get    'main'    => 'static_pages#main'
-  get    'about'    => 'static_pages#about'
+    get 'sessions/new'
+    get    'login'   => 'sessions#new'
+    post   'login'   => 'sessions#create'
+    delete 'logout'  => 'sessions#destroy'
+    get    'main'    => 'static_pages#main'
+    get    'about'    => 'static_pages#about'
 
-  
+    
 
-  resources :welcome
-  resources :t_contajes
-  resources :t_fechas_cargas
+    resources :welcome
+    resources :t_contajes
+    resources :t_fechas_cargas
 
 
 
-  resources :t_sedes
-  
-  resources :t_usuarios do
-    resources :t_usuarios_programas do
-      resources :t_programas 
-    end   
+    resources :t_sedes
+    
+    resources :t_usuarios do
+      resources :t_usuarios_programas do
+        resources :t_programas 
+        end   
+    end
   end
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -84,4 +82,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 end

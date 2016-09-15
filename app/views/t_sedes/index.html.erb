@@ -3,21 +3,28 @@
 <h1>Sedes</h1>
 
 <%= form_tag("/t_sedes", method: "get") do %>
+  
   <%= label_tag(:nCodSede, "Código:") %>
   <%= text_field_tag(:nCodSede) %>
   
   <%= label_tag(:cNombre, "Nombre:") %>
   <%= text_field_tag(:cNombre) %>
 
+  <%= label_tag(:cDireccion, "Dirección:") %>
+  <%= text_field_tag(:cDireccion) %>
+
   <%= submit_tag("Buscar") %>
 <% end %>
 
-<%= paginate(@t_sedes) %>
+<%= paginate(@t_sedes) %><br/>
+<%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/><br/>
+
 <table>
   <thead>
     <tr>
     <th><strong>Cod.Sede</strong></th>
     <th><strong>Nombre</strong></th>
+    <th><strong>Dirección</strong></th>
     
       <th colspan="3"></th>
     </tr>
@@ -28,6 +35,7 @@
       <tr>
         <td><%= t_sede.nCodSede %></td>
         <td><%= t_sede.cNombre %></td>
+        <td><%= t_sede.cDireccion %></td>
         
         <td><%= link_to 'Ver', t_sede %></td>
         <!-- <td><%= link_to 'Editar', edit_t_sede_path(t_sede) %></td>-->
@@ -35,7 +43,7 @@
     <% end %>
   </tbody>
 </table>
-<%= paginate(@t_sedes) %>
-<br>
+<br/>
+<%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/>
 
-<!--<%= link_to 'New T sede', new_t_sede_path %>-->
+<%= paginate(@t_sedes) %>
