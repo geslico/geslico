@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+  
   #get 'static_pages/main'
   #get 'static_pages/about'
 
@@ -13,7 +14,14 @@ Rails.application.routes.draw do
   get    'main'    => 'static_pages#main'
   get    'about'    => 'static_pages#about'
 
+  
+
+  resources :welcome
   resources :t_contajes
+  resources :t_fechas_cargas
+
+
+
   resources :t_sedes
   
   resources :t_usuarios do

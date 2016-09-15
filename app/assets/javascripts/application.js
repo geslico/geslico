@@ -18,7 +18,7 @@
 
 
 function actualizarPagina(){
-	// cuando se pulse el enlace de GESLICO de la cabecera se redireccionará a t_contajes
+	// cuando se pulse el enlace de GESLICO de la cabecera se redireccionará a welcome
 	//para que actualice la pagina y vuelva a saltar el setinterval que actualiza los contajes
-	location.href='/t_contajes';
+	location.href='/welcome';
 }

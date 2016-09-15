@@ -1,1 +1,0 @@
-json.array! @t_contajes, partial: 't_contajes/t_contaje', as: :t_contaje
