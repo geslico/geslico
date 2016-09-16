@@ -12,6 +12,6 @@ class WelcomeController < ApplicationController
     @t_contajes_electronica = TContaje.select("TOP 11 *").where("nCodContaje>=700 and nCodContaje<799").order("NEWID()");
     @t_contajes_movil = TContaje.select("TOP 11 *").where("nCodContaje>=120 and nCodContaje<199").order("NEWID()");
 
-  	@t_fechas_carga = TFechasCarga.all
+  	@t_fechas_carga = TFechasCarga.select("*").order("nOrden");
   end
 end

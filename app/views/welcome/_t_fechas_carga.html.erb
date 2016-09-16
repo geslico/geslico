@@ -1,1 +1,41 @@
-<%= debug(@t_fechas_carga) %>
+<div id="fechasCarga">
+
+	<h4> FECHAS DE CARGA </h4>
+
+	<section class="bloqueFecha">           
+
+		<% @t_fechas_carga.each do |t_fechas| %>
+
+			<% if t_fechas.nId <= 5 %>	
+	            <%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
+	        <% end %>
+        	
+		<% end %>
+
+	</section>
+
+	<section class="bloqueFecha">           
+
+		<% @t_fechas_carga.each do |t_fechas| %>
+
+			<% if t_fechas.nId > 5 and t_fechas.nId <= 10 %> 
+              	<%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
+	        <% end %>
+        
+		<% end %>
+
+	</section>
+
+	<section class="bloqueFecha">           
+
+		<% @t_fechas_carga.each do |t_fechas| %>
+
+			<% if t_fechas.nId > 10 %> 	
+				<%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
+	        <% end %>
+        
+		<% end %>
+
+	</section>
+
+</div>
