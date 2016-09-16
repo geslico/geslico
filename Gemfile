@@ -25,6 +25,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Gema para la paginación
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'ransack', '~> 1.8', '>= 1.8.2'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

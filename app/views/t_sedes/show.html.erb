@@ -12,7 +12,20 @@
 	</tr>
 				
 	</table>
-</p>
+	<div style='width: 800px;'>
+  	<div id="map" style='width: 800px; height: 400px;'>
+  		<iframe
+  width="800"
+  height="400"
+  frameborder="0" style="border:0"
+  src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
+    &q=<%= @t_sede.cDireccion %>" allowfullscreen>
+</iframe>
+
+
+  	</div>
+	</div>
+</p> 
 
 <!-- 
 <%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->

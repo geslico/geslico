@@ -6,12 +6,15 @@ class TSedesController < ApplicationController
   # GET /t_sedes
   # GET /t_sedes.json
   def index    
-    @t_sedes = TSede.page(params[:page]).per(30)
+
+    @q = TSede.ransack params[:q]
+    @t_sedes = @q.result.page(params[:page]).per(30)
+
+    # @t_sedes=TSede.page(params[:page]).per(30)
 
     @t_sedes = @t_sedes.nCodSede(params[:nCodSede]) if params[:nCodSede].present?
     @t_sedes = @t_sedes.cNombre(params[:cNombre]) if params[:cNombre].present?
     @t_sedes = @t_sedes.cDireccion(params[:cDireccion]) if params[:cDireccion].present?
-
     
   end
 
