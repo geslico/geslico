@@ -27,7 +27,6 @@ function loadContajes() {
 
 	if(b.search('welcome')>0) 
 	{
-		console.log("Hola sandra");	      
   		$('#contajes').load('/welcome #contajes');
 	}
 	else

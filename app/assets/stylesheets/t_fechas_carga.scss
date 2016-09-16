@@ -1,0 +1,46 @@
+#fechasCarga h4{
+	text-align:			center;
+	width:				100%;
+	margin-bottom:		35px;
+}
+
+#fechasCarga{
+	width: 				100%;
+	height: 			100%;
+	margin-top: 		50px;
+	margin-bottom: 		80px;
+	overflow:			hidden;
+}
+
+.bloqueFecha{
+	float:				left;
+	width: 				33.3333333%;
+	height: 			100%;
+}
+
+.bloqueFecha:nth-child(3){
+	padding-left: 		7%;
+}
+
+.bloqueFecha:last-child{
+	padding-left: 		14%;
+}
+
+.bloqueFecha:last-child .fechas{
+	text-align: 		right;
+}
+
+.bloqueFecha p{	
+	float:				left;
+}
+
+.bloqueFecha .literales{
+	width:				35%;
+}
+
+.bloqueFecha .fechas{
+	width:				65%;
+}
+.roja{
+	color:				red;
+}
