@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   
-  before_action :logged_in_user, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 
   def index
   	@t_contajes = TContaje.all
