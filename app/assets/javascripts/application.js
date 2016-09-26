@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require t_contajes
+//= require t_sedes
 
 
 function actualizarPagina(){
