@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :t_acronimos_sede_edrs
   scope "(:locale)", locale: /es|en/ do
 
     root 'sessions#new'

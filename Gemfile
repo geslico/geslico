@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+gem 'sqlite3'
 # Use sqlserver as the database for Active Record
 gem 'ruby-odbc', '~> 0.99997'
 gem 'tiny_tds', '~> 1.0', '>= 1.0.3'
