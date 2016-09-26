@@ -1,3 +1,4 @@
+
 <section  id="CabeceraSedes">
 
 	<div>
@@ -11,6 +12,32 @@
 	<div>
 		<p>Dirección</p>
 		<p><%= @t_sede.cDireccion %></p>
+
+<p>
+	<table>
+	<tr>
+		<td>Código</td>
+		<td><%= @t_sede.nCodSede %></td>
+	</tr>
+	<tr>
+		<td>Nombre</td>
+		<td><%= @t_sede.cNombre %></td>
+	</tr>
+				
+	</table>
+	<div style='width: 800px;'>
+  	<div id="map" style='width: 800px; height: 400px;'>
+  		<iframe
+  width="600"
+  height="400"
+  frameborder="0" style="border:0"
+  src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
+    &q=<%= @t_sede.cDireccion %>" allowfullscreen>
+</iframe>
+
+
+  	</div>
+
 	</div>
 	<div>
 		<p>Cod. Postal</p>
