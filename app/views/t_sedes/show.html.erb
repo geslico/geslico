@@ -1,4 +1,17 @@
-<p id="notice"><%= notice %></p>
+
+<section  id="CabeceraSedes">
+
+	<div>
+		<p>Código</p>
+		<p><%= @t_sede.nCodSede %></p>
+	</div>
+	<div>
+		<p>Nombre</p>
+		<p><%= @t_sede.cNombre %></p>
+	</div>
+	<div>
+		<p>Dirección</p>
+		<p><%= @t_sede.cDireccion %></p>
 
 <p>
 	<table>
@@ -24,9 +37,117 @@
 
 
   	</div>
+
 	</div>
-</p> 
+	<div>
+		<p>Cod. Postal</p>
+		<p><%= @t_sede.cCodPostal %></p>
+	</div>
+	 <div>
+		<p>Dvice Pool</p>
+		<p><%= @t_sede.cDevicePool %></p>
+	</div>
+			
+</section>
+
+
+
+<section id="DetallesSedes">
+
+    <!--UNIDAD SAP/EDIF.-->
+    <section class="SeccionAdicional_Sedes">
+
+        <div class="cabeceraTitulos" onclick="mostrarOcultar('0')">
+            <p class="TituloSeccion">Unidad SAP/Edif.</p>
+            <div class="botonExpandir" id="enlace_0">-</div>
+        </div>
+        <div style="height: 100%;" class="contenido" id="contenido_0">
+        </div>        	
+    </section>
+
+    <!--CONTACTO-->
+    <section class="SeccionAdicional_Sedes">
+
+        <div class="cabeceraTitulos" onclick="mostrarOcultar('1')">
+            <p class="TituloSeccion">Contacto</p>
+            <div class="botonExpandir" id="enlace_1">-</div>
+        </div>
+
+        <div style="height: 100%;" class="contenido" id="contenido_1">          
+            
+            <p><span>Persona</span> JOSÉ LUIS MAS PASAMONTE </p>
+            <p><span>Mail</span>maspjl@munimadrid.es</p> 
+            <p><span>Fijo</span>915132174</p>
+            <p><span>Corto Fijo</span>32174<</p>      
+            <p><span>Movil</span>607198238</p>             
+            <p><span>Corto Movil</span>12145</p>             
+            <p><span>Fax</span></p>
+            <p></p>
+        </div>
+
+    </section>
+
+    <!--INFRAESTRUCTURA-->
+    <section class="SeccionAdicional_Sedes">        
+        <div class="cabeceraTitulos" onclick="mostrarOcultar('2')">
+            <p class="TituloSeccion">Infraestructura</p>
+            <div class="botonExpandir" id="enlace_2">-</div>
+        </div>
+        <div style="height: 100%;" class="contenido" id="contenido_2">
+        </div>
+    </section>
+
+    <!--ACTUACIONES-->
+    <section class="SeccionAdicional_Sedes">
+        <div class="cabeceraTitulos" onclick="mostrarOcultar('3')">
+            <p class="TituloSeccion">Actuaciones</p>
+            <div class="botonExpandir" id="enlace_3">-</div>
+        </div>
+        <div style="height: 100%;" class="contenido" id="contenido_3">
+        </div>
+    </section>
+
+</section>
+
+
 
 <!-- 
+
+
+<div id="map" >
+
+  	<% if @t_sede.cLatitud.nil?  %>
+  	 	<iframe 
+			width="800" 
+			height="400" 
+			frameborder="0" 
+			scrolling="no" 
+			marginheight="0" 
+			marginwidth="0" 
+			src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
+			&q=<%= @t_sede.cDireccion %>">
+				
+		</iframe>
+
+	<% else %>
+
+  	 	<iframe 
+			width="800" 
+			height="400" 
+			frameborder="0" 
+			scrolling="no" 
+			marginheight="0" 
+			marginwidth="0" 
+			src = "https://maps.google.com/maps?q=<%= @t_sede.cLatitud %>,<%= @t_sede.cLongitud%>
+			&z=20&amp;output=embed&amp;iwloc=">
+				
+		</iframe>
+
+  	<% end %>
+	
+</div>
+
+
 <%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
 <%= link_to 'Back', t_sedes_path %>
+
