@@ -1,6 +1,123 @@
-// Place all the styles related to the TSedes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#CabeceraSedes {
+	margin-bottom: 		40px;
+	margin-top: 		40px;
+}
+
+#CabeceraSedes div{
+	overflow: 			hidden;
+}
+
+#CabeceraSedes div p:first-child{
+	width:				10%;
+	float:				left;
+}
+
+#CabeceraSedes {
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+#CabeceraSedes div {
+  overflow: hidden;
+}
+
+#CabeceraSedes div p:first-child {
+  width: 10%;
+  float: left;
+}
+
+#CabeceraSedes div p:last-child {
+  width: 90%;
+  float: left;
+}
+
+#map {
+  width: 800px;
+  height: 400px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.SeccionAdicional_Sedes {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 15px;
+  color: white;
+  overflow: hidden;
+}
+
+.SeccionAdicional_Sedes .TituloSeccion {
+  font-family: 'Lato';
+  text-transform: uppercase;
+  font-size: 1.3em;
+  line-height: 45px;
+  float: left;
+  
+}
+
+.SeccionAdicional_Sedes .botonExpandir {
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  float: right;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  background: rgba(255,255,255,.2);
+  margin-top: 7px;
+  border: solid 1px #fff;
+  border-radius: 3px;
+}
+
+.contenido {
+  height: 0px;
+  background: #f4f3f3;
+  overflow: hidden;
+  padding: 10px;
+}
+.contenido p {
+  color:#222;
+  font-weight: normal;
+  
+}
+.contenido p span{
+    width:100px;
+    display:inline-block;    
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+
+.contenido #Titulo {
+  width: 10%;
+  float: left;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.contenido #Info {
+  width: 90%;
+  float: left;
+  padding-top: 10px;
+}
+
+#DetallesSedes {
+  overflow: hidden;
+}
+
+.cabeceraTitulos {
+  overflow: hidden;
+  height: 45px;
+  background: #0077b9;
+  background: -webkit-linear-gradient(top,#0077b9,#002294);
+  background: -moz-linear-gradient(top,#0077b9,#002294);
+  background: -ms-linear-gradient(top,#0077b9,#002294);
+  background: -o-linear-gradient(top,#0077b9,#002294);
+  padding:0 10px;
+}
 
 #dvbuscon{
 	//background:		#003DF6;
@@ -63,3 +180,4 @@ th {
     background-color: #008CBA;
     color: white;
 }
+

@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require t_contajes
+//= require t_sedes
 
 
 function actualizarPagina(){
@@ -23,4 +24,6 @@ function actualizarPagina(){
 	//para que actualice la pagina y vuelva a saltar el setinterval que actualiza los contajes
 	location.href='/welcome';
 }
+
 $(function(){ $(document).foundation(); });
+
