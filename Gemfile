@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
+gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
