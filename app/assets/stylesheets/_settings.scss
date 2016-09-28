@@ -3,7 +3,7 @@
 //
 //  Table of Contents:
 //
-//   0. Custom
+//   0. Custom variables
 //   1. Global
 //   2. Breakpoints
 //   3. The Grid
@@ -43,6 +43,68 @@
 
 @import 'util/util';
 
+// 0. Custom variables
+// ---------------------
+$base-font-size:      rem-calc(17);
+$base-line-height:    rem-calc(26);
+$small-font-size:     rem-calc(14);
+$line-height:         rem-calc(24);
+
+$brand:             #004A83;
+$body:              #E9E9E9;
+$background:        #EDEFF0;
+$border:            #DEE0E3;
+$dark:              darken($brand, 10%);
+
+$text:              #222222;
+$text-medium:       #999999;
+$text-light:        #CCCCCC;
+
+$link:              #2895F1;
+$link-hover:        #2178BF;
+
+$debates:           #008CCF;
+$votes-bg:          #26AEEE;
+$votes-border:      #1F94CB;
+
+$votes-like:        #7BD2A8;
+$votes-like-act:    #5D9E7F;
+$votes-unlike:      #EF8585;
+$votes-unlike-act:  #BD6A6A;
+
+$delete:            #F04124;
+$check:             #46DB91;
+
+$proposals:         #FFA42D;
+$proposals-border:  #CC8425;
+
+$budget:            #454372;
+$budget-hover:      #7571BF;
+
+$highlight:         #E7F2FC;
+$featured:          #FED900;
+
+$footer-bg:         #DEE0E2;
+$footer-color:      #171819;
+$footer-link:       #454A4C;
+$footer-border:     #BFC1C3;
+
+$success-bg:        #DFF0D8;
+$success-border:    #D6E9C6;
+$color-success:     #3C763D;
+
+$info-bg:           #D9EDF7;
+$info-border:       #BCE8F1;
+$color-info:        #31708F;
+
+$warning-bg:        #FCF8E3;
+$warning-border:    #FAEBCC;
+$color-warning:     #8A6D3B;
+
+$alert-bg:          #F2DEDE;
+$alert-border:      #EBCCD1;
+$color-alert:       #A94442;
+
 
 
 // 1. Global
@@ -65,7 +127,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'lato';
+$body-font-family: 'Lato', Verdana;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -263,7 +325,7 @@ $buttongroup-expand-max: 6;
 // 13. Callout
 // -----------
 
-$callout-background: $white;
+$callout-background: $color-alert;
 $callout-background-fade: 85%;
 $callout-border: 1px solid rgba($black, 0.25);
 $callout-margin: 0 0 1rem 0;
