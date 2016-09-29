@@ -54,7 +54,7 @@ $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #2199e8,
   secondary: #777,
-  success: #007DBA,
+  success: #003DF6,
   warning: #ffae00,
   alert: #ec5840,
 );
@@ -127,7 +127,7 @@ $header-sizes: (
     'h6': 16,
   ),
 );
-$header-color: inherit;
+$header-color: #003DF6;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-text-rendering: optimizeLegibility;
@@ -142,7 +142,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
+$anchor-color: $white;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
