@@ -21,3 +21,6 @@
 
 es:
   hello: "Hola Mundo"
+
+  application:
+      close: "Cerrar"
