@@ -1,30 +1,11 @@
-<header>
+<header class="row MedidasCabeceraMadrid expanded" >
+   
+	<div class="small-2 medium-2 large-2 expanded columns">
+		<a  onclick ="actualizarPagina()" href="/">GESLICO</a>
+	</div>    
 
-  <div id="header">
-
-    <div id="titulo">      
-
-      <H3 onclick ="actualizarPagina()" ><%= link_to "GESLICO" %></H3>
-
+    <div class="small-10 medium-10 large-10 columns">
+	    <%= image_tag("firma_madrid_blanco.png", class:"float-right") %>
     </div>
-
-    <div id="firmamadrid"><br/>
-      <%= image_tag("firma_madrid_blanco.png", id:"imgfirma") %>
-    </div>
-
-  </div>
 
 </header>
-
-<nav  id="nav">
-  <ul>
-    <% if logged_in? %>
-      <li><span><%= link_to "Sedes", t_sedes_path %></span></li>
-      <li><span><%= link_to "Radio", t_sedes_path %></span></li>
-      <li><span><%= link_to "Móvil", t_sedes_path %></span></li>      
-      <li><span><%= link_to "Fija", t_sedes_path %></span></li>
-      <li><span><%= link_to "Electrónica", t_sedes_path %></span></li>
-      <li><span><%= link_to "Datos", t_sedes_path %></span></li>      
-    <% end %>
-  </ul>
-</nav>

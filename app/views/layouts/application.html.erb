@@ -11,8 +11,16 @@
   </head>
 
   <body>
+
+    <%= render 'layouts/header' %>
     <%= render 'layouts/flash' %>
-    <%= yield %>
+
+    <div id="content">
+      
+      <%= yield %>        
+
+    </div>
 
   </body>
+  
 </html>
