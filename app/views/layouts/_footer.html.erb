@@ -1,16 +1,7 @@
-<footer>
-	<div id="footer">
+<footer  class="row MedidasCabeceraMadrid padding-left padding-right expanded">
 
-		<div id="tituloFooter">
-			<h4>Ayuntamiento de Madrid 2016</h4> 
-		</div>
-		
-		<% if logged_in? %>	
-		<div id="enlacesFooter">
-		  	<%= link_to "Cerrar Sesión", logout_path, method: "delete" %>		  	
-			<%= link_to "Usuarios", t_usuarios_path %>
-  		</div>
-  		<% end %>
+	<div class="small-7 medium-7 large-7 columns">
+		<h5>Ayuntamiento de Madrid 2016</h5> 
 	</div>
-	
+
 </footer>
