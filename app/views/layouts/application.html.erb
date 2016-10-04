@@ -13,6 +13,7 @@
   <body>
 
     <%= render 'layouts/header' %>
+    <%= render 'layouts/menu' %>
     <%= render 'layouts/flash' %>
 
     <div id="content">
@@ -20,6 +21,8 @@
       <%= yield %>        
 
     </div>
+
+    <%= render 'layouts/footer' %>
 
   </body>
   

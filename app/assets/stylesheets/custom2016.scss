@@ -1,6 +1,3 @@
-// @import "bootstrap-sprockets";
-// @import "bootstrap";
-
 *{
 	box-sizing: border-box;
 	font-family: 'Lato';
@@ -10,121 +7,23 @@
 	overflow:		hidden;
 	height:			60px;
 	font-weight:	Bold;	
-	padding-right:	30px;
-	padding-left:	30px;
 	max-width:		1020px;
 	background:   	#003DF6;
 	font-size:		1.9em;
     padding-top: 	20px;    
+    color:		white;
 }  
-
-/* NAV */
-#nav{
-	margin:			0 auto;
-	width:			100%;
-	max-width:		1020px;
-	overflow:		hidden;
-	margin-top:		15px;
-	height: 		50px;
+.padding-left{
+	padding-left: 30px
 }
 
-#nav ul{
-	padding: 		0;
-	overflow:		hidden;
-	height: 100%;
+.padding-right{
+	padding-right: 30px
+}
+.margin-left{
+	margin-left: 30px
 }
 
-#nav ul li {
-    list-style: 	none;
-    float: 			left;	    
-    width:			14.16%;
-	margin-right:	3%;
-    text-align:		center;
-    font-size: 		24px;     
-    padding-right: 	15px; 
-}
-
-#nav ul li:last-child{
-	margin-right:	0%;			
-}
-
-#nav ul li span{
-     position: 		relative;
-}
-
-#nav ul li span:after{
-    content: 		"";
-    width: 			0%;
-    position: 		absolute;
-    left: 			0;
-    bottom: 		-15px;
-    background: 	#003DF6;
-    height: 		2px;
-}
-
-#nav ul li:hover span:after{
-    width: 100%;
-}
-
-#nav ul li a{
-	text-decoration: none;   
-	color:			#003DF6;  
-}
-
-#nav ul li a:hover{	
-    background: transparent;
-}
-
-/* FOOTER */
-footer{		
-	background:		#003DF6;
-	width:			100%;
-	bottom:			0;
-	height: 		60px;	
-}
-
-#footer{	
-	margin:			0 auto;
-	background:		#003DF6;
-	width:			100%;
-	max-width:		1020px;
-	height:			60px;	
-	color:			white; 
-	font-weight:	Bold;
-	overflow: hidden;	
-}
-
-#footer div{
-	float:			left;	
-}
-
-#footer #tituloFooter{
-	padding-left:	30px;	
-	width:			70%;
-	height: 		100%;
-	padding-top: 	1%;
-}
-
-#footer #enlacesFooter{
-	padding-right:	30px;	
-	width:			30%;
-	height: 		100%;
-	font-size:		1.12em;
-	padding-top: 	2%;
-}
-
-#footer #enlacesFooter a{
-	float:			right;
-	color:			white;
-	margin-left:	20px;
-}
-#footer #enlacesFooter a{
-	color:			white;
-	background:		transparent;
-}
-
-#checklicos{
-	width: 100%;
-	height: 80px;
-	background: red;
+.margin-right{
+	margin-right: 30px
 }

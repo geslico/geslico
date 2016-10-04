@@ -1,0 +1,38 @@
+<div class="row expanded ">
+
+  <div class="top-bar ">
+
+    <div class="top-bar-left padding-left">
+
+      <ul class="dropdown menu" data-dropdown-menu>
+
+        <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
+
+        <li class="margin-right">
+          <a class="margin-right" href="#">Radio</a>
+          <!--<ul class="menu vertical">
+            <li><a href="#">Radio a</a></li>
+            <li><a href="#">Radio b</a></li>
+            <li><a href="#">Radio c</a></li>
+          </ul>-->
+        </li>
+
+        <li><a class="margin-right" href="#">Móvil</a></li>
+        <li><a class="margin-right"href="#">Fija</a></li>
+        <li><a class="margin-right"href="#">Electrónica</a></li>
+        <li><a class="margin-right" href="#">Datos</a></li>
+        
+      </ul>
+
+    </div>
+
+    <div class="top-bar-right padding-right">
+      <ul class="menu">
+        <li><%= link_to "Usuarios", t_usuarios_path %></li>
+        <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
+      </ul>      
+    </div>
+   
+  </div>
+
+</div>

@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
 
   def create
   
-	 t_usuario = TUsuario.find_by(cCodUsuario: params[:session][:cCodUsuario].downcase)
+    t_usuario = TUsuario.find_by(cCodUsuario: params[:session][:cCodUsuario].downcase)
+
     if t_usuario && t_usuario.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in t_usuario
@@ -19,6 +20,7 @@ class SessionsController < ApplicationController
       flash.now[:danger] = 'Combinación de Código de usuario/password incorrecta'
       render 'new'
     end
+    
   end
 
   def destroy
