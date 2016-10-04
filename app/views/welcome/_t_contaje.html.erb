@@ -1,12 +1,12 @@
   <div id="contajes">   
 
-    <section id="sedes" class="SeccionesContajes">      
+    <section class="SeccionesContajes">      
       
       <% @t_contajes.each do |t_contaje| %>
 
         <% if t_contaje.nCodContaje>=300 && t_contaje.nCodContaje<399 %> 
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
               <p><%= t_contaje.nContador %></p>   
             </div>
@@ -17,13 +17,13 @@
 
     </section>
 
-    <section id="radio" class="SeccionesContajes">      
+    <section  class="SeccionesContajes">      
       
       <% @t_contajes.each do |t_contaje| %>
 
         <% if t_contaje.nCodContaje>=800 && t_contaje.nCodContaje<899  %>
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
               <p><%= t_contaje.nContador %></p>   
             </div>
@@ -34,13 +34,13 @@
 
     </section>
 
-    <section id="moviles" class="SeccionesContajes">      
+    <section  class="SeccionesContajes">      
       
       <% @t_contajes_movil.each do |t_contaje_movil| %>
 
         <% if t_contaje_movil.nCodContaje>=120 && t_contaje_movil.nCodContaje<199 %>
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje_movil.cLiteral %></p>
               <p><%= t_contaje_movil.nContador %></p>   
             </div>
@@ -51,13 +51,13 @@
 
     </section>
 
-    <section id="fijos" class="SeccionesContajes">      
+    <section class="SeccionesContajes">      
       
       <% @t_contajes_fijas.each do |t_contaje_fijas| %>
 
         <% if t_contaje_fijas.nCodContaje>=200 && t_contaje_fijas.nCodContaje<299  %>
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje_fijas.cLiteral %></p>
               <p><%= t_contaje_fijas.nContador %></p>   
             </div>
@@ -69,13 +69,13 @@
     </section>
 
 
-    <section id="edr" class="SeccionesContajes">      
+    <section class="SeccionesContajes">      
       
       <% @t_contajes_electronica.each do |t_contaje_electronica| %>
 
         <% if t_contaje_electronica.nCodContaje>=700 && t_contaje_electronica.nCodContaje<799 %>
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje_electronica.cLiteral %></p>
               <p><%= t_contaje_electronica.nContador %></p>   
             </div>
@@ -87,13 +87,13 @@
     </section>
 
 
-    <section id="datos" class="SeccionesContajes">      
+    <section class="SeccionesContajes">      
       
       <% @t_contajes.each do |t_contaje| %>
 
         <% if t_contaje.nCodContaje>=500 && t_contaje.nCodContaje<599  %>
 
-            <div id="lineasContajes">
+            <div class="lineasContajes">
               <p><%= t_contaje.cLiteral %></p>
               <p><%= t_contaje.nContador %></p>    
             </div>
