@@ -29,16 +29,16 @@
 	border-right-width: 0px;
 }
 
-.SeccionesContajes #lineasContajes p{
+.SeccionesContajes .lineasContajes p{
 	float:			left;
 }
 
-.SeccionesContajes #lineasContajes p:first-child{
+.SeccionesContajes .lineasContajes p:first-child{
 	text-align:		left;	
 	width:			75%;
 }
 
-.SeccionesContajes #lineasContajes p:last-child{
+.SeccionesContajes .lineasContajes p:last-child{
 	text-align:		right;	
 	width:			25%;
 	color:			#003DF6;

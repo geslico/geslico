@@ -1,3 +1,6 @@
+
+<% if logged_in? %>
+
 <div class="row expanded ">
 
   <div class="top-bar ">
@@ -6,20 +9,48 @@
 
       <ul class="dropdown menu" data-dropdown-menu>
 
-        <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
+        <li><a class="margin-right" href="#">Campus</a>
+          <ul class="menu vertical">
+            <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
+            <li><a href="#">Acrónimos</a></li>
+
+          </ul>
+        </li>
 
         <li class="margin-right">
           <a class="margin-right" href="#">Radio</a>
-          <!--<ul class="menu vertical">
-            <li><a href="#">Radio a</a></li>
-            <li><a href="#">Radio b</a></li>
-            <li><a href="#">Radio c</a></li>
-          </ul>-->
+          <ul class="menu vertical">
+            <li><a href="#">Plan de Numeración</a></li>
+            <li><a href="#">Radio</a></li>
+            <li><a href="#">Consolas</a></li>
+            <li><a href="#">GSSI</a></li>
+            <li><a href="#">Sites</a></li>
+          </ul>
         </li>
 
-        <li><a class="margin-right" href="#">Móvil</a></li>
+        <li>
+          <a class="margin-right" href="#">Móvil</a>
+          <ul class="menu vertical">
+            <li><a href="#">Líneas</a></li>
+            <li><a href="#">Terminales</a></li>
+            <li><a href="#">Tarjetas</a></li>
+            <li><a href="#">Afaria</a></li>
+            <li><a href="#">Pedidos</a></li>
+            <li><a href="#">Catálogo</a></li>
+          </ul>
+        </li>
+
         <li><a class="margin-right"href="#">Fija</a></li>
-        <li><a class="margin-right"href="#">Electrónica</a></li>
+
+        <li>
+          <a class="margin-right"href="#">Electrónica</a>
+          <ul class="menu vertical">
+            <li><a href="#">Almacen</a></li>
+            <li><a href="#">Catálogo de Red</a></li>
+            <li><a href="#">Reserva Rangos IP</a></li>
+          </ul>
+        </li>
+
         <li><a class="margin-right" href="#">Datos</a></li>
         
       </ul>
@@ -34,5 +65,5 @@
     </div>
    
   </div>
-
-</div>
+  
+<% end %>
