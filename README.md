@@ -1,10 +1,15 @@
 # Geslico
 
+Aplicación desarrollada para la Gestión de Líneas de Comunicación del Ayuntamiento de Madrid. La aplicación original está desarrollada en Visual Basic, este nuevo desarrollo responde a nuestro interes en mejorar para nuestros usuarios. 
+El modelo de base de datos y la base de datos existente previamente a este nuevo proyecto en RoR condiciona ciertos aspectos en nuestro desarrollo. 
 
-## Configuración para desarrollo y tests
+## Componentes  
 
-Prerequisitos: 
-	* Ruby 2.2.3
-	* git
-	* Tiny_tds
-	* activerecord-sqlserver-adapter
+Los componentes que estamos utilizando actualemte en nuestro proyecto son las siguientes. 
+- Ruby 2.2.3
+- Rails 2.4.7.1
+- git
+- Tiny_tds
+- activerecord-sqlserver-adapter
+- Foundation 6
+- ransack 
