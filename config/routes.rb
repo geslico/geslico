@@ -3,22 +3,16 @@ Rails.application.routes.draw do
   resources :t_acronimos_sede_edrs
   scope "(:locale)", locale: /es|en/ do
 
-    root 'sessions#new'
+    root 'welcome#index'
 
     get 'sessions/new'
     get    'login'   => 'sessions#new'
     post   'login'   => 'sessions#create'
-    delete 'logout'  => 'sessions#destroy'
-    get    'main'    => 'static_pages#main'
-    get    'about'    => 'static_pages#about'
-
-    
+    delete 'logout'  => 'sessions#destroy'  
 
     resources :welcome
     resources :t_contajes
     resources :t_fechas_cargas
-
-
 
     resources :t_sedes
     
