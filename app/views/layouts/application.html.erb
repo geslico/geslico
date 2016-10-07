@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Geslico" %></title>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <script src="js/vendor/modernizr.js"></script>
   </head>
 
   <body>
-
+  
+  <div>
     <%= render 'layouts/header' %>
     <%= render 'layouts/menu' %>
     <%= render 'layouts/flash' %>
 
-    <div id="content">
-      
+    <div id="content" style="padding: 30px;">      
       <%= yield %>        
-
     </div>
-
     <%= render 'layouts/footer' %>
-
-    <script>$(function(){ $(document).foundation(); });</script>
     
+</div>
+  <script src="js/jquery.min.js"></script>
+  <!-- this will include every plugin and utility required by Foundation -->
+  <script src="js/foundation.min.js"></script>
+    
+    <!-- Initialize Foundation -->
+    <script>
+      $(document).foundation();
+    </script>
+
   </body>
   
 </html>
