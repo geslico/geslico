@@ -1,23 +1,55 @@
-<p id="notice"><%= notice %></p>
-<section> 
-<div class="container">
-  <h1>Usuarios</h1>
+<div class="row"> 
+  <h1 class=" small-6  medium-4 large-3 small-centered medium-centered text-center columns padding-top padding-bottom">Usuarios</h1>
+</div>
 
+<form>
 
-    <%= form_tag("/t_usuarios", method: "get") do %>
-      <%= label_tag(:cCodUsuario, "Código") %>
+  <div class="row">
+
+    <div class="small-2 medium-1 large-1 columns">
+      <label for="middle-label" class="text-right ">Código</label>
+    </div>
+
+    <div class="small-10 medium-3 large-3 columns">
       <%= text_field_tag(:cCodUsuario) %>
-      <%= label_tag(:cNombre, "Nombre") %>
-      <%= text_field_tag(:cNombre) %><br>
-      <%= label_tag(:cCorreo, "Correo") %>
-      <%= text_field_tag(:cCorreo) %>
-      <%= label_tag(:bActivo, "Activo") %>
-      <%= select_tag(:bActivo, options_for_select([["",nil], ["Sí",true], ["No", false]])) %><br>
-      
-      <%= submit_tag("Buscar") %> 
-    <% end %>
+    </div>
+  
+    <div class="small-2 medium-1 large-1 columns">
+      <label for="middle-label" class="text-right ">Nombre</label>
+    </div>
+
+    <div class="small-10 medium-7 large-7 columns">      
+      <%= text_field_tag(:cNombre) %>
+    </div>
 
   </div>
+
+
+  <div class="row">
+
+    <div class="small-2 medium-1 large-1 columns">
+      <label for="middle-label" class="text-right ">Activo</label>
+    </div>
+
+    <div class="small-10 medium-3 large-3 columns">      
+      <%= select_tag(:bActivo, options_for_select([["",nil], ["Sí",true], ["No", false]])) %>
+    </div>
+
+    <div class="small-2 medium-1 large-1 columns">
+      <label for="middle-label" class="text-right ">Correo</label>
+    </div>
+
+    <div class="small-10 medium-7 large-7 columns">
+      <%= text_field_tag(:cCorreo) %>
+    </div>
+
+  </div>
+
+  <%= submit_tag "Buscar" , class:"margin-top margin-bottom float-center " %> 
+ 
+</form>
+
+
 <%= paginate(@t_usuarios) %>
   <div class="container">
     <table>
@@ -28,7 +60,7 @@
           <th><strong>Correo</strong></th>
           <th><strong>Estado</strong></th>
 
-          <th><strong>Estado</strong></th>
+          <th><strong></strong></th>
           <th colspan="1"></th>
         </tr>
       </thead>
@@ -49,4 +81,4 @@
     </table>
     <%= paginate(@t_usuarios) %>
   </div>
-</section>
+
