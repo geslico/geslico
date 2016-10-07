@@ -55,7 +55,112 @@
       <li class="accordion-item" >
         <a href="#" class="accordion-title">Unidad SAP/Edif.</a>
         <div class="accordion-content" data-tab-content="" >
-          Panel 1. Lorem ipsum dolor
+            
+            <p>UNIDAD SAP</p>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Cod. Unidad:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.nCodUni rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Unidad:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cDenominacion rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Dirección:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cDir rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Cod. Postal:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cCodPostal rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Municipio:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cMunicipio rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Centro Coste:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cCodCenCoste rescue nil %></p>
+                 </div>
+            </div>
+
+            <hr>
+            
+            <p>EDIFIFCIO SAP</p>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Código:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.nCodEdificio rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Dirección:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cTipoVia rescue nil %> <%= @t_sede.TEdificio.cNombreCalle rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Número:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cNumero rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Cód. Postal:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cCodPostal rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Municipio:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cMunicipio rescue nil %></p>
+                 </div>
+            </div>
+
         </div>
       </li>
 
