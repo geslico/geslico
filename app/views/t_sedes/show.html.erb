@@ -1,153 +1,290 @@
 
-<section  id="CabeceraSedes">
+<section class="padding-top margin-left">
 
-	<div>
-		<p>Código</p>
-		<p><%= @t_sede.nCodSede %></p>
-	</div>
-	<div>
-		<p>Nombre</p>
-		<p><%= @t_sede.cNombre %></p>
-	</div>
-	<div>
-		<p>Dirección</p>
-		<p><%= @t_sede.cDireccion %></p>
+    <div class="row">
+         <div class="small-3  medium-2 large-2 columns">
+            <p>Código:</p>
+         </div>
+         <div class="small-9  medium-10 large-10 columns">
+            <p><%= @t_sede.nCodSede %></p>
+         </div>
+    </div>
 
-<p>
-	<table>
-	<tr>
-		<td>Código</td>
-		<td><%= @t_sede.nCodSede %></td>
-	</tr>
-	<tr>
-		<td>Nombre</td>
-		<td><%= @t_sede.cNombre %></td>
-	</tr>
-				
-	</table>
-	<div style='width: 800px;'>
-  	<div id="map" style='width: 800px; height: 400px;'>
-  		<iframe
-  width="600"
-  height="400"
-  frameborder="0" style="border:0"
-  src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
-    &q=<%= @t_sede.cDireccion %>" allowfullscreen>
-</iframe>
+    <div class="row">
+        <div class="small-3  medium-2 large-2 columns">
+            <p>Nombre:</p>
+         </div>
+         <div class="small-9  medium-10 large-10 columns">
+            <p><%= @t_sede.cNombre %></p>
+         </div>
+    </div>
 
+    <div class="row">
+        <div class="small-3  medium-2 large-2 columns">
+            <p>Dirección:</p>
+         </div>
+         <div class="small-9  medium-10 large-10 columns">
+            <p><%= @t_sede.cDireccion %></p>
+         </div>
+    </div>
 
-  	</div>
+    <div class="row">
+        <div class="small-3  medium-2 large-2 columns">
+            <p>Cod. Postal:</p>
+         </div>
+         <div class="small-9  medium-10 large-10 columns">
+            <p><%= @t_sede.cCodPostal %></p>
+         </div>
+    </div>
 
-	</div>
-	<div>
-		<p>Cod. Postal</p>
-		<p><%= @t_sede.cCodPostal %></p>
-	</div>
-	 <div>
-		<p>Dvice Pool</p>
-		<p><%= @t_sede.cDevicePool %></p>
-	</div>
-			
+    <div class="row">
+        <div class="small-3  medium-2 large-2 columns">
+            <p>Device Pool:</p>
+         </div>
+         <div class="small-9  medium-10 large-10 columns">
+            <p><%= @t_sede.cDevicePool %></p>
+         </div>
+    </div>
 </section>
 
 
+<section class="padding-top padding-bottom margin-left">
 
-<section id="DetallesSedes">
-
-    <!--UNIDAD SAP/EDIF.-->
-    <section class="SeccionAdicional_Sedes">
-
-        <div class="cabeceraTitulos" onclick="mostrarOcultar('0')">
-            <p class="TituloSeccion">Unidad SAP/Edif.</p>
-            <div class="botonExpandir" id="enlace_0">-</div>
-        </div>
-        <div style="height: 100%;" class="contenido" id="contenido_0">
-        </div>        	
-    </section>
-
-    <!--CONTACTO-->
-    <section class="SeccionAdicional_Sedes">
-
-        <div class="cabeceraTitulos" onclick="mostrarOcultar('1')">
-            <p class="TituloSeccion">Contacto</p>
-            <div class="botonExpandir" id="enlace_1">-</div>
-        </div>
-
-        <div style="height: 100%;" class="contenido" id="contenido_1">          
+    <ul class="accordion" data-accordion="w2rdgi-accordion" data-multi-expand="true" data-allow-all-closed="true">
+      
+      <li class="accordion-item" >
+        <a href="#" class="accordion-title">Unidad SAP/Edif.</a>
+        <div class="accordion-content" data-tab-content="" >
             
-            <p><span>Persona</span> JOSÉ LUIS MAS PASAMONTE </p>
-            <p><span>Mail</span>maspjl@munimadrid.es</p> 
-            <p><span>Fijo</span>915132174</p>
-            <p><span>Corto Fijo</span>32174<</p>      
-            <p><span>Movil</span>607198238</p>             
-            <p><span>Corto Movil</span>12145</p>             
-            <p><span>Fax</span></p>
-            <p></p>
+            <p>UNIDAD SAP</p>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Cod. Unidad:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.nCodUni rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Unidad:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cDenominacion rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Dirección:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cDir rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Cod. Postal:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cCodPostal rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Municipio:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cMunicipio rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Centro Coste:</p>
+                 </div>
+                 <div class="small-8 medium-10 large-10 columns">
+                    <p><%= @t_sede.TUnidad.cCodCenCoste rescue nil %></p>
+                 </div>
+            </div>
+
+            <hr>
+            
+            <p>EDIFIFCIO SAP</p>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Código:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.nCodEdificio rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Dirección:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cTipoVia rescue nil %> <%= @t_sede.TEdificio.cNombreCalle rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Número:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cNumero rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <p>Cód. Postal:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cCodPostal rescue nil %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4  medium-2 large-2 columns">
+                    <p>Municipio:</p>
+                 </div>
+                 <div class="small-8  medium-10 large-10 columns">
+                    <p><%= @t_sede.TEdificio.cMunicipio rescue nil %></p>
+                 </div>
+            </div>
+
+        </div>
+      </li>
+
+      <li class="accordion-item">
+        <a href="#" class="accordion-title">Contacto</a>
+        <div class="accordion-content" data-tab-content="" >      
+            
+            <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Persona:</p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.cPersonaContacto %> </p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Mail:</p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.ceMailContacto %></p>
+                 </div>
+            </div>
+            
+            <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Fijo: </p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.cTelefonoContacto %></p>
+                 </div>
+            </div>
+            
+           <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Corto Fijo: </p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.cCortoFijo %></p>
+                 </div>
+            </div>
+            
+            <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Móvil:</p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.cMovilContacto %></p>
+                 </div>
+            </div>
+
+            <div class="row">
+                <div class="small-3  medium-2 large-2 columns">
+                    <p>Corto Móvil:</p>
+                 </div>
+                 <div class="small-9  medium-10 large-10 columns">
+                    <p><%= @t_sede.cCortoMovil %></p>
+                 </div>
+            </div>
+
         </div>
 
-    </section>
+      </li>
 
-    <!--INFRAESTRUCTURA-->
-    <section class="SeccionAdicional_Sedes">        
-        <div class="cabeceraTitulos" onclick="mostrarOcultar('2')">
-            <p class="TituloSeccion">Infraestructura</p>
-            <div class="botonExpandir" id="enlace_2">-</div>
+      <li class="accordion-item">
+        <a href="#" class="accordion-title">Infraestructura</a>
+        <div class="accordion-content" data-tab-content="" >
+          Panel 3. Lorem ipsum dolor
         </div>
-        <div style="height: 100%;" class="contenido" id="contenido_2">
-        </div>
-    </section>
+      </li>
 
-    <!--ACTUACIONES-->
-    <section class="SeccionAdicional_Sedes">
-        <div class="cabeceraTitulos" onclick="mostrarOcultar('3')">
-            <p class="TituloSeccion">Actuaciones</p>
-            <div class="botonExpandir" id="enlace_3">-</div>
+      <li class="accordion-item">
+        <a href="#" class="accordion-title">Actuaciones</a>
+        <div class="accordion-content" data-tab-content="" >
+          Panel 4. Lorem ipsum dolor
         </div>
-        <div style="height: 100%;" class="contenido" id="contenido_3">
+      </li>
+
+      <li class="accordion-item">
+        <a href="#" class="accordion-title">Ubicación en mapa</a>
+        <div class="accordion-content" data-tab-content="" >
+            <div class="row text-center" >
+
+                <% if @t_sede.cLatitud.nil?  %>
+                    <iframe 
+                        width="800" 
+                        height="400" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
+                        &q=<%= @t_sede.cDireccion %>">                            
+                    </iframe>
+
+                <% else %>
+
+                    <iframe 
+                        width="800" 
+                        height="400" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        src = "https://maps.google.com/maps?q=<%= @t_sede.cLatitud %>,<%= @t_sede.cLongitud%>
+                        &z=20&amp;output=embed&amp;iwloc=">                            
+                    </iframe>
+                <% end %>
+                
+            </div>
+
         </div>
-    </section>
+
+      </li>
+
+    </ul>
 
 </section>
 
 
 
-<!-- 
 
 
-<div id="map" >
-
-  	<% if @t_sede.cLatitud.nil?  %>
-  	 	<iframe 
-			width="800" 
-			height="400" 
-			frameborder="0" 
-			scrolling="no" 
-			marginheight="0" 
-			marginwidth="0" 
-			src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
-			&q=<%= @t_sede.cDireccion %>">
-				
-		</iframe>
-
-	<% else %>
-
-  	 	<iframe 
-			width="800" 
-			height="400" 
-			frameborder="0" 
-			scrolling="no" 
-			marginheight="0" 
-			marginwidth="0" 
-			src = "https://maps.google.com/maps?q=<%= @t_sede.cLatitud %>,<%= @t_sede.cLongitud%>
-			&z=20&amp;output=embed&amp;iwloc=">
-				
-		</iframe>
-
-  	<% end %>
-	
-</div>
-
-
-<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
+<!--<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
 <%= link_to 'Back', t_sedes_path %>
 
