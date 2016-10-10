@@ -2,7 +2,7 @@
   <h1 class=" small-6  medium-4 large-3 small-centered medium-centered text-center columns padding-top padding-bottom">Usuarios</h1>
 </div>
 
-<form>
+<form class="padding-bottom padding-left padding-right">
 
   <div class="row">
 
@@ -25,7 +25,7 @@
   </div>
 
 
-  <div class="row">
+  <div class="row margin-bottom">
 
     <div class="small-2 medium-1 large-1 columns">
       <label for="middle-label" class="text-right ">Activo</label>
@@ -45,40 +45,69 @@
 
   </div>
 
-  <%= submit_tag "Buscar" , class:"margin-top margin-bottom float-center " %> 
+  <%= submit_tag "Buscar" , class:"margin-bottom float-center success button" %> 
  
 </form>
 
 
 <%= paginate(@t_usuarios) %>
-  <div class="container">
-    <table>
-      <thead>
-        <tr>
-          <th><strong>Cod.Usuario</strong></th>
-          <th><strong>Nombre</strong></th>
-          <th><strong>Correo</strong></th>
-          <th><strong>Estado</strong></th>
 
-          <th><strong></strong></th>
-          <th colspan="1"></th>
-        </tr>
-      </thead>
+<section class="margin-top margin-bottom padding-left padding-right">
 
-      <tbody>
-        <% @t_usuarios.each do |t_usuario| %>
-          <tr>
-            <td><%= t_usuario.cCodUsuario %></td>
-            <td><%= t_usuario.cNombre %></td>
-            <td><%= t_usuario.cCorreo %></td>
-            <td><%= t_usuario.bActivo %></td>
+  <div class="row">
 
-            <td><%= link_to 'Ver', t_usuario %></td>
-    <!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate(@t_usuarios) %>
+    <div class="small-3 medium-1 large-1 columns ">
+      <p class="text-left ">Cod.Usuario</p>
+    </div>
+
+    <div class="small-8 medium-4 large-4 columns">
+      <p class="text-left ">Nombre</p>
+    </div>
+
+    <div class="hide-for-small-only medium-4 large-4 columns">
+      <p class="text-left ">Correo</p>
+    </div>
+
+    <div class="hide-for-small-only medium-2 large-2 columns">
+      <p class="text-left ">Estado</p>
+    </div>
+
+    <div class="small-1 medium-1 large-1 columns">   
+      <p class="text-left ">Ver</p>     
+    </div>
+
   </div>
 
+  <% @t_usuarios.each do |t_usuario| %>
+    
+    <div class="row">
+
+      <div class="small-3 medium-1 large-1 columns ">
+        <p class="text-left "><%= t_usuario.cCodUsuario %></p>
+      </div>
+
+      <div class="small-8 medium-4 large-4 columns">
+        <p class="text-left "><%= t_usuario.cNombre %></p>
+      </div>
+
+      <div class="hide-for-small-only medium-4 large-4 columns">
+        <p class="text-left "><%= t_usuario.cCorreo %></p>
+      </div>
+
+      <div class="hide-for-small-only medium-2 large-2 columns">
+        <p class="text-left "><%= t_usuario.bActivo %></p>
+      </div>
+
+      <div class="small-1 medium-1 large-1 columns">
+        <%= link_to image_tag('lupa.png', :border=>0), t_usuario %>     
+      </div>
+
+
+      <!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
+    </div>
+
+  <% end %>
+    
+</section>
+
+<%= paginate(@t_usuarios) %>
