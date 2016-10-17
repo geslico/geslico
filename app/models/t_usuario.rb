@@ -25,4 +25,8 @@ class TUsuario < ActiveRecord::Base
 
 	has_secure_password #implementa la autenticación con bcrypt
 
+	private 
+	def has_role?(role_sym)
+	  TPrograma.any? { |r| r.nCodPrograma.underscore.to_sym == role_sym }
+	end
 end

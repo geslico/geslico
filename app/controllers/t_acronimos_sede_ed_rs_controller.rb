@@ -1,4 +1,6 @@
 class TAcronimosSedeEdRsController < ApplicationController
+  
+  load_and_authorize_resource
   before_action :set_t_acronimos_sede_edr, only: [:show, :edit, :update, :destroy]
 
   # GET /t_acronimos_sede_edrs

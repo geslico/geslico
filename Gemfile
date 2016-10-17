@@ -26,6 +26,7 @@ gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'chartkick', '~> 2.1', '>= 2.1.1'
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
