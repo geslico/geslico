@@ -2,50 +2,193 @@
 <section class="padding-top margin-left">
 
     <div class="row">
-         <div class="small-3  medium-2 large-2 columns">
-            <p>Código:</p>
+
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Código:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-2 columns">
+          <label for="middle-label"><%= @t_sede.nCodSede %></label>
+        </div>
+
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Cabecera:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-1 columns">
+            
+            <% if  @t_sede.nCodCampus.nil?  %>
+                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0)) %>
+            <% else %>
+                <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>
+                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1)) %>
+                <% else %>
+                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2)) %>
+                <% end %>
+            <% end %>
+        </div>
+
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Criticidad:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-2 columns">
+            <% if  @t_sede.nCriticidad.nil?  %>
+                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]])) %>
+            <% else %>
+                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @t_sede.nCriticidad)) %>
+            <% end %>
+        </div>
+
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Estado:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-3 columns end">
+
+            <% if  !@t_sede.nCodEstado.nil?  %>
+                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado)) %>
+            <% else %>
+                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion")) %>
+            <% end %>
+
+        </div>
+     </div>
+
+     <div class="row">
+ 
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Nombre:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-7 columns end">      
+          <label for="middle-label"><%= @t_sede.cNombre %></label>
+        </div>
+
+        <div class="small-2 medium-1 large-1 columns">
+          <label for="middle-label">Distrito:</label>
+        </div>
+
+        <div class="small-10 medium-3 large-3 columns end">
+            <% if  !@t_sede.nDistrito.nil?  %>
+                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito)) %>
+            <% else %>
+                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito")) %>
+            <% end %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-2  medium-1 large-1 columns">
+            <label for="middle-label">Dirección:</label>
          </div>
-         <div class="small-9  medium-10 large-10 columns">
-            <p><%= @t_sede.nCodSede %></p>
+
+         <div class="small-10  medium-3 large-7 columns">
+            <label for="middle-label"><%= @t_sede.cDireccion %></label>
+         </div>
+    
+        <div class="small-2  medium-1 large-1 columns">
+            <label for="middle-label">Cód.Postal:</label>
+         </div>
+
+         <div class="small-10  medium-3 large-3 columns">
+            <label for="middle-label"><%= @t_sede.cCodPostal %></label>
          </div>
     </div>
 
     <div class="row">
-        <div class="small-3  medium-2 large-2 columns">
-            <p>Nombre:</p>
+         <div class="small-2  medium-1 large-1 columns">
+           <label for="middle-label">DevicePool:</label>
          </div>
-         <div class="small-9  medium-10 large-10 columns">
-            <p><%= @t_sede.cNombre %></p>
+
+         <div class="small-10  medium-3 large-4 columns">
+            <% if  !@t_sede.cDevicePool.nil?  %>
+                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool)) %>
+            <% else %>
+                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool")) %>
+            <% end %>
+         </div>
+
+         <div class="small-2  medium-1 large-1 columns">
+            <label for="middle-label">Acrónimo:</label>
+         </div>
+
+         <div class="small-10  medium-3 large-2 columns">
+            <% if  !@t_sede.nIdAcronimo.nil?  %>
+                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
+            <% else %>
+                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")) %>
+            <% end %>
+         </div>
+
+         <div class="small-2  medium-1 large-1 columns">
+           <label for="middle-label">Gestión:</label>
+         </div>
+
+         <div class="small-2  medium-1 large-3 columns">
+
+            <% if  @t_sede.nCodGestion.nil?  %>
+                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], 0)) %>
+            <% else %>
+                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @t_sede.nCodGestion)) %>
+            <% end %>
+
          </div>
     </div>
 
     <div class="row">
-        <div class="small-3  medium-2 large-2 columns">
-            <p>Dirección:</p>
+         <div class="small-2  medium-1 large-1 columns">
+           <label for="middle-label">Grupo:</label>
          </div>
-         <div class="small-9  medium-10 large-10 columns">
-            <p><%= @t_sede.cDireccion %></p>
+
+         <div class="small-10  medium-3 large-4 columns">
+            <% if  !@t_sede.nZona.nil?  %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona)) %>
+            <% else %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo")) %>
+            <% end %>
+         </div>
+
+         <div class="small-2  medium-1 large-1 columns">
+            <label for="middle-label">Zona:</label>
+         </div>
+
+         <div class="small-10  medium-3 large-2 columns">
+            <% if  !@t_sede.nZona.nil?  %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona)) %>
+            <% else %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona")) %>
+            <% end %>
+         </div>
+
+         <div class="small-2  medium-1 large-1 columns">
+           <label for="middle-label">ToIp:</label>
+         </div>
+
+         <div class="small-2  medium-1 large-3 columns">   
+      
+       
+            <% if  @t_sede.bSedeToIP.nil?  %>
+                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0)) %>
+            <% else %>
+                <% if @t_sede.bSedeToIP==true %>
+                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1)) %>
+                <% else %>
+                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2)) %>
+                <% end %>
+            <% end %>
+
          </div>
     </div>
 
-    <div class="row">
-        <div class="small-3  medium-2 large-2 columns">
-            <p>Cod. Postal:</p>
-         </div>
-         <div class="small-9  medium-10 large-10 columns">
-            <p><%= @t_sede.cCodPostal %></p>
-         </div>
-    </div>
-
-    <div class="row">
-        <div class="small-3  medium-2 large-2 columns">
-            <p>Device Pool:</p>
-         </div>
-         <div class="small-9  medium-10 large-10 columns">
-            <p><%= @t_sede.cDevicePool %></p>
-         </div>
-    </div>
 </section>
+
+
+
+
+
+
+
 
 
 <section class="padding-top padding-bottom margin-left">
@@ -114,7 +257,7 @@
 
             <hr>
             
-            <p>EDIFIFCIO SAP</p>
+            <p>EDIFICIO SAP</p>
 
             <div class="row">
                 <div class="small-4  medium-2 large-2 columns">
@@ -280,10 +423,6 @@
     </ul>
 
 </section>
-
-
-
-
 
 <!--<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
 <%= link_to 'Back', t_sedes_path %>
