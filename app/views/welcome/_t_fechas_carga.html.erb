@@ -1,41 +1,7 @@
-<div id="fechasCarga">
-
-	<h4> FECHAS DE CARGA </h4>
-
-	<section class="bloqueFecha">           
-
-		<% @t_fechas_carga.each do |t_fechas| %>
-
-			<% if t_fechas.nId <= 5 %>	
-	            <%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
-	        <% end %>
-        	
-		<% end %>
-
-	</section>
-
-	<section class="bloqueFecha">           
-
-		<% @t_fechas_carga.each do |t_fechas| %>
-
-			<% if t_fechas.nId > 5 and t_fechas.nId <= 10 %> 
-              	<%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
-	        <% end %>
-        
-		<% end %>
-
-	</section>
-
-	<section class="bloqueFecha">           
-
-		<% @t_fechas_carga.each do |t_fechas| %>
-
-			<% if t_fechas.nId > 10 %> 	
-				<%= render "t_fechas_carga_datos", :t_fechas => t_fechas %>
-	        <% end %>
-        
-		<% end %>
-
-	</section>
-
+<h3 class="text-center"> Fechas Cargas </h3>
+<div class="row">
+	<% @t_fechas_carga.each do |t| %>
+	<div class="medium-2 columns contajes" ><p><%= t.cLiteral %></p></div>
+	<div class="medium-2 columns end" ><p id="contajes"><%= t.dFecha.strftime("%d/%m/%Y %H:%M")  %></p></div>
+	<% end %>
 </div>

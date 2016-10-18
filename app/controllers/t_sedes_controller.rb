@@ -1,5 +1,6 @@
 class TSedesController < ApplicationController
   
+  load_and_authorize_resource
   before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   before_action :set_t_sede, only: [:show, :edit, :update, :destroy]
 
@@ -7,7 +8,7 @@ class TSedesController < ApplicationController
   # GET /t_sedes.json
   def index    
 
-    @q = TSede.ransack params[:q]
+    @q = TSede.ransack params[:q]    
     @t_sedes = @q.result.includes(:TUnidad).page(params[:page]).per(30)
    
   end
@@ -15,6 +16,7 @@ class TSedesController < ApplicationController
   # GET /t_sedes/1
   # GET /t_sedes/1.json
   def show
+
   end
 
   # GET /t_sedes/new
@@ -34,10 +36,10 @@ class TSedesController < ApplicationController
     respond_to do |format|
       if @t_sede.save
         format.html { redirect_to @t_sede, notice: 'T sede was successfully created.' }
-        format.json { render :show, status: :created, location: @t_sede }
+        # format.json { render :show, status: :created, location: @t_sede }
       else
         format.html { render :new }
-        format.json { render json: @t_sede.errors, status: :unprocessable_entity }
+        # format.json { render json: @t_sede.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,10 +50,10 @@ class TSedesController < ApplicationController
     respond_to do |format|
       if @t_sede.update(t_sede_params)
         format.html { redirect_to @t_sede, notice: 'T sede was successfully updated.' }
-        format.json { render :show, status: :ok, location: @t_sede }
+        # format.json { render :show, status: :ok, location: @t_sede }
       else
         format.html { render :edit }
-        format.json { render json: @t_sede.errors, status: :unprocessable_entity }
+        # format.json { render json: @t_sede.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,7 +64,7 @@ class TSedesController < ApplicationController
     @t_sede.destroy
     respond_to do |format|
       format.html { redirect_to t_sedes_url, notice: 'T sede was successfully destroyed.' }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
