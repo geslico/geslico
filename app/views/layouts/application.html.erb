@@ -10,6 +10,7 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <script src="js/vendor/modernizr.js"></script>
+    <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
   </head>
 
   <body>
@@ -24,15 +25,15 @@
     </div>
     <%= render 'layouts/footer' %>
     
-</div>
-  <script src="js/jquery.min.js"></script>
-  <!-- this will include every plugin and utility required by Foundation -->
-  <script src="js/foundation.min.js"></script>
-    
-    <!-- Initialize Foundation -->
-    <script>
-      $(document).foundation();
-    </script>
+  </div>
+    <script src="js/jquery.min.js"></script>
+    <!-- this will include every plugin and utility required by Foundation -->
+    <script src="js/foundation.min.js"></script>
+      
+      <!-- Initialize Foundation -->
+      <script>
+        $(document).foundation();
+      </script>
 
   </body>
   

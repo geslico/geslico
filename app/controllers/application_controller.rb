@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 	before_action :set_locale	
 	before_action :require_login # lvd001-Control de login en toda la aplicación, si el usuario no se ha validado se invoca la pagina de login para que lo haga 
 	
+	include CanCan::ControllerAdditions
 
 	def set_locale
 	  I18n.locale = params[:locale] || I18n.default_locale
@@ -24,5 +25,7 @@ class ApplicationController < ActionController::Base
 		end
 	end 
 
-
+  	rescue_from CanCan::AccessDenied do |exception|
+    	redirect_to root_url, :alert => exception.message
+  	end
 end
