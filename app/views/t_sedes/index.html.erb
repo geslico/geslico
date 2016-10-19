@@ -3,7 +3,7 @@
 <h1>Sedes</h1>
 
 <%= search_form_for @q do |f| %>
-
+<div>
   <div id="dvbuscon">  <%= f.label :buscon_cont, 'Buscar' %>
           <%= f.search_field :buscon_cont %>
   </div>
@@ -63,11 +63,13 @@
   <%= f.submit :class => "btn_border" %>
   <%= link_to "Limpiar", request.path, :class => "btn_border" %>
   </div>
-
+</div>
 <% end %>
 <br/><br/>
 
-<%= paginate(@t_sedes) %><br/><br/>
+<ul class="paginate">
+<%= paginate(@t_sedes) %>
+</ul><br/><br/>
 <%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/><br/>
 
 <div style="overflow-x:auto;">
@@ -104,4 +106,6 @@
 <br/>
 <%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/>
 
-<%= paginate(@t_sedes) %>
+<ul class="paginate">
+  <%= paginate(@t_sedes) %>
+  </ul>
