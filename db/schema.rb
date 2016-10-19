@@ -70,6 +70,12 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "AFARIA_WIFI_INFO", id: false, force: :cascade do |t|
   end
 
+  create_table "ATS_AddressBook", id: false, force: :cascade do |t|
+  end
+
+  create_table "ATS_SentRecvedMessages", id: false, force: :cascade do |t|
+  end
+
   create_table "AUX_16132", id: false, force: :cascade do |t|
   end
 
@@ -566,6 +572,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "MAX_CONSUMO_MENSUAL", id: false, force: :cascade do |t|
   end
 
+  create_table "MonitorCandado", id: false, force: :cascade do |t|
+  end
+
   create_table "NET_CatalogoRed", id: false, force: :cascade do |t|
   end
 
@@ -904,6 +913,9 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "TDispositivosIPPuestosPersonasHistorico", ["nNumPuesto"], name: "IX_TDispositivosIPPuestosPersonasHistorico_NumPuesto"
 
   create_table "TDispositivosResumen", id: false, force: :cascade do |t|
+  end
+
+  create_table "TDistritos", id: false, force: :cascade do |t|
   end
 
   create_table "TEDRVLAN", id: false, force: :cascade do |t|

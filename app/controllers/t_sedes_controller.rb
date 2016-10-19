@@ -16,7 +16,6 @@ class TSedesController < ApplicationController
   # GET /t_sedes/1
   # GET /t_sedes/1.json
   def show
-
   end
 
   # GET /t_sedes/new
