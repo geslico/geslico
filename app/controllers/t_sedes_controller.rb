@@ -9,7 +9,7 @@ class TSedesController < ApplicationController
   def index    
 
     @q = TSede.ransack params[:q]    
-    @t_sedes = @q.result.includes(:TUnidad).page(params[:page]).per(30)
+    @t_sedes = @q.result.includes(:TUnidad).page(params[:page]).per(25)
    
   end
 
