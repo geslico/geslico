@@ -18,12 +18,12 @@
         <div class="small-8 medium-4 large-1 columns">
             
             <% if  @t_sede.nCodCampus.nil?  %>
-                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0)) %>
+                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0), {:disabled=>true}) %>                
             <% else %>
                 <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>
-                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1)) %>
+                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1), {:disabled=>true}) %>
                 <% else %>
-                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2)) %>
+                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2), {:disabled=>true}) %>
                 <% end %>
             <% end %>
         </div>
@@ -34,9 +34,9 @@
 
         <div class="small-8 medium-4 large-2 columns">
             <% if  @t_sede.nCriticidad.nil?  %>
-                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]])) %>
+                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]]), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @t_sede.nCriticidad)) %>
+                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @t_sede.nCriticidad), {:disabled=>true}) %>
             <% end %>
         </div>
 
@@ -47,9 +47,9 @@
         <div class="small-8 medium-4 large-3 columns end">
 
             <% if  !@t_sede.nCodEstado.nil?  %>
-                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado)) %>
+                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion")) %>
+                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion"), {:disabled=>true}) %>
             <% end %>
 
         </div>
@@ -71,9 +71,9 @@
 
         <div class="small-8 medium-4 large-3 columns end">
             <% if  !@t_sede.nDistrito.nil?  %>
-                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito)) %>
+                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito")) %>
+                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito"), {:disabled=>true}) %>
             <% end %>
         </div>
     </div>
@@ -103,9 +103,9 @@
 
          <div class="small-8  medium-4 large-4 columns">
             <% if  !@t_sede.cDevicePool.nil?  %>
-                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool)) %>
+                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool")) %>
+                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool"), {:disabled=>true}) %>
             <% end %>
          </div>
 
@@ -115,9 +115,9 @@
 
          <div class="small-8  medium-4 large-2 columns">
             <% if  !@t_sede.nIdAcronimo.nil?  %>
-                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
+                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")) %>
+                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo"), {:disabled=>true}) %>
             <% end %>
          </div>
 
@@ -128,9 +128,9 @@
          <div class="small-8  medium-4 large-3 columns end">
 
             <% if  @t_sede.nCodGestion.nil?  %>
-                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], 0)) %>
+                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], 0), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @t_sede.nCodGestion)) %>
+                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @t_sede.nCodGestion), {:disabled=>true}) %>
             <% end %>
 
          </div>
@@ -144,9 +144,9 @@
          <div class="small-8  medium-4 large-4 columns">
 
             <% if  !@t_sede.nZona.nil?  %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona)) %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo")) %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo"), {:disabled=>true}) %>
             <% end %>
          </div>
 
@@ -157,9 +157,9 @@
          <div class="small-8  medium-4 large-2 columns">
 
             <% if  !@t_sede.nZona.nil?  %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona)) %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona), {:disabled=>true}) %>
             <% else %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona")) %>
+                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona"), {:disabled=>true}) %>
             <% end %>
          </div>
 
@@ -170,12 +170,12 @@
          <div class="small-8  medium-4 large-3 columns end">   
              
             <% if  @t_sede.bSedeToIP.nil?  %>
-                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0)) %>
+                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0), {:disabled=>true}) %>
             <% else %>
                 <% if @t_sede.bSedeToIP==true %>
-                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1)) %>
+                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1), {:disabled=>true}) %>
                 <% else %>
-                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2)) %>
+                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2), {:disabled=>true}) %>
                 <% end %>
             <% end %>
 
