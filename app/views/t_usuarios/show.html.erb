@@ -38,11 +38,10 @@
 </div>
 
 <table class="table-scroll">
-	<thead>
-		<tr><td rowspan="2">Programa</td> 
-		<td rowspan="2">Descripción</td> 
-		<td colspan="3">Permiso</td></tr>
-		<tr><td>Escritura</td><td>Lectura</td><td>Sin permiso</td></tr>
+	<thead  class="color-cabecera">
+		<tr><td>Programa</td> 
+		<td >Descripción</td> 
+		<td>Escritura</td><td>Lectura</td><td>Sin permiso</td></tr>
 	</thead>
 	<tbody>
 	<% @t_usuario.TUsuariosPrograma.each do |t| %>
