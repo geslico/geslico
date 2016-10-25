@@ -1,112 +1,190 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Sedes</h1>
+<div class="row"> 
+  <h3 class="columns ">Sedes</h3>
+</div>
 
 <%= search_form_for @q do |f| %>
-<div>
-  <div id="dvbuscon">  <%= f.label :buscon_cont, 'Buscar' %>
-          <%= f.search_field :buscon_cont %>
+
+  <div class="row">
+
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :nCodSede_eq, 'Cód.Sede', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-3 large-2 columns">
+      <%= f.search_field :nCodSede_eq %>
+    </div>
+  
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :nCodEstado_eq, 'Estado', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-7 large-3 columns">      
+      <!-- # Combo Estado -->
+      <% if  !params[:q].nil?  %>
+      <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", params[:q][:nCodEstado_eq]) %>
+
+      <% else %>
+        <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion") %>
+      <% end %>
+    </div>
+
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :buscon_cont, 'Buscar', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-3 large-4 columns">
+      <%= f.search_field :buscon_cont %>
+    </div>
+
   </div>
-  <div id="dvqsede">
-    <%= f.label :nCodSede_eq, 'Cód.Sede' %>
-    <%= f.search_field :nCodSede_eq %>
+          
+  <div class="row">
 
-    <%= f.label :nCodEstado_eq, 'Estado' %>
-    <!-- # Combo Estado -->
-    <% if  !params[:q].nil?  %>
-    <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", params[:q][:nCodEstado_eq]) %>
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :cNombre_cont, 'Nombre', for: "middle-label", class: "text-right" %>
+    </div>
 
-    <% else %>
-      <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion") %>
-    <% end %>
+    <div class="small-10 medium-3 large-11 columns">
+      <%= f.search_field :cNombre_cont %>
+    </div>
+
   </div>
-  <div id="dvqsede">  
-    <%= f.label :cNombre_cont, 'Nombre' %>
-    <%= f.search_field :cNombre_cont %>
+          
+  <div class="row">
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :cDireccion_cont, 'Dirección', for: "middle-label", class: "text-right" %>
+    </div>
 
-    <%= f.label :cDireccion_cont, 'Dirección' %>
-    <%= f.search_field :cDireccion_cont %>
+    <div class="small-10 medium-3 large-6 columns">
+      <%= f.search_field :cDireccion_cont %>
+    </div>
 
-    <%= f.label :cCodPostal_eq, 'Cód.Postal' %>
-    <%= f.search_field :cCodPostal_eq %>
-  </div>
-  <div id="dvqsede">
-    
-    <%= f.label :cDevicePool_cont, 'Device Pool' %>
-    <%= f.search_field :cDevicePool_cont %>
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :cCodPostal_eq, 'Cód.Postal', for: "middle-label", class: "text-right" %>
+    </div>
 
-    <!-- # Combo Acronimo -->
-    <%= f.label :nIdAcronimo_eq, 'AcrónimoEDR' %>
-    <% if  !params[:q].nil?  %>
-      <%= f.select :nIdAcronimo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", params[:q][:nIdAcronimo_eq])%>
-    <% else %>
-      <%= f.select :nIdAcronimo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")%>
-    <% end %>
-    <!-- # Combo Tipo Gestión -->
-    <%= f.label :nCodGestion_eq, 'Gestión' %>
-    <% if  !params[:q].nil?  %>
-      <%= f.select :nCodGestion_eq, options_for_select([["",nil], ["Municipal",0], ["Mixta", 2], ["Privada", 1]], params[:q][:nCodGestion_eq]) %><br>
-    <% else %>
-      <%= f.select :nCodGestion_eq, options_for_select([["",nil], ["Municipal",0], ["Mixta", 2], ["Privada", 1]]) %><br>
-    <% end %>
-  </div>
+    <div class="small-10 medium-3 large-4 columns">
+      <%= f.search_field :cCodPostal_eq %>
+    </div>
 
-  <div id="dvqunidad">
-  <%= f.label :nCodUni_cont, 'Cód.Unidad' %>
-  <%= f.search_field :nCodUni_eq %>  
-
-  <%= f.label :TUnidad_cDenominacion_cont, 'Unidad' %>
-  <%= f.search_field :TUnidad_cDenominacion_cont %>  
   </div>  
 
-  <div id="dvbtbuscar">
-  <%= f.submit :class => "btn_border" %>
-  <%= link_to "Limpiar", request.path, :class => "btn_border" %>
+  <div class="row">
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :nIdAcronimo_eq, 'Acrónimo', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-3 large-2 columns">
+      <!-- # Combo Acronimo -->   
+      <% if  !params[:q].nil?  %>
+        <%= f.select :nIdAcronimo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", params[:q][:nIdAcronimo_eq])%>
+      <% else %>
+        <%= f.select :nIdAcronimo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")%>
+      <% end %>
+    </div>
+
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :cDevicePool_cont, 'DevicePool', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-3 large-3 columns">
+      <%= f.search_field :cDevicePool_cont %>      
+    </div>
+
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :nCodGestion_eq, 'Gestión', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-3 large-4 columns">
+      <!-- # Combo Tipo Gestión -->    
+      <% if  !params[:q].nil?  %>
+        <%= f.select :nCodGestion_eq, options_for_select([["",nil], ["Municipal",0], ["Mixta", 2], ["Privada", 1]], params[:q][:nCodGestion_eq]) %><br>
+      <% else %>
+        <%= f.select :nCodGestion_eq, options_for_select([["",nil], ["Municipal",0], ["Mixta", 2], ["Privada", 1]]) %><br>
+      <% end %>
+    </div>
   </div>
-</div>
-<% end %>
-<br/><br/>
 
-<ul class="paginate">
-<%= paginate(@t_sedes) %>
-</ul><br/><br/>
-<%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/><br/>
+  <div class="row">
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :nCodUni_eq, 'Cód.Unidad', for: "middle-label", class: "text-right" %>
+    </div>
 
+    <div class="small-10 medium-3 large-2 columns">
+      <%= f.search_field :nCodUni_eq %>  
+    </div>
 
-<div style="overflow-x:auto;">
-<table>
-  <thead>
-    <tr>
-    <th><strong><%= sort_link(@q, :nCodSede, 'Cód.Sede') %></strong></th>
-    <th><strong><%= sort_link(@q, :cNombre, 'Sede') %></strong></th>
-    <th><strong><%= sort_link(@q, :cDireccion, 'Dirección') %></strong></th>
-    <th><strong><%= sort_link(@q, :nCodUni, 'Cód.Unidad') %></strong></th>
-    <th><strong><%= sort_link(@q, :TUnidad_cDenominacion, 'Unidad') %></strong></th>
-    
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <div class="small-2 medium-1 large-1 columns">
+      <%= f.label :TUnidad_cDenominacion_cont, 'Unidad', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-7 large-8 columns">
+      <%= f.search_field :TUnidad_cDenominacion_cont %> 
+    </div>
+
+  </div>
   
-  <tbody>
-    <% @t_sedes.each do |t_sede| %>
-      <tr>
-        <td><%= t_sede.nCodSede %></td>
-        <td><%= t_sede.cNombre %></td>
-        <td><%= t_sede.cDireccion %></td>
-        <td><%= t_sede.nCodUni %></td>
-        <td><%= t_sede.TUnidad.cDenominacion rescue nil %></td>
-        
-        <td><%= link_to 'Ver', t_sede %></td>        
+  <br/>
 
-        <!-- <td><%= link_to 'Editar', edit_t_sede_path(t_sede) %></td>-->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="row">    
+      <%= submit_tag "Buscar" , class:"success button" %> 
+      <%= link_to "Limpiar", request.path, :class => "success button" %>         
+  </div>
+
+<% end %>
+
+<div class="row">
+  <ul class="paginate">
+    <%= paginate(@t_sedes) %>
+  </ul>
 </div>
-<br/>
-<%= page_entries_info @t_sedes, :entry_name => 'sedes' %><br/>
 
-<ul class="paginate">
-  <%= paginate(@t_sedes) %>
-</ul>
+<div class="row">
+  <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
+</div>
+
+<div class="table-scroll">
+  <table>
+    <thead class="color-cabecera">
+      <tr>
+      <th><%= sort_link(@q, :nCodSede, 'Cód.Sede') %></th>
+      <th><%= sort_link(@q, :cNombre, 'Sede') %></th>
+      <th><%= sort_link(@q, :cDireccion, 'Dirección') %></th>
+      <th><%= sort_link(@q, :nCodUni, 'Cód.Unidad') %></th>
+      <th><%= sort_link(@q, :TUnidad_cDenominacion, 'Unidad') %></th>
+      <th>Ver</th>
+      <th>Editar</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @t_sedes.each do |t_sede| %>
+        <tr>
+          <td><%= t_sede.nCodSede %></td>
+          <td><%= t_sede.cNombre %></td>
+          <td><%= t_sede.cDireccion %></td>
+          <td><%= t_sede.nCodUni %></td>
+          <td><%= t_sede.TUnidad.cDenominacion rescue nil %></td>  
+
+          <% if can? :read, TUsuario %> 
+            <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t_sede %> </td>
+          <% end %>
+          <% if can? :cru, TUsuario %>
+            <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_sede_path(t_sede) %> </td>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <ul class="paginate">
+    <%= paginate(@t_sedes) %>
+  </ul>
+</div>
+<div class="row">
+  <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
+</div>
+
