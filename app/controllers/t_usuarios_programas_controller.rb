@@ -1,12 +1,17 @@
 class TUsuariosProgramasController < ApplicationController
   
+  before_action :require_login
   load_and_authorize_resource  
   before_action :set_t_usuarios_programa, only: [:show, :edit, :update, :destroy]
 
   # GET /t_usuarios_programas
   # GET /t_usuarios_programas.json
   def index
-    @t_usuarios_programas = TUsuariosPrograma.all
+    #@t_usuarios_programas = TUsuariosPrograma.all
+    @q = TUsuariosPrograma.ransack params[:q] 
+    @t_usuarios_programas = @q.result.includes(:TPrograma)
+
+
   end
 
   # GET /t_usuarios_programas/1
