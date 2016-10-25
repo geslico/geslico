@@ -27,6 +27,11 @@ gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'chartkick', '~> 2.1', '>= 2.1.1'
 gem 'cancancan'
+# Test tools
+gem 'rspec', '~> 3.5'
+gem 'capybara', '~> 2.10', '>= 2.10.1'
+gem 'factory_girl_rails', '~> 4.7'
+gem 'i18n-tasks', '~> 0.9.5'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -50,6 +55,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
 end
 
 group :development do

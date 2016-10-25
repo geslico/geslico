@@ -3,8 +3,9 @@ class TProgramasController < ApplicationController
 
   # GET /t_programas
   # GET /t_programas.json
-  def index
-    @t_programas = TPrograma.all
+  def index    
+    @q = TPrograma.ransack params[:q] 
+    @t_programas = @q
   end
 
   # GET /t_programas/1
