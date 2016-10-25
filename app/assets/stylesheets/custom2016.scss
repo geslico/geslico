@@ -5,6 +5,10 @@
 	max-width: 1020px;
 }
 
+div h3{
+	padding-bottom:	0.5em;
+}
+
 #content{
 	font-size:		13px;
 }
@@ -21,30 +25,30 @@ div h3{
 	background:   	#003DF6;
 	font-size:		1.9em;
     padding-top: 	15px;    
-    color:			white;
+    color:			white;    
 }  
 
 .padding-left{
-	padding-left: 	30px
+	padding-left: 	30px;
 }
 
 .padding-right{
-	padding-right: 	30px
+	padding-right: 	30px;
 }
 
 .padding-top{
-	padding-top: 	30px
+	padding-top: 	30px;
 }
 
 .padding-bottom{
 	padding-bottom: 30px;
 }
 .margin-left{
-	margin-left: 	30px
+	margin-left: 	30px;
 }
 
 .margin-right{
-	margin-right: 	30px
+	margin-right: 	30px;
 }
 
 .margin-top{
@@ -66,5 +70,4 @@ div h3{
 
 .margin-bottom-auto {
 	margin-bottom:auto;
-}
-    
+}    

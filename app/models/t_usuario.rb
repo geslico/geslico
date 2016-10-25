@@ -3,13 +3,6 @@ class TUsuario < ActiveRecord::Base
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.TUsuarios"
 
-	scope :cCodUsuario, -> (cCodUsuario) { where cCodUsuario: cCodUsuario }
-	scope :cNombre, -> (cNombre) { where("cNombre like ?", "%#{cNombre}%")}
-	scope :cClave, -> (cClave) { where cClave: cClave }
-	scope :cCorreo, -> (cCorreo) { where("cCorreo like ?", "%#{cCorreo}%")}
-	scope :bActivo, -> (bActivo) { where bActivo: bActivo }
-
-
 	#relación con TUsuariosProgramas
 	has_many	:TUsuariosPrograma, :foreign_key => "nIdUsuario"
 	has_many	:TPrograma, through: :TUsuariosPrograma, :foreign_key => "nCodPrograma"
@@ -29,4 +22,5 @@ class TUsuario < ActiveRecord::Base
 	def has_role?(role_sym)
 	  TPrograma.any? { |r| r.nCodPrograma.underscore.to_sym == role_sym }
 	end
+
 end

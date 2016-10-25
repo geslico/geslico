@@ -1,28 +1,63 @@
-<p id="notice"><%= notice %></p>
-<section> 
-<%= link_to 'Back', t_usuarios_path %>
-<div class="container">
-
-	Código: <%= @t_usuario.cCodUsuario %>
-	Nombre: <%= @t_usuario.cNombre %>
-	Correo: <%= @t_usuario.cCorreo %>
-	Activo: <%= @t_usuario.bActivo %>
-
-	<div class="dtable">
-		<div class="drow">
-			<div class="dfield">Programa</div><div class="dfield">Permiso</div>
-		</div>
-		<% @t_usuario.TUsuariosPrograma.each do |t| %>
-		<div class="drow">
-			<div class="dfield"><%= t.TPrograma.sPrograma %></div>
-			<div class="dfield"><%= t.sPermiso %></div>
-		</div>
-		<% end %>
-	</div>
-
-	
-<!-- <%= link_to 'Edit', edit_t_usuario_path(@t_usuario) %> | -->
-
+<div class="row"> 
+  <h3 class="columns">Ver Usuario</h3>
 </div>
-<%= link_to 'Back', t_usuarios_path %>
-</section>
+<div class="row">
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Usuario:</label>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <label for="middle-label"><%= @t_usuario.cCodUsuario %></label>
+    </div>
+	<div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label"> Activo:</label>
+    </div>
+    <div class="small-8 medium-4 large-2 columns end">          
+		<%= select_tag(:bActivo, options_for_select([["",nil],["SÍ",true], ["NO", false]], @t_usuario.bActivo), {:disabled=>true}) %>
+    </div>
+</div>
+<div class="row">
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label"> Nombre:</label>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <label for="middle-label"><%= @t_usuario.cNombre %></label>
+    </div>
+	<div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label"> Correo:</label>
+    </div>
+    <div class="small-8 medium-4 large-5 columns end ">
+      <label for="middle-label"><%= @t_usuario.cCorreo %></label>
+    </div>
+</div>
+
+<div class="row">
+	<%= link_to  ' << Volver ' , t_usuarios_path, :class => "success button"  %>
+	<% if can? :read, TUsuario %> 
+	<%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "success button" %> 
+	<% end %>
+</div>
+
+<table class="table-scroll">
+	<thead  class="color-cabecera">
+		<tr><td>Programa</td> 
+		<td >Descripción</td> 
+		<td>Escritura</td><td>Lectura</td><td>Sin permiso</td></tr>
+	</thead>
+	<tbody>
+	<% @t_usuario.TUsuariosPrograma.each do |t| %>
+	<tr>		
+		<td><%= t.TPrograma.sPrograma %></td>			
+		<td><%= t.TPrograma.sDescripcion %></td>
+		<td><%= radio_button_tag(t.TPrograma.sPrograma,"W", (t.sPermiso == "W")) %></td>
+		<td><%= radio_button_tag(t.TPrograma.sPrograma,"L", (t.sPermiso == "L")) %></td>
+		<td><%= radio_button_tag(t.TPrograma.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
+	</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<div class="row">	
+	<div class="small-4 medium-2 large-1 columns">
+		<%= link_to 'Back', t_usuarios_path %>
+	</div>
+</div>

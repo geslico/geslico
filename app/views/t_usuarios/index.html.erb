@@ -1,30 +1,28 @@
 <div class="row"> 
-  <h1 class=" small-6  medium-4 large-3 text-center columns padding-top padding-bottom">Usuarios</h1>
+  <h3 class="columns">Usuarios</h3>
 </div>
 
-<form class="padding-bottom padding-left padding-right">
+<%= search_form_for @q do |f| %>
 
   <div class="row">
 
     <div class="small-2 medium-1 large-1 columns">
-      <label for="middle-label" class="text-right ">Código</label>
+      <%= f.label :cCodUsuario_cont, 'Código', for: "middle-label", class: "text-right" %>
     </div>
 
-    <div class="small-10 medium-3 large-3 columns">
-      <%= text_field_tag(:cCodUsuario) %>
-    </div>
-  
-    <div class="small-2 medium-1 large-1 columns">
-      <label for="middle-label" class="text-right ">Nombre</label>
+    <div class="small-10 medium-3 large-3 columns">      
+      <%= f.search_field :cCodUsuario_cont %>
     </div>
 
-    <div class="small-10 medium-7 large-7 columns">      
-      <%= text_field_tag(:cNombre) %>
+    <div class="small-2 medium-1 large-1 columns">      
+      <%= f.label :cNombre_cont, 'Nombre', for: "middle-label", class: "text-right" %>
+    </div>
+
+    <div class="small-10 medium-7 large-7 columns">            
+      <%= f.search_field :cNombre_cont %>
     </div>
 
   </div>
-
-
   <div class="row margin-bottom">
 
     <div class="small-2 medium-1 large-1 columns">
@@ -32,81 +30,80 @@
     </div>
 
     <div class="small-10 medium-3 large-3 columns">      
-      <%= select_tag(:bActivo, options_for_select([["",nil], ["Sí",true], ["No", false]])) %>
+      <%= select_tag(:bActivo_eq, options_for_select([["",nil], ["Sí",true], ["No", false]])) %>
     </div>
 
-    <div class="small-2 medium-1 large-1 columns">
-      <label for="middle-label" class="text-right ">Correo</label>
+    <div class="small-2 medium-1 large-1 columns">      
+       <%= f.label :cCorreo_eq, 'Correo', for: "middle-label", class: "text-right" %>
     </div>
 
-    <div class="small-10 medium-7 large-7 columns">
-      <%= text_field_tag(:cCorreo) %>
+    <div class="small-10 medium-7 large-7 columns">      
+      <%= f.search_field :cCorreo_eq %>
     </div>
 
   </div>
 
-  <%= submit_tag "Buscar" , class:"margin-bottom  success button" %> 
+  <div class="row">
+      <%= f.submit :class => "success button" %>
+      <%= link_to "Limpiar", request.path, :class => "success button" %>
  
 </form>
+</div>
+
+<% end %>
 
 
-<%= paginate(@t_usuarios) %>
+<div class="row">
+  <ul class="paginate">
+  <%= paginate(@t_usuarios) %>
+  </ul>
+</div>
+<div class="row">
+<%= page_entries_info @t_usuarios, :entry_name => 'usuarios' %><br/><br/>
+</div>
 
-<section class="margin-top margin-bottom padding-left padding-right">
+<table class="table-scroll">
+  <thead  class="color-cabecera">
+    <tr>
+      <th><%= sort_link(@q, :cCodUsuario, 'Código') %></th>
+      <th><%= sort_link(@q, :cNombre, 'Nombre') %></th>
+      <th><%= sort_link(@q, :cCorreo, 'Correo') %></th>
+      <th><%= sort_link(@q, :bActivo, 'Activo') %></th>
+      <% if can? :read, TUsuario %>
+      <th>Ver</th>
+      <% end %>
+      <% if can? :cru, TUsuario %>
+      <th>Editar</th>
+      <% end %>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @t_usuarios.each do |t| %>
+      <tr>
+        <td><%= t.cCodUsuario %></td>
+        <td><%= t.cNombre %></td>
+        <td><%= t.cCorreo %></td>
+        <td><%= t.bActivo %></td>                
+        <% if can? :read, TUsuario %>
+        <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
+        <% end %>
+        <% if can? :cru, TUsuario %>
+        <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
+        <% end %>
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-  <div class="row color-cabecera margin-bottom">
 
-    <div class="small-3 medium-1 large-1 columns ">    
-      <label for="middle-label">Codigo</label>
-    </div>
+<div class="row">
+<%= page_entries_info @t_usuarios, :entry_name => 'usuarios' %><br/><br/>
+</div>
 
-    <div class="small-8 medium-4 large-4 columns">      
-      <label for="middle-label">Nombre</label>
-    </div>
-
-    <div class="hide-for-small-only medium-4 large-4 columns">
-      <label for="middle-label">Correo</label>
-    </div>
-
-    <div class="hide-for-small-only medium-2 large-2 columns">
-      <label for="middle-label">Estado</label>      
-    </div>
-
-    <div class="small-1 medium-1 large-1 columns">   
-      <label for="middle-label">Ver</label>        
-    </div>
-
-  </div>
-
-  <% @t_usuarios.each do |t_usuario| %>
-    
-    <div class="row">
-
-      <div class="small-3 medium-1 large-1 columns ">
-        <p class="text-left "><%= t_usuario.cCodUsuario %></p>
-      </div>
-
-      <div class="small-8 medium-4 large-4 columns">
-        <p class="text-left "><%= t_usuario.cNombre %></p>
-      </div>
-
-      <div class="hide-for-small-only medium-4 large-4 columns">
-        <p class="text-left "><%= t_usuario.cCorreo %></p>
-      </div>
-
-      <div class="hide-for-small-only medium-2 large-2 columns">
-        <p class="text-left "><%= t_usuario.bActivo %></p>
-      </div>
-
-      <div class="small-1 medium-1 large-1 columns">
-        <%= link_to image_tag('lupa.png', :border=>0), t_usuario %>     
-      </div>
-
-      <!--        <td><%= link_to 'Editar', edit_t_usuario_path(t_usuario) %></td>-->
-    </div>
-
-  <% end %>
-    
-</section>
-
-<%= paginate(@t_usuarios) %>
+<div class="row">
+  <ul class="paginate">
+  <%= paginate(@t_usuarios) %>
+  </ul>
+</div>
