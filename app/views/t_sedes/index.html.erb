@@ -87,8 +87,14 @@
       <%= f.label :cDevicePool_cont, 'DevicePool', for: "middle-label", class: "text-right" %>
     </div>
 
-    <div class="small-9 medium-5 large-3 columns">
-      <%= f.search_field :cDevicePool_cont %>      
+    <div class="small-9 medium-5 large-3 columns">      
+
+      <% if  !params[:q].nil?  %>
+          <%= f.select :cDevicePool_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", params[:q][:cDevicePool_eq]) %>
+      <% else %>
+          <%= f.select  :cDevicePool_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool") %>
+      <% end %>
+
     </div>
 
     <div class="small-3 medium-2 large-1 columns">      
@@ -133,7 +139,6 @@
 
 <% end %>
 
-
 <div class="row">
   <ul class="paginate">
     <%= paginate(@t_sedes) %>
@@ -148,25 +153,35 @@
   <table>
     <thead class="color-cabecera">
       <tr>
-        <th><%= sort_link(@q, :nCodSede, 'Cód.Sede') %></th>
-        <th><%= sort_link(@q, :cNombre, 'Sede') %></th>
-        <th><%= sort_link(@q, :cDireccion, 'Dirección') %></th>
-        <th><%= sort_link(@q, :nCodEstado, 'Estado') %></th>
-        <th><%= sort_link(@q, :nCodGestion, 'Gestión') %></th>
-        <th><%= sort_link(@q, :nCodUni, 'Cód.Unidad') %></th>
-        <th><%= sort_link(@q, :TUnidad_cDenominacion, 'Unidad') %></th>
         <% if can? :read, TSede %> 
           <th>Ver</th>
         <% end %>
         <% if can? :cru, TSede %>
           <th>Editar</th>
         <% end %>
+        <th class="columna-larga"><%= sort_link(@q, :nCodSede, 'Cód.Sede') %></th>
+        <th><%= sort_link(@q, :cNombre, 'Sede') %></th>    
+        <th><%= sort_link(@q, :cDireccion, 'Dirección') %></th>
+        <th><%= sort_link(@q, :nCodEstado, 'Estado') %></th>
+        <th><%= sort_link(@q, :nCodGestion, 'Gestión') %></th>
+        <th><%= sort_link(@q, :nCodUni, 'Cód.Unidad') %></th>
+        <th><%= sort_link(@q, :TUnidad_cDenominacion, 'Unidad') %></th>
+        <th><%= sort_link(@q, :TDistrito_cDistrito, 'Distrito') %></th>
+        <th><%= sort_link(@q, :TZona_cZona, 'Zona') %></th>
+        <th><%= sort_link(@q, :TZona_cGrupo, 'Grupo') %></th>
       </tr>
     </thead>
     
     <tbody>
       <% @t_sedes.each do |t_sede| %>
         <tr>
+          <% if can? :read, TSede %> 
+            <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t_sede %> </td>
+          <% end %>
+          <% if can? :cru, TSede %>
+            <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_sede_path(t_sede) %> </td>
+          <% end %>
+
           <td><%= t_sede.nCodSede %></td>
           <td><%= t_sede.cNombre %></td>
           <td><%= t_sede.cDireccion %></td>
@@ -194,7 +209,6 @@
             <% end %>
           <% end %>
 
-
           <% if t_sede.nCodGestion.nil? %> 
             <td></td>
           <% else %>
@@ -211,14 +225,10 @@
 
           <td><%= t_sede.nCodUni %></td>
           <td><%= t_sede.TUnidad.cDenominacion rescue nil %></td>  
-
-          <% if can? :read, TSede %> 
-            <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t_sede %> </td>
-          <% end %>
-          <% if can? :cru, TSede %>
-            <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_sede_path(t_sede) %> </td>
-          <% end %>
-
+          <td><%= t_sede.TDistrito.cDistrito rescue nil %></td>  
+          <td><%= t_sede.TZona.cZona rescue nil %></td>  
+          <td><%= t_sede.TZona.cGrupo rescue nil %></td>  
+          
         </tr>
       <% end %>
     </tbody>
@@ -230,7 +240,7 @@
     <%= paginate(@t_sedes) %>
   </ul>
 </div>
+
 <div class="row">
   <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
-
 </div>
