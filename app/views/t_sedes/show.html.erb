@@ -366,7 +366,7 @@
                 </div>
             </div>
 
-             <div class="row">
+             <div class="row margin-bottom">
                 <div class="small-5  medium-2 large-1 columns">
                     <label for="middle-label">Observac.:</label>
                 </div>
@@ -374,6 +374,33 @@
                 <div class="small-7  medium-10 large-11 columns">
                     <label for="middle-label"><%= @t_sede.cPersonaContactoObserv %></label>
                 </div>
+            </div>
+
+            <label class="" for="middle-label">TÉCNICOS SICAM:</label>
+            <br>
+            <div class="">
+                
+                <table class="stack">
+                    <thead class="color-cabecera">                                              
+                        <tr>                
+                            <th>Técnico</th>
+                            <th>Tlf. Fijo</th>
+                            <th>Tlf. Móvil</th>
+                            <th>E-Mail</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>                
+                        <% @t_sede.TSicamPersonaGrupo.each do |t| %>
+                            <tr>        
+                                <td><%=  t.Full_Name %></td>           
+                                <td><%=  t.SICAM_txt_telefono_contacto %></td>    
+                                <td><%=  t.Phone_Number_Mobile %></td>    
+                                <td><%=  t.Internet_E_mail %></td>                               
+                            </tr>                    
+                        <% end %>                
+                    </tbody>
+                </table>
             </div>
 
         </div>

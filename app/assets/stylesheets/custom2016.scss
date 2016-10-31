@@ -13,10 +13,6 @@ div h3{
 	font-size:		13px;
 }
 
-div h3{
-	padding-bottom: 0.5em;
-}
-
 .MedidasCabeceraMadrid{
 	overflow:		hidden;
 	height:			60px;
@@ -43,6 +39,7 @@ div h3{
 .padding-bottom{
 	padding-bottom: 30px;
 }
+
 .margin-left{
 	margin-left: 	30px;
 }
@@ -52,11 +49,11 @@ div h3{
 }
 
 .margin-top{
-	margin-top: 	30px
+	margin-top: 	30px;
 }
 
 .margin-bottom{
-	margin-bottom: 	30px
+	margin-bottom: 	30px;
 }
 
 .color-cabecera{
@@ -71,3 +68,7 @@ div h3{
 .margin-bottom-auto {
 	margin-bottom:auto;
 }    
+
+th.columna-larga{
+	width: 300px;
+}
