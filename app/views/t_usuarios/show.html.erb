@@ -1,6 +1,7 @@
 <div class="row"> 
   <h3 class="columns">Ver Usuario</h3>
 </div>
+
 <div class="row">
     <div class="small-4 medium-2 large-1 columns">
       <label for="middle-label">Usuario:</label>
@@ -15,7 +16,8 @@
 		<%= select_tag(:bActivo, options_for_select([["",nil],["SÍ",true], ["NO", false]], @t_usuario.bActivo), {:disabled=>true}) %>
     </div>
 </div>
-<div class="row">
+
+<div class="row margin-bottom">
     <div class="small-4 medium-2 large-1 columns">
       <label for="middle-label"> Nombre:</label>
     </div>
@@ -43,21 +45,16 @@
 		<td >Descripción</td> 
 		<td>Escritura</td><td>Lectura</td><td>Sin permiso</td></tr>
 	</thead>
+
 	<tbody>
-	<% @t_usuario.TUsuariosPrograma.each do |t| %>
-	<tr>		
-		<td><%= t.TPrograma.sPrograma %></td>			
-		<td><%= t.TPrograma.sDescripcion %></td>
-		<td><%= radio_button_tag(t.TPrograma.sPrograma,"W", (t.sPermiso == "W")) %></td>
-		<td><%= radio_button_tag(t.TPrograma.sPrograma,"L", (t.sPermiso == "L")) %></td>
-		<td><%= radio_button_tag(t.TPrograma.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
-	</tr>
-	<% end %>
+		<% @t_usuario.TUsuariosPrograma.each do |t| %>
+		<tr>		
+			<td><%= t.TPrograma.sPrograma %></td>			
+			<td><%= t.TPrograma.sDescripcion %></td>
+			<td><%= radio_button_tag(t.TPrograma.sPrograma,"W", (t.sPermiso == "W")) %></td>
+			<td><%= radio_button_tag(t.TPrograma.sPrograma,"L", (t.sPermiso == "L")) %></td>
+			<td><%= radio_button_tag(t.TPrograma.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
+		</tr>
+		<% end %>
 	</tbody>
 </table>
-
-<div class="row">	
-	<div class="small-4 medium-2 large-1 columns">
-		<%= link_to 'Back', t_usuarios_path %>
-	</div>
-</div>

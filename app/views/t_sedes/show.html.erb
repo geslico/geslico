@@ -1,467 +1,475 @@
+<div class="row"> 
+  <h3 class="columns ">Ver Sede</h3>
+</div>
 
-<section class="padding-top margin-left">
+<div class="row">
 
-    <div class="row">
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Código:</label>
+    </div>
 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Código:</label>
-        </div>
+    <div class="small-8 medium-4 large-2 columns">
+      <label for="middle-label"><%= @t_sede.nCodSede %></label>
+    </div>
 
-        <div class="small-8 medium-4 large-2 columns">
-          <label for="middle-label"><%= @t_sede.nCodSede %></label>
-        </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Cabecera:</label>
+    </div>
+    
+    <div class="small-8 medium-4 large-1 columns">
+      <% if  @t_sede.nCodCampus.nil? %>
+          <label for="middle-label">-</label>
+      <% else %>
+          <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>                      
+              <label for="middle-label">SI</label>
+          <% else %>
+              <label for="middle-label">NO</label>
+          <% end %>
+      <% end %>
+    </div>
 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Cabecera:</label>
-        </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Criticidad:</label>
+    </div>
 
-        <div class="small-8 medium-4 large-1 columns">
-            
-            <% if  @t_sede.nCodCampus.nil?  %>
-                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0), {:disabled=>true}) %>                
-            <% else %>
-                <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>
-                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1), {:disabled=>true}) %>
-                <% else %>
-                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2), {:disabled=>true}) %>
+    <div class="small-8 medium-4 large-2 columns">
+
+      <% if @t_sede.nCriticidad.nil? %>
+          <label for="middle-label">-</label>
+      <% else %>
+          <% if  @t_sede.nCriticidad == 0  %>                      
+              <label for="middle-label">Normal</label>
+          <% else %>
+              <% if  @t_sede.nCriticidad == 1  %>
+                <label for="middle-label">Urgente</label>
+              <% else %>
+                <% if  @t_sede.nCriticidad == 2  %>
+                  <label for="middle-label">Crítico</label>
                 <% end %>
-            <% end %>
-        </div>
+              <% end %>      
+          <% end %>
+      <% end %>
 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Criticidad:</label>
-        </div>
+    </div>
 
-        <div class="small-8 medium-4 large-2 columns">
-            <% if  @t_sede.nCriticidad.nil?  %>
-                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]]), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag(:nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @t_sede.nCriticidad), {:disabled=>true}) %>
-            <% end %>
-        </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Estado:</label>
+    </div>
+  
+    <div class="small-8 medium-4 large-3 columns end">
+        <label for="middle-label"><%= @t_sede.TEstadosSede.cDescripcion %></label>               
+    </div>
+    
+ </div>
 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Estado:</label>
-        </div>
+ <div class="row">
 
-        <div class="small-8 medium-4 large-3 columns end">
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Nombre:</label>
+    </div>
 
-            <% if  !@t_sede.nCodEstado.nil?  %>
-                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion"), {:disabled=>true}) %>
-            <% end %>
+    <div class="small-8 medium-4 large-7 columns end">      
+      <label for="middle-label"><%= @t_sede.cNombre %></label>
+    </div>
 
-        </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <label for="middle-label">Distrito:</label>
+    </div>
+
+    <div class="small-8 medium-4 large-3 columns end">
+      <label for="middle-label"><%= @t_sede.TDistrito.cDistrito %></label>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="small-4  medium-2 large-1 columns">
+        <label for="middle-label">Dirección:</label>
      </div>
 
-     <div class="row">
- 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Nombre:</label>
-        </div>
+     <div class="small-8  medium-4 large-7 columns">
+        <label for="middle-label"><%= @t_sede.cDireccion %></label>
+     </div>
 
-        <div class="small-8 medium-4 large-7 columns end">      
-          <label for="middle-label"><%= @t_sede.cNombre %></label>
-        </div>
+    <div class="small-4  medium-2 large-1 columns">
+        <label for="middle-label">Cód.Postal:</label>
+     </div>
 
-        <div class="small-4 medium-2 large-1 columns">
-          <label for="middle-label">Distrito:</label>
-        </div>
+     <div class="small-8  medium-4 large-3 columns">
+        <label for="middle-label"><%= @t_sede.cCodPostal %></label>
+     </div>
+</div>
 
-        <div class="small-8 medium-4 large-3 columns end">
-            <% if  !@t_sede.nDistrito.nil?  %>
-                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito), {:disabled=>true}) %>
+<div class="row">
+     <div class="small-4  medium-2 large-1 columns">
+       <label for="middle-label">DevicePool:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-4 columns">
+        <% if !@t_sede.cDevicePool.nil? %>
+          <label for="middle-label"><%= @t_sede.TDevicePool.cDevicePool %></label>
+        <% else %>
+          <label for="middle-label">-</label>
+        <% end %>
+     </div>
+
+     <div class="small-4  medium-2 large-1 columns">
+        <label for="middle-label">Acrónimo:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-2 columns">
+        <% if  !@t_sede.nIdAcronimo.nil?  %>
+          <label for="middle-label"><%= @t_sede.TAcronimosSedeEdr.cCodigo %></label>
+        <% else %>
+          <label for="middle-label">-</label>
+        <% end %>
+     </div>
+
+     <div class="small-4  medium-2 large-1 columns">
+       <label for="middle-label">Gestión:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-3 columns end">
+
+        <% if  @t_sede.nCriticidad.nil?  %>
+          <label for="middle-label">-</label>
+        <% else %>
+            <% if  @t_sede.nCriticidad == 0  %>                      
+                <label for="middle-label">Municipal</label>
             <% else %>
-                <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito"), {:disabled=>true}) %>
-            <% end %>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="small-4  medium-2 large-1 columns">
-            <label for="middle-label">Dirección:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-7 columns">
-            <label for="middle-label"><%= @t_sede.cDireccion %></label>
-         </div>
-    
-        <div class="small-4  medium-2 large-1 columns">
-            <label for="middle-label">Cód.Postal:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-3 columns">
-            <label for="middle-label"><%= @t_sede.cCodPostal %></label>
-         </div>
-    </div>
-
-    <div class="row">
-         <div class="small-4  medium-2 large-1 columns">
-           <label for="middle-label">DevicePool:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-4 columns">
-            <% if  !@t_sede.cDevicePool.nil?  %>
-                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool"), {:disabled=>true}) %>
-            <% end %>
-         </div>
-
-         <div class="small-4  medium-2 large-1 columns">
-            <label for="middle-label">Acrónimo:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-2 columns">
-            <% if  !@t_sede.nIdAcronimo.nil?  %>
-                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo"), {:disabled=>true}) %>
-            <% end %>
-         </div>
-
-         <div class="small-4  medium-2 large-1 columns">
-           <label for="middle-label">Gestión:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-3 columns end">
-
-            <% if  @t_sede.nCodGestion.nil?  %>
-                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], 0), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag(:nCriticidad, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @t_sede.nCodGestion), {:disabled=>true}) %>
-            <% end %>
-
-         </div>
-    </div>
-
-    <div class="row">
-         <div class="small-4  medium-2 large-1 columns">
-           <label for="middle-label">Grupo:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-4 columns">
-
-            <% if  !@t_sede.nZona.nil?  %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo"), {:disabled=>true}) %>
-            <% end %>
-         </div>
-
-         <div class="small-4  medium-2 large-1 columns">
-            <label for="middle-label">Zona:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-2 columns">
-
-            <% if  !@t_sede.nZona.nil?  %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona), {:disabled=>true}) %>
-            <% else %>
-                <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona"), {:disabled=>true}) %>
-            <% end %>
-         </div>
-
-         <div class="small-4  medium-2 large-1 columns">
-           <label for="middle-label">ToIp:</label>
-         </div>
-
-         <div class="small-8  medium-4 large-3 columns end">   
-             
-            <% if  @t_sede.bSedeToIP.nil?  %>
-                <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0), {:disabled=>true}) %>
-            <% else %>
-                <% if @t_sede.bSedeToIP==true %>
-                    <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1), {:disabled=>true}) %>
+                <% if  @t_sede.nCriticidad == 1  %>
+                  <label for="middle-label">Privada</label>
                 <% else %>
-                    <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2), {:disabled=>true}) %>
-                <% end %>
+                  <% if  @t_sede.nCriticidad == 2  %>
+                    <label for="middle-label">Mixta</label>
+                  <% else %>
+                    <% if  @t_sede.nCriticidad == 3  %>
+                      <label for="middle-label">Otras Administ</label>
+                    <% end %>
+                  <% end %>
+                <% end %>      
             <% end %>
+        <% end %>
 
-         </div>
+     </div>
+</div>
+
+<div class="row margin-bottom">
+     <div class="small-4  medium-2 large-1 columns">
+       <label for="middle-label">Grupo:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-4 columns">
+        <% if  !@t_sede.nZona.nil?  %>
+          <label for="middle-label"><%= @t_sede.TZona.cGrupo %></label>
+        <% else %>
+          <label for="middle-label">-</label>
+        <% end %>
+     </div>
+
+     <div class="small-4  medium-2 large-1 columns">
+        <label for="middle-label">Zona:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-2 columns">
+        <% if  !@t_sede.nZona.nil?  %>
+          <label for="middle-label"><%= @t_sede.TZona.cZona %></label>
+        <% else %>
+          <label for="middle-label">-</label>
+        <% end %>
+     </div>
+
+     <div class="small-4  medium-2 large-1 columns">
+       <label for="middle-label">ToIp:</label>
+     </div>
+
+     <div class="small-8  medium-4 large-3 columns end">                 
+        <% if  @t_sede.bSedeToIP.nil?  %>
+          <label for="middle-label">-</label>
+        <% else %>                  
+          <% if  @t_sede.bSedeToIP == true  %>
+            <label for="middle-label">SI</label>
+          <% else %>
+            <% if  @t_sede.bSedeToIP == false  %>
+              <label for="middle-label">NO</label>
+            <% end %>
+          <% end %>                  
+        <% end %>
+     </div>
+</div>
+
+<!--GESTION DE BOTONES -->
+<div class="row">
+    <%= link_to '<< Volver', t_sedes_path, :class => "success button" %>        
+
+    <% if can? :read, TSede %> 
+        <%= link_to 'Editar', edit_t_sede_path(@t_sede), :class => "success button" %> 
+    <% end %>
+</div>
+
+
+<ul class="accordion margin-bottom" data-accordion="w2rdgi-accordion" data-multi-expand="true" data-allow-all-closed="true">
+  
+  <li class="accordion-item" >
+    <a href="#" class="accordion-title">Unidad SAP/Edif.</a>
+    <div class="accordion-content" data-tab-content="" >
+        
+        <p>UNIDAD SAP</p>
+
+        <div class="row">
+            <div class="small-4  medium-2 large-2 columns">
+                <label for="middle-label">Cod. Unidad:</label>
+            </div>
+            
+            <div class="small-8  medium-10 large-2 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.nCodUni rescue nil %></label>
+            </div>
+       
+            <div class="small-4 medium-2 large-2 columns">
+                <label for="middle-label">Unidad:</label>                    
+            </div>
+            
+            <div class="small-8 medium-10 large-6 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.cDenominacion rescue nil %></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 medium-2 large-2 columns">
+                <label for="middle-label">Dirección:</label>                    
+            </div>
+            
+            <div class="small-8 medium-10 large-10 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.cDir rescue nil %></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4 medium-2 large-2 columns">                    
+                <label for="middle-label">Cod. Postal:</label>
+            </div>
+            
+            <div class="small-8 medium-2 large-2 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.cCodPostal rescue nil %></label>
+            </div>
+        
+            <div class="small-4 medium-2 large-2 columns">
+                <label for="middle-label">Municipio:</label>                    
+            </div>
+            
+            <div class="small-8 medium-6 large-6 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.cMunicipio rescue nil %></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4  medium-2 large-2 columns">                    
+                <label for="middle-label">Centro Coste:</label>
+            </div>
+            
+            <div class="small-8 medium-10 large-10 columns">
+                <label for="middle-label"><%= @t_sede.TUnidad.cCodCenCoste rescue nil %></label>
+            </div>
+        </div>
+
+        <br>
+        
+        <p>EDIFICIO SAP</p>
+
+        <div class="row">
+            <div class="small-4  medium-2 large-2 columns">
+                <label for="middle-label">Código:</label>
+            </div>
+            
+            <div class="small-8  medium-10 large-10 columns">
+                <label for="middle-label"><%= @t_sede.TEdificio.nCodEdificio rescue nil %></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4  medium-2 large-2 columns">
+                <label for="middle-label">Dirección:</label>
+            </div>
+
+            <div class="small-8  medium-10 large-10 columns">
+                <label for="middle-label"><%= @t_sede.TEdificio.cTipoVia rescue nil %> <%= @t_sede.TEdificio.cNombreCalle rescue nil %></label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="small-4  medium-2 large-2 columns">                    
+                <label for="middle-label">Número:</label>
+            </div>
+            
+            <div class="small-8  medium-2 large-2 columns">
+                <label for="middle-label"><%= @t_sede.TEdificio.cNumero rescue nil %></label>
+            </div>
+       
+            <div class="small-4 medium-2 large-2 columns">
+                <label for="middle-label">Cód. Postal:</label>                    
+            </div>
+            
+            <div class="small-8  medium-2 large-2 columns">
+                <label for="middle-label"><%= @t_sede.TEdificio.cCodPostal rescue nil %></label>
+            </div>
+        
+            <div class="small-4  medium-2 large-2 columns">                    
+                <label for="middle-label">Municipio:</label>
+            </div>
+            
+            <div class="small-8  medium-2 large-2 columns">
+                <label for="middle-label"><%= @t_sede.TEdificio.cMunicipio rescue nil %></label>
+            </div>
+        </div>
+
+    </div>
+  </li>
+
+  <li class="accordion-item">
+    <a href="#" class="accordion-title">Contacto</a>
+    <div class="accordion-content" data-tab-content="" >      
+        
+        <div class="row">
+            <div class="small-5  medium-2 large-1 columns">
+                <label for="middle-label">Persona:</label>
+            </div>
+            <div class="small-7  medium-10 large-5 columns">
+                <label for="middle-label"><%= @t_sede.cPersonaContacto %></label>
+            </div>
+        
+            <div class="small-5  medium-2 large-1 columns">
+                <label for="middle-label">Mail:</label>
+            </div>
+
+            <div class="small-7  medium-10 large-5 columns">
+                <label for="middle-label"><%= @t_sede.ceMailContacto %></label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="small-5  medium-2 large-1 columns">
+                <label for="middle-label">Fijo:</label>
+            </div>
+
+            <div class="small-7  medium-4 large-2 columns">
+                <label for="middle-label"><%= @t_sede.cTelefonoContacto %></label>
+            </div>
+        
+            <div class="small-5  medium-3 large-2 columns large-text-right ">
+                <label class = " " for="middle-label">Corto Fijo:</label>
+            </div>
+            
+            <div class="small-7  medium-3 large-1  columns">
+                <label  for="middle-label"><%= @t_sede.cCortoFijo %></label>
+            </div>
+        
+            <div class="small-5  medium-2 large-1 columns">
+                <label for="middle-label">Móvil:</label>
+            </div>
+            
+            <div class="small-7  medium-4 large-2 columns">
+                <label for="middle-label"><%= @t_sede.cMovilContacto %></label>
+            </div>
+       
+            <div class="small-5  medium-3 large-2 columns large-text-right">
+                <label for="middle-label">Corto Móvil:</label>
+            </div>
+            
+            <div class="small-7  medium-3 large-1 columns">
+                <label for="middle-label"><%= @t_sede.cCortoMovil %></label>
+            </div>
+        </div>
+
+         <div class="row margin-bottom">
+            <div class="small-5  medium-2 large-1 columns">
+                <label for="middle-label">Observac.:</label>
+            </div>
+
+            <div class="small-7  medium-10 large-11 columns">
+                <label for="middle-label"><%= @t_sede.cPersonaContactoObserv %></label>
+            </div>
+        </div>
+
+        <label class="" for="middle-label">TÉCNICOS SICAM:</label>
+        <br>
+        <div class="">
+            
+            <table class="stack">
+                <thead class="color-cabecera">                                              
+                    <tr>                
+                        <th>Técnico</th>
+                        <th>Tlf. Fijo</th>
+                        <th>Tlf. Móvil</th>
+                        <th>E-Mail</th>
+                    </tr>
+                </thead>
+            
+                <tbody>                
+                    <% @t_sede.TSicamPersonaGrupo.each do |t| %>
+                        <tr>        
+                            <td><%=  t.Full_Name %></td>           
+                            <td><%=  t.SICAM_txt_telefono_contacto %></td>    
+                            <td><%=  t.Phone_Number_Mobile %></td>    
+                            <td><%=  t.Internet_E_mail %></td>                               
+                        </tr>                    
+                    <% end %>                
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
-</section>
+  </li>
 
+  <li class="accordion-item">
+    <a href="#" class="accordion-title">Infraestructura</a>
+    <div class="accordion-content" data-tab-content="" >
+      Panel 3. Lorem ipsum dolor
+    </div>
+  </li>
 
+  <li class="accordion-item">
+    <a href="#" class="accordion-title">Actuaciones</a>
+    <div class="accordion-content" data-tab-content="" >
+      Panel 4. Lorem ipsum dolor
+    </div>
+  </li>
 
+  <li class="accordion-item">
+    <a href="#" class="accordion-title">Ubicación en mapa</a>
+    <div class="accordion-content" data-tab-content="" >
+        <div class="row text-center" >
 
+            <% if @t_sede.cLatitud.nil?  %>
+                <iframe 
+                    width="800" 
+                    height="400" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
+                    &q=<%= @t_sede.cDireccion %>">                            
+                </iframe>
 
+            <% else %>
 
-
-
-
-<section class="padding-top padding-bottom margin-left">
-
-    <ul class="accordion" data-accordion="w2rdgi-accordion" data-multi-expand="true" data-allow-all-closed="true">
-      
-      <li class="accordion-item" >
-        <a href="#" class="accordion-title">Unidad SAP/Edif.</a>
-        <div class="accordion-content" data-tab-content="" >
+                <iframe 
+                    width="800" 
+                    height="400" 
+                    frameborder="0" 
+                    scrolling="no" 
+                    marginheight="0" 
+                    marginwidth="0" 
+                    src = "https://maps.google.com/maps?q=<%= @t_sede.cLatitud %>,<%= @t_sede.cLongitud%>
+                    &z=20&amp;output=embed&amp;iwloc=">                            
+                </iframe>
+            <% end %>
             
-            <p>UNIDAD SAP</p>
-
-            <div class="row">
-                <div class="small-4  medium-2 large-2 columns">
-                    <label for="middle-label">Cod. Unidad:</label>
-                </div>
-                
-                <div class="small-8  medium-10 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.nCodUni rescue nil %></label>
-                </div>
-           
-                <div class="small-4 medium-2 large-2 columns">
-                    <label for="middle-label">Unidad:</label>                    
-                </div>
-                
-                <div class="small-8 medium-10 large-6 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.cDenominacion rescue nil %></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-4 medium-2 large-2 columns">
-                    <label for="middle-label">Dirección:</label>                    
-                </div>
-                
-                <div class="small-8 medium-10 large-10 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.cDir rescue nil %></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-4 medium-2 large-2 columns">                    
-                    <label for="middle-label">Cod. Postal:</label>
-                </div>
-                
-                <div class="small-8 medium-2 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.cCodPostal rescue nil %></label>
-                </div>
-            
-                <div class="small-4 medium-2 large-2 columns">
-                    <label for="middle-label">Municipio:</label>                    
-                </div>
-                
-                <div class="small-8 medium-6 large-6 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.cMunicipio rescue nil %></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-4  medium-2 large-2 columns">                    
-                    <label for="middle-label">Centro Coste:</label>
-                </div>
-                
-                <div class="small-8 medium-10 large-10 columns">
-                    <label for="middle-label"><%= @t_sede.TUnidad.cCodCenCoste rescue nil %></label>
-                </div>
-            </div>
-
-            <br>
-            
-            <p>EDIFICIO SAP</p>
-
-            <div class="row">
-                <div class="small-4  medium-2 large-2 columns">
-                    <label for="middle-label">Código:</label>
-                </div>
-                
-                <div class="small-8  medium-10 large-10 columns">
-                    <label for="middle-label"><%= @t_sede.TEdificio.nCodEdificio rescue nil %></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-4  medium-2 large-2 columns">
-                    <label for="middle-label">Dirección:</label>
-                </div>
-
-                <div class="small-8  medium-10 large-10 columns">
-                    <label for="middle-label"><%= @t_sede.TEdificio.cTipoVia rescue nil %> <%= @t_sede.TEdificio.cNombreCalle rescue nil %></label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="small-4  medium-2 large-2 columns">                    
-                    <label for="middle-label">Número:</label>
-                </div>
-                
-                <div class="small-8  medium-2 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.TEdificio.cNumero rescue nil %></label>
-                </div>
-           
-                <div class="small-4 medium-2 large-2 columns">
-                    <label for="middle-label">Cód. Postal:</label>                    
-                </div>
-                
-                <div class="small-8  medium-2 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.TEdificio.cCodPostal rescue nil %></label>
-                </div>
-            
-                <div class="small-4  medium-2 large-2 columns">                    
-                    <label for="middle-label">Municipio:</label>
-                </div>
-                
-                <div class="small-8  medium-2 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.TEdificio.cMunicipio rescue nil %></label>
-                </div>
-            </div>
-
-        </div>
-      </li>
-
-      <li class="accordion-item">
-        <a href="#" class="accordion-title">Contacto</a>
-        <div class="accordion-content" data-tab-content="" >      
-            
-            <div class="row">
-                <div class="small-5  medium-2 large-1 columns">
-                    <label for="middle-label">Persona:</label>
-                </div>
-                <div class="small-7  medium-10 large-5 columns">
-                    <label for="middle-label"><%= @t_sede.cPersonaContacto %></label>
-                </div>
-            
-                <div class="small-5  medium-2 large-1 columns">
-                    <label for="middle-label">Mail:</label>
-                </div>
-
-                <div class="small-7  medium-10 large-5 columns">
-                    <label for="middle-label"><%= @t_sede.ceMailContacto %></label>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="small-5  medium-2 large-1 columns">
-                    <label for="middle-label">Fijo:</label>
-                </div>
-
-                <div class="small-7  medium-4 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.cTelefonoContacto %></label>
-                </div>
-            
-                <div class="small-5  medium-3 large-2 columns large-text-right ">
-                    <label class = " " for="middle-label">Corto Fijo:</label>
-                </div>
-                
-                <div class="small-7  medium-3 large-1  columns">
-                    <label  for="middle-label"><%= @t_sede.cCortoFijo %></label>
-                </div>
-            
-                <div class="small-5  medium-2 large-1 columns">
-                    <label for="middle-label">Móvil:</label>
-                </div>
-                
-                <div class="small-7  medium-4 large-2 columns">
-                    <label for="middle-label"><%= @t_sede.cMovilContacto %></label>
-                </div>
-           
-                <div class="small-5  medium-3 large-2 columns large-text-right">
-                    <label for="middle-label">Corto Móvil:</label>
-                </div>
-                
-                <div class="small-7  medium-3 large-1 columns">
-                    <label for="middle-label"><%= @t_sede.cCortoMovil %></label>
-                </div>
-            </div>
-
-             <div class="row margin-bottom">
-                <div class="small-5  medium-2 large-1 columns">
-                    <label for="middle-label">Observac.:</label>
-                </div>
-
-                <div class="small-7  medium-10 large-11 columns">
-                    <label for="middle-label"><%= @t_sede.cPersonaContactoObserv %></label>
-                </div>
-            </div>
-
-            <label class="" for="middle-label">TÉCNICOS SICAM:</label>
-            <br>
-            <div class="">
-                
-                <table class="stack">
-                    <thead class="color-cabecera">                                              
-                        <tr>                
-                            <th>Técnico</th>
-                            <th>Tlf. Fijo</th>
-                            <th>Tlf. Móvil</th>
-                            <th>E-Mail</th>
-                        </tr>
-                    </thead>
-                
-                    <tbody>                
-                        <% @t_sede.TSicamPersonaGrupo.each do |t| %>
-                            <tr>        
-                                <td><%=  t.Full_Name %></td>           
-                                <td><%=  t.SICAM_txt_telefono_contacto %></td>    
-                                <td><%=  t.Phone_Number_Mobile %></td>    
-                                <td><%=  t.Internet_E_mail %></td>                               
-                            </tr>                    
-                        <% end %>                
-                    </tbody>
-                </table>
-            </div>
-
         </div>
 
-      </li>
+    </div>
 
-      <li class="accordion-item">
-        <a href="#" class="accordion-title">Infraestructura</a>
-        <div class="accordion-content" data-tab-content="" >
-          Panel 3. Lorem ipsum dolor
-        </div>
-      </li>
+  </li>
 
-      <li class="accordion-item">
-        <a href="#" class="accordion-title">Actuaciones</a>
-        <div class="accordion-content" data-tab-content="" >
-          Panel 4. Lorem ipsum dolor
-        </div>
-      </li>
-
-      <li class="accordion-item">
-        <a href="#" class="accordion-title">Ubicación en mapa</a>
-        <div class="accordion-content" data-tab-content="" >
-            <div class="row text-center" >
-
-                <% if @t_sede.cLatitud.nil?  %>
-                    <iframe 
-                        width="800" 
-                        height="400" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        src="https://www.google.es/maps/embed/v1/place?key=AIzaSyANl_IlDg2a1xumlDuMC4-c5QHFYYGUHUc
-                        &q=<%= @t_sede.cDireccion %>">                            
-                    </iframe>
-
-                <% else %>
-
-                    <iframe 
-                        width="800" 
-                        height="400" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        marginheight="0" 
-                        marginwidth="0" 
-                        src = "https://maps.google.com/maps?q=<%= @t_sede.cLatitud %>,<%= @t_sede.cLongitud%>
-                        &z=20&amp;output=embed&amp;iwloc=">                            
-                    </iframe>
-                <% end %>
-                
-            </div>
-
-        </div>
-
-      </li>
-
-    </ul>
-
-</section>
-
-<!--<%= link_to 'Edit', edit_t_sede_path(@t_sede) %> | -->
-<%= link_to 'Back', t_sedes_path %>
-
+</ul>
