@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Organigrama Municipal</h1>
+
+
+<div class="tree">
+  <% i=-1 %> 
+  <% @organigrama.each do |t| %>
+    <% while i>t.depth %>
+      <% i=i-1 %>
+      </ul>
+    <% end %>
+    <% if i<t.depth %>
+      <ul>      
+      <% i=i+1 %>
+    <% end %>
+    <li>
+      <a>
+       <%= t.nCodUni %> - 
+       <strong><%= t.cDenominacion %> </strong>
+      </a> 
+      
+    </li>
+  <% end %>
+</div>

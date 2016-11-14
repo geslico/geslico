@@ -1,7 +1,8 @@
 class TUnidad < ActiveRecord::Base
-
-	self.table_name ="geslico.dbo.TUnidades"
+	include Tree
 	
+	self.table_name ="geslico.dbo.TUnidades"		
+
 	has_one :TArea, :foreign_key => "nIdArea"
 	has_one :TUnidad, :foreign_key => "nCodUniPadre"
 
@@ -11,4 +12,5 @@ class TUnidad < ActiveRecord::Base
 	belongs_to :TUnidad, :foreign_key => "nIdArea", :primary_key => "nCodUni"
 	belongs_to :TUnidad, :foreign_key => "nCodUniPadre", :primary_key => "nCodUni"
 	
+
 end
