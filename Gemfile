@@ -33,6 +33,8 @@ gem 'capybara', '~> 2.10', '>= 2.10.1'
 gem 'factory_girl_rails', '~> 4.7'
 gem 'i18n-tasks', '~> 0.9.5'
 
+gem 'ancestry'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
