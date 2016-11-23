@@ -43,9 +43,9 @@
 
       <div class="small-8 medium-4 large-3 columns end">
           <% if  !@t_sede.nCodEstado.nil?  %>
-              <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado)) %>
+              <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_estados_sedes.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado)) %>
           <% else %>
-              <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion")) %>
+              <%= select_tag( :nCodEstado, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_estados_sedes.all, "nCodEstado", "cDescripcion")) %>
           <% end %>
       </div>
    </div>
@@ -65,9 +65,9 @@
 
       <div class="small-8 medium-4 large-3 columns end">
           <% if  !@t_sede.nDistrito.nil?  %>
-              <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito)) %>
+              <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_distritos.all, "nDistrito", "cDistrito", @t_sede.nDistrito)) %>
           <% else %>
-              <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito")) %>
+              <%= select_tag( :nDistrito, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_distritos.all, "nDistrito", "cDistrito")) %>
           <% end %>
       </div>
   </div>
@@ -97,9 +97,9 @@
 
        <div class="small-8  medium-4 large-4 columns">
           <% if  !@t_sede.cDevicePool.nil?  %>
-              <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool)) %>
+              <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_device_pools.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool)) %>
           <% else %>
-              <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool")) %>
+              <%= select_tag( :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_device_pools.all, "cDevicePool", "cDevicePool")) %>
           <% end %>
        </div>
 
@@ -109,9 +109,9 @@
 
        <div class="small-8  medium-4 large-2 columns">
           <% if  !@t_sede.nIdAcronimo.nil?  %>
-              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
+              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_acronimos_sede_edr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
           <% else %>
-              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")) %>
+              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_acronimos_sede_edr.all, "nId", "cCodigo")) %>
           <% end %>
        </div>
 
@@ -138,9 +138,9 @@
        <div class="small-8  medium-4 large-4 columns">
 
           <% if  !@t_sede.nZona.nil?  %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona)) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_zonas.all, "nCodZona", "cGrupo", @t_sede.nZona)) %>
           <% else %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo")) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_zonas.all, "nCodZona", "cGrupo")) %>
           <% end %>
        </div>
 
@@ -151,9 +151,9 @@
        <div class="small-8  medium-4 large-2 columns">
 
           <% if  !@t_sede.nZona.nil?  %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona)) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_zonas.all, "nCodZona", "cZona", @t_sede.nZona)) %>
           <% else %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona")) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(t_zonas.all, "nCodZona", "cZona")) %>
           <% end %>
        </div>
 
