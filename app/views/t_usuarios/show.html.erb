@@ -47,13 +47,13 @@
 	</thead>
 
 	<tbody>
-		<% @t_usuario.TUsuariosPrograma.each do |t| %>
+		<% @t_usuario.t_usuarios_programas.each do |t| %>
 		<tr>		
-			<td><%= t.TPrograma.sPrograma %></td>			
-			<td><%= t.TPrograma.sDescripcion %></td>
-			<td><%= radio_button_tag(t.TPrograma.sPrograma,"W", (t.sPermiso == "W")) %></td>
-			<td><%= radio_button_tag(t.TPrograma.sPrograma,"L", (t.sPermiso == "L")) %></td>
-			<td><%= radio_button_tag(t.TPrograma.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
+			<td><%= t.t_programa.sPrograma %></td>			
+			<td><%= t.t_programa.sDescripcion %></td>
+			<td><%= radio_button_tag(t.t_programa.sPrograma,"W", (t.sPermiso == "W")) %></td>
+			<td><%= radio_button_tag(t.t_programa.sPrograma,"L", (t.sPermiso == "L")) %></td>
+			<td><%= radio_button_tag(t.t_programa.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
 		</tr>
 		<% end %>
 	</tbody>

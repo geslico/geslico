@@ -4,8 +4,8 @@ class TUsuario < ActiveRecord::Base
 	self.table_name ="geslico.dbo.TUsuarios"
 
 	#relación con TUsuariosProgramas
-	has_many	:TUsuariosPrograma, :foreign_key => "nIdUsuario"
-	has_many	:TPrograma, through: :TUsuariosPrograma, :foreign_key => "nCodPrograma"
+	has_many	:t_usuarios_programas, :foreign_key => "nIdUsuario"
+	has_many	:t_programas, through: :t_usuarios_programas, :foreign_key => "nCodPrograma"
 
 	before_save { self.cCodUsuario = cCodUsuario.downcase }
   	before_save { self.cCorreo = cCorreo.downcase }
