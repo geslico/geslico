@@ -224,10 +224,10 @@
           <% end %>
 
           <td><%= t_sede.nCodUni %></td>
-          <td><%= t_sede.TUnidad.cDenominacion rescue nil %></td>  
-          <td><%= t_sede.TDistrito.cDistrito rescue nil %></td>  
-          <td><%= t_sede.TZona.cZona rescue nil %></td>  
-          <td><%= t_sede.TZona.cGrupo rescue nil %></td>  
+          <td><%= t_sede.t_unidad.cDenominacion rescue nil %></td>  
+          <td><%= t_sede.t_distrito.cDistrito rescue nil %></td>  
+          <td><%= t_sede.t_zona.cZona rescue nil %></td>  
+          <td><%= t_sede.t_zona.cGrupo rescue nil %></td>  
           
         </tr>
       <% end %>

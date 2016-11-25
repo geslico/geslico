@@ -5,6 +5,7 @@ class TUnidadesController < ApplicationController
   # GET /t_unidades.json
   def index
     @organigrama = TUnidad.where("nCodUni=10000000 or nCodUniPadre=10000000 or nCodUniPadre=10000001 or nIdArea=10000002").arrange_as_array({:order => 'norder'})
+    @t_unidades = TUnidad.all    
   end
 
   # GET /t_unidades/1
