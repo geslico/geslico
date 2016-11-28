@@ -10,15 +10,15 @@ class Ability
     
         alias_action :create, :read, :update, :to => :cru
         
-        user.TUsuariosPrograma.each do |p|
+        user.t_usuarios_programas.each do |p|
             
-            if !p.TPrograma.sModelos.nil?
+            if !p.t_programa.sModelos.nil?
                 if p.sPermiso=="L"            
-                    can :read, p.TPrograma.sModelos.split(",").map { |s| s.constantize }
+                    can :read, p.t_programa.sModelos.split(",").map { |s| s.constantize }
                 elsif p.sPermiso=="W"                                
-                    can :cru, p.TPrograma.sModelos.split(",").map { |s| s.constantize }
+                    can :cru, p.t_programa.sModelos.split(",").map { |s| s.constantize }
                 elsif p.sPermiso=="N"                
-                    cannot :read, p.TPrograma.sModelos.split(",").map { |s| s.constantize }
+                    cannot :read, p.t_programa.sModelos.split(",").map { |s| s.constantize }
                 end        
             end
         end 

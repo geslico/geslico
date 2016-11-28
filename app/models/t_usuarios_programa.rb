@@ -7,7 +7,7 @@ class TUsuariosPrograma < ActiveRecord::Base
 					TUsuariosPrograma.sPermiso, TProgramas.sPrograma")
 
 	#Relación con TUsuarios y TProgramas  
-	belongs_to :TUsuario , :foreign_key => "nIdUsuario"
-	belongs_to :TPrograma , :foreign_key => "nCodPrograma"
+	belongs_to :t_usuario , :foreign_key => "nIdUsuario"
+	belongs_to :t_programa , :foreign_key => "nCodPrograma"
 
 end

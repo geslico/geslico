@@ -4,7 +4,7 @@ class TPrograma < ActiveRecord::Base
 	self.table_name ="geslico.dbo.TProgramas"
 	
 	#Relación con TUsuariosProgramas
-	has_many	:TUsuariosPrograma, :foreign_key => "nCodPrograma"
-	has_many	:TUsuario, through: :TUsuariosPrograma, :foreign_key => "nIdUsuario"
+	has_many	:t_usuarios_programas, :foreign_key => "nCodPrograma"
+	has_many	:t_usuarios, through: :t_usuarios_programas, :foreign_key => "nIdUsuario"
 
 end

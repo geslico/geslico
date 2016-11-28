@@ -121,11 +121,11 @@
     </div>
 
     <div class="small-3 medium-2 large-1 columns">
-      <%= f.label :TUnidad_cDenominacion_cont, 'Unidad', for: "middle-label", class: "text-right" %>
+      <%= f.label :t_unidad_cDenominacion_cont, 'Unidad', for: "middle-label", class: "text-right" %>
     </div>
 
     <div class="small-9 medium-5 large-8 columns">
-      <%= f.search_field :TUnidad_cDenominacion_cont %> 
+      <%= f.search_field :t_unidad_cDenominacion_cont %> 
     </div>
 
   </div>
@@ -224,10 +224,10 @@
           <% end %>
 
           <td><%= t_sede.nCodUni %></td>
-          <td><%= t_sede.TUnidad.cDenominacion rescue nil %></td>  
-          <td><%= t_sede.TDistrito.cDistrito rescue nil %></td>  
-          <td><%= t_sede.TZona.cZona rescue nil %></td>  
-          <td><%= t_sede.TZona.cGrupo rescue nil %></td>  
+          <td><%= t_sede.t_unidad.cDenominacion rescue nil %></td>  
+          <td><%= t_sede.t_distrito.cDistrito rescue nil %></td>  
+          <td><%= t_sede.t_zona.cZona rescue nil %></td>  
+          <td><%= t_sede.t_zona.cGrupo rescue nil %></td>  
           
         </tr>
       <% end %>
