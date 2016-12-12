@@ -11,30 +11,86 @@
     </div>
   <% end %>
 
-
-  <div>
-    <%= f.label :cCodUsuario, "Cod.Usuario" %>
-    <%= f.text_field :cCodUsuario %>
-    
-    <%= f.label :bActivo, "Activo" %>
-    <%= f.select(:bActivo, options_for_select([["Sí",true], ["No", false]])) %><br/>
-
-    <%= f.label :cNombre, "Nombre Usuario" %>
-    <%= f.text_field :cNombre %>
-
-    <%= f.label :cCorreo, "Correo" %>
-    <%= f.email_field :cCorreo %><br/>
-
-    <%= f.label :password, "Password" %>
-    <%= f.password_field :password %>
-
-    <%= f.label :password_confirmation, "Confirmación" %>
-    <%= f.password_field :password_confirmation %><br/>
-
+  <div class="row">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cCodUsuario, "Usuario", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.text_field :cCodUsuario, for: 'middle-label' %>
+    </div>
+      <div class="small-4 medium-2 large-1 columns">
+    <%= f.label :bActivo, "Activo", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-2 columns end">          
+      <%= f.select :bActivo, options_for_select([["Sí",true], ["No", false]]), for: 'middle-label' %>        
+    </div>
   </div>
-  <div class="actions">
-  <%= f.submit "Crear Usuario"%> 
+
+  <div class="row margin-bottom">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cNombre, "Nombre", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.text_field :cNombre, for: 'middle-label' %>
+    </div>
+  <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cCorreo, "Correo", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns end ">
+      <%= f.email_field :cCorreo, for: 'middle-label' %>
+    </div>
+</div>
+
+  <div class="row margin-bottom">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :password, "Password", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.password_field :password , for: 'middle-label'  %>
+    </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :password_confirmation, "Confirmación", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns end ">
+      <%= f.password_field :password_confirmation, for: 'middle-label'  %>
+    </div>
+  </div>
+
+  <div class="row">
+      <%= link_to '<< Volver', t_usuarios_path, :class => "success button" %>        
+      <% if can? :cru, TUsuario %>                     
+        <%= f.submit 'Guardar', class: 'success button' %>
+      <% end %>      
+  </div>
+
+  <table class="table-scroll">
+    <thead  class="color-cabecera">
+      <tr><td>Programa</td> 
+      <td >Descripción</td> 
+      <td>Permiso</td></tr>
+    </thead>
+
+    <tbody>   
+
+      <%= f.fields_for :t_usuarios_programas do |ff| %>
+      <%= ff.fields_for :t_programa do |fff| %>
+      <%= ff.hidden_field :nCodPrograma %>
+      <%= ff.hidden_field :nIdUsuario %>
+      <tr>        
+        
+        <td><%= fff.text_field :sPrograma %></td>
+        <td><%= ff.select :sPermiso, [["Sin Permiso", "N"], ["Lectura", "L"], ["Escritura", "W"]] %> </td>      
+      </tr>
+      <% end %> 
+      <% end %> 
+    </tbody>   
+  </table>
+    <div class="row">
+      <%= link_to '<< Volver', t_usuarios_path, :class => "success button" %>        
+
+      <% if can? :cru, TUsuario %>                     
+        <%= f.submit 'Guardar', class: 'success button' %>
+      <% end %>      
   </div>
 
 <% end %>
-

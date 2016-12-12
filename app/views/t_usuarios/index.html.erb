@@ -46,7 +46,7 @@
   <div class="row">
       <%= f.submit :class => "success button" %>
       <%= link_to "Limpiar", request.path, :class => "success button" %>
- 
+      <%= link_to 'Nuevo Usuario', new_t_usuario_path, :class => "success button"  %>
 </form>
 </div>
 
@@ -65,33 +65,33 @@
 <table class="table-scroll">
   <thead  class="color-cabecera">
     <tr>
+      <% if can? :read, TUsuario %>
+        <th>Ver</th>
+      <% end %>
+      <% if can? :cru, TUsuario %>
+        <th>Editar</th>
+      <% end %>
       <th><%= sort_link(@q, :cCodUsuario, 'Código') %></th>
       <th><%= sort_link(@q, :cNombre, 'Nombre') %></th>
       <th><%= sort_link(@q, :cCorreo, 'Correo') %></th>
       <th><%= sort_link(@q, :bActivo, 'Activo') %></th>
-      <% if can? :read, TUsuario %>
-      <th>Ver</th>
-      <% end %>
-      <% if can? :cru, TUsuario %>
-      <th>Editar</th>
-      <% end %>
     </tr>
   </thead>
   
   <tbody>
     <% @t_usuarios.each do |t| %>
       <tr>
+        <% if can? :read, TUsuario %>
+          <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
+        <% end %>
+        <% if can? :cru, TUsuario %>
+          <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
+        <% end %>      
         <td><%= t.cCodUsuario %></td>
         <td><%= t.cNombre %></td>
         <td><%= t.cCorreo %></td>
         <td><%= t.bActivo %></td>                
-        <% if can? :read, TUsuario %>
-        <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
-        <% end %>
-        <% if can? :cru, TUsuario %>
-        <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
-        <% end %>
-      
+        
       </tr>
     <% end %>
   </tbody>

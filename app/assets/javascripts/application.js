@@ -17,6 +17,7 @@
 //= require_tree .
 //= require t_contajes
 //= require t_sedes
+//= require cocoon
 
 $(function(){ $(document).foundation(); });
 

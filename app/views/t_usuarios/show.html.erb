@@ -34,7 +34,7 @@
 
 <div class="row">
 	<%= link_to  ' << Volver ' , t_usuarios_path, :class => "success button"  %>
-	<% if can? :read, TUsuario %> 
+	<% if can? :cru, TUsuario %> 
 	<%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "success button" %> 
 	<% end %>
 </div>
@@ -43,18 +43,23 @@
 	<thead  class="color-cabecera">
 		<tr><td>Programa</td> 
 		<td >Descripción</td> 
-		<td>Escritura</td><td>Lectura</td><td>Sin permiso</td></tr>
+		<td>Permiso</td></tr>
 	</thead>
 
-	<tbody>
-		<% @t_usuario.t_usuarios_programas.each do |t| %>
-		<tr>		
-			<td><%= t.t_programa.sPrograma %></td>			
-			<td><%= t.t_programa.sDescripcion %></td>
-			<td><%= radio_button_tag(t.t_programa.sPrograma,"W", (t.sPermiso == "W")) %></td>
-			<td><%= radio_button_tag(t.t_programa.sPrograma,"L", (t.sPermiso == "L")) %></td>
-			<td><%= radio_button_tag(t.t_programa.sPrograma,"N", (t.sPermiso == "N" || t.sPermiso.nil? )) %></td>			
-		</tr>
-		<% end %>
+	<tbody>		
+			<% @t_usuario.t_usuarios_programas.each do |up| %>
+			<tr>				
+				<td><%= up.t_programa.sPrograma %></td>				
+				<td><%= up.t_programa.sDescripcion %></td>			
+				<td><%= select_tag(:sPermiso, options_for_select([["Sin Permiso", "N"], ["Lectura", "L"], ["Escritura", "W"]], up.sPermiso), {:disabled=>true}) %></td>
+			</tr>
+			<% end %>					
 	</tbody>
 </table>
+
+<div class="row">
+  <%= link_to  ' << Volver ' , t_usuarios_path, :class => "success button"  %>
+  <% if can? :cru, TUsuario %> 
+  <%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "success button" %> 
+  <% end %>
+</div>

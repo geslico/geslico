@@ -1,1 +1,0 @@
-json.array! @t_programas, partial: 't_programas/t_programa', as: :t_programa

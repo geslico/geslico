@@ -7,11 +7,7 @@ class TUsuariosProgramasController < ApplicationController
   # GET /t_usuarios_programas
   # GET /t_usuarios_programas.json
   def index
-    #@t_usuarios_programas = TUsuariosPrograma.all
-    @q = TUsuariosPrograma.ransack params[:q] 
-    @t_usuarios_programas = @q.result.includes(:TPrograma)
-
-
+    @t_usuarios_programas = TUsuariosPrograma.all
   end
 
   # GET /t_usuarios_programas/1
