@@ -34,6 +34,7 @@ class TUsuariosController < ApplicationController
 
     respond_to do |format|
       if @t_usuario.save
+        add_usuario_programas_permisos
         format.html { redirect_to @t_usuario, notice: 'Usuario creado correctamente.' }
       else
         format.html { render :new }
@@ -49,6 +50,7 @@ class TUsuariosController < ApplicationController
 
     respond_to do |format|
       if @t_usuario.update(t_usuario_params)
+        add_usuario_programas_permisos
         format.html { redirect_to @t_usuario, notice: 'Usuario modificado correctamente.' }
       else
         format.html { render :edit }
@@ -76,5 +78,8 @@ class TUsuariosController < ApplicationController
       params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
                                    :password_confirmation, t_usuarios_programas_attributes: [:id, :nIdUsuario, :nCodPrograma, :sPermiso])
     end
-
+    def add_usuario_programas_permisos
+      # Defino esta llamada al procedimiento almacenado para que actualice junto con el alta de los usuarios
+      ActiveRecord::Base.connection.execute('EXEC geslico.dbo.AutoAltaUsuariosProgramas')
+    end 
 end

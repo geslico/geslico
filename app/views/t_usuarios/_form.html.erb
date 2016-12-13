@@ -49,7 +49,7 @@
       <%= f.password_field :password , for: 'middle-label'  %>
     </div>
     <div class="small-4 medium-2 large-1 columns">
-      <%= f.label :password_confirmation, "Confirmación", for: 'middle-label' %>
+      <%= f.label :password_confirmation, "Confirmar", for: 'middle-label' %>
     </div>
     <div class="small-8 medium-4 large-5 columns end ">
       <%= f.password_field :password_confirmation, for: 'middle-label'  %>
@@ -77,8 +77,8 @@
       <%= ff.hidden_field :nCodPrograma %>
       <%= ff.hidden_field :nIdUsuario %>
       <tr>        
-        
-        <td><%= fff.text_field :sPrograma %></td>
+        <td><%= fff.label :sPrograma, fff.object.sPrograma %></td> 
+        <td><%= fff.label :sDescripcion, fff.object.sDescripcion %></td>                       
         <td><%= ff.select :sPermiso, [["Sin Permiso", "N"], ["Lectura", "L"], ["Escritura", "W"]] %> </td>      
       </tr>
       <% end %> 
@@ -94,3 +94,6 @@
   </div>
 
 <% end %>
+
+
+

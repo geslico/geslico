@@ -9,7 +9,7 @@ class TUsuario < ActiveRecord::Base
 	accepts_nested_attributes_for :t_usuarios_programas, :t_programas
 
 	before_save { self.cCodUsuario = cCodUsuario.downcase }
-  before_save { self.cCorreo = cCorreo.downcase }
+  	before_save { self.cCorreo = cCorreo.downcase }
 
 	#Validaciones sobre el usuario
 	validates :cCodUsuario, presence: true, length: { minimum: 6 }
