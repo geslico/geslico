@@ -26,7 +26,6 @@ gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'cancancan'
-gem "cocoon"
 
 # Test tools
 gem 'rspec', '~> 3.5'
