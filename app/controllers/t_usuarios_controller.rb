@@ -5,14 +5,12 @@ class TUsuariosController < ApplicationController
   before_action :set_t_usuario, only: [:show, :edit, :update, :destroy]
 
   # GET /t_usuarios
-  # GET /t_usuarios.json
   def index
     @q = TUsuario.ransack params[:q]     
     @t_usuarios = @q.result.page(params[:page]).per(25)     
   end
 
   # GET /t_usuarios/1
-  # GET /t_usuarios/1.json
   def show
     @t_usuario = TUsuario.find(params[:id])    
     @t_usuarios_programas = @t_usuario.t_usuarios_programas.order(:sPrograma) 
@@ -28,7 +26,6 @@ class TUsuariosController < ApplicationController
   end
 
   # POST /t_usuarios
-  # POST /t_usuarios.json
   def create
     @t_usuario = TUsuario.new(t_usuario_params)
 
@@ -43,7 +40,6 @@ class TUsuariosController < ApplicationController
   end
 
   # PATCH/PUT /t_usuarios/1
-  # PATCH/PUT /t_usuarios/1.json
   def update
     
     params[:t_usuario].delete(:password) if params[:t_usuario][:password].blank?
@@ -59,7 +55,6 @@ class TUsuariosController < ApplicationController
   end
 
   # DELETE /t_usuarios/1
-  # DELETE /t_usuarios/1.json
   def destroy
     @t_usuario.destroy
     respond_to do |format|
