@@ -1,8 +1,8 @@
 *{
-	box-sizing: border-box;
-	font-family: 'Lato', Verdana;
-	margin: 0 auto;
-	max-width: 1020px;
+	box-sizing: 	border-box;
+	font-family: 	'Lato', Verdana;
+	margin: 		0 auto;
+	max-width: 		1020px;
 }
 
 div h3{
@@ -58,17 +58,20 @@ div h3{
 
 .color-cabecera{
 	background-color: #008CBA;
-	color:white;
+	color:			white;
 }
 
 .margin-top-auto {
-	margin-top:auto;
+	margin-top:		auto;
 }
 
 .margin-bottom-auto {
-	margin-bottom:auto;
+	margin-bottom:	auto;
 }    
 
 th.columna-larga{
-	width: 300px;
+	width: 			300px;
+}
+.tree a{
+	color:			black;    
 }
