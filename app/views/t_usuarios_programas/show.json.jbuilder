@@ -1,1 +1,0 @@
-json.partial! "t_usuarios_programas/t_usuarios_programa", t_usuarios_programa: @t_usuarios_programa

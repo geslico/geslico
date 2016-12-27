@@ -5,7 +5,6 @@ class TSedesController < ApplicationController
   before_action :set_t_sede, only: [:show, :edit, :update, :destroy]
 
   # GET /t_sedes
-  # GET /t_sedes.json
   def index    
 
     @q = TSede.ransack params[:q]    
@@ -15,7 +14,6 @@ class TSedesController < ApplicationController
   end
 
   # GET /t_sedes/1
-  # GET /t_sedes/1.json
   def show
   end
 
@@ -29,42 +27,34 @@ class TSedesController < ApplicationController
   end
 
   # POST /t_sedes
-  # POST /t_sedes.json
   def create
     @t_sede = TSede.new(t_sede_params)
 
     respond_to do |format|
       if @t_sede.save
         format.html { redirect_to @t_sede, notice: 'T sede was successfully created.' }
-        # format.json { render :show, status: :created, location: @t_sede }
       else
         format.html { render :new }
-        # format.json { render json: @t_sede.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /t_sedes/1
-  # PATCH/PUT /t_sedes/1.json
   def update
     respond_to do |format|
       if @t_sede.update(t_sede_params)
         format.html { redirect_to @t_sede, notice: 'T sede was successfully updated.' }
-        # format.json { render :show, status: :ok, location: @t_sede }
       else
         format.html { render :edit }
-        # format.json { render json: @t_sede.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /t_sedes/1
-  # DELETE /t_sedes/1.json
   def destroy
     @t_sede.destroy
     respond_to do |format|
       format.html { redirect_to t_sedes_url, notice: 'T sede was successfully destroyed.' }
-      # format.json { head :no_content }
     end
   end
 

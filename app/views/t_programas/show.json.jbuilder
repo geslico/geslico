@@ -1,1 +1,0 @@
-json.partial! "t_programas/t_programa", t_programa: @t_programa

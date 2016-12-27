@@ -2099,7 +2099,7 @@ ActiveRecord::Schema.define(version: 0) do
   add_foreign_key "TTracksMK775", "TLineas", column: "nLinea", primary_key: "nLinea", name: "FK_TTracksMK775_TLineas"
   add_foreign_key "TUnidades", "TTiposUnidad", column: "nOrderArea", primary_key: "cTipounidad", name: "FK_TUnidades_TTiposUnidad"
   add_foreign_key "TUsuarios", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuarios_TUsuarios"
-  add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TProgramas"
+  add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nCodPrograma", primary_key: "nCodPrograma", name: "FK_TUsuariosProgramas_TProgramas"
   add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TUsuarios"
   add_foreign_key "TVLanes", "TElectronicaRed", column: "nCodElectronicaRed", primary_key: "nCodElectronicaRed", name: "FK_TVLanes_TElectronicaRed"
   add_foreign_key "TVariableFacturacion", "TCatalogoFacturacion", column: "nIdFacturacion", primary_key: "nId", name: "FK_TVariableFacturacion_TCatalogoFacturacion"

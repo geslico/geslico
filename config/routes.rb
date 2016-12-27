@@ -15,8 +15,7 @@ Rails.application.routes.draw do
 
     resources :t_sedes
     resources :t_unidades
-    resources :t_acronimos_sede_edrs  
-
+  
     resources :t_usuarios do
       resources :t_usuarios_programas do
         resources :t_programas 
