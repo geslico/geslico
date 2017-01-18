@@ -10,10 +10,12 @@ class TUsuario < ActiveRecord::Base
 
 	before_save { self.cCodUsuario = cCodUsuario.downcase }
   	before_save { self.cCorreo = cCorreo.downcase }
+  	
 
 	#Validaciones sobre el usuario
 	validates :cCodUsuario, presence: true, length: { minimum: 6 }
 	validates :cNombre, presence: true
+	validates :cCorreo, presence: true
 	validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
 	validates :password, :confirmation => true, :length => { :within => 6..40 }, :on => :update, :unless => lambda{ |user| user.password.blank? }
 	validates :bActivo, presence: true

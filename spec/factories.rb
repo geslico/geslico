@@ -1,10 +1,12 @@
 FactoryGirl.define do
-  factory :t_unidad do
-    
-  end
-   
-   factory :Usuario, :class => TUsuario do        
-       cCodUsuario 'user000'
-       cNombre 'Usuario Test'
-   end 
+
+	factory :t_usuario do        
+		CodUsuario "user099"
+		cNombre "Usuario RSpec"
+		cCorreo "usuariorspec@madrid.es"
+		bActivo true
+		password "123456"
+		password_confirmation "123456"
+	end 
+
 end
