@@ -43,7 +43,7 @@ class TSedesController < ApplicationController
   def update
     respond_to do |format|
       if @t_sede.update(t_sede_params)
-        format.html { redirect_to @t_sede, notice: 'T sede was successfully updated.' }
+        format.html { redirect_to @t_sede, notice: 'Sede modificada correctamente' }
       else
         format.html { render :edit }
       end
@@ -66,7 +66,10 @@ class TSedesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_sede_params
-      params.fetch(:t_sede, {})
+      params.require(:t_sede).permit(:nCodSede, :nCodUni, :cNombre, :cDireccion , :cCodPostal, :cPersonaContacto, :ceMailContacto, 
+        :cTelefonoContacto, :cCortoFijo, :cMovilContacto, :cCortoMovil, :cFax, :cPersonaContactoObserv, :nPCs, :nCodCampus,
+        :nCriticidad, :bCoincidenciaSAP, :nCodEstado, :nDistrito, :cDevicePool, :nIdAcronimo, :nZona, :nCodEdificio, :nCodGestion,
+        :bSedeToIP, :bsedeprincipalvoz, :bsedeprincipaldatos, :cUsuarioModificacion, :dFchModificacion, :id)
     end
     
 end

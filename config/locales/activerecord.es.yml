@@ -1,0 +1,36 @@
+es:
+  errors:
+    format: "%{attribute}  %{message}"
+    messages: &errors_messages
+      blank: "no puede estar en blanco"
+      too_short: "demasiado corto"
+      confirmation: "requiere confirmacion"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "1 error en %{model} no permite realizar la operación "
+          other: "%{count} errores en  %{model} no permiten realizar la operación "
+        body:    "Hay conflictos con los liguientes campos:"
+
+
+    models:
+      t_usuario:
+        one: "Usuario"
+        other: "Usuarios"
+
+      t_sede:
+        one: "Sede"
+        other: "Sedes"
+
+
+    attributes:
+      t_usuario:
+        cCodUsuario: "Código"
+        cNombre: "Nombre"        
+        cCorreo: "Correo"
+        confirmation: "Confirmación"
+
+      t_sede:
+        nCodEstado: "Estado"
