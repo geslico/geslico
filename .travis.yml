@@ -5,5 +5,5 @@ cache: bundler
 sudo: true
 before_install:
   - sudo apt-get install unixodbc-dev
-before_script:
-  - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
+dist: xenial
+os: linux
