@@ -12,7 +12,7 @@ es:
         header:
           one:   "1 error en %{model} no permite realizar la operación "
           other: "%{count} errores en  %{model} no permiten realizar la operación "
-        body:    "Hay conflictos con los liguientes campos:"
+        body:    "Hay conflictos con los siguientes campos:"
 
 
     models:

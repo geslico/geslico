@@ -1,10 +1,7 @@
 <%= form_for(@t_usuario) do |f| %>
   <% if @t_usuario.errors.any? %>
     <div class="panel warning callout radius">
-      <h2><%= pluralize(@t_usuario.errors.count, "error") %> </h2>
-
       <strong><%= t('activerecord.errors.template.header', :model => TUsuario.model_name.human, :count => @t_usuario.errors.count) %></strong>
-
       <ul>
       <% @t_usuario.errors.full_messages.each do |message| %>
         <li><%= message %></li>
