@@ -18,7 +18,7 @@ class TUsuariosController < ApplicationController
 
   # GET /t_usuarios/new
   def new
-    @t_usuario = TUsuario.new
+    @t_usuario = TUsuario.new()
   end
 
   # GET /t_usuarios/1/edit
