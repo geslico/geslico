@@ -11,9 +11,7 @@
     "bundle --version",
     "bundle install"
   ],
-  "script": [
-    "bundle exec rake"
-  ],
+
   "global_env": "TESTOPTS=\"-v\" TINYTDS_UNIT_HOST=localhost",
   "language": "ruby",
   "group": "stable",
