@@ -1,11 +1,10 @@
 {
   "sudo": "required",
   "cache": "bundler",
-  "rvm": "2.4.0",
+  "rvm": "2.3.3",
   "before_install": [
     "sudo apt-get install unixodbc-dev",
-    "sudo ./test/bin/install-freetds.sh",
-    "tsql -C"
+    "sudo apt-get install freetds-dev",
   ],
   "install": [
     "gem install bundler",
