@@ -1,22 +1,13 @@
 {
   "sudo": "required",
   "cache": "bundler",
-  "services": [
-    "docker"
-  ],
   "rvm": "2.4.0",
   "before_install": [
     "sudo apt-get install unixodbc-dev",
-    "export PATH=/opt/local/bin:$PATH",
-    "docker info",
-    "sudo ./test/bin/setup.sh",
-    "sudo ./test/bin/install-openssl.sh",
-    "openssl version",
     "sudo ./test/bin/install-freetds.sh",
     "tsql -C"
   ],
   "install": [
-    "export PATH=/opt/local/bin:$PATH",
     "gem install bundler",
     "bundle --version",
     "bundle install"
