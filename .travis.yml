@@ -1,20 +1,9 @@
-{
-  "sudo": "required",
-  "cache": "bundler",
-  "rvm": "2.3.3",
-  "before_install": [
-    "sudo apt-get install unixodbc-dev",
-    "sudo apt-get install freetds-dev",
-  ],
-  "install": [
-    "gem install bundler",
-    "bundle --version",
-    "bundle install"
-  ],
-
-  "global_env": "TESTOPTS=\"-v\" TINYTDS_UNIT_HOST=localhost",
-  "language": "ruby",
-  "group": "stable",
-  "dist": "xenial",
-  "os": "linux"
-}
+language: ruby
+rvm:
+ - 2.2
+cache: bundler
+sudo: true
+before_install:
+  - sudo apt-get install unixodbc-dev
+dist: xenial
+os: linux
