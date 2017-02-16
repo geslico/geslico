@@ -13,4 +13,7 @@ class TSede < ActiveRecord::Base
 	has_many   :t_sicam_persona_grupos, through: :t_zona, :foreign_key => "SUPPORT_GROUP_NAME"
 	
 	ransack_alias :buscon, :cNombre_or_cDireccion_or_TUnidad_cDenominacion_or_cDevicePool
+
+	validates :nCodEstado, presence: true
+
 end

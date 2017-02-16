@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+ - 2.3.3
+cache: bundler
+sudo: true
+before_install:
+  - sudo apt-get install unixodbc-dev
+dist: xenial
+os: linux
+before_script:
+  - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
+  - bundle exec rake db:setup
+script: bundle exec rake
