@@ -15,7 +15,7 @@ class TUsuario < ActiveRecord::Base
   	
 
 	#Validaciones sobre el usuario
-	validates :cCodUsuario, presence: true, length: { minimum: 6 }
+	validates :cCodUsuario, presence: true, length: { minimum: 6 }, uniqueness: true
 	validates :cNombre, presence: true
 	validates :cCorreo, presence: true
 	validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
