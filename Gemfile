@@ -7,7 +7,7 @@ gem 'rails', '~> 5.0', '>= 5.0.2'
 gem 'sqlite3'
 # Use sqlserver as the database for Active Record
 gem 'ruby-odbc', '~> 0.99997'
-gem 'tiny_tds', '~> 1.0', '>= 1.0.3'
+gem 'tiny_tds', '~> 1.1'
 gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
