@@ -11,10 +11,8 @@ class TUsuario < ActiveRecord::Base
 
 	before_save { self.cCodUsuario = cCodUsuario.downcase }
 	before_save { self.cCorreo = cCorreo.downcase }
-  	
 
-	#Validaciones sobre el usuario
-	validates :cCodUsuario, length: { minimum: 6 }, uniqueness: { case_sensitive: false }
+	validates :cCodUsuario, presence: true, length: { minimum: 6 }, uniqueness: true
 	validates :cNombre, presence: true
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates :cCorreo, presence: true, format: { :with => VALID_EMAIL_REGEX }

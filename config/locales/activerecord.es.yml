@@ -5,6 +5,7 @@ es:
       blank: "no puede estar en blanco"
       too_short: "demasiado corto"
       confirmation: "requiere confirmacion"
+      taken: "debe ser único"
 
   activerecord:
     errors:
@@ -33,4 +34,5 @@ es:
         confirmation: "Confirmación"
 
       t_sede:
+        nCodSede: "Código"
         nCodEstado: "Estado"
