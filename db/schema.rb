@@ -1568,16 +1568,23 @@ ActiveRecord::Schema.define(version: 0) do
   # create_table "TUsos", id: false, force: :cascade do |t|
   # end
   #
-  # create_table "TUsuarios", id: false, force: :cascade do |t|
-  # end
-  #
-  # add_index "TUsuarios", ["cCodUsuario"], name: "IX_TUsuarios_cCodUsuario", unique: true
+   create_table "TUsuarios", primary_key: "nIdUsuario", force: :cascade do |t|
+      t.integer   "nIdUsuario",  limit: 4,   null: false
+      t.varchar   "cCodUsuario", limit: 25,  null: false
+      t.varbinary "cClave",      limit: 8000
+      t.varchar   "cNombre",     limit: 50,  null: false
+      t.varchar   "cCorreo",     limit: 100
+      t.bit       "bActivo",     null: false
+      t.varchar   "password_digest",     limit: 100
+   end
+
+   add_index "TUsuarios", ["cCodUsuario"], name: "IX_TUsuarios_cCodUsuario", unique: true
   #
   # create_table "TUsuariosGeslicoUsers", id: false, force: :cascade do |t|
   # end
   #
-  # create_table "TUsuariosProgramas", id: false, force: :cascade do |t|
-  # end
+   create_table "TUsuariosProgramas", id: false, force: :cascade do |t|
+   end
   #
   # create_table "TUsuariosUITEL", id: false, force: :cascade do |t|
   # end
@@ -2098,9 +2105,9 @@ ActiveRecord::Schema.define(version: 0) do
   # add_foreign_key "TTiposUnidad", "TTiposUnidad", column: "cTipounidad", primary_key: "cTipounidad", name: "FK_TTiposUnidad_TTiposUnidad"
   # add_foreign_key "TTracksMK775", "TLineas", column: "nLinea", primary_key: "nLinea", name: "FK_TTracksMK775_TLineas"
   # add_foreign_key "TUnidades", "TTiposUnidad", column: "nOrderArea", primary_key: "cTipounidad", name: "FK_TUnidades_TTiposUnidad"
-  # add_foreign_key "TUsuarios", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuarios_TUsuarios"
-  # add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nCodPrograma", primary_key: "nCodPrograma", name: "FK_TUsuariosProgramas_TProgramas"
-  # add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TUsuarios"
+   add_foreign_key "TUsuarios", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuarios_TUsuarios"
+   add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nCodPrograma", primary_key: "nCodPrograma", name: "FK_TUsuariosProgramas_TProgramas"
+   add_foreign_key "TUsuariosProgramas", "TUsuarios", column: "nIdUsuario", primary_key: "nIdUsuario", name: "FK_TUsuariosProgramas_TUsuarios"
   # add_foreign_key "TVLanes", "TElectronicaRed", column: "nCodElectronicaRed", primary_key: "nCodElectronicaRed", name: "FK_TVLanes_TElectronicaRed"
   # add_foreign_key "TVariableFacturacion", "TCatalogoFacturacion", column: "nIdFacturacion", primary_key: "nId", name: "FK_TVariableFacturacion_TCatalogoFacturacion"
   # add_foreign_key "TetraConsolaISSIGSSI", "TetraConsolas", column: "nIdConsola", primary_key: "nId", name: "FK_TetraConsolaISSIGSSI_TetraConsolas"

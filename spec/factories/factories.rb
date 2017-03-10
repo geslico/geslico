@@ -2,7 +2,7 @@ FactoryGirl.define do
 
 	factory :t_usuario do
 		cCodUsuario "user099"
-    cClave nil
+    	cClave nil
 		cNombre "Usuario RSpec"
 		cCorreo "usuariorspec@madrid.es"
 		bActivo true
