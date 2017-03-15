@@ -4,6 +4,7 @@ es:
     messages: &errors_messages
       blank: "no puede estar en blanco"
       too_short: "demasiado corto"
+      too_long: "demasiado largo"
       confirmation: "requiere confirmacion"
 
   activerecord:
@@ -14,7 +15,6 @@ es:
           other: "%{count} errores en  %{model} no permiten realizar la operación "
         body:    "Hay conflictos con los siguientes campos:"
 
-
     models:
       t_usuario:
         one: "Usuario"
@@ -24,6 +24,9 @@ es:
         one: "Sede"
         other: "Sedes"
 
+      t_acronimos_sede_edr:
+        one: "Acrónimo"
+        other: "Acrónimos"
 
     attributes:
       t_usuario:
@@ -34,3 +37,7 @@ es:
 
       t_sede:
         nCodEstado: "Estado"
+
+      t_acronimos_sede_edr:
+        cCodigo: "Código"
+        cDescripcion: "Descripción"

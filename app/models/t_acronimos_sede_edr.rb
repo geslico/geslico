@@ -1,7 +1,11 @@
 class TAcronimosSedeEdr < ActiveRecord::Base
+	self.table_name ="geslico.dbo.TAcronimosSedeEDR"	
+	self.primary_key = "nId"
 
-	self.table_name ="geslico.dbo.TAcronimosSedeEDR"
+	ransack_alias :buscon, :cCodigo_or_cDescripcion
 
-	has_many :t_sedes, foreign_key: "nIdAcronimo"
-
+	#Validaciones sobre el acrónimo
+	validates :cCodigo, presence: true, length: { maximum: 9 }
+	validates :cDescripcion, presence: true, length: { maximum: 150 }
+	
 end
