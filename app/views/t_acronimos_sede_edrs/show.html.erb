@@ -1,0 +1,35 @@
+<div class="row"> 
+  <h3 class="columns ">Ver Acrónimo</h3>
+</div>
+
+<div class="row">
+
+    <div class="small-4 medium-2 large-2 columns">
+      <label for="middle-label">Código:</label>
+    </div>
+   
+    <div class="small-8 medium-4 large-2 columns text-left end">
+      <label for="middle-label"><%= @t_AcronimosSedeEdr.cCodigo %></label>
+    </div>
+</div>
+
+<div class="row">
+    <div class="small-4 medium-2 large-2 columns">
+      <label for="middle-label">Descripción:</label>
+    </div>
+     
+   	<div class="small-8 medium-4 large-10 columns">
+      <label for="middle-label"><%= @t_AcronimosSedeEdr.cDescripcion %></label>
+    </div>   
+</div>
+
+<br>
+
+<!--GESTION DE BOTONES -->
+<div class="row">
+
+    <%= link_to '<< Volver', t_acronimos_sede_edrs_path, :class => "success button" %>
+    <%= link_to 'Editar', edit_t_acronimos_sede_edr_path(@t_AcronimosSedeEdr), :class => "success button" %>
+</div>
+
+
