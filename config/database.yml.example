@@ -30,6 +30,6 @@ test:
   mode: dblib
   host: localhost
   port: 1433
-  username:
-  password:
+  username: sa
+  password: Rsp3cRsp3c
   encoding: utf8
