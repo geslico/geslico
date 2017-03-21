@@ -1,25 +1,33 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Organigrama Municipal</h1>
 
-
 <div class="tree">
-  <% i=-1 %> 
-  <% @organigrama.each do |t| %>
-    <% while i>t.depth %>
-      <% i=i-1 %>
-      </ul>
+    
+    <% i=-1 %> 
+
+    <% @organigrama.each do |t| %>
+
+      <% while i>t.depth %>
+        
+        <% i=i-1 %>
+        </ul>
+
+      <% end %>
+
+      <% if i<t.depth %>
+        <% if i == -1 %>
+          <ul class="vertical menu" data-accordion-menu="ay1o6b-accordion-menu" role="menu" aria-multiselectable="true">
+        <% else %>
+          <ul class="menu vertical nested submenu is-accordion-submenu" aria-hidden="true">
+        <% end %>
+              
+        <% i=i+1 %>
+      <% end %>
+
+        <li role="menuitem" class="is-accordion-submenu-parent" aria-haspopup="true" aria-expanded="false"                          aria-label="Item 1" aria-controls="98lf08-acc-menu" id="z9o41u-acc-menu-link">
+
+        <a><%= t.nCodUni %> - <%= t.cDenominacion %> -- <%= t.depth %>  -- <%= i %></a>         
+      </li>
+
     <% end %>
-    <% if i<t.depth %>
-      <ul>      
-      <% i=i+1 %>
-    <% end %>
-    <li>
-      <a>
-       <%= t.nCodUni %> - 
-       <strong><%= t.cDenominacion %> </strong>
-      </a> 
-      
-    </li>
-  <% end %>
+
 </div>

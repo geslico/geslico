@@ -1,0 +1,30 @@
+<h3>Unidades</h3>
+
+<table>
+
+	<thead class="color-cabecera">
+      <tr>      
+        <th><label for="middle-label">Cod. Unidad</label> </th>    
+        <th><label for="middle-label">Cod. Padre</label> </th>
+        <th><label for="middle-label">Denominación</label> </th>
+        <th><label for="middle-label">Hijos</label> </th>
+      </tr>
+    </thead>
+    
+
+	<tbody>
+		<% @t_unidad.each do |t| %>
+		  <tr>
+		  <td><%= link_to 'Show', t %></td>
+		    <td><%= t.nCodUni %></td>
+		    <td><%= t.nCodUniPadre %></td>
+		    <td><%= t.cDenominacion %></td>
+
+		    <% t.children.each do |c| %>		    	
+		    		<tr><td><%= c.nCodUni %></td>	</tr>	    	
+		    <% end %>
+
+		  </tr>
+		<% end %>
+	</tbody>
+</table>

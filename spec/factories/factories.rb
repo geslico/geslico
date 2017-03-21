@@ -10,4 +10,9 @@ FactoryGirl.define do
 		password_confirmation "123456"
 	end
 
+	factory :t_acronimos_sede_edr do
+    	cCodigo "A_EJEM"
+    	cDescripcion "EJEMPLO DE DESCRIPCION"
+  	end
+
 end

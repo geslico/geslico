@@ -32,7 +32,7 @@ class TSedesController < ApplicationController
 
     respond_to do |format|
       if @t_sede.save
-        format.html { redirect_to @t_sede, notice: 'T sede was successfully created.' }
+        format.html { redirect_to @t_sede, notice: 'Sede creada correctamente.' }
       else
         format.html { render :new }
       end
@@ -54,7 +54,7 @@ class TSedesController < ApplicationController
   def destroy
     @t_sede.destroy
     respond_to do |format|
-      format.html { redirect_to t_sedes_url, notice: 'T sede was successfully destroyed.' }
+      format.html { redirect_to t_sedes_url, notice: 'Sede eliminada correctamente' }
     end
   end
 
