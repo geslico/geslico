@@ -3,9 +3,10 @@ class TAcronimosSedeEdr < ActiveRecord::Base
 	self.primary_key = "nId"
 
 	ransack_alias :buscon, :cCodigo_or_cDescripcion
+	
+	before_save { self.cCodigo = cCodigo.upcase }
 
-	#Validaciones sobre el acrónimo
-	validates :cCodigo, presence: true, length: { maximum: 9 }
+	validates :cCodigo, presence: true, length: { maximum: 9 }, uniqueness: {:case_sensitive => false}
 	validates :cDescripcion, presence: true, length: { maximum: 150 }
 	
 end
