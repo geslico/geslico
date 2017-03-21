@@ -3,8 +3,8 @@ production:
   mode: dblib
   host: localhost
   port: 1433
-  username:
-  password: 
+  username: sa
+  password: Rsp3cRsp3c
   encoding: utf8
 
 development:
@@ -12,18 +12,9 @@ development:
   mode: dblib
   host: localhost
   port: 1433
-  username:
-  password:
+  username: sa
+  password: Rsp3cRsp3c
   encoding: utf8
-
-preproduction:
-  adapter: sqlserver
-  mode: dblib
-  host: localhost
-  port: 1433
-  username:
-  password:
-  encoding: utf8 
 
 test:
   adapter: sqlserver

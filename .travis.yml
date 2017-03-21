@@ -17,4 +17,4 @@ before_install:
 
 before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
-  - rails db:setup RAILS_ENV=test
+  - "bundle exec rake db:setup"
