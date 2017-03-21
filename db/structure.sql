@@ -1,5 +1,5 @@
 CREATE TABLE dbo.TUsuarios
-	( nIdUsuario      int             NOT NULL
+	( nIdUsuario      int             IDENTITY(1,1) NOT NULL
 	, cCodUsuario     varchar(25)     NOT NULL
 	, cClave          varbinary(8000)     NULL
 	, cNombre         varchar(50)     NOT NULL
