@@ -21,3 +21,5 @@ install:
   - gem install rails
 before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
+script: 
+  - rails db:setup RAILS_ENV=test
