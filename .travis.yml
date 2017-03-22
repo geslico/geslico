@@ -4,7 +4,6 @@ os: linux
 language: ruby
 env:
   - RAILS_VERSION=5.0.0
-  - RAILS_VERSION=5.0.2
 rvm:
  - 2.3.3
 cache: bundler
@@ -22,4 +21,3 @@ install:
   - gem install rails
 before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
-  - rails db:setup RAILS_ENV=test
