@@ -22,3 +22,4 @@
 .byebug_history
 
 /db/structure.sql
+/db/seed_*.sql

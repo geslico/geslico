@@ -1,12 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-TUsuario.create(cCodUsuario: 'usu001' , cNombre: 'Usuario de Test de Geslico' , cCorreo: 'telefoniaconsumo@madrid.es' , bActivo: true, password: '123456', password_confirmation: '123456')
-
 TPrograma.create("nCodPrograma"=>1, "sPrograma"=>"MOVIL", "sDescripcion"=>"Gestión de Teléfonos Moviles", "sModelos"=>nil)
 TPrograma.create("nCodPrograma"=>2, "sPrograma"=>"FIJOS", "sDescripcion"=>"Gestión de Teléfonos Fijos", "sModelos"=>nil)
 TPrograma.create("nCodPrograma"=>3, "sPrograma"=>"SEDES", "sDescripcion"=>"Gestión de Sedes", "sModelos"=>"TSede,TUsuario")
@@ -51,6 +42,3 @@ TPrograma.create("nCodPrograma"=>76, "sPrograma"=>"CCTV", "sDescripcion"=>"Muest
 TPrograma.create("nCodPrograma"=>171, "sPrograma"=>"PROYECTOS TERMINALES", "sDescripcion"=>"Gestión de Nombres de Proyecto para Pedidos de Terminales", "sModelos"=>nil)
 TPrograma.create("nCodPrograma"=>711, "sPrograma"=>"FACTURA EDR", "sDescripcion"=>"Módulo facturación en Almacén de Red", "sModelos"=>nil)
 TPrograma.create("nCodPrograma"=>1000, "sPrograma"=>"PERMISOSUSUARIOS", "sDescripcion"=>"Control de acceso de los usuarios a los distintos apartados de Geslico", "sModelos"=>"TUsuario,TUsuariosPrograma")
-
-TUsuariosPrograma.create(nIdUsuario: '1', nCodPrograma: '3', sPermiso: 'L', cCodUsuario: 'usu001')
-TUsuariosPrograma.create(nIdUsuario: '1', nCodPrograma: '1000', sPermiso: 'W', cCodUsuario: 'usu001')

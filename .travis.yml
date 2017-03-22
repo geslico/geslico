@@ -2,6 +2,8 @@
 dist: xenial
 os: linux
 language: ruby
+env:
+  - RAILS_VERSION=5.0.2
 rvm:
  - 2.3.3
 cache: bundler
@@ -17,7 +19,4 @@ before_install:
 
 before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
-
-script:
-  - "rails db:setup RAILS_ENV=test"
-  - "rails db:setup"
+  - rails db:setup RAILS_ENV=test
