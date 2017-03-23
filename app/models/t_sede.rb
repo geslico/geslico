@@ -14,6 +14,7 @@ class TSede < ActiveRecord::Base
 	
 	ransack_alias :buscon, :cNombre_or_cDireccion_or_TUnidad_cDenominacion_or_cDevicePool
 
+	validates :nCodSede, presence: true, uniqueness: true
 	validates :nCodEstado, presence: true
 
 end

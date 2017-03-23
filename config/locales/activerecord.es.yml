@@ -6,6 +6,7 @@ es:
       too_short: "demasiado corto"
       too_long: "demasiado largo"
       confirmation: "requiere confirmacion"
+      taken: "debe ser único"
 
   activerecord:
     errors:
@@ -36,6 +37,7 @@ es:
         confirmation: "Confirmación"
 
       t_sede:
+        nCodSede: "Código"
         nCodEstado: "Estado"
 
       t_acronimos_sede_edr:

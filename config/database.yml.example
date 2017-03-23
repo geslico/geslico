@@ -1,35 +1,24 @@
-production:
+default: &default
   adapter: sqlserver
   mode: dblib
-  host: localhost
+  database: geslico
+  host: 0.0.0.0
   port: 1433
-  username:
-  password: 
-  encoding: utf8
+  username: sa
+  password: Rsp3cRsp3c  
+
 
 development:
-  adapter: sqlserver
-  mode: dblib
-  host: localhost
-  port: 1433
-  username:
-  password:
-  encoding: utf8
+  <<: *default
 
-preproduction:
-  adapter: sqlserver
-  mode: dblib
-  host: localhost
-  port: 1433
-  username:
-  password:
-  encoding: utf8 
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
-  adapter: sqlserver
-  mode: dblib
-  host: localhost
-  port: 1433
-  username:
-  password:
-  encoding: utf8
+  <<: *default
+
+
+production:
+  <<: *default
+

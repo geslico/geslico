@@ -27,10 +27,10 @@ class TUsuariosController < ApplicationController
 
   # POST /t_usuarios
   def create
-    @t_usuario = TUsuario.new(t_usuario_params)
+    @t_usuario_new = TUsuario.new(t_usuario_params)
 
     respond_to do |format|
-      if @t_usuario.save
+      if (@t_usuario_new.save())
         add_usuario_programas_permisos
         format.html { redirect_to @t_usuario, notice: 'Usuario creado correctamente.' }
       else
