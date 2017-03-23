@@ -1,21 +1,33 @@
 
 dist: xenial
+
 os: linux
+
 language: ruby
-env:
-  - RAILS_VERSION=5.0.0
+
+cache: bundler
+
 rvm:
  - 2.3.3
+
 sudo: required
+
 services:
   - docker
+
 before_install:
   - sudo apt-get update  
   - sudo apt-get install unixodbc-dev
   - sudo docker pull microsoft/mssql-server-linux  
   - sudo docker run --name dbserver -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Rsp3cRsp3c' -ti -p 1433:1433 -d microsoft/mssql-server-linux
   - sudo docker ps -a
-before_script:
   - "for i in config/*.example; do cp \"$i\" \"${i/.example}\"; done"
-script: 
-  - rails db:setup RAILS_ENV=test
+
+install:
+  - bundle install
+  - bundle exec rake db:setup RAILS_ENV=test
+
+
+
+
+  
