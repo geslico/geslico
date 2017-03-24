@@ -10,8 +10,9 @@ describe TUsuario do
 		expect(@t_usuario).to be
 	end
 
-	it "invalido usuario duplicado" do
-	#expect(FactoryGirl.build(:t_usuario)).to_not be_valid
+	it "invalido usuario duplicado" do		
+		@t_usuario_repetido=FactoryGirl.build(:t_usuario)
+		expect(@t_usuario_repetido).to_not be_valid
 	end
 
 	it "invalido  sin código usuario " do
@@ -30,7 +31,7 @@ describe TUsuario do
 	end
 
 	it "invalido password larga" do
-		@t_usuario.password = '12345678901234567890123456789012345678901234567890'
+		@t_usuario.password =  (0...20).map{'PASS'}.join
 		expect(@t_usuario).to_not be_valid
 	end
 
