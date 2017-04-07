@@ -4,17 +4,17 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0', '>= 5.0.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use sqlserver as the database for Active Record
-gem 'ruby-odbc', '~> 0.99997'
-gem 'tiny_tds', '~> 1.1'
-gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.5'
+gem 'ruby-odbc', '~> 0.99998'
+gem 'tiny_tds', '~> 1.3'
+gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.1'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -24,7 +24,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
-gem 'cancancan'
+gem 'cancancan', '~> 1.16'
 
 # Test tools
 gem 'rspec', '~> 3.5'
@@ -45,7 +45,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
-
 
 # Use Unicorn as the app server
 # gem 'unicorn'
