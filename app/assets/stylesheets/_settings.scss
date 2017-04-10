@@ -45,10 +45,6 @@
 
 // 0. Custom variables
 // ---------------------
-$base-font-size:      rem-calc(17);
-$base-line-height:    rem-calc(26);
-$small-font-size:     rem-calc(14);
-$line-height:         rem-calc(24);
 
 $brand:             #004A83;
 $body:              #E9E9E9;
@@ -63,20 +59,8 @@ $text-light:        #CCCCCC;
 $link:              #2895F1;
 $link-hover:        #2178BF;
 
-$debates:           #008CCF;
-$votes-bg:          #26AEEE;
-$votes-border:      #1F94CB;
-
-$votes-like:        #7BD2A8;
-$votes-like-act:    #5D9E7F;
-$votes-unlike:      #EF8585;
-$votes-unlike-act:  #BD6A6A;
-
 $delete:            #F04124;
 $check:             #46DB91;
-
-$proposals:         #FFA42D;
-$proposals-border:  #CC8425;
 
 $budget:            #454372;
 $budget-hover:      #7571BF;
@@ -279,7 +263,7 @@ $accordionmenu-arrow-color: $primary-color;
 // --------
 
 $badge-background: $primary-color;
-$badge-color: foreground($badge-background);
+// $badge-color: foreground($badge-background);
 $badge-padding: 0.3em;
 $badge-minwidth: 2.1em;
 $badge-font-size: 0.6rem;
@@ -400,6 +384,7 @@ $input-prefix-color: $black;
 $input-prefix-background: $light-gray;
 $input-prefix-border: 1px solid $medium-gray;
 $input-prefix-padding: 1rem;
+$form-button-radius: 5px;
 $form-label-color: $black;
 $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
@@ -427,7 +412,7 @@ $input-radius: $global-radius;
 // ---------
 
 $label-background: $primary-color;
-$label-color: foreground($label-background);
+// $label-color: foreground($label-background);
 $label-font-size: 0.8rem;
 $label-padding: 0.33333rem 0.5rem;
 $label-radius: $global-radius;
