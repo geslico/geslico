@@ -1,4 +1,4 @@
-class TSede < ActiveRecord::Base
+class TSede < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TSedes"
 

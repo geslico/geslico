@@ -1,4 +1,4 @@
-class TUsuariosPrograma < ActiveRecord::Base
+class TUsuariosPrograma < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TUsuariosProgramas"
 	self.primary_key = "id"

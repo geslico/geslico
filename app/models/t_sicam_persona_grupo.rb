@@ -1,4 +1,4 @@
-class TSicamPersonaGrupo < ActiveRecord::Base
+class TSicamPersonaGrupo < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.SICAM_PERSONAS_GRUPOS"

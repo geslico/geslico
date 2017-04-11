@@ -158,3 +158,12 @@ CREATE  nonclustered INDEX IX_TUnidades_CodUniPadre on dbo.TUnidades(nCodUniPadr
 CREATE  nonclustered INDEX IX_TUnidades_idArea on dbo.TUnidades(nIdArea)
 
 ALTER TABLE dbo.TUnidades ADD CONSTRAINT PK_TUnidades PRIMARY KEY clustered (nCodUni)
+
+CREATE TABLE dbo.TetraPlanISSIs
+ 	( nISSI    int             NOT NULL
+ 	, nIdFlota int                 NULL
+ 	, nIdTipo  int                 NULL
+ 	, nRango   int             NOT NULL
+ 	)
+
+ALTER TABLE dbo.TetraPlanISSIs ADD CONSTRAINT PK_TetraPlanISSIs PRIMARY KEY clustered (nISSI)

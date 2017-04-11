@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   scope "(:locale)", locale: /es|en/ do
 
     root 'welcome#index'
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     resources :t_sedes
     resources :t_acronimos_sede_edrs
     resources :t_unidades
-  
+
+    resources :v_tetra_plan_issis
+    
     resources :t_usuarios do
       resources :t_usuarios_programas do
         resources :t_programas 

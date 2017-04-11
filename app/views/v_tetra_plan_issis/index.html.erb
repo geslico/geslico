@@ -1,0 +1,34 @@
+<div class="row"> 
+  <h3 class="columns">Plan de Numeración ISSI</h3>
+</div>
+
+<table class="table-scroll">
+  <thead  class="color-cabecera">
+    <tr>
+      <th>INICIO</th>
+      <th>FIN</th>
+      <th>SERVICIO</th>
+      <th>TIPO</th>
+      <th>ISSI Ocupados</th>
+      <th>ISSI Conectados</th>
+      <th>ISSI vistos ultimos 6 meses</th>
+      <th>ISSI Nunca Conectados</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @v_tetra_plan_issis.each do |v| %>
+      <tr>
+        <td><%= v.nISSIInicio %></td>
+        <td><%= v.nISSIFin %></td>
+        <td><%= v.cFlota %></td>
+        <td><%= v.cTipo %></td>
+        <td><%= v.nCountISSI %></td>
+        <td><%= v.nCountISSICnnY %></td>
+        <td><%= v.nCountISSICnnY6M %></td>
+        <td><%= v.nCountISSICnnN %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

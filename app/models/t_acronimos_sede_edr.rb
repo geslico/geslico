@@ -1,5 +1,6 @@
-class TAcronimosSedeEdr < ActiveRecord::Base
-	self.table_name ="geslico.dbo.TAcronimosSedeEDR"	
+class TAcronimosSedeEdr < ApplicationRecord
+
+	self.table_name ="geslico.dbo.TAcronimosSedeEdr"	
 	self.primary_key = "nId"
 
 	ransack_alias :buscon, :cCodigo_or_cDescripcion

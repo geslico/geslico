@@ -1,4 +1,4 @@
-class TEdificio < ActiveRecord::Base
+class TEdificio < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TEdificios"
 	

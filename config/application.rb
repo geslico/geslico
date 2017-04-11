@@ -21,16 +21,19 @@ module Geslico
     config.i18n.default_locale = :es
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 
-    #RSpec Generators
     config.generators do |g|
-        g.test_framework :rspec,
-            fixtures:  false, 
-            view_specs: false, 
-            helpers_specs: false, 
-            routing_specs: false,
-            controller_specs: false, 
-            request_specs: false
-        g.fixture_replacement :factory_girl, dir: "spec/factories"
+        g.orm               :active_record
+        g.template_engine   :erb
+        g.test_framework    :rspec, fixtures:  false, 
+                                    view_specs: false, 
+                                    helpers_specs: false, 
+                                    routing_specs: false,
+                                    controller_specs: false, 
+                                    request_specs: false
+        g.fixture_replacement   :factory_girl,  dir: "spec/factories"
+        g.stylesheets     false
+        g.javascripts     false
+        g.helper          false
     end
 
   end

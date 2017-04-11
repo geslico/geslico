@@ -1,6 +1,6 @@
 class TAcronimosSedeEdrsController < ApplicationController
 	
-	 #load_and_authorize_resource 
+	 load_and_authorize_resource 
 	 before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
 	 before_action :set_t_acronimos_sede_edr, only: [:show, :edit, :update, :destroy]
 

@@ -18,16 +18,19 @@
           </li>
         <% end %>
         
+        <% if can? :read, VTetraPlanIssi %>
           <li class="margin-right">
             <a class="margin-right" href="#">Radio</a>
             <ul class="menu vertical">
-              <li><a href="#">Plan de Numeración</a></li>
+            
+              <li><%= link_to "Plan de Numeración", v_tetra_plan_issis_path, class: "margin-right" %></li>
               <li><a href="#">Radio</a></li>
               <li><a href="#">Consolas</a></li>
               <li><a href="#">GSSI</a></li>
               <li><a href="#">Sites</a></li>
             </ul>
           </li>
+        <% end %>
         
         <li>
           <a class="margin-right" href="#">Móvil</a>
