@@ -5,14 +5,14 @@
 <table class="table-scroll">
   <thead  class="color-cabecera">
     <tr>
-      <th> Inicio </th>
-      <th> Fin </th>
-      <th> Servicio </th>
-      <th> Tipo </th>
-      <th>ISSI Ocupados</th>
-      <th>ISSI Conectados</th>
-      <th>ISSI vistos ultimos 6 meses</th>
-      <th>ISSI Nunca Conectados</th>
+      <th> <%= sort_link(@q, :nISSIInicio, 'Inicio') %> </th>
+      <th> <%= sort_link(@q, :nISSIFin, 'Fin') %> </th>
+      <th> <%= sort_link(@q, :cFlota, 'Servicio') %> </th>
+      <th> <%= sort_link(@q, :cTipo, 'Tipo') %> </th>
+      <th> <%= sort_link(@q, :nCountISSI, 'ISSI Ocupados') %></th>
+      <th> <%= sort_link(@q, :nCountISSICnnY, 'ISSI Conectados') %></th>
+      <th> <%= sort_link(@q, :nCountISSICnnY6M, 'ISSI vistos ultimos 6 meses') %></th>
+      <th> <%= sort_link(@q, :nCountISSICnnN, 'ISSI Nunca Conectados') %></th>
     </tr>
   </thead>
 
