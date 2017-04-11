@@ -18,7 +18,10 @@ Rails.application.routes.draw do
     resources :t_acronimos_sede_edrs
     resources :t_unidades
 
-    resources :v_tetra_plan_issis
+    resources :v_tetra_planes 
+    resources :v_tetra_plane_issis
+    resources :v_tetra_plane_gssis
+    
     
     resources :t_usuarios do
       resources :t_usuarios_programas do

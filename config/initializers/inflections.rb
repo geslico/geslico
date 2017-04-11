@@ -18,6 +18,8 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'TUnidad', 'TUnidades'
-	inflect.irregular 'TetraPlanISSI', 'TetraPlanISSIs'
-	inflect.irregular 'VTetraPlanISSI', 'VTetraPlanISSIs'
+	inflect.irregular 'vtetraplan', 'vtetraplanes'
+	inflect.irregular 'vtetraplanissi', 'vtetraplanissis'
+	inflect.irregular 'vtetraplangssi', 'vtetraplangssis'
 end
+

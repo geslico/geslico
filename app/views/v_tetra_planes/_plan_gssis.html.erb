@@ -1,0 +1,34 @@
+<div class="row"> 
+  <h3 class="columns">Plan de Numeración GSSI</h3>
+</div>
+
+<table class="table-scroll">
+  <thead  class="color-cabecera">
+    <tr>
+      <th> Inicio </th>
+      <th> Fin </th>
+      <th> Servicio </th>
+      <th> Definidos </th>
+      <th> Activos </th>
+      <th> Activos última semana </th>
+      <th> Activos último mes </th>
+      <th> Activos últimos 6 meses </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @v_tetra_plan_gssis.each do |v| %>
+      <tr>
+        <td><%= v.nGSSIInicio %></td>
+        <td><%= v.nGSSIFin %></td>
+        <td><%= v.cFlota %></td>
+        <td><%= v.nDefinidos %></td>
+        <td><%= v.nActivos %></td>
+        <td><%= v.nActividadSemana %></td>
+        <td><%= v.nActividadMes %></td>
+        <td><%= v.nActividadSemestre %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
