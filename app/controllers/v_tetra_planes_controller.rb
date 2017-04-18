@@ -4,13 +4,12 @@ class VTetraPlanesController < ApplicationController
 
   def index
 
-    @q = VTetraPlanIssi.ransack params[:i]     
+    @q = VTetraPlanIssi.ransack params[:q]
     @v_tetra_plan_issis = @q.result.page(params[:page])
 
-	@g = VTetraPlanGssi.ransack params[:g]     
-    @v_tetra_plan_gssis = @g.result.page(params[:page])
-    # @v_tetra_plan_issis = VTetraPlanIssi.order('nISSIInicio asc').ransack
-    # @v_tetra_plan_gssis = VTetraPlanGssi.order('nGSSIInicio asc')
+	@q = VTetraPlanGssi.ransack params[:q]
+    @v_tetra_plan_gssis = @q.result.page(params[:page])
+    
   end
   
 end
