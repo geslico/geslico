@@ -1,35 +1,39 @@
 <div class="row"> 
   <h3 class="columns">Plan de Numeración GSSI</h3>
 </div>
-
-<div class="table-scroll">
-  <table >
-    <thead  class="color-cabecera">
-      <tr>      
-        <th> <%= sort_link(@q, :nGSSIInicio, 'Inicio') %> </th>
-        <th> <%= sort_link(@q, :nGSSIFin, 'Fin') %> </th>
-        <th> <%= sort_link(@q, :cFlota, 'Servicio') %> </th>
-        <th> <%= sort_link(@q, :nDefinidos, 'Definidos') %> </th>
-        <th> <%= sort_link(@q, :nActivos, 'Activos') %> </th>
-        <th> <%= sort_link(@q, :nActividadSemana, 'Activos última semana') %> </th>
-        <th> <%= sort_link(@q, :nActividadMes, 'Activos último mes') %> </th>
-        <th> <%= sort_link(@q, :nActividadSemestre, 'Activos últimos 6 meses') %> </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @v_tetra_plan_gssis.each do |v| %>
-        <tr>
-          <td><%= v.nGSSIInicio %></td>
-          <td><%= v.nGSSIFin %></td>
-          <td><%= v.cFlota %></td>
-          <td><%= v.nDefinidos %></td>
-          <td><%= v.nActivos %></td>
-          <td><%= v.nActividadSemana %></td>
-          <td><%= v.nActividadMes %></td>
-          <td><%= v.nActividadSemestre %></td>
+<div class="row"> 
+  <div class="table-scroll">
+    <table >
+      <thead  class="color-cabecera">
+        <tr>      
+          <th> <%= sort_link(@q, :nGSSIInicio, 'Inicio') %> </th>
+          <th> <%= sort_link(@q, :nGSSIFin, 'Fin') %> </th>
+          <th> <%= sort_link(@q, :cFlota, 'Servicio') %> </th>
+          <th> <%= sort_link(@q, :nDefinidos, 'Definidos') %> </th>
+          <th> <%= sort_link(@q, :nActivos, 'Activos') %> </th>
+          <th> <%= sort_link(@q, :nActividadSemana, 'Activos última semana') %> </th>
+          <th> <%= sort_link(@q, :nActividadMes, 'Activos último mes') %> </th>
+          <th> <%= sort_link(@q, :nActividadSemestre, 'Activos últimos 6 meses') %> </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @v_tetra_plan_gssis.each do |v| %>
+          <tr>
+            <td><%= v.nGSSIInicio %></td>
+            <td><%= v.nGSSIFin %></td>
+            <td><%= v.cFlota %></td>
+            <td><%= v.nDefinidos %></td>
+            <td><%= v.nActivos %></td>
+            <td><%= v.nActividadSemana %></td>
+            <td><%= v.nActividadMes %></td>
+            <td><%= v.nActividadSemestre %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row"> 
+  <%= link_to 'Exportar Plan GSSI', current_url(:format=>:csv, :plan=>"gssi"), :class => "button tiny radius success" %>
 </div>

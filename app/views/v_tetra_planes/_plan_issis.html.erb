@@ -1,36 +1,40 @@
 <div class="row"> 
   <h3 class="columns">Plan de Numeración ISSI</h3>
 </div>
-
-<div class="table-scroll">
-      <table>
-        <thead  class="color-cabecera">
-          <tr>
-            <th> <%= sort_link(@q, :nISSIInicio, 'Inicio') %> </th>
-            <th> <%= sort_link(@q, :nISSIFin, 'Fin') %> </th>
-            <th> <%= sort_link(@q, :cFlota, 'Servicio') %> </th>
-            <th> <%= sort_link(@q, :cTipo, 'Tipo') %> </th>
-            <th> <%= sort_link(@q, :nCountISSI, 'ISSI Ocupados') %></th>
-            <th> <%= sort_link(@q, :nCountISSICnnY, 'ISSI Conectados') %></th>
-            <th> <%= sort_link(@q, :nCountISSICnnY6M, 'ISSI vistos ultimos 6 meses') %></th>
-            <th> <%= sort_link(@q, :nCountISSICnnN, 'ISSI Nunca Conectados') %></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @v_tetra_plan_issis.each do |v| %>
+<div class="row">
+  <div class="table-scroll">
+        <table>
+          <thead  class="color-cabecera">
             <tr>
-              <td><%= v.nISSIInicio %></td>
-              <td><%= v.nISSIFin %></td>
-              <td><%= v.cFlota %></td>
-              <td><%= v.cTipo %></td>
-              <td><%= v.nCountISSI %></td>
-              <td><%= v.nCountISSICnnY %></td>
-              <td><%= v.nCountISSICnnY6M %></td>
-              <td><%= v.nCountISSICnnN %></td>
+              <th> <%= sort_link(@q, :nISSIInicio, 'Inicio') %> </th>
+              <th> <%= sort_link(@q, :nISSIFin, 'Fin') %> </th>
+              <th> <%= sort_link(@q, :cFlota, 'Servicio') %> </th>
+              <th> <%= sort_link(@q, :cTipo, 'Tipo') %> </th>
+              <th> <%= sort_link(@q, :nCountISSI, 'ISSI Ocupados') %></th>
+              <th> <%= sort_link(@q, :nCountISSICnnY, 'ISSI Conectados') %></th>
+              <th> <%= sort_link(@q, :nCountISSICnnY6M, 'ISSI vistos ultimos 6 meses') %></th>
+              <th> <%= sort_link(@q, :nCountISSICnnN, 'ISSI Nunca Conectados') %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
 
+          <tbody>
+            <% @v_tetra_plan_issis.each do |v| %>
+              <tr>
+                <td><%= v.nISSIInicio %></td>
+                <td><%= v.nISSIFin %></td>
+                <td><%= v.cFlota %></td>
+                <td><%= v.cTipo %></td>
+                <td><%= v.nCountISSI %></td>
+                <td><%= v.nCountISSICnnY %></td>
+                <td><%= v.nCountISSICnnY6M %></td>
+                <td><%= v.nCountISSICnnN %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+  </div>
+</div>  
+<div class="row"> 
+  <%= link_to 'Exportar Plan ISSI', current_url(:format=>:csv, :plan=>"issi") , :class => "button tiny radius success" %>
 </div>
