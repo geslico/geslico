@@ -1,4 +1,4 @@
-class TUsuario < ActiveRecord::Base
+class TUsuario < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.TUsuarios"

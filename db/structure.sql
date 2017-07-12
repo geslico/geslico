@@ -158,3 +158,67 @@ CREATE  nonclustered INDEX IX_TUnidades_CodUniPadre on dbo.TUnidades(nCodUniPadr
 CREATE  nonclustered INDEX IX_TUnidades_idArea on dbo.TUnidades(nIdArea)
 
 ALTER TABLE dbo.TUnidades ADD CONSTRAINT PK_TUnidades PRIMARY KEY clustered (nCodUni)
+
+
+/* PLAN DE NUMERACIÓN TETRA*/
+
+CREATE TABLE dbo.TetraPlanISSIs
+ 	( nISSI    int             NOT NULL
+ 	, nIdFlota int                 NULL
+ 	, nIdTipo  int                 NULL
+ 	, nRango   int             NOT NULL
+ 	)
+
+ALTER TABLE dbo.TetraPlanISSIs ADD CONSTRAINT PK_TetraPlanISSIs PRIMARY KEY clustered (nISSI)
+
+
+CREATE TABLE dbo.TetraFlotas
+ 	( nId    int             NOT NULL
+ 	, cFlota varchar(20)     NOT NULL
+ 	)
+
+ALTER TABLE dbo.TetraFlotas ADD CONSTRAINT PK_TetraFlotas PRIMARY KEY clustered (nId)
+
+CREATE TABLE dbo.TetraTipoISSI
+ 	( nId   int             NOT NULL
+ 	, cTipo varchar(15)     NOT NULL
+ 	)
+
+ALTER TABLE dbo.TetraTipoISSI ADD CONSTRAINT PK_TetraTipoISSI PRIMARY KEY clustered (nId)
+
+CREATE TABLE dbo.TetraTerminalesRadio
+ 	( nId                  int             NOT NULL
+ 	, nISSI                int                 NULL
+ 	, cNumeroSerie         varchar(20)     NOT NULL
+ 	, nullBusterISSI       varchar(30)         NULL
+ 	, nIdModelo            int             NOT NULL
+ 	, cTEI                 varchar(16)         NULL
+ 	, nullbusterTEI        varchar(20)         NULL
+ 	, cKAssigned           varchar(5)          NULL
+ 	, cEstado              varchar(20)         NULL
+ 	, nIdFlota             int                 NULL
+ 	, nBatch               int                 NULL
+ 	, dFchBatch            datetime            NULL
+ 	, dFchFabricacion      datetime            NULL
+ 	, dFchPrimeraCnx       datetime            NULL
+ 	, dFchULtimaCnx        datetime            NULL
+ 	, nIdEstado            int             NOT NULL
+ 	, dFchBaja             datetime            NULL
+ 	, cObservaciones       varchar(50)         NULL
+ 	, cUsuarioAlta         varchar(25)     NOT NULL
+ 	, dFchAlta             datetime        NOT NULL
+ 	, cUsuarioModificacion varchar(25)         NULL
+ 	, dFchModificacion     datetime            NULL
+ 	)
+
+CREATE unique nonclustered INDEX IX_TetraTerminalesRadio_nullBusterISSI on dbo.TetraTerminalesRadio(nullBusterISSI)
+
+CREATE unique nonclustered INDEX IX_TetraTerminalesRadio_nullBusterTEI on dbo.TetraTerminalesRadio(nullbusterTEI)
+
+CREATE  nonclustered INDEX IX_TetraTerminalesRadio_TEI on dbo.TetraTerminalesRadio(cTEI)
+
+CREATE unique nonclustered INDEX IX_TetraTerminalesRadioISSI on dbo.TetraTerminalesRadio(nId)
+
+CREATE unique nonclustered INDEX IX_TetraTerminalesRadioNumSerie on dbo.TetraTerminalesRadio(cNumeroSerie)
+
+ALTER TABLE dbo.TetraTerminalesRadio ADD CONSTRAINT PK_TetraTerminalesRadio PRIMARY KEY clustered (nId)

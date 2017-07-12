@@ -2,13 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0', '>= 5.0.2'
+gem 'rails', '~> 5.1', '>= 5.1.2'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use sqlserver as the database for Active Record
 gem 'ruby-odbc', '~> 0.99998'
 gem 'tiny_tds', '~> 1.3'
-gem 'activerecord-sqlserver-adapter', '~> 5.0', '>= 5.0.7'
+gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -24,7 +24,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
-gem 'cancancan', '~> 1.16'
+gem 'cancancan', '~> 2.0'
 
 # Test tools
 gem 'rspec', '~> 3.5'

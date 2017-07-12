@@ -8,9 +8,14 @@ class TSedesController < ApplicationController
   def index    
 
     @q = TSede.ransack params[:q]    
-    @t_sedes = @q.result.page(params[:page]).per(25)
-    #@t_sedes = @q.result.includes(:TUnidad, :TDistrito).page(params[:page]).per(25)
-   
+    @t_sedes_csv = @q.result
+    @t_sedes = @q.result.page(params[:page]).per(25)    
+
+    respond_to do |format|
+    format.html
+    format.csv { send_data @t_sedes_csv.to_csv, filename: "sedes-#{Date.today}.csv" }
+    
+  end
   end
 
   # GET /t_sedes/1

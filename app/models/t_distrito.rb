@@ -1,4 +1,4 @@
-class TDistrito < ActiveRecord::Base
+class TDistrito < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.TDistritos"

@@ -1,4 +1,4 @@
-class TZona < ActiveRecord::Base
+class TZona < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.TZonasSICAM"

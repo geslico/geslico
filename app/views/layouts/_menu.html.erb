@@ -1,37 +1,43 @@
 
 <% if logged_in? %>
 
-<div class="row expanded ">
+<div class="title-bar" data-responsive-toggle="geslico-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="geslico-menu"></button>
+  <div class="title-bar-title">Menu</div>
+</div>
 
-  <div class="top-bar ">
+<div class="row expanded">
 
-    <div class="top-bar-left padding-left">
-
-      <ul class="dropdown menu" data-dropdown-menu>
-        
+  <div class="top-bar" id="geslico-menu"> 
+    <div class="top-bar-left">
+      <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">      
         <% if can? :read, TSede %>
-          <li><a class="margin-right" href="#">Campus</a>
-            <ul class="menu vertical">
+          <li class="has-submenu">
+            <a href="#">Campus</a>
+            <ul class="submenu menu vertical" data-submenu>
               <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
               <li><%= link_to "Acrónimos", t_acronimos_sede_edrs_path, class: "margin-right" %></li>
             </ul>
           </li>
         <% end %>
         
-          <li class="margin-right">
-            <a class="margin-right" href="#">Radio</a>
-            <ul class="menu vertical">
-              <li><a href="#">Plan de Numeración</a></li>
+        <% if can? :read, VTetraPlanIssi %>
+          <li class="has-submenu">
+            <a href="#">Radio</a>
+            <ul class="submenu menu vertical" data-submenu>
+            
+              <li><%= link_to "Plan de Numeración", v_tetra_planes_path, class: "margin-right" %></li>
               <li><a href="#">Radio</a></li>
               <li><a href="#">Consolas</a></li>
               <li><a href="#">GSSI</a></li>
               <li><a href="#">Sites</a></li>
             </ul>
           </li>
+        <% end %>
         
-        <li>
-          <a class="margin-right" href="#">Móvil</a>
-          <ul class="menu vertical">
+        <li class="has-submenu">
+          <a href="#">Móvil</a>
+          <ul class="submeno menu vertical" data-submenu>
             <li><a href="#">Líneas</a></li>
             <li><a href="#">Terminales</a></li>
             <li><a href="#">Tarjetas</a></li>
@@ -41,25 +47,26 @@
           </ul>
         </li>
 
-        <li><a class="margin-right"href="#">Fija</a>
-            <ul class="menu vertical">
+        <li class="has-submenu">
+          <a href="#">Fija</a>
+            <ul class="submenu menu vertical" data-submenu>
               <li><a href="#">Líneas</a></li>
               <li><a href="#">Gestión de dispositivos</a></li>
             </ul>
         </li>
 
-        <li>
-          <a class="margin-right"href="#">Electrónica</a>
-          <ul class="menu vertical">
+        <li class="has-submenu">
+          <a href="#">Electrónica</a>
+          <ul class="submenu menu vertical" data-submenu>
             <li><a href="#">Almacén</a></li>
             <li><a href="#">Catálogo de Red</a></li>
             <li><a href="#">Reserva Rangos IP</a></li>
           </ul>
         </li>
 
-        <li>
-          <a class="margin-right" href="#">Datos</a>
-          <ul class="menu vertical">
+        <li class="has-submenu">
+          <a href="#">Datos</a>
+          <ul class="submenu menu vertical" data-submenu>
               <li><a href="#">Líneas</a></li>              
           </ul>
         </li>
@@ -69,7 +76,7 @@
 
     </div>
 
-    <div class="top-bar-right padding-right">
+    <div class="top-bar-right">
       <ul class="menu">
         <% if can? :read, TUsuario %>
         <li><%= link_to "Usuarios", t_usuarios_path %></li>

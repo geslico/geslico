@@ -1,1 +1,0 @@
-json.partial! "t_unidades/t_unidad", t_unidad: @t_unidad

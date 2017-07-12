@@ -1,4 +1,4 @@
-class TPrograma < ActiveRecord::Base
+class TPrograma < ApplicationRecord
 	
 	self.table_name ="geslico.dbo.TProgramas"
 	

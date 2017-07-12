@@ -1,4 +1,4 @@
-class TSede < ActiveRecord::Base
+class TSede < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TSedes"
 
@@ -16,5 +16,18 @@ class TSede < ActiveRecord::Base
 
 	validates :nCodSede, presence: true, uniqueness: true
 	validates :nCodEstado, presence: true
+
+
+	def self.to_csv
+	    attributes = %w{nCodSede cNombre cDireccion t_unidad.cDenominacion}
+
+	    CSV.generate(headers: true) do |csv|
+	      csv << ['CodSede; Sede; Dirección; Unidad']
+
+	      all.each do |sede|
+	        csv << attributes.map{ |attr| sede.send(attr) }
+	      end
+	    end.encode('iso-8859-1')
+	  end
 
 end

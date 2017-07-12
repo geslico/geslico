@@ -1,4 +1,4 @@
-class TUnidad < ActiveRecord::Base
+class TUnidad < ApplicationRecord
 	include Tree
 	
 	self.table_name ="geslico.dbo.TUnidades"		

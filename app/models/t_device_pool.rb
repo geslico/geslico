@@ -1,4 +1,4 @@
-class TDevicePool < ActiveRecord::Base
+class TDevicePool < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.AXL_DevicePool"

@@ -62,41 +62,42 @@
 <%= page_entries_info @t_usuarios, :entry_name => 'usuarios' %><br/><br/>
 </div>
 
-<table class="table-scroll">
-  <thead  class="color-cabecera">
-    <tr>
-      <% if can? :read, TUsuario %>
-        <th>Ver</th>
-      <% end %>
-      <% if can? :cru, TUsuario %>
-        <th>Editar</th>
-      <% end %>
-      <th><%= sort_link(@q, :cCodUsuario, 'Código') %></th>
-      <th><%= sort_link(@q, :cNombre, 'Nombre') %></th>
-      <th><%= sort_link(@q, :cCorreo, 'Correo') %></th>
-      <th><%= sort_link(@q, :bActivo, 'Activo') %></th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @t_usuarios.each do |t| %>
+<div class="table-scroll">
+  <table>
+    <thead  class="color-cabecera">
       <tr>
         <% if can? :read, TUsuario %>
-          <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
+          <th>Ver</th>
         <% end %>
         <% if can? :cru, TUsuario %>
-          <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
-        <% end %>      
-        <td><%= t.cCodUsuario %></td>
-        <td><%= t.cNombre %></td>
-        <td><%= t.cCorreo %></td>
-        <td><%= t.bActivo %></td>                
-        
+          <th>Editar</th>
+        <% end %>
+        <th><%= sort_link(@q, :cCodUsuario, 'Código') %></th>
+        <th><%= sort_link(@q, :cNombre, 'Nombre') %></th>
+        <th><%= sort_link(@q, :cCorreo, 'Correo') %></th>
+        <th><%= sort_link(@q, :bActivo, 'Activo') %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    
+    <tbody>
+      <% @t_usuarios.each do |t| %>
+        <tr>
+          <% if can? :read, TUsuario %>
+            <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
+          <% end %>
+          <% if can? :cru, TUsuario %>
+            <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
+          <% end %>      
+          <td><%= t.cCodUsuario %></td>
+          <td><%= t.cNombre %></td>
+          <td><%= t.cCorreo %></td>
+          <td><%= t.bActivo %></td>                
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <div class="row">
 <%= page_entries_info @t_usuarios, :entry_name => 'usuarios' %><br/><br/>

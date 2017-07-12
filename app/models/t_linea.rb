@@ -1,4 +1,4 @@
-class TLinea < ActiveRecord::Base
+class TLinea < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TLineas"
 

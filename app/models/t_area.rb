@@ -1,4 +1,4 @@
-class TArea < ActiveRecord::Base
+class TArea < ApplicationRecordApplicationRecord
 
 	self.table_name ="geslico.dbo.TUnidades"
 
