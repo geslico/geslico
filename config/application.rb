@@ -6,7 +6,7 @@ require 'csv'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-ActiveSupport.halt_callback_chains_on_return_false = false
+# ActiveSupport.halt_callback_chains_on_return_false = false ## is deprecated and will be removed in Rails 5.2
 
 module Geslico
   class Application < Rails::Application
