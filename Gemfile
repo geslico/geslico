@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.2.1'
 
 # Gema para la paginación
 gem 'kaminari'
-gem 'kaminari-bootstrap'
+# gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'cancancan', '~> 2.0'

@@ -10,26 +10,21 @@
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
-  
-  <div>
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/menu' %>
-    <%= render 'layouts/flash' %>
+    <div>
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/menu' %>
+      <%= render 'layouts/flash' %>
 
-    <div id="content" style="padding: 30px;">      
-      <%= yield %>        
+      <div id="content" style="padding: 30px;">      
+        <%= yield %>        
+      </div>
+
+      <%= render 'layouts/footer' %>    
     </div>
-    <%= debug params %>
-    <%= render 'layouts/footer' %>
-    
-  </div>
-      <!-- reInitialize Foundation -->
-      <script>
-        $(document).foundation();
-      </script>
-
-  </body>
-  
+    <!-- reInitialize Foundation -->
+    <script>
+      $(document).foundation();
+    </script>
+  </body>  
 </html>

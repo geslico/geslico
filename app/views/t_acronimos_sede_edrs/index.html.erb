@@ -38,10 +38,12 @@
           
   <br/>
 
-  <div class="row">    
-      <%= link_to "Nuevo", new_t_acronimos_sede_edr_path, :class => "success button" %>         
-      <%= submit_tag "Buscar" , class:"success button" %> 
-      <%= link_to "Limpiar", request.path, :class => "success button" %>         
+  <div class="row clearfix">    
+    <%= submit_tag "Buscar" , class:"button float-right" %> 
+    <%= link_to "Limpiar", request.path, :class => "warning button float-right" %>         
+    <% if can? :cru, TSede %>
+      <%= link_to "Nuevo", new_t_acronimos_sede_edr_path, :class => "button float-right" %>         
+    <% end %>    
   </div>
 
 <% end %>

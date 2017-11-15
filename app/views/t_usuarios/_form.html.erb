@@ -54,13 +54,14 @@
       <%= f.password_field :password_confirmation, for: 'middle-label'  %>
     </div>
   </div>
-
-  <div class="row">
-      <%= link_to '<< Volver', t_usuarios_path, :class => "success button" %>        
-      <% if can? :cru, TUsuario %>                     
-        <%= f.submit 'Guardar', class: 'success button' %>
-      <% end %>      
+  
+  <div class="row clearfix">
+    <% if can? :cru, TUsuario %>                     
+      <%= f.submit 'Guardar', class: 'warning button float-right' %>
+    <% end %>      
+    <%= link_to '<< Volver', t_usuarios_path, :class => "button float-right" %>        
   </div>
+
 
   <table class="table-scroll">
     <thead  class="color-cabecera">
@@ -84,15 +85,12 @@
       <% end %> 
     </tbody>   
   </table>
-    <div class="row">
-      <%= link_to '<< Volver', t_usuarios_path, :class => "success button" %>        
-
+  
+  <div class="row clearfix">
       <% if can? :cru, TUsuario %>                     
-        <%= f.submit 'Guardar', class: 'success button' %>
+        <%= f.submit 'Guardar', class: 'warning button float-right' %>
       <% end %>      
+      <%= link_to '<< Volver', t_usuarios_path, :class => "button float-right" %>        
   </div>
 
 <% end %>
-
-
-

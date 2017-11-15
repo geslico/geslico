@@ -43,17 +43,22 @@
 
   </div>
 
-  <div class="row">
-      <%= f.submit :class => "success button" %>
-      <%= link_to "Limpiar", request.path, :class => "success button" %>
-      <%= link_to 'Nuevo Usuario', new_t_usuario_path, :class => "success button"  %>
-</form>
+  <div class="row clearfix" >
+      <%= f.submit :class => "button float-right" %>
+      <%= link_to "Limpiar", request.path, :class => "button warning float-right" %>
+      <% if can? :cru, TUsuario %>
+        <%= link_to 'Nuevo Usuario', new_t_usuario_path, :class => "button float-right"  %>
+      <% end %>
+  </div>
+      
+  </form>              
+
 </div>
 
 <% end %>
 
 
-<div class="row">
+<div class="row clearfix">
   <ul class="paginate">
   <%= paginate(@t_usuarios) %>
   </ul>
