@@ -94,15 +94,20 @@ $contajes-background: $color-warning;
 // 1. Global
 // ---------
 
+// primary: #1353B4,
+// secondary: #434343,
+// success: #368101,
+// warning: #e6cb09,
+// alert: #ce0f25,
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.9;
 $foundation-palette: (
-  primary: #2199e8,
-  secondary: #777,
-  success: #003DF6,
-  warning: #ffae00,
-  alert: #ec5840,
+  primary: #0707FF,
+  secondary: #3542FF,
+  success: #2DFF2D,
+  warning: #FFF000,
+  alert: #FF1414,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -237,21 +242,22 @@ $abide-labels: true;
 $input-background-invalid: map-get($foundation-palette, alert);
 $form-label-color-invalid: map-get($foundation-palette, alert);
 $input-error-color: map-get($foundation-palette, alert);
-$input-error-font-size: rem-calc(12);
+$input-error-font-size: rem-calc(12); 
 $input-error-font-weight: $global-weight-bold;
 
 // 7. Accordion
 // ------------
 
-$accordion-background: $white;
+$accordion-background: $secondary-color;
 $accordion-plusminus: true;
-$accordion-item-color: #003DF6;
-$accordion-item-background-hover: $white;
+$accordion-item-color: $white;
+$accordion-item-background-hover: $primary-color;
 $accordion-item-padding: 1.25rem 1rem;
 $accordion-content-background: $white;
 $accordion-content-border: 1px solid $light-gray;
 $accordion-content-color: foreground($accordion-content-background, $body-font-color);
 $accordion-content-padding: 1rem;
+$accordion-title-font-size: rem-calc(13);
 
 // 8. Accordion Menu
 // -----------------
@@ -284,7 +290,7 @@ $breadcrumbs-item-slash: true;
 // ----------
 
 $button-padding: 0.85em 1em;
-$button-margin: 0 0 $global-margin 0;
+$button-margin: 0 0 $global-margin  0.75rem;
 $button-fill: solid;
 $button-background: $primary-color;
 $button-background-hover: scale-color($button-background, $lightness: -15%);
@@ -552,9 +558,9 @@ $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;
-$table-head-background: smart-scale($table-background, $table-color-scale / 2);
+$table-head-background: smart-scale($primary-color, $table-color-scale / 2);
 $table-foot-background: smart-scale($table-background, $table-color-scale);
-$table-head-font-color: $body-font-color;
+$table-head-font-color: $white;
 $show-header-for-stacked: false;
 
 // 32. Tabs
@@ -610,7 +616,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: #007CF6;
+$topbar-background: $primary-color;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

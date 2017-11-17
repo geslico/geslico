@@ -36,9 +36,11 @@
 	<br>
 	
 	<!-- BOTONES -->
-  	<div class="row">
-      	<%= link_to '<< Volver', t_acronimos_sede_edrs_path, :class => "success button" %>
-    	<%= f.submit 'Guardar', class: 'success button' %>      	     
-  	</div>
+		<div class="row clearfix">
+			<% if can? :cru, TSede %>
+				<%= f.submit 'Guardar', class: 'success button float-right' %>      	     
+			<% end %>
+			<%= link_to '<< Volver', t_acronimos_sede_edrs_path, :class => "button float-right" %>				
+		</div>
 
 <% end %>

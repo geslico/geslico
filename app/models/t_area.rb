@@ -1,4 +1,4 @@
-class TArea < ApplicationRecordApplicationRecord
+class TArea < ApplicationRecord
 
 	self.table_name ="geslico.dbo.TUnidades"
 

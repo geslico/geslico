@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1', '>= 5.1.2'
-# Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+
 # Use sqlserver as the database for Active Record
 gem 'ruby-odbc', '~> 0.99998'
-gem 'tiny_tds', '~> 1.3'
-gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.1'
+gem 'tiny_tds', '~> 2.1'
+gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.2.1'
 
 # Gema para la paginación
 gem 'kaminari'
-gem 'kaminari-bootstrap'
+# gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
 gem 'cancancan', '~> 2.0'
@@ -29,7 +29,7 @@ gem 'cancancan', '~> 2.0'
 # Test tools
 gem 'rspec', '~> 3.5'
 gem 'capybara', '~> 2.10', '>= 2.10.1'
-gem 'factory_girl_rails', '~> 4.7'
+gem 'factory_girl_rails', '~> 4.9'
 gem 'i18n-tasks', '~> 0.9.5'
 
 gem 'ancestry'
@@ -61,6 +61,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+
+  # Better Errors replaces the standard Rails error page with a much better and more useful error page # lvd001
+  gem 'better_errors'
+  gem 'binding_of_caller'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

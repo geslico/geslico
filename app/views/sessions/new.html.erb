@@ -1,43 +1,29 @@
-
 <% provide(:title, "Iniciar Sesión") %>
 
 <div class="row">	
-  <h2 class=" small-6  medium-4 large-3 small-centered medium-centered text-center  columns">
-      Iniciar Sesión</h2>
+    <h2 class=" small-6  medium-4 large-3 small-centered medium-centered text-center  columns">
+        Iniciar Sesión</h2>
 </div>
 
 <%= form_for(:session, url: login_path) do |f| %>
+    <div class="row">    	
+        <div class="small-6  medium-4 large-3 small-centered medium-centered columns">        
+            <%= f.label :cCodUsuario, "Cod.Usuario" %>
+            <%= f.text_field :cCodUsuario %>
+        </div>      
+    </div>
 
-  <div class="row">
-    	
-	    <div class="small-6  medium-4 large-3 small-centered medium-centered columns">
-        
-       	<%= f.label :cCodUsuario, "Cod.Usuario" %>
-    		<%= f.text_field :cCodUsuario %>
+    <div class="row ">  	
+        <div class="small-6 medium-4 large-3 small-centered  medium-centered columns">        
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+        </div>     
+    </div>
 
-      </div>
-      
-  </div>
-
-  <div class="row ">
-  	
-      <div class="small-6 medium-4 large-3 small-centered  medium-centered columns">
-        
-         	<%= f.label :password %>
-    		  <%= f.password_field :password %>
-
-      </div>
-     
-  </div>
-
-  <div class="row">
-  	
-      <div class="small-12 medium-4 large-3 small-centered  medium-centered columns">
-
-			 <%= f.submit "Iniciar Sesión", class: "float-center success button" %>
-
-		  </div>
-     
-  </div>
+    <div class="row">  	
+        <div class="small-12 medium-4 large-3 small-centered  medium-centered columns">
+        <%= f.submit "Iniciar Sesión", class: "float-center button" %>
+        </div>
+    </div>
 
 <% end %>

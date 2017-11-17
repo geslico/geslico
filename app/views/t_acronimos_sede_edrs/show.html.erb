@@ -26,10 +26,9 @@
 <br>
 
 <!--GESTION DE BOTONES -->
-<div class="row">
-
-    <%= link_to '<< Volver', t_acronimos_sede_edrs_path, :class => "success button" %>
-    <%= link_to 'Editar', edit_t_acronimos_sede_edr_path(@t_AcronimosSedeEdr), :class => "success button" %>
+<div class="row clearfix">
+  <% if can? :cru, TSede %>
+    <%= link_to 'Editar', edit_t_acronimos_sede_edr_path(@t_AcronimosSedeEdr), :class => "warning button float-right" %>
+  <% end %>
+  <%= link_to '<< Volver', t_acronimos_sede_edrs_path, :class => "button float-right" %>				
 </div>
-
-

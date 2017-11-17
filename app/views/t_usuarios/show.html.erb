@@ -32,11 +32,11 @@
     </div>
 </div>
 
-<div class="row">
-	<%= link_to  ' << Volver ' , t_usuarios_path, :class => "success button"  %>
-	<% if can? :cru, TUsuario %> 
-	<%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "success button" %> 
-	<% end %>
+<div class="row clearfix">  
+  <% if can? :cru, TUsuario %> 
+    <%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "warning button float-right" %> 
+  <% end %>
+  <%= link_to  ' << Volver ' , t_usuarios_path, :class => "button float-right"  %>
 </div>
 
 <table class="table-scroll">
@@ -57,9 +57,9 @@
 	</tbody>
 </table>
 
-<div class="row">
-  <%= link_to  ' << Volver ' , t_usuarios_path, :class => "success button"  %>
+<div class="row clearfix">  
   <% if can? :cru, TUsuario %> 
-  <%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "success button" %> 
+    <%= link_to 'Editar', edit_t_usuario_path(@t_usuario), :class => "warning button float-right" %> 
   <% end %>
+  <%= link_to  ' << Volver ' , t_usuarios_path, :class => "button float-right"  %>
 </div>

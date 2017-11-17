@@ -2,11 +2,6 @@
   <h3 class="columns ">Sedes</h3>
 </div>
 
-<div class="row">
-  <%= link_to 'csv', current_url(:format=>:csv) , :class => "button tiny radius success" %>
-</div>
-
-
 <%= search_form_for @q do |f| %>
 
   <div class="row">
@@ -137,9 +132,10 @@
   
   <br/>
 
-  <div class="row">    
-      <%= submit_tag "Buscar" , class:"success button" %> 
-      <%= link_to "Limpiar", request.path, :class => "success button" %>         
+  <div class="row clearfix" >                 
+      <%= link_to 'csv', current_url(:format=>:csv) , :class => "button secondary tiny radius" %> 
+      <%= link_to "Limpiar", request.path, :class => "button warning float-right" %>                 
+      <%= submit_tag "Buscar" , class:"button float-right" %> 
   </div>
 
 <% end %>
@@ -248,8 +244,4 @@
 
 <div class="row">
   <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
-</div>
-
-<div class="row">
-  <%= link_to 'csv', t_sedes_path(format: "csv") , :class => "button tiny radius success" %>
 </div>
