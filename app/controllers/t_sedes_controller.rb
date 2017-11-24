@@ -12,10 +12,9 @@ class TSedesController < ApplicationController
     @t_sedes = @q.result.page(params[:page]).per(25)    
 
     respond_to do |format|
-    format.html
-    format.csv { send_data @t_sedes_csv.to_csv, filename: "sedes-#{Date.today}.csv" }
-    
-  end
+      format.html
+      format.csv { send_data @t_sedes_csv.to_csv, filename: "sedes-#{Date.today}.csv" }    
+    end
   end
 
   # GET /t_sedes/1

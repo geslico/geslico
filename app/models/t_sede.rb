@@ -12,11 +12,10 @@ class TSede < ApplicationRecord
 	belongs_to :t_zona, :foreign_key => "nZona"
 	has_many   :t_sicam_persona_grupos, through: :t_zona, :foreign_key => "SUPPORT_GROUP_NAME"
 	
-	ransack_alias :buscon, :cNombre_or_cDireccion_or_TUnidad_cDenominacion_or_cDevicePool
-
 	validates :nCodSede, presence: true, uniqueness: true
 	validates :nCodEstado, presence: true
 
+	ransack_alias :t_sede, :cNombre_or_cDireccion_or_cDevicePool_or_t_unidad_cDenominacion
 
 	def self.to_csv
 	    attributes = %w{nCodSede cNombre cDireccion t_unidad.cDenominacion}
