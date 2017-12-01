@@ -10,6 +10,15 @@
     </div>
   <% end %>
 
+
+  <div class="row clearfix">
+    <% if can? :cru, TUsuario %>                     
+      <%= f.submit 'Guardar', class: 'button float-right' %>
+    <% end %>      
+    <%= link_to '<< Volver', t_usuarios_path, :class => "button float-right" %>        
+  </div>
+
+
   <div class="row">
     <div class="small-4 medium-2 large-1 columns">
       <%= f.label :cCodUsuario, for: 'middle-label' %>
@@ -21,7 +30,7 @@
     <%= f.label :bActivo, "Activo", for: 'middle-label' %>
     </div>
     <div class="small-8 medium-4 large-2 columns end">          
-      <%= f.select :bActivo, options_for_select([["Sí",true], ["No", false]]), for: 'middle-label' %>        
+      <%= f.select :bActivo, [["Sí", true], ["No", false]], for: 'middle-label' %>        
     </div>
   </div>
 
@@ -54,17 +63,9 @@
       <%= f.password_field :password_confirmation, for: 'middle-label'  %>
     </div>
   </div>
-  
-  <div class="row clearfix">
-    <% if can? :cru, TUsuario %>                     
-      <%= f.submit 'Guardar', class: 'warning button float-right' %>
-    <% end %>      
-    <%= link_to '<< Volver', t_usuarios_path, :class => "button float-right" %>        
-  </div>
 
-
-  <table class="table-scroll">
-    <thead  class="color-cabecera">
+  <table class="table-scroll-horizontal">
+    <thead>
       <tr><td>Programa</td> 
       <td >Descripción</td> 
       <td>Permiso</td></tr>
@@ -86,9 +87,8 @@
     </tbody>   
   </table>
   
-  <div class="row clearfix">
-      <% if can? :cru, TUsuario %>                     
-        <%= f.submit 'Guardar', class: 'warning button float-right' %>
+  <div class="row clearfix">      <% if can? :cru, TUsuario %>                     
+        <%= f.submit 'Guardar', class: 'button float-right' %>
       <% end %>      
       <%= link_to '<< Volver', t_usuarios_path, :class => "button float-right" %>        
   </div>

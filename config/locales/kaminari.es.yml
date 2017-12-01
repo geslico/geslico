@@ -20,6 +20,3 @@ es:
       previous: Anterior
       truncate: "&hellip;"
       current: Estás en la página
-  unauthorized:
-    manage:
-      all: "Acceso no autorizado."

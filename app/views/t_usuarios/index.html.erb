@@ -1,54 +1,36 @@
-<div class="row"> 
-  <h3 class="columns">Usuarios</h3>
-</div>
-
 <%= search_form_for @q do |f| %>
+  
+  <div class="row">
+    <div class="small-2 medium-1 large-6 columns">
+      <h3 class="columns">Usuarios</h3>
+    </div>
+    <div class="small-2 medium-1 large-6 columns">
+      <% if can? :cru, TUsuario %>    
+        <%= link_to 'Nuevo Usuario', new_t_usuario_path, :class => "button float-right"  %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="row">
-
     <div class="small-2 medium-1 large-1 columns">
-      <%= f.label :cCodUsuario_cont, 'Código', for: "middle-label", class: "text-right" %>
+      <%= f.label :t_usuario_cont, 'Buscar', for: "middle-label", class: "text-right" %>
     </div>
-
-    <div class="small-10 medium-3 large-3 columns">      
-      <%= f.search_field :cCodUsuario_cont %>
+    <div class="small-2 medium-1 large-7 columns">
+      <%= f.search_field :t_usuario_cont %>
     </div>
-
-    <div class="small-2 medium-1 large-1 columns">      
-      <%= f.label :cNombre_cont, 'Nombre', for: "middle-label", class: "text-right" %>
-    </div>
-
-    <div class="small-10 medium-7 large-7 columns">            
-      <%= f.search_field :cNombre_cont %>
-    </div>
-
-  </div>
-  <div class="row margin-bottom">
-
     <div class="small-2 medium-1 large-1 columns">
       <label for="middle-label" class="text-right ">Activo</label>
     </div>
-
-    <div class="small-10 medium-3 large-3 columns">      
-      <%= select_tag(:bActivo_eq, options_for_select([["",nil], ["Sí",true], ["No", false]])) %>
+    <div class="small-10 medium-3 large-2 columns">      
+      <%= f.select :bActivo_eq, [["",nil], ["Sí", true], ["No", false]] %>
     </div>
-
-    <div class="small-2 medium-1 large-1 columns">      
-       <%= f.label :cCorreo_eq, 'Correo', for: "middle-label", class: "text-right" %>
-    </div>
-
-    <div class="small-10 medium-7 large-7 columns">      
-      <%= f.search_field :cCorreo_eq %>
-    </div>
-
   </div>
 
-  <div class="row clearfix" >
-      <%= f.submit :class => "button float-right" %>
-      <%= link_to "Limpiar", request.path, :class => "button warning float-right" %>
-      <% if can? :cru, TUsuario %>
-        <%= link_to 'Nuevo Usuario', new_t_usuario_path, :class => "button float-right"  %>
-      <% end %>
+  <div class="row" >      
+    <div class="small-2 medium-1 large-12 columns">      
+      <%= f.submit :class => "button float-right" %>      
+      <%= link_to "Limpiar", request.path, :class => "button float-right" %>
+    </div>
   </div>
       
   </form>              
@@ -67,16 +49,10 @@
 <%= page_entries_info @t_usuarios, :entry_name => 'usuarios' %><br/><br/>
 </div>
 
-<div class="table-scroll">
+<div class="table-scroll-horizontal">
   <table>
-    <thead  class="color-cabecera">
-      <tr>
-        <% if can? :read, TUsuario %>
-          <th>Ver</th>
-        <% end %>
-        <% if can? :cru, TUsuario %>
-          <th>Editar</th>
-        <% end %>
+    <thead>
+      <tr>        
         <th><%= sort_link(@q, :cCodUsuario, 'Código') %></th>
         <th><%= sort_link(@q, :cNombre, 'Nombre') %></th>
         <th><%= sort_link(@q, :cCorreo, 'Correo') %></th>
@@ -86,17 +62,11 @@
     
     <tbody>
       <% @t_usuarios.each do |t| %>
-        <tr>
-          <% if can? :read, TUsuario %>
-            <td><%= link_to image_tag('ver.png', :border=>0, :alt=>"Ver"), t %> </td>
-          <% end %>
-          <% if can? :cru, TUsuario %>
-            <td><%= link_to image_tag('editar.png', :border=>0, :alt=>"Editar"), edit_t_usuario_path(t) %> </td>
-          <% end %>      
-          <td><%= t.cCodUsuario %></td>
+        <tr>            
+          <td><%= link_to t.cCodUsuario, t %></td>
           <td><%= t.cNombre %></td>
           <td><%= t.cCorreo %></td>
-          <td><%= t.bActivo %></td>                
+          <td><%= t.bActivo ? "Sí": "No"  %></td>                
           
         </tr>
       <% end %>
