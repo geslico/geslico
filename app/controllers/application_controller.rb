@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
 
 	def require_login
 	unless logged_in?
-			flash[:danger] = "Debe iniciar sesión"
 			redirect_to login_url 
 		end
 	end 

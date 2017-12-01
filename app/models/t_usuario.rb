@@ -18,8 +18,9 @@ class TUsuario < ApplicationRecord
 	validates :cCorreo, presence: true, format: { :with => VALID_EMAIL_REGEX }
 	validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
 	validates :password, :confirmation => true, :length => { :within => 6..40 }, :on => :update, :unless => lambda{ |user| user.password.blank? }
-	validates :bActivo, presence: true
-
+	
+	ransack_alias :t_usuario, :cCodUsuario_or_cNombre_or_cCorreo
+	
 	has_secure_password #implementa la autenticación con bcrypt
 
 	private 

@@ -19,46 +19,41 @@
         <%= f.label :nCodEstado_eq, 'Estado', for: "middle-label", class: "text-right" %>
       </div>
 
-      <div class="small-9 medium-5 large-3 columns">      
-        <!-- # Combo Estado -->
-        <% if  !params[:q].nil?  %>
-        <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", params[:q][:nCodEstado_eq]) %>
-
-        <% else %>
-          <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion") %>
-        <% end %>
-      </div>
-
       <div class="small-3 medium-2 large-1 columns">      
-        <%= f.label :buscon_cont, 'Buscar', for: "middle-label", class: "text-right" %>
+        <%= f.label :t_sede_cont, 'Buscar', for: "middle-label", class: "text-right" %>
       </div>
 
       <div class="small-9  medium-10 large-4 columns">
-        <%= f.search_field :buscon_cont %>
+        <%= f.search_field :t_sede_cont %>
       </div>
 
-    </div>
-            
-    <div class="row">
 
-      <div class="small-3 medium-2 large-1 columns">      
-        <%= f.label :cNombre_cont, 'Nombre', for: "middle-label", class: "text-right" %>
-      </div>
+        <div class="small-9  medium-10 large-4 columns">
+          <%= f.search_field :buscon_cont %>
+        </div>
 
-      <div class="small-9 medium-10  large-11 columns">
-        <%= f.search_field :cNombre_cont %>
       </div>
+              
+      <div class="row">
 
-    </div>
-            
-    <div class="row">
-      <div class="small-3 medium-2 large-1 columns">      
-        <%= f.label :cDireccion_cont, 'Dirección', for: "middle-label", class: "text-right" %>
-      </div>
+        <div class="small-3 medium-2 large-1 columns">      
+          <%= f.label :cNombre_cont, 'Nombre', for: "middle-label", class: "text-right" %>
+        </div>
 
-      <div class="small-9 medium-10 large-11 columns">
-        <%= f.search_field :cDireccion_cont %>
+        <div class="small-9 medium-10  large-11 columns">
+          <%= f.search_field :cNombre_cont %>
+        </div>
+
       </div>
+              
+      <div class="row">
+        <div class="small-3 medium-2 large-1 columns">      
+          <%= f.label :cDireccion_cont, 'Dirección', for: "middle-label", class: "text-right" %>
+        </div>
+
+        <div class="small-9 medium-10 large-11 columns">
+          <%= f.search_field :cDireccion_cont %>
+        </div>
 
     </div>  
 
@@ -122,7 +117,7 @@
     </ul>      
 </div>
 
-<div class="row">
+<div class="row text-right">
   <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
   <%= link_to image_tag('excel.png', :border=>1, :alt=>"Exportar", :align=> "right"), current_url(:format=>:csv), :class=>"text-right" %>
 </div>
@@ -159,6 +154,6 @@
   </ul>
 </div>
 
-<div class="row">
+<div class="row text-right">
   <%= page_entries_info @t_sedes, :entry_name => 'sedes' %>
 </div>
