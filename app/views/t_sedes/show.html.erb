@@ -199,11 +199,11 @@
 </div>
 
 <!--GESTION DE BOTONES -->
-<div class="row">
-    <%= link_to '<< Volver', t_sedes_path, :class => "success button" %>        
+<div class="row text-right">
+    <%= link_to '<< Volver', t_sedes_path, :class => "button small" %>        
 
     <% if can? :read, TSede %> 
-        <%= link_to 'Editar', edit_t_sede_path(@t_sede), :class => "success button" %> 
+        <%= link_to 'Editar', edit_t_sede_path(@t_sede), :class => "button small" %> 
     <% end %>
 </div>
 <%= render 'accordion' %>

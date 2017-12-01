@@ -17,19 +17,18 @@ Rails.application.routes.draw do
     resources :t_sedes
     resources :t_acronimos_sede_edrs
     resources :t_unidades
-
+  
     resources :v_tetra_planes 
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
-    
-    
     resources :t_usuarios do
       resources :t_usuarios_programas do
         resources :t_programas 
-        end   
+        end
     end
 
-    
+    get 't_informes/campus'     => 't_informes#index_campus'
+    get 't_informes/campus/:id' => 't_informes#show_campus', as: 'informe_campus'
 
   end
   

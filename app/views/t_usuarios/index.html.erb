@@ -63,7 +63,7 @@
     <tbody>
       <% @t_usuarios.each do |t| %>
         <tr>            
-          <td><%= link_to t.cCodUsuario, t %></td>
+          <td><%= link_to t.cCodUsuario, t, :class => 'link' %></td>
           <td><%= t.cNombre %></td>
           <td><%= t.cCorreo %></td>
           <td><%= t.bActivo ? "Sí": "No"  %></td>                
