@@ -25,3 +25,6 @@ es:
   application:
       close: "Cerrar"
 
+unauthorized:
+      manage:
+        all: "Acceso no autorizado. Debe iniciar sesión."
