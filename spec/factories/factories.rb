@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-	factory :t_usuario do
+	factory :usuario do
 		cCodUsuario "user099"
     	cClave nil
 		cNombre "Usuario RSpec"

@@ -9,8 +9,8 @@ namespace :seeder do
   end
 
   task programas: :environment do
-  	TPrograma.order(:nCodPrograma).all.each do |programa|
- 		puts "TPrograma.create(#{programa.serializable_hash.delete_if {|key, value| ['created_at','updated_at'].include? (key)}.to_s.gsub(/[{}]/,'')})"
+  	Programa.order(:nCodPrograma).all.each do |programa|
+ 		puts "Programa.create(#{programa.serializable_hash.delete_if {|key, value| ['created_at','updated_at'].include? (key)}.to_s.gsub(/[{}]/,'')})"
 	end
   end
 

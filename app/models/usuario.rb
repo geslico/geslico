@@ -1,13 +1,13 @@
-class TUsuario < ApplicationRecord
+class Usuario < ApplicationRecord
 
 	#Nombre de tabla mapeada
 	self.table_name ="geslico.dbo.TUsuarios"
 	self.primary_key = "nIdUsuario"
 	
-	has_many	:t_usuarios_programas, :foreign_key => "nIdUsuario"
-	has_many	:t_programas, through: :t_usuarios_programas, :foreign_key => "nCodPrograma"
+	has_many	:usuarios_programas, :foreign_key => "nIdUsuario"
+	has_many	:programas, through: :usuarios_programas, :foreign_key => "nCodPrograma"
 
-	accepts_nested_attributes_for :t_usuarios_programas, :t_programas
+	accepts_nested_attributes_for :usuarios_programas, :programas
 
 	before_save { self.cCodUsuario = cCodUsuario.downcase }
 	before_save { self.cCorreo = cCorreo.downcase }
@@ -19,13 +19,13 @@ class TUsuario < ApplicationRecord
 	validates :password, :presence =>true, :confirmation => true, :length => { :within => 6..40 }, :on => :create
 	validates :password, :confirmation => true, :length => { :within => 6..40 }, :on => :update, :unless => lambda{ |user| user.password.blank? }
 	
-	ransack_alias :t_usuario, :cCodUsuario_or_cNombre_or_cCorreo
+	ransack_alias :usuario, :cCodUsuario_or_cNombre_or_cCorreo
 	
 	has_secure_password #implementa la autenticación con bcrypt
 
 	private 
 	def has_role?(role_sym)
-	  TPrograma.any? { |r| r.nCodPrograma.underscore.to_sym == role_sym }
+	  Programa.any? { |r| r.nCodPrograma.underscore.to_sym == role_sym }
 	end
 
 end

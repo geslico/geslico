@@ -17,7 +17,7 @@ es:
         body:    "Hay conflictos con los siguientes campos:"
 
     models:
-      t_usuario:
+      usuario:
         one: "Usuario"
         other: "Usuarios"
 
@@ -30,7 +30,7 @@ es:
         other: "Acrónimos"
 
     attributes:
-      t_usuario:
+      usuario:
         cCodUsuario: "Código"
         cNombre: "Nombre"        
         cCorreo: "Correo"

@@ -84,8 +84,8 @@
 
     <div class="top-bar-right">
       <ul class="menu">
-        <% if can? :read, TUsuario %>
-        <li><%= link_to "Usuarios", t_usuarios_path %></li>
+        <% if can? :read, Usuario %>
+        <li><%= link_to "Usuarios", usuarios_path %></li>
         <% end %>
         <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
       </ul>      
