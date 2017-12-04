@@ -5,31 +5,37 @@
 
   <%= search_form_for @q do |f| %>
 
-    <div class="row">
 
-      <div class="small-3 medium-2 large-1 columns text-right">      
-        <%= f.label :nCodSede_eq, 'Código', for: "right-label", class: "text-right" %>
-      </div>
+      <div class="row">
 
-      <div class="small-9 medium-3 large-2 columns">
-        <%= f.search_field :nCodSede_eq %>
-      </div>
-    
-      <div class="small-3 medium-2 large-1 columns">      
-        <%= f.label :nCodEstado_eq, 'Estado', for: "middle-label", class: "text-right" %>
-      </div>
+        <div class="small-3 medium-2 large-1 columns text-right">      
+          <%= f.label :nCodSede_eq, 'Código', for: "right-label", class: "text-right" %>
+        </div>
 
-      <div class="small-3 medium-2 large-1 columns">      
-        <%= f.label :t_sede_cont, 'Buscar', for: "middle-label", class: "text-right" %>
-      </div>
+        <div class="small-9 medium-3 large-2 columns">
+          <%= f.search_field :nCodSede_eq %>
+        </div>
+      
+        <div class="small-3 medium-2 large-1 columns">      
+          <%= f.label :nCodEstado_eq, 'Estado', for: "middle-label", class: "text-right" %>
+        </div>
 
-      <div class="small-9  medium-10 large-4 columns">
-        <%= f.search_field :t_sede_cont %>
-      </div>
+        <div class="small-9 medium-5 large-3 columns">      
+          <!-- # Combo Estado -->
+          <% if  !params[:q].nil?  %>
+          <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", params[:q][:nCodEstado_eq]) %>
 
+          <% else %>
+            <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion") %>
+          <% end %>
+        </div>
+
+        <div class="small-3 medium-2 large-1 columns">      
+          <%= f.label :t_sede_cont, 'Buscar', for: "middle-label", class: "text-right" %>
+        </div>
 
         <div class="small-9  medium-10 large-4 columns">
-          <%= f.search_field :buscon_cont %>
+          <%= f.search_field :t_sede_cont %>
         </div>
 
       </div>
