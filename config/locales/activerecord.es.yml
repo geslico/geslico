@@ -13,7 +13,7 @@ es:
       template:
         header:
           one:   "1 error en %{model} no permite realizar la operación "
-          other: "%{count} errores en  %{model} no permiten realizar la operación "
+          other: "%{count} errores en %{model} no permiten realizar la operación "
         body:    "Hay conflictos con los siguientes campos:"
 
     models:
@@ -25,7 +25,7 @@ es:
         one: "Sede"
         other: "Sedes"
 
-      t_acronimos_sede_edr:
+      acronimos_sede_edr:
         one: "Acrónimo"
         other: "Acrónimos"
 
@@ -40,6 +40,6 @@ es:
         nCodSede: "Código"
         nCodEstado: "Estado"
 
-      t_acronimos_sede_edr:
+      acronimos_sede_edr:
         cCodigo: "Código"
         cDescripcion: "Descripción"

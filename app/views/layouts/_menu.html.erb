@@ -1,7 +1,7 @@
 
 <% if logged_in? %>
 
-<div class="title-bar" data-responsive-toggle="geslico-menu" data-hide-for="medium">
+<div class="title-bar" data-responsive-toggle="geslico-menu" data-hide-for="large">
   <button class="menu-icon" type="button" data-toggle="geslico-menu"></button>
   <div class="title-bar-title">Menu</div>
 </div>
@@ -16,7 +16,7 @@
             <a href="#">Campus</a>
             <ul class="submenu menu vertical" data-submenu>
               <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
-              <li><%= link_to "Acrónimos", t_acronimos_sede_edrs_path, class: "margin-right" %></li>
+              <li><%= link_to "Acrónimos", acronimos_sede_edrs_path, class: "margin-right" %></li>
             </ul>
           </li>
         <% end %>

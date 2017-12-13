@@ -1,0 +1,46 @@
+<%= form_for @acronimos_sede_edr do |f| %>
+	
+	<% if @acronimos_sede_edr.errors.any? %>  
+	    <div class="panel warning callout radius">      
+	      <strong><%= t('activerecord.errors.template.header', :model => AcronimosSedeEdr.model_name.human, :count => @acronimos_sede_edr.errors.count) %></strong>
+	      <ul>
+	      <% @acronimos_sede_edr.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+  	<% end %>
+
+  	<div class="row">
+
+	    <div class="small-3 medium-2 large-2 columns">
+	      <label for="middle-label">Código</label>
+	    </div>
+	   
+	    <div class="small-9 medium-10<> large-2 columns end">            
+        	<%= f.text_field :cCodigo %>
+      	</div>
+
+	</div>
+
+	<div class="row">
+	    <div class="small-3 medium-2 large-2 columns">
+	      <label for="middle-label">Descripción</label>
+	    </div>
+	     
+	   	<div class="small-9 medium-10 large-10 columns">	      
+	      <%= f.text_field :cDescripcion %>
+	    </div>   
+	</div>
+
+	<br>
+	
+	<!-- BOTONES -->
+	<div class="row">
+		<% if can? :cru, TSede %>
+			<%= f.submit 'Guardar', class: 'button small float-right' %>      	     
+		<% end %>
+		<%= link_to '<< Volver', acronimos_sede_edrs_path, :class => "button small float-right" %>				
+	</div>
+
+<% end %>

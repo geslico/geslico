@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :t_fechas_cargas
 
     resources :t_sedes
-    resources :t_acronimos_sede_edrs
+    resources :acronimos_sede_edrs
     resources :t_unidades
   
     resources :v_tetra_planes 

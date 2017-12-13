@@ -87,10 +87,12 @@
     </tbody>   
   </table>
   
-  <div class="row clearfix">      <% if can? :cru, Usuario %>                     
-        <%= f.submit 'Guardar', class: 'button float-right' %>
-      <% end %>      
-      <%= link_to '<< Volver', usuarios_path, :class => "button float-right" %>        
+  <div class="row clearfix">      
+    <% if can? :cru, Usuario %>                     
+      <%= f.submit 'Guardar', class: 'button float-right' %>
+    <% end %>      
+    <%= link_to '<< Volver', usuarios_path, :class => "button float-right" %>        
   </div>
+  
 
 <% end %>

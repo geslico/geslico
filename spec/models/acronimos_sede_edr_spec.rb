@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe TAcronimosSedeEdr do
+describe AcronimosSedeEdr do
 
 	before(:each) {@t_acronimo = FactoryGirl.create(:t_acronimos_sede_edr)}
 
