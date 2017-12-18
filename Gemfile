@@ -48,6 +48,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'puma', '~> 3.10'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

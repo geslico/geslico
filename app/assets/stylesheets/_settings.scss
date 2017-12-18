@@ -103,11 +103,11 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.9;
 $foundation-palette: (
-  primary: #0707FF,
-  secondary: #3542FF,
-  success: #2DFF2D,
-  warning: #FFF000,
-  alert: #FF1414,
+  primary: rgb(26, 103, 204),
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -248,13 +248,13 @@ $input-error-font-weight: $global-weight-bold;
 // 7. Accordion
 // ------------
 
-$accordion-background: $secondary-color;
+$accordion-background: $light-gray;
 $accordion-plusminus: true;
-$accordion-item-color: $white;
-$accordion-item-background-hover: $primary-color;
+$accordion-item-color: $black;
+$accordion-item-background-hover: $medium-gray;
 $accordion-item-padding: 1.25rem 1rem;
 $accordion-content-background: $white;
-$accordion-content-border: 1px solid $light-gray;
+$accordion-content-border: 1px solid $medium-gray;
 $accordion-content-color: foreground($accordion-content-background, $body-font-color);
 $accordion-content-padding: 1rem;
 $accordion-title-font-size: rem-calc(13);
@@ -299,7 +299,7 @@ $button-color-alt: $black;
 $button-radius: $global-radius-button;
 $button-sizes: (
   tiny: 0.6rem,
-  small: 0.75rem,
+  small: 0.85rem,
   default: 0.9rem,
   large: 1.25rem,
 );
@@ -489,7 +489,7 @@ $pagination-item-spacing: rem-calc(1);
 $pagination-radius: $global-radius;
 $pagination-item-background-hover: $light-gray;
 $pagination-item-background-current: $primary-color;
-$pagination-item-color-current: foreground($pagination-item-background-current);
+$pagination-item-color-current: $white;
 $pagination-item-color-disabled: $medium-gray;
 $pagination-ellipsis-color: $black;
 $pagination-mobile-items: false;
@@ -616,7 +616,7 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $primary-color;
+$topbar-background: $black;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;

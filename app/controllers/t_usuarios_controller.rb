@@ -32,7 +32,8 @@ class TUsuariosController < ApplicationController
     respond_to do |format|
       if (@t_usuario_new.save())
         add_usuario_programas_permisos
-        format.html { redirect_to @t_usuario, notice: 'Usuario creado correctamente.' }
+        flash[:success] ='Usuario creado correctamente.' 
+        format.html { redirect_to @t_usuario }        
       else
         format.html { render :new }
       end
@@ -43,11 +44,12 @@ class TUsuariosController < ApplicationController
   def update
     
     params[:t_usuario].delete(:password) if params[:t_usuario][:password].blank?
-
+    
     respond_to do |format|
       if @t_usuario.update(t_usuario_params)
         add_usuario_programas_permisos
-        format.html { redirect_to @t_usuario, notice: 'Usuario modificado correctamente.' }
+        flash[:success] ='Usuario modificado correctamente.' 
+        format.html { redirect_to @t_usuario }        
       else
         format.html { render :edit }
       end
@@ -70,9 +72,11 @@ class TUsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def t_usuario_params
-      params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password,
-                                   :password_confirmation, t_usuarios_programas_attributes: [:id, :nIdUsuario, :nCodPrograma, :sPermiso])
+      params.require(:t_usuario).permit(:cCodUsuario, :cNombre, :cCorreo , :bActivo, :password, :password_confirmation, 
+                                t_usuarios_programas_attributes: [:id, :nIdUsuario, :nCodPrograma, :sPermiso, 
+                                t_programas_attributes:[ :nCodPrograma, :sPrograma, :sDescripcion, :sModelos ]])
     end
+    
     def add_usuario_programas_permisos
       # Defino esta llamada al procedimiento almacenado para que actualice junto con el alta de los usuarios
       ActiveRecord::Base.connection.execute('EXEC geslico.dbo.AutoAltaUsuariosProgramas')
