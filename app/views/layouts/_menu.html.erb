@@ -43,7 +43,11 @@
             <li><a href="#">Tarjetas</a></li>
             <li><a href="#">Afaria</a></li>
             <li><a href="#">Pedidos</a></li>
-            <li><a href="#">Catálogo</a></li>
+            
+            <% if can? :read, ModelosTerminal %> 
+              <li><%= link_to "Catálogo", modelos_terminales_path, class: "margin_right" %></li>
+            <% end %>
+                        
           </ul>
         </li>
 

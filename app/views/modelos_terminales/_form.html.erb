@@ -1,0 +1,121 @@
+<%= form_for(@modelos_terminal) do |f| %>
+    
+    <div class="row clearfix">      
+        <% if can? :cru, ModelosTerminal %>                     
+            <%= f.submit 'Guardar', class: 'warning button float-righ' %>
+        <% end %>      
+        <%= link_to '<< Volver', modelos_terminales_path, :class => "button float-right" %>        
+    </div>
+
+    <div class="row">
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Marca, for: 'middle-label' %>
+        </div>
+        <div class="small-8 medium-4 large-5 columns">
+            <%= f.text_field :cMarca, for: 'middle-label' %>
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Modelo, for: 'middle-label' %>
+        </div>
+        <div class="small-8 medium-4 large-5 columns">
+            <%= f.text_field :cModelo, for: 'middle-label' %>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Operativo, for: 'middle-label' %>
+        </div>  
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :cSO, [ ["", ""], ["Android", "Android"], ["Blackberry", "Blackberry"], ["Firefox OS", "Firefox OS"], ["IOS", "IOS"], ["Symbian", "Symbian"], ["Windows", "Windows"], ["Otros", "Otros"]], for: 'middle-label' %>     
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Pulgadas, for: 'middle-label' %>
+        </div>
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :nPulgadas, [ ["", ""], ["10", 10.0], ["7", 7.0], ["5", 5.0], ["4.5", 4.5], ["4", 4.0], ["3", 3.0]], for: 'middle-label' %>     
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Tarjeta, for: 'middle-label' %>
+        </div>
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :nTipoSIM, [ ["", -1], ["Sin tarjeta", 0], ["SIM", 1], ["MicroSIM", 2], ["NanoSIM", 3]], for: 'middle-label' %>     
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Tipo, for: 'middle-label' %>
+        </div>
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :cTipo, [ ["", ""], ["Teléfono", "P"], ["Tablet", "T"], ["Accesorio", "A"], ["Módem", "M"], ["Otro", "O"]], for: 'middle-label' %>     
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Disponible, for: 'middle-label' %>
+        </div>  
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :bDisponibilidad, [ ["", -1], ["SÍ", true], ["NO", false]], for: 'middle-label' %>     
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Vigente, for: 'middle-label' %>
+        </div>  
+        <div class="small-8 medium-4 large-2 columns">            
+            <%= f.select :bVigente, [ ["", -1], ["SÍ", true], ["NO", false]], for: 'middle-label' %>     
+        </div>
+
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Categoría, for: 'middle-label' %>
+        </div> 
+        <div class="small-8 medium-4 large-5 columns">                                        
+            <%= f.select :nIdCategoria, content_tag(:option,"",:value=>"")+options_from_collection_for_select(CategoriaTerminal.all, :nId, :desc_categoria, @modelos_terminal.nIdCategoria) %>        
+        </div> 
+       
+    </div>
+
+    <div class="row">
+        <div class="small-4 medium-2 large-1 columns">
+            <%= f.label :Característ, for: 'middle-label' %>
+        </div> 
+        <div class="small-8 medium-4 large-11 columns">
+            <%= f.text_field :cCaracteristicas, for: 'middle-label' %>
+        </div>
+    </div>
+    
+
+    <br>
+    
+    <div class="row">
+        <label  class="small-4 medium-2 large-6 columns for="middle-label">PRECIO</label>
+        <%= link_to "Búsqueda terminal", @modelos_terminal.BusquedaModeloGoogle, :class => "small-4 medium-2 large-6 columns text-right" , target: :_blank %>
+    </div>
+
+    <br>
+    <div>
+        
+        <table>
+            <thead class="color-cabecera">                                              
+                <tr>                
+                    <th>Pedido</th>
+                    <th>Fecha</th>
+                    <th class="text-right">Precio</th>                    
+                </tr>
+            </thead>
+        
+            <tbody>                
+                <% @modelos_terminal.pedidos_movil.each do |t| %>
+                    <tr>        
+                    <td><%=  t.nId %></td>           
+                    <td><%=  t.dFchInicio.strftime("%d-%m-%Y") %></td>    
+                    <td class="text-right"><%=  t.nPrecioUnidad %></td>                        
+                    </tr>                    
+                <% end %>                
+            </tbody>
+        </table>
+    </div>
+
+<% end %>

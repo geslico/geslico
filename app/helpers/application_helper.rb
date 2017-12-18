@@ -3,3 +3,4 @@ module ApplicationHelper
    		url_for safe_params.merge(new_params)
    	end
 end
+
