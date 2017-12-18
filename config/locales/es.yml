@@ -23,8 +23,19 @@ es:
   hello: "Hola Mundo"
 
   application:
-      close: "Cerrar"
+    close: "Cerrar"
+    "yes": "Sí"
+    "no": "No"         
 
-unauthorized:
-      manage:
-        all: "Acceso no autorizado. Debe iniciar sesión."
+  form_for:
+    save: "Guardar"
+    return: "<< Volver"
+
+  search_form:
+    button: "Buscar"
+    title: "Buscar"    
+    clear: "Limpiar"
+
+  unauthorized:
+    manage:
+      all: "Acceso no autorizado. Debe iniciar sesión."

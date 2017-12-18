@@ -20,14 +20,17 @@ es:
       usuario:
         one: "Usuario"
         other: "Usuarios"
+        new:  "Nuevo usuario" 
 
       t_sede:
         one: "Sede"
         other: "Sedes"
+        new:  "Nueva sede" 
 
       acronimos_sede_edr:
         one: "Acrónimo"
         other: "Acrónimos"
+        new:  "Nuevo Acrónimo" 
 
     attributes:
       usuario:
@@ -35,6 +38,7 @@ es:
         cNombre: "Nombre"        
         cCorreo: "Correo"
         confirmation: "Confirmación"
+        bActivo: "Activo"
 
       t_sede:
         nCodSede: "Código"

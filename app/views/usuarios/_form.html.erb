@@ -89,9 +89,9 @@
   
   <div class="row clearfix">      
     <% if can? :cru, Usuario %>                     
-      <%= f.submit 'Guardar', class: 'button float-right' %>
+      <%= f.submit t('form_for.save') , class: 'button float-right' %>
     <% end %>      
-    <%= link_to '<< Volver', usuarios_path, :class => "button float-right" %>        
+    <%= link_to t('form_for.return'), usuarios_path, :class => "button float-right" %>        
   </div>
   
 
