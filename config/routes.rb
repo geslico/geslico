@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
     
+    resources :modelos_terminales 
     
     resources :t_usuarios do
       resources :t_usuarios_programas do

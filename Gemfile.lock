@@ -128,9 +128,6 @@ GEM
     kaminari-activerecord (1.0.1)
       activerecord
       kaminari-core (= 1.0.1)
-    kaminari-bootstrap (3.0.1)
-      kaminari (>= 0.13.0)
-      rails
     kaminari-core (1.0.1)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
@@ -277,7 +274,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
-  kaminari-bootstrap
   rails (~> 5.1, >= 5.1.2)
   ransack (~> 1.8, >= 1.8.2)
   rspec (~> 3.5)
@@ -292,4 +288,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.14.6
+   1.15.4
