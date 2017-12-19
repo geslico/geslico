@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe AcronimosSedeEdr do
 
-	before(:each) {@acronimo = FactoryGirl.create(:acronimos_sede_edr)}
+	before(:each) {@acronimo = FactoryBot.create(:acronimos_sede_edr)}
 
 	subject { @acronimo }
 
@@ -31,7 +31,7 @@ describe AcronimosSedeEdr do
 	end	
 	
 	it "Es inválido meter valores duplicados de acrónimos" do		
-		@acronimo = FactoryGirl.build(:acronimos_sede_edr)
+		@acronimo = FactoryBot.build(:acronimos_sede_edr)
 		expect(@acronimo).to_not be_valid
 	end
 

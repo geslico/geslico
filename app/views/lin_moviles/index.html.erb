@@ -16,10 +16,10 @@
     <thead>
       <tr>        
         <th><%= sort_link(@q, :linea_cNumero ) %></th>        
-        <th><%= sort_link(@q, :linea_cNumCorto ) %></th>          
-        <th><%= sort_link(@q, :persona_cDNI  ) %></th>  
+        <th><%= sort_link(@q, :linea_cNumCorto ) %></th>                  
         <th><%= sort_link(@q, :persona_cnombre  ) %></th>  
         <th><%= sort_link(@q, :persona_cApellidos  ) %></th>
+        <th><%= sort_link(@q, :persona_cempnompuesto  ) %></th>
         <th><%= sort_link(@q, :linea_unidad_nCodUni ) %></th>
         <th><%= sort_link(@q, :linea_unidad_cDenominacion  ) %></th>
       </tr>
@@ -29,10 +29,10 @@
       <% @lin_moviles.each do |t| %>
         <tr>            
           <td><%= link_to t.linea.cNumero==nil ? '' : t.linea.cNumero , t, :class => 'link' %></td>                    
-          <td><%= link_to t.linea.cNumCorto==nil ? '' : t.linea.cNumCorto , t, :class => 'link' %></td>                              
-          <td><%= t.persona.cDNI rescue nil %></td>
+          <td><%= link_to t.linea.cNumCorto==nil ? '' : t.linea.cNumCorto , t, :class => 'link' %></td>                                        
           <td><%= t.persona.cnombre rescue nil %></td>          
           <td><%= t.persona.cApellidos rescue nil %></td>
+          <td><%= t.persona.cempnompuesto rescue nil %></td>
           <td><%= t.linea.unidad.nCodUni rescue nil %></td>
           <td><%= t.linea.unidad.cDenominacion rescue nil %></td>
         </tr>

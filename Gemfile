@@ -29,7 +29,7 @@ gem 'cancancan', '~> 2.0'
 # Test tools
 gem 'rspec', '~> 3.5'
 gem 'capybara', '~> 2.10', '>= 2.10.1'
-gem 'factory_girl_rails', '~> 4.9'
+gem "factory_bot_rails", "~> 4.0"
 gem 'i18n-tasks', '~> 0.9.5'
 
 gem 'ancestry'

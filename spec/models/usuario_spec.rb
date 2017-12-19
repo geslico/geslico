@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Usuario do
 
-	before(:each) {@usuario = FactoryGirl.create(:usuario)}
+	before(:each) {@usuario = FactoryBot.create(:usuario)}
 
 	subject { @usuario }
 
@@ -11,7 +11,7 @@ describe Usuario do
 	end
 
 	it "invalido usuario duplicado" do		
-		@usuario_repetido=FactoryGirl.build(:usuario)
+		@usuario_repetido=FactoryBot.build(:usuario)
 		expect(@usuario_repetido).to_not be_valid
 	end
 
