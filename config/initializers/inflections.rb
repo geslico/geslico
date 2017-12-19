@@ -23,5 +23,11 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'vtetraplangssi', 'vtetraplangssis'
 	inflect.irregular 'lin_movil', 'lin_moviles'
 	inflect.irregular 'LinMovil', 'LinMoviles'
+	inflect.irregular 'ModelosTerminal', 'ModelosTerminales'
+	inflect.irregular 'modelos_terminal', 'modelos_terminales'
+	inflect.irregular 'CategoriaTerminal', 'CategoriaTerminales'
+	inflect.irregular 'categoria_terminal', 'categoria_terminales'
+	inflect.irregular 'PedidosMovil', 'PedidosMoviles'
+	inflect.irregular 'pedido_movil', 'pedidos_moviles'	
 end
 
