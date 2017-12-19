@@ -47,17 +47,17 @@
 </div>
 
 <div class="row text-right">
-<%= page_entries_info @usuarios, :entry_name => t('activerecord.models.usuario.other') %><br/><br/>
+<%= page_entries_info @usuarios %><br/><br/>
 </div>
 
 <div class="table-scroll-horizontal">
   <table>
     <thead>
       <tr>        
-        <th><%= sort_link(@q, :cCodUsuario, t('activerecord.attributes.usuario.cCodUsuario')  ) %></th>
-        <th><%= sort_link(@q, :cNombre, t('activerecord.attributes.usuario.cNombre') ) %></th>
-        <th><%= sort_link(@q, :cCorreo, t('activerecord.attributes.usuario.cCorreo') ) %></th>
-        <th><%= sort_link(@q, :bActivo, t('activerecord.attributes.usuario.bActivo') ) %></th>
+        <th><%= sort_link(@q, :cCodUsuario  ) %></th>
+        <th><%= sort_link(@q, :cNombre ) %></th>
+        <th><%= sort_link(@q, :cCorreo ) %></th>
+        <th><%= sort_link(@q, :bActivo ) %></th>
       </tr>
     </thead>
     
@@ -76,7 +76,7 @@
 </div>
 
 <div class="row text-right">
-<%= page_entries_info @usuarios, :entry_name => t('activerecord.models.usuario.other') %><br/><br/>
+<%= page_entries_info @usuarios %><br/><br/>
 </div>
 
 <div class="row">

@@ -32,6 +32,22 @@ es:
         other: "Acrónimos"
         new:  "Nuevo Acrónimo" 
 
+      linea:
+        one: "Línea"
+        other: "Líneas"
+
+      lin_movil:
+        one: "Línea Móvil"
+        other: "Líneas Móviles"
+
+      persona:
+        one: "Empleado"
+        other: "Empleados"
+
+      unidad:
+        one: "Unidad"
+        other: "Unidades"
+
     attributes:
       usuario:
         cCodUsuario: "Código"
@@ -47,3 +63,27 @@ es:
       acronimos_sede_edr:
         cCodigo: "Código"
         cDescripcion: "Descripción"
+
+      linea:
+        cNumero: "Número"
+        cNumCorto: "Extensión"
+        dFechaAlta: "Fch.Alta"
+        dFechaBaja: "Fch.Baja"
+        nCodEstLin: "Estado"
+
+      lin_movil:
+        
+      persona:
+        cDNI: "Documento"
+        cnombre: "Nombre"
+        cape1: "Apellido 1"
+        cape2: "Apellido 2"
+        cApellidos: "Apellidos"
+        nempnumper: "NumPer"
+        cempnompuesto: "Puesto"
+        cempgrupotit: "Grupo"
+        nempnivel: "Nivel"
+
+      unidad:
+        nCodUni: "Cod.Uni"
+        cDenominacion: "Unidad"

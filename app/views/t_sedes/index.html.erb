@@ -103,11 +103,11 @@
       </div>
 
       <div class="small-3 medium-2 large-1 columns">
-        <%= f.label :t_unidad_cDenominacion_cont, 'Unidad', for: "middle-label", class: "text-right" %>
+        <%= f.label :unidad_cDenominacion_cont, 'Unidad', for: "middle-label", class: "text-right" %>
       </div>
 
       <div class="small-9 medium-5 large-8 columns">
-        <%= f.search_field :t_unidad_cDenominacion_cont %> 
+        <%= f.search_field :unidad_cDenominacion_cont %> 
       </div>
     </div>
 
@@ -136,7 +136,7 @@
         <th class="columna-larga"><%= sort_link(@q, :cNombre, 'Sede') %></th>    
         <th class="columna-larga"><%= sort_link(@q, :cDireccion, 'Dirección') %></th>
         <th><%= sort_link(@q, :nCodUni, 'Unidad') %></th>
-        <th class="columna-larga"><%= sort_link(@q, :TUnidad_cDenominacion, 'Unidad') %></th>
+        <th class="columna-larga"><%= sort_link(@q, :unidad_cDenominacion, 'Unidad') %></th>
       </tr>
     </thead>
     
@@ -147,7 +147,7 @@
           <td><%= t_sede.cNombre %></td>
           <td><%= t_sede.cDireccion %></td>          
           <td><%= t_sede.nCodUni rescue nil %></td>           
-          <td><%= t_sede.t_unidad.cDenominacion rescue nil %></td>  
+          <td><%= t_sede.unidad.cDenominacion rescue nil %></td>  
         </tr>
       <% end %>
     </tbody>

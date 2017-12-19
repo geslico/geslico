@@ -1,0 +1,41 @@
+<%= search_form_for @q do |f| %>
+  
+  <div class="row">
+    <div class="small-6 medium-6 large-6 columns">
+      <h3 class="float-left columns"><%= t('activerecord.models.lin_movil.other') %></h3>
+    </div>
+    <div class="small-6 medium-6 large-6 columns">
+      <% if can? :cru, Usuario %>    
+        <%= link_to t('activerecord.models.lin_movil.new'), new_usuario_path, :class => "button float-right"  %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-2 medium-2 large-1 columns">
+      <%= f.label :lin_movil_cont, t('search_form.title') , for: "middle-label", class: "text-right" %>
+    </div>
+    <div class="small-10 medium-6 large-8 columns">
+      <%= f.search_field :lin_movil_cont %>
+    </div>
+    <div class="small-2 medium-2 large-1 columns">
+      <%= f.label :linea_nCodEstLin_eq, t('search_form.title') , for: "middle-label", class: "text-right" %>
+    </div>    
+    <div class="small-10 medium-2 large-2 columns">      
+      <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado","0")  %>      
+    </div>
+  </div>
+
+  <div class="row" >      
+    <div class="small-12 medium-12 large-12 columns">      
+      <%= f.submit :class => "button float-right" %>      
+      <%= link_to  t('search_form.clear') , request.path, :class => "button float-right" %>
+    </div>
+  </div>
+      
+  </form>              
+
+</div>
+
+<% end %>
+<hr>

@@ -17,9 +17,11 @@
 
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
-	inflect.irregular 'TUnidad', 'TUnidades'
+	inflect.irregular 'Unidad', 'Unidades'
 	inflect.irregular 'vtetraplan', 'vtetraplanes'
 	inflect.irregular 'vtetraplanissi', 'vtetraplanissis'
 	inflect.irregular 'vtetraplangssi', 'vtetraplangssis'
+	inflect.irregular 'lin_movil', 'lin_moviles'
+	inflect.irregular 'LinMovil', 'LinMoviles'
 end
 
