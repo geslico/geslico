@@ -20,7 +20,7 @@ class AcronimosSedeEdrsController < ApplicationController
 	end
 
 
-	# POST /t_acronimos_sede_edr
+	# POST /acronimos_sede_edr
   	def create
 			@acronimos_sede_edr = AcronimosSedeEdr.new(acronimos_sede_edr_params)
 
@@ -34,7 +34,7 @@ class AcronimosSedeEdrsController < ApplicationController
 	    end
   	end
 
-	# PATCH/PUT /t_acronimos_sede_edr_params
+	# PATCH/PUT /acronimos_sede_edr_params
 	def update
 		respond_to do |format|
 			if @acronimos_sede_edr.update(acronimos_sede_edr_params)
