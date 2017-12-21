@@ -1,3 +1,5 @@
+include CommonHelper
+
 class TSedesController < ApplicationController
   
   load_and_authorize_resource
@@ -12,10 +14,10 @@ class TSedesController < ApplicationController
     @t_sedes = @q.result.page(params[:page]).per(25)    
 
     respond_to do |format|
-    format.html
-    format.csv { send_data @t_sedes_csv.to_csv, filename: "sedes-#{Date.today}.csv" }
+      format.html
+      format.csv { send_data to_csv(@t_sedes_csv, TSede), filename: "sedes-#{Date.today}.csv" }
+    end
     
-  end
   end
 
   # GET /t_sedes/1

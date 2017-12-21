@@ -27,8 +27,13 @@ Rails.application.routes.draw do
         end
     end
 
-    get 't_informes/campus'     => 't_informes#index_campus'
-    get 't_informes/campus/:id' => 't_informes#show_campus', as: 'informe_campus'
+    get 'informes/sedes' => 'informes#index', as: 'informes_sedes'
+    get 'informes/radio' => 'informes#index', as: 'informes_radio'
+    get 'informes/movil' => 'informes#index', as: 'informes_movil'
+    get 'informes/fija' => 'informes#index', as: 'informes_fija'
+    get 'informes/electronica' => 'informes#index', as: 'informes_electronica'
+    get 'informes/datos' => 'informes#index', as: 'informes_datos'
+      
 
   end
   

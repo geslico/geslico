@@ -4,29 +4,28 @@
 
 <div class="row">
 <ul class="paginate">
-  <%= paginate(@t_informes) %>
+  <%= paginate(@informes) %>
 </ul>
 </div>
 
 <div class="row">
-<%= page_entries_info @t_informes, :entry_name => 'informes' %>
+<%= page_entries_info @informes, :entry_name => 'informes' %>
 </div>
-
 
 <div class="horizontal-scroll">
 <table>
   <thead class="color-cabecera">
     <tr>
-      <th>Ver</th>
+      <th>Código</th>
       <th><%= sort_link(@q, :cDescripcion, 'Descripción') %></th>
     </tr>
   </thead>
   
   <tbody>
-    <% @t_informes.each do |t_informe| %>
+    <% @informes.each do |informe| %>
       <tr>
-        <td><%= link_to t_informe.nId, informe_campus_url(id: t_informe.nId) , {:class=>'link'} %></td>        
-        <td align="left"><%= t_informe.cDescripcion %></td>
+        <td><%= link_to informe.nId, current_url(:format=>:csv, id: informe.nId) , {:class=>'link'} %></td>
+        <td align="left"><%= informe.cDescripcion %></td>
       </tr>
     <% end %>
   </tbody>

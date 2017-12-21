@@ -10,7 +10,7 @@
 
   <div class="top-bar" id="geslico-menu"> 
     <div class="top-bar-left">
-      <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">      
+      <ul class="menu horizontal medium-horizontal" data-responsive-menu="drilldown medium-dropdown">           
         <% if can? :read, TSede %>
           <li class="has-submenu">
             <a href="#">Campus</a>
@@ -34,7 +34,7 @@
             </ul>
           </li>
         <% end %>
-        
+                
         <li class="has-submenu">
           <a href="#">Móvil</a>
           <ul class="submeno menu vertical" data-submenu>
@@ -72,14 +72,28 @@
         </li>
 
         <li class="has-submenu">
-        <a href="#">Informes</a>
-        <ul class="submenu menu vertical" data-submenu>
-          <li><%= link_to "Campus", 't_informes/campus', class: "margin-right" %>
-        </ul>
-      </li>
-      
+          <a href="#">Informes</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <% if can? :read, TSede %>
+              <li><%= link_to "Sedes", informes_sedes_url, class: "margin-right" %></li>
+            <% end %>  
+            <% if can? :read, Radio %>
+              <li><%= link_to "Radio", informes_radio_url, class: "margin-right" %></li>
+            <% end %>              
+            <% if can? :read, LineaMovil %>
+              <li><%= link_to "Móvil", informes_movil_url, class: "margin-right" %></li>            
+            <% end %>
+            <% if can? :read, LineaFija %>
+              <li><%= link_to "Fija", informes_fija_url, class: "margin-right" %></li>            
+            <% end %>  
+            <% if can? :read, ElectronicaRed %>
+              <li><%= link_to "Electronica", informes_electronica_url, class: "margin-right" %></li>
+            <% end %>  
+            <% if can? :read, LineaDatos %>
+              <li><%= link_to "Datos", informes_datos_url, class: "margin-right" %></li>
+            <% end %>  
+        </li>             
       </ul>
-
     </div>
 
     <div class="top-bar-right">
