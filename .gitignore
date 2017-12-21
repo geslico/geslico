@@ -23,3 +23,5 @@
 
 /db/structure.sql
 /db/seed_*.sql
+.vscode/launch.json
+Gemfile.lock
