@@ -105,9 +105,9 @@
 
        <div class="small-8  medium-4 large-2 columns">
           <% if  !@t_sede.nIdAcronimo.nil?  %>
-              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
+              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(AcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
           <% else %>
-              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TAcronimosSedeEdr.all, "nId", "cCodigo")) %>
+              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(AcronimosSedeEdr.all, "nId", "cCodigo")) %>
           <% end %>
        </div>
 

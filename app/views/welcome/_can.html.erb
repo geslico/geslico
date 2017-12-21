@@ -1,7 +1,7 @@
 
-<% for role in TUsuariosPrograma.all %>
+<% for role in UsuariosPrograma.all %>
 
-	<%= check_box_tag "user[role_ids][]", role.id, @current_user.TUsuariosPrograma.include?(role) %>
+	<%= check_box_tag "user[role_ids][]", role.id, @current_user.UsuariosPrograma.include?(role) %>
 	<%=h role.TPrograma.sPrograma %>
 
 <% end %>

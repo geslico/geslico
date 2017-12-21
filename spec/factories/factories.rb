@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-	factory :t_usuario do
+	factory :usuario do
 		cCodUsuario "user099"
     	cClave nil
 		cNombre "Usuario RSpec"
@@ -10,7 +10,7 @@ FactoryGirl.define do
 		password_confirmation "123456"
 	end
 
-	factory :t_acronimos_sede_edr do
+	factory :acronimos_sede_edr do
     	cCodigo "A_EJEM"
     	cDescripcion "EJEMPLO DE DESCRIPCION"
   	end
