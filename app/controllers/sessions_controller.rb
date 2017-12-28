@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
 
   def create
   
-    t_usuario = TUsuario.find_by(cCodUsuario: params[:session][:cCodUsuario].downcase)
+    usuario = Usuario.find_by(cCodUsuario: params[:session][:cCodUsuario].downcase)
 
-    if t_usuario && t_usuario.authenticate(params[:session][:password])
+    if usuario && usuario.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
-      log_in t_usuario
+      log_in usuario
       redirect_to '/welcome'
 
     else

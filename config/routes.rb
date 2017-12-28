@@ -11,19 +11,23 @@ Rails.application.routes.draw do
     
     
     resources :welcome
-    resources :t_contajes
-    resources :t_fechas_cargas
+    resources :contajes
+    resources :fechas_cargas
 
-    resources :t_sedes
-    resources :t_acronimos_sede_edrs
-    resources :t_unidades
+    resources :sedes
+    resources :acronimos_sede_edrs
+    resources :unidades
   
     resources :v_tetra_planes 
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
-    resources :t_usuarios do
-      resources :t_usuarios_programas do
-        resources :t_programas 
+    
+    resources :lin_moviles
+    resources :modelos_terminales 
+    
+    resources :usuarios do
+      resources :usuarios_programas do
+        resources :programas 
         end
     end
 

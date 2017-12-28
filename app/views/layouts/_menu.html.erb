@@ -1,7 +1,7 @@
 
 <% if logged_in? %>
 
-<div class="title-bar" data-responsive-toggle="geslico-menu" data-hide-for="medium">
+<div class="title-bar" data-responsive-toggle="geslico-menu" data-hide-for="large">
   <button class="menu-icon" type="button" data-toggle="geslico-menu"></button>
   <div class="title-bar-title">Menu</div>
 </div>
@@ -11,12 +11,12 @@
   <div class="top-bar" id="geslico-menu"> 
     <div class="top-bar-left">
       <ul class="menu horizontal medium-horizontal" data-responsive-menu="drilldown medium-dropdown">           
-        <% if can? :read, TSede %>
+        <% if can? :read, Sede %>
           <li class="has-submenu">
             <a href="#">Campus</a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
-              <li><%= link_to "Acrónimos", t_acronimos_sede_edrs_path, class: "margin-right" %></li>
+              <li><%= link_to "Sedes", sedes_path, class: "margin-right" %></li>
+              <li><%= link_to "Acrónimos", acronimos_sede_edrs_path, class: "margin-right" %></li>
             </ul>
           </li>
         <% end %>
@@ -37,13 +37,17 @@
                 
         <li class="has-submenu">
           <a href="#">Móvil</a>
-          <ul class="submeno menu vertical" data-submenu>
-            <li><a href="#">Líneas</a></li>
+          <ul class="submeno menu vertical" data-submenu>            
+            <li><%= link_to "Líneas", lin_moviles_path, class: "margin-right" %></li>
             <li><a href="#">Terminales</a></li>
             <li><a href="#">Tarjetas</a></li>
             <li><a href="#">Afaria</a></li>
             <li><a href="#">Pedidos</a></li>
-            <li><a href="#">Catálogo</a></li>
+            
+            <% if can? :read, ModelosTerminal %> 
+              <li><%= link_to "Catálogo", modelos_terminales_path, class: "margin_right" %></li>
+            <% end %>
+                        
           </ul>
         </li>
 
@@ -74,22 +78,22 @@
         <li class="has-submenu">
           <a href="#">Informes</a>
           <ul class="submenu menu vertical" data-submenu>
-            <% if can? :read, TSede %>
+            <% if can? :read, Sede %>
               <li><%= link_to "Sedes", informes_sedes_url, class: "margin-right" %></li>
             <% end %>  
             <% if can? :read, Radio %>
               <li><%= link_to "Radio", informes_radio_url, class: "margin-right" %></li>
             <% end %>              
-            <% if can? :read, LineaMovil %>
-              <li><%= link_to "Móvil", informes_movil_url, class: "margin-right" %></li>            
+            <% if can? :read, LinMovil %>
+              <li><%= link_to "Líneas Móviles", informes_movil_url, class: "margin-right" %></li>            
             <% end %>
-            <% if can? :read, LineaFija %>
-              <li><%= link_to "Fija", informes_fija_url, class: "margin-right" %></li>            
+            <% if can? :read, Linea %>
+              <li><%= link_to "Líneas Fijas", informes_fija_url, class: "margin-right" %></li>            
             <% end %>  
             <% if can? :read, ElectronicaRed %>
-              <li><%= link_to "Electronica", informes_electronica_url, class: "margin-right" %></li>
+              <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
             <% end %>  
-            <% if can? :read, LineaDatos %>
+            <% if can? :read, LinDatos %>
               <li><%= link_to "Datos", informes_datos_url, class: "margin-right" %></li>
             <% end %>  
         </li>             
@@ -98,8 +102,8 @@
 
     <div class="top-bar-right">
       <ul class="menu">
-        <% if can? :read, TUsuario %>
-        <li><%= link_to "Usuarios", t_usuarios_path %></li>
+        <% if can? :read, Usuario %>
+        <li><%= link_to "Usuarios", usuarios_path %></li>
         <% end %>
         <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
       </ul>      

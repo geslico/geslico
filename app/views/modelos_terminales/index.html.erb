@@ -1,0 +1,79 @@
+
+<%= search_form_for @q do |f| %>
+    
+    <div class="row">
+        <div class="small-2 medium-1 large-6 columns">
+            <h3 class="columns">Catálogo</h3>
+        </div>   
+        
+        <div class="small-2 medium-1 large-6 columns">            
+            <% if can? :cru, ModelosTerminal %>    
+                <%= link_to 'Nuevo Modelo', new_modelos_terminal_path, :class => "button float-right"  %>
+            <% end %>            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="small-2 medium-1 large-1 columns">
+            <%= f.label :modelos_terminal_cont, 'Buscar', for: "middle-label", class: "text-right" %>
+        </div>
+        <div class="small-10 medium-11 large-11 columns">
+            <%= f.search_field :modelos_terminal_cont %>
+        </div>       
+    </div>
+
+    <div class="row" >      
+        <div class="small-2 medium-1 large-12 columns">      
+            <%= f.submit :class => "button float-right" %>      
+            <%= link_to "Limpiar", request.path, :class => "button float-right" %>
+        </div>
+    </div>
+
+<% end %>
+
+
+<div class="row clearfix">
+    <ul class="paginate">
+        <%= paginate(@modelos_terminales) %>
+    </ul>
+</div>
+
+<div class="row text-right">
+    <%= page_entries_info @modelos_terminales, :entry_name => 'modelos' %><br/><br/>
+</div>
+
+
+<div class="table-scroll-horizontal">
+    <table>
+        <thead class="color-cabecera">
+            <tr>      
+            <th class="columna-larga"><%= sort_link(@q, :nMarca, 'Marca') %></th>
+            <th><%= sort_link(@q, :cModelo, 'Modelo') %></th>    
+            <th><%= sort_link(@q, :cSO, 'S.Operativo') %></th>
+            <th><%= sort_link(@q, :nPulgadas, 'Pulgadas') %></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <%  @modelos_terminales.each do |modelo_terminal| %>
+                <tr>
+                    <td><%= link_to modelo_terminal.cMarca, modelo_terminal, :class => 'link' %></td>
+                    <td><%= modelo_terminal.cModelo %></td>
+                    <td><%= modelo_terminal.cSO %></td>
+                    <td><%= modelo_terminal.nPulgadas %></td>                    
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="row text-right">
+    <%= page_entries_info @modelos_terminales, :entry_name => 'modelos' %>
+    <br/><br/>
+</div>
+
+<div class="row">
+    <ul class="paginate">
+        <%= paginate(@modelos_terminales) %>
+    </ul>
+</div>

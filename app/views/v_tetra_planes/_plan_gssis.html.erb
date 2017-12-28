@@ -2,7 +2,7 @@
   <h3 class="columns">Plan de Numeración GSSI</h3>
 </div>
 <div class="row"> 
-  <div class="table-scroll">
+  <div class="horizontal-scroll">
     <table >
       <thead  class="color-cabecera">
         <tr>      
@@ -34,6 +34,6 @@
     </table>
   </div>
 </div>
-<div class="row"> 
-  <%= link_to 'Exportar Plan GSSI', current_url(:format=>:csv, :plan=>"gssi"), :class => "button radius" %>
+<div class="row text-right"> 
+  <%= link_to 'Exportar Plan GSSI', current_url(:format=>:csv, :plan=>"gssi"), :class => "button small" %>
 </div>

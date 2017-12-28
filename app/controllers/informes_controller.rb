@@ -12,7 +12,7 @@ class InformesController < ApplicationController
 		# Se obtine el tipo de informe quedándonos con la última parte del path y se comprueba 
 		# si el usuario tiene permisos para entrar
 		type = request.path.from(request.path.rindex('/')+1)
-		# En el caso de la descarga de un informe la URL llega como sedes.csv
+		# En el caso de la descarga de un informe la URL llega como sedes.csv, hay que quitarle la extensión
 		if (type.index('.') != nil)
 			type = type.to(type.index('.')-1)
 		end	
@@ -20,6 +20,7 @@ class InformesController < ApplicationController
 			flash[:danger] = "Acceso denegado"
 		end					
 		authorize! :index, Informe.types[type]['model']
+		@title = Informe.types[type]['title']
 		# Listado de los diferentes informes	
 		if (params[:id] == nil)
 			@q = Informe.where(nTipo: Informe.types[type]['id']).ransack()

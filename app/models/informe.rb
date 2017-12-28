@@ -5,12 +5,12 @@ class Informe < ApplicationRecord
 	self.table_name ="geslico.dbo.TInformesSQL"
 
     @@types = { 
-        'sedes' =>       {'id' => 3, 'model' => TSede},
-        'radio' =>       {'id' => 75,'model' => Radio},
-        'movil' =>       {'id' => 1, 'model' => LineaMovil},
-        'fija'  =>       {'id' => 2, 'model' => LineaFija},
-        'electronica' => {'id' => 7, 'model' => ElectronicaRed},
-        'datos' =>       {'id' => 5, 'model' => LineaDatos}
+        'sedes' =>       {'id' => 3, 'title' => 'Sedes',              'model' => Sede},
+        'radio' =>       {'id' => 75,'title' => 'Radio',              'model' => Radio},
+        'movil' =>       {'id' => 1, 'title' => 'Líneas Móvils',      'model' => LinMovil},
+        'fija'  =>       {'id' => 2, 'title' => 'Líneas Fijas',       'model' => Linea},
+        'electronica' => {'id' => 7, 'title' => 'Electrónica de Red', 'model' => ElectronicaRed},
+        'datos' =>       {'id' => 5, 'title' => 'Datos',              'model' => LinDatos}
     }
 
     def self.types()        
