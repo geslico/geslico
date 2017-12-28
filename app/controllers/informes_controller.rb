@@ -42,7 +42,8 @@ class InformesController < ApplicationController
 		end	
 		if (Informe.types[type] == nil) 
 			flash[:danger] = "Acceso denegado"
-		end										
+		end		
+		return type								
 	end
 
 	def to_informe_csv(data) 
