@@ -1,4 +1,4 @@
-class TArea < ApplicationRecord
+class Area < ApplicationRecord
 
 	self.table_name ="geslico.dbo.Unidades"
 

@@ -22,7 +22,7 @@ es:
         other: "Usuarios"
         new:  "Nuevo usuario" 
 
-      t_sede:
+      sede:
         one: "Sede"
         other: "Sedes"
         new:  "Nueva sede" 
@@ -56,7 +56,7 @@ es:
         confirmation: "Confirmación"
         bActivo: "Activo"
 
-      t_sede:
+      sede:
         nCodSede: "Código"
         nCodEstado: "Estado"
 

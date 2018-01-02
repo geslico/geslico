@@ -9,7 +9,7 @@
     </div>
 
     <div class="small-8 medium-4 large-2 columns">
-      <label for="middle-label"><%= @t_sede.nCodSede %></label>
+      <label for="middle-label"><%= @sede.nCodSede %></label>
     </div>
 
     <div class="small-4 medium-2 large-1 columns">
@@ -17,10 +17,10 @@
     </div>
     
     <div class="small-8 medium-4 large-1 columns">
-      <% if  @t_sede.nCodCampus.nil? %>
+      <% if  @sede.nCodCampus.nil? %>
           <label for="middle-label">-</label>
       <% else %>
-          <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>                      
+          <% if  @sede.nCodCampus == @sede.nCodSede  %>                      
               <label for="middle-label">SI</label>
           <% else %>
               <label for="middle-label">NO</label>
@@ -34,16 +34,16 @@
 
     <div class="small-8 medium-4 large-2 columns">
 
-      <% if @t_sede.nCriticidad.nil? %>
+      <% if @sede.nCriticidad.nil? %>
           <label for="middle-label">-</label>
       <% else %>
-          <% if  @t_sede.nCriticidad == 0  %>                      
+          <% if  @sede.nCriticidad == 0  %>                      
               <label for="middle-label">Normal</label>
           <% else %>
-              <% if  @t_sede.nCriticidad == 1  %>
+              <% if  @sede.nCriticidad == 1  %>
                 <label for="middle-label">Urgente</label>
               <% else %>
-                <% if  @t_sede.nCriticidad == 2  %>
+                <% if  @sede.nCriticidad == 2  %>
                   <label for="middle-label">Crítico</label>
                 <% end %>
               <% end %>      
@@ -57,7 +57,7 @@
     </div>
   
     <div class="small-8 medium-4 large-3 columns end">
-        <label for="middle-label"><%= @t_sede.t_estados_sede.cDescripcion if !@t_sede.nCodEstado==nil? %></label>               
+        <label for="middle-label"><%= @sede.estados_sede.cDescripcion if !@sede.nCodEstado==nil? %></label>               
     </div>
     
  </div>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="small-8 medium-4 large-7 columns end">      
-      <label for="middle-label"><%= @t_sede.cNombre %></label>
+      <label for="middle-label"><%= @sede.cNombre %></label>
     </div>
 
     <div class="small-4 medium-2 large-1 columns">
@@ -77,7 +77,7 @@
     </div>
 
     <div class="small-8 medium-4 large-3 columns end">
-      <label for="middle-label"><%= @t_sede.t_distrito.cDistrito if !@t_sede.nDistrito==nil? %></label>
+      <label for="middle-label"><%= @sede.distrito.cDistrito if !@sede.nDistrito==nil? %></label>
     </div>
 
 </div>
@@ -88,7 +88,7 @@
      </div>
 
      <div class="small-8  medium-4 large-7 columns">
-        <label for="middle-label"><%= @t_sede.cDireccion %></label>
+        <label for="middle-label"><%= @sede.cDireccion %></label>
      </div>
 
     <div class="small-4  medium-2 large-1 columns">
@@ -96,7 +96,7 @@
      </div>
 
      <div class="small-8  medium-4 large-3 columns">
-        <label for="middle-label"><%= @t_sede.cCodPostal %></label>
+        <label for="middle-label"><%= @sede.cCodPostal %></label>
      </div>
 </div>
 
@@ -106,8 +106,8 @@
      </div>
 
      <div class="small-8  medium-4 large-4 columns">
-        <% if !@t_sede.cDevicePool.nil? %>
-          <label for="middle-label"><%= @t_sede.t_device_pool.cDevicePool %></label>
+        <% if !@sede.cDevicePool.nil? %>
+          <label for="middle-label"><%= @sede.device_pool.cDevicePool %></label>
         <% else %>
           <label for="middle-label">-</label>
         <% end %>
@@ -118,8 +118,8 @@
      </div>
 
      <div class="small-8  medium-4 large-2 columns">
-        <% if  !@t_sede.nIdAcronimo.nil?  %>
-          <label for="middle-label"><%= @t_sede.acronimos_sede_edr.cCodigo %></label>
+        <% if  !@sede.nIdAcronimo.nil?  %>
+          <label for="middle-label"><%= @sede.acronimos_sede_edr.cCodigo %></label>
         <% else %>
           <label for="middle-label">-</label>
         <% end %>
@@ -131,19 +131,19 @@
 
      <div class="small-8  medium-4 large-3 columns end">
 
-        <% if  @t_sede.nCodGestion.nil?  %>
+        <% if  @sede.nCodGestion.nil?  %>
           <label for="middle-label">-</label>
         <% else %>
-            <% if  @t_sede.nCodGestion == 0  %>                      
+            <% if  @sede.nCodGestion == 0  %>                      
                 <label for="middle-label">Municipal</label>
             <% else %>
-                <% if  @t_sede.nCodGestion == 1  %>
+                <% if  @sede.nCodGestion == 1  %>
                   <label for="middle-label">Privada</label>
                 <% else %>
-                  <% if  @t_sede.nCodGestion == 2  %>
+                  <% if  @sede.nCodGestion == 2  %>
                     <label for="middle-label">Mixta</label>
                   <% else %>
-                    <% if  @t_sede.nCodGestion == 3  %>
+                    <% if  @sede.nCodGestion == 3  %>
                       <label for="middle-label">Otras Administ</label>
                     <% end %>
                   <% end %>
@@ -160,8 +160,8 @@
      </div>
 
      <div class="small-8  medium-4 large-4 columns">
-        <% if  !@t_sede.nZona.nil?  %>
-          <label for="middle-label"><%= @t_sede.t_zona.cGrupo %></label>
+        <% if  !@sede.nZona.nil?  %>
+          <label for="middle-label"><%= @sede.zona.cGrupo %></label>
         <% else %>
           <label for="middle-label">-</label>
         <% end %>
@@ -172,8 +172,8 @@
      </div>
 
      <div class="small-8  medium-4 large-2 columns">
-        <% if  !@t_sede.nZona.nil?  %>
-          <label for="middle-label"><%= @t_sede.t_zona.cZona %></label>
+        <% if  !@sede.nZona.nil?  %>
+          <label for="middle-label"><%= @sede.zona.cZona %></label>
         <% else %>
           <label for="middle-label">-</label>
         <% end %>
@@ -184,13 +184,13 @@
      </div>
 
      <div class="small-8  medium-4 large-3 columns end">                 
-        <% if  @t_sede.bSedeToIP.nil?  %>
+        <% if  @sede.bSedeToIP.nil?  %>
           <label for="middle-label">-</label>
         <% else %>                  
-          <% if  @t_sede.bSedeToIP == true  %>
+          <% if  @sede.bSedeToIP == true  %>
             <label for="middle-label">SI</label>
           <% else %>
-            <% if  @t_sede.bSedeToIP == false  %>
+            <% if  @sede.bSedeToIP == false  %>
               <label for="middle-label">NO</label>
             <% end %>
           <% end %>                  
@@ -200,10 +200,9 @@
 
 <!--GESTION DE BOTONES -->
 <div class="row text-right">
-    <%= link_to '<< Volver', t_sedes_path, :class => "button small" %>        
-
-    <% if can? :read, TSede %> 
-        <%= link_to 'Editar', edit_t_sede_path(@t_sede), :class => "button small" %> 
+    <%= link_to '<< Volver', sedes_path, :class => "button small" %>        
+    <% if can? :read, Sede %> 
+        <%= link_to 'Editar', edit_sede_path(@sede), :class => "button small" %> 
     <% end %>
 </div>
 <%= render 'accordion' %>

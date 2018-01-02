@@ -1,9 +1,0 @@
-
-<p class="literales"><%= t_fechas.cLiteral %></p>	    
-
-<% if Time.now > t_fechas.dFchUmbral  %>	
-
-	<p class="fechas roja"><%= t_fechas.dFecha.strftime("%d/%m/%Y %H:%M") %></p>
-<% else %>
-	<p class="fechas"><%= t_fechas.dFecha.strftime("%d/%m/%Y %H:%M") %></p>
-<% end %> 
