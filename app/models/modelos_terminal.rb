@@ -5,14 +5,19 @@ class ModelosTerminal < ApplicationRecord
     belongs_to :categoria_terminal, :foreign_key => "nIdCategoria"
     has_many :pedidos_movil, :foreign_key => "nCodModelo"
     
-    ransack_alias :modelos_terminal, :cMarca_or_cModelo_or_cModeloFabricante_or_cSO_or_cCaracteristicas_or_nPulgadas
+    ransack_alias :modelos_terminal, :cMarca_or_cModelo_or_cModeloFabricante_or_cSO_or_cCaracteristicas_or_nPulgadas_or_nTipoSIM
 
     validates :cMarca, presence: true
     validates :cModelo, presence: true
     validates :nIdCategoria, presence: true
-    validates :nTipoSIM, presence: true
-    validates :bDisponibilidad, presence: true
-    validates :bVigente, presence: true
+    validates :nTipoSIM, presence: true    
+    
+    validates :bDisponibilidad, inclusion: { in: [true, false] }
+    validates :bDisponibilidad, exclusion: { in: [nil] }
+
+    validates :bVigente, inclusion: { in: [true, false] }
+    validates :bVigente, exclusion: { in: [nil] }
+    
     validates :cTipo, presence: true
 
     def BusquedaModeloGoogle

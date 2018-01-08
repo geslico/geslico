@@ -29,6 +29,10 @@ es:
         one: "Acrónimo"
         other: "Acrónimos"
 
+      modelos_terminal:
+        one: "Modelo"
+        other: "Modelos"
+
     attributes:
       t_usuario:
         cCodUsuario: "Código"
@@ -43,3 +47,13 @@ es:
       t_acronimos_sede_edr:
         cCodigo: "Código"
         cDescripcion: "Descripción"
+
+      modelos_terminal:
+        cMarca: "Marca"
+        cModelo: "Modelo"
+        cSO: "S.O."
+        nPulgadas: "Pulgadas"
+        nIdCategoria: "Categoria"
+        cTipo: "Tipo"
+        bDisponibilidad: "Disponible"
+        bVigente: "Vigente"
