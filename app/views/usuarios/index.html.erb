@@ -1,0 +1,86 @@
+<%= search_form_for @q do |f| %>
+  
+  <div class="row">
+    <div class="small-6 medium-6 large-6 columns">
+      <h3 class="columns"><%= t('activerecord.models.usuario.other') %></h3>
+    </div>
+    <div class="small-6 medium-6 large-6 columns">
+      <% if can? :cru, Usuario %>    
+        <%= link_to t('activerecord.models.usuario.new'), new_usuario_path, :class => "button float-right"  %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-2 medium-2 large-1 columns">
+      <%= f.label :usuario_cont, t('search_form.title') , for: "middle-label", class: "text-right" %>
+    </div>
+    <div class="small-10 medium-6 large-7 columns">
+      <%= f.search_field :usuario_cont %>
+    </div>
+    <div class="small-2 medium-2 large-1 columns">
+      <label for="middle-label" class="text-right "><%= t('activerecord.attributes.usuario.bActivo') %></label>
+    </div>
+    <div class="small-10 medium-2 large-2 columns">      
+      <%= f.select :bActivo_eq, [["",nil], [t('application.yes'), true], [t('application.no'), false]] %>
+    </div>
+  </div>
+
+  <div class="row" >      
+    <div class="small-12 medium-12 large-12 columns">      
+      <%= f.submit :class => "button float-right" %>      
+      <%= link_to  t('search_form.clear') , request.path, :class => "button float-right" %>
+    </div>
+  </div>
+      
+  </form>              
+
+</div>
+
+<% end %>
+
+
+<div class="row clearfix">
+  <ul class="paginate">
+  <%= paginate(@usuarios) %>
+  </ul>
+</div>
+
+<div class="row text-right">
+<%= page_entries_info @usuarios %><br/><br/>
+</div>
+
+<div class="table-scroll-horizontal">
+  <table>
+    <thead>
+      <tr>        
+        <th><%= sort_link(@q, :cCodUsuario  ) %></th>
+        <th><%= sort_link(@q, :cNombre ) %></th>
+        <th><%= sort_link(@q, :cCorreo ) %></th>
+        <th><%= sort_link(@q, :bActivo ) %></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @usuarios.each do |t| %>
+        <tr>            
+          <td><%= link_to t.cCodUsuario, t, :class => 'link' %></td>
+          <td><%= t.cNombre %></td>
+          <td><%= t.cCorreo %></td>
+          <td><%= t.bActivo ? t('application.yes'): t('application.no')  %></td>                
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row text-right">
+<%= page_entries_info @usuarios %><br/><br/>
+</div>
+
+<div class="row">
+  <ul class="paginate">
+  <%= paginate(@usuarios) %>
+  </ul>
+</div>

@@ -1,1 +1,0 @@
-json.partial! "t_sedes/t_sede", t_sede: @t_sede

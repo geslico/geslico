@@ -11,27 +11,33 @@ Rails.application.routes.draw do
     
     
     resources :welcome
-    resources :t_contajes
-    resources :t_fechas_cargas
+    resources :contajes
+    resources :fechas_cargas
 
-    resources :t_sedes
-    resources :t_acronimos_sede_edrs
-    resources :t_unidades
+    resources :sedes
+    resources :acronimos_sede_edrs
+    resources :unidades
   
     resources :v_tetra_planes 
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
     
+    resources :lin_moviles
     resources :modelos_terminales 
     
-    resources :t_usuarios do
-      resources :t_usuarios_programas do
-        resources :t_programas 
+    resources :usuarios do
+      resources :usuarios_programas do
+        resources :programas 
         end
     end
 
-    get 't_informes/campus'     => 't_informes#index_campus'
-    get 't_informes/campus/:id' => 't_informes#show_campus', as: 'informe_campus'
+    get 'informes/sedes' => 'informes#index', as: 'informes_sedes'
+    get 'informes/radio' => 'informes#index', as: 'informes_radio'
+    get 'informes/movil' => 'informes#index', as: 'informes_movil'
+    get 'informes/fija' => 'informes#index', as: 'informes_fija'
+    get 'informes/electronica' => 'informes#index', as: 'informes_electronica'
+    get 'informes/datos' => 'informes#index', as: 'informes_datos'
+      
 
   end
   

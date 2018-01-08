@@ -1,0 +1,2 @@
+module ContajesHelper
+end

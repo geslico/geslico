@@ -13,38 +13,58 @@ es:
       template:
         header:
           one:   "1 error en %{model} no permite realizar la operación "
-          other: "%{count} errores en  %{model} no permiten realizar la operación "
+          other: "%{count} errores en %{model} no permiten realizar la operación "
         body:    "Hay conflictos con los siguientes campos:"
 
     models:
-      t_usuario:
+      usuario:
         one: "Usuario"
         other: "Usuarios"
+        new:  "Nuevo usuario" 
 
-      t_sede:
+      sede:
         one: "Sede"
         other: "Sedes"
+        new:  "Nueva sede" 
 
-      t_acronimos_sede_edr:
+      acronimos_sede_edr:
         one: "Acrónimo"
         other: "Acrónimos"
+        new:  "Nuevo Acrónimo" 
+
+      linea:
+        one: "Línea"
+        other: "Líneas"
+
+      lin_movil:
+        one: "Línea Móvil"
+        other: "Líneas Móviles"
+
+      persona:
+        one: "Empleado"
+        other: "Empleados"
+
+      unidad:
+        one: "Unidad"
+        other: "Unidades"
 
       modelos_terminal:
         one: "Modelo"
         other: "Modelos"
 
     attributes:
-      t_usuario:
+      usuario:
         cCodUsuario: "Código"
         cNombre: "Nombre"        
         cCorreo: "Correo"
         confirmation: "Confirmación"
+        bActivo: "Activo"
 
-      t_sede:
+      sede:
         nCodSede: "Código"
         nCodEstado: "Estado"
 
-      t_acronimos_sede_edr:
+      acronimos_sede_edr:
         cCodigo: "Código"
         cDescripcion: "Descripción"
 
@@ -57,3 +77,26 @@ es:
         cTipo: "Tipo"
         bDisponibilidad: "Disponible"
         bVigente: "Vigente"
+      linea:
+        cNumero: "Número"
+        cNumCorto: "Extensión"
+        dFechaAlta: "Fch.Alta"
+        dFechaBaja: "Fch.Baja"
+        nCodEstLin: "Estado"
+
+      lin_movil:
+        
+      persona:
+        cDNI: "Documento"
+        cnombre: "Nombre"
+        cape1: "Apellido 1"
+        cape2: "Apellido 2"
+        cApellidos: "Apellidos"
+        nempnumper: "NumPer"
+        cempnompuesto: "Puesto"
+        cempgrupotit: "Grupo"
+        nempnivel: "Nivel"
+
+      unidad:
+        nCodUni: "Cod.Uni"
+        cDenominacion: "Unidad"

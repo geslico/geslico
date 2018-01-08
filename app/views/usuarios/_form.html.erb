@@ -1,0 +1,98 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div class="panel warning callout radius">
+      <strong><%= t('activerecord.errors.template.header', :model => Usuario.model_name.human, :count => @usuario.errors.count) %></strong>
+      <ul>
+      <% @usuario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="row clearfix">
+    <% if can? :cru, Usuario %>                     
+      <%= f.submit 'Guardar', class: 'button float-right' %>
+    <% end %>      
+    <%= link_to '<< Volver', usuarios_path, :class => "button float-right" %>        
+  </div>
+
+
+  <div class="row">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cCodUsuario, for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.text_field :cCodUsuario, for: 'middle-label' %>
+    </div>
+      <div class="small-4 medium-2 large-1 columns">
+    <%= f.label :bActivo, "Activo", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-2 columns end">          
+      <%= f.select :bActivo, [["Sí", true], ["No", false]], for: 'middle-label' %>        
+    </div>
+  </div>
+
+  <div class="row margin-bottom">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cNombre, "Nombre", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.text_field :cNombre, for: 'middle-label' %>
+    </div>
+  <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :cCorreo, "Correo", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns end ">
+      <%= f.email_field :cCorreo, for: 'middle-label' %>
+    </div>
+</div>
+
+  <div class="row margin-bottom">
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :password, "Password", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns">
+      <%= f.password_field :password , for: 'middle-label'  %>
+    </div>
+    <div class="small-4 medium-2 large-1 columns">
+      <%= f.label :password_confirmation, "Confirmar", for: 'middle-label' %>
+    </div>
+    <div class="small-8 medium-4 large-5 columns end ">
+      <%= f.password_field :password_confirmation, for: 'middle-label'  %>
+    </div>
+  </div>
+
+  <table class="table-scroll-horizontal">
+    <thead>
+      <tr><td>Programa</td> 
+      <td >Descripción</td> 
+      <td>Permiso</td></tr>
+    </thead>
+
+    <tbody>   
+
+      <%= f.fields_for :usuarios_programas do |ff| %>
+      <%= ff.fields_for :programa do |fff| %>
+      <%= ff.hidden_field :nCodPrograma %>
+      <%= ff.hidden_field :nIdUsuario %>
+      <tr>        
+        <td><%= fff.label :sPrograma, fff.object.sPrograma %></td> 
+        <td><%= fff.label :sDescripcion, fff.object.sDescripcion %></td>                       
+        <td><%= ff.select :sPermiso, [["Sin Permiso", "N"], ["Lectura", "L"], ["Escritura", "W"]] %> </td>      
+      </tr>
+      <% end %> 
+      <% end %> 
+    </tbody>   
+  </table>
+  
+  <div class="row clearfix">      
+    <% if can? :cru, Usuario %>                     
+      <%= f.submit t('form_for.save') , class: 'button float-right' %>
+    <% end %>      
+    <%= link_to t('form_for.return'), usuarios_path, :class => "button float-right" %>        
+  </div>
+  
+
+<% end %>

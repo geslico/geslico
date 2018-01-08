@@ -1,7 +1,0 @@
-<h3 class="text-center"> Fechas Cargas </h3>
-<div class="row">
-	<% @t_fechas_carga.each do |t| %>
-	<div class="medium-2 columns contajes" ><p><%= t.cLiteral %></p></div>
-	<div class="medium-2 columns end" ><p id="contajes"><%= t.dFecha.strftime("%d/%m/%Y %H:%M")  %></p></div>
-	<% end %>
-</div>

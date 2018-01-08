@@ -14,9 +14,9 @@ es:
           zero: No se han encontrado %{entry_name}
   views:
     pagination:
-      first: Primera
-      last: Última
-      next: Siguiente
-      previous: Anterior
+      first: "&laquo; Primero"
+      last: "Último &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Siguiente &rsaquo;"
       truncate: "&hellip;"
       current: Estás en la página
