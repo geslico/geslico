@@ -38,7 +38,7 @@
         <li class="has-submenu">
           <a href="#">Móvil</a>
           <ul class="submeno menu vertical" data-submenu>            
-            <li><%= link_to "Líneas", lin_moviles_path, class: "margin-right" %></li>
+            <li><%= link_to "Líneas Móvil", lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), class: "margin-right" %></li>
             <li><a href="#">Terminales</a></li>
             <li><a href="#">Tarjetas</a></li>
             <li><a href="#">Afaria</a></li>

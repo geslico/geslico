@@ -10,43 +10,99 @@
     </div>
   <% end %>
   
+  <div class="row text-right">    
+    <%= link_to '<< Volver', lin_moviles_path, :class => "button" %>        
+    <%= f.submit 'Guardar', class: 'button' %>        
+  </div>
+
+
   <%= f.fields_for :linea, @lin_movil.linea do |ff| %>
   <%= f.fields_for :persona, @lin_movil.persona do |fp| %>
     <div class="row">
-      <div class="small-4 medium-2 large-1 columns">
-        <%= ff.label :cNumero, for: 'middle-label' %>
+      <div class="small-3 medium-2 large-1 columns text-right">
+       <%= ff.label :cNumero, for: 'middle-label' %>
       </div>
-      <div class="small-8 medium-4 large-3 columns">
+      <div class="small-9 medium-4 large-3 columns">
         <%= ff.text_field :cNumero  %>
       </div>
-      <div class="small-4 medium-2 large-1 columns">
+
+      <div class="small-3 medium-2 large-1 columns text-right">
         <%= ff.label :cNumCorto, for: 'middle-label' %>
       </div>
-      <div class="small-8 medium-4 large-2 columns">
+      <div class="small-9 medium-4 large-2 columns">
         <%= ff.text_field :cNumCorto, for: 'middle-label' %>
       </div>
-      <div class="small-8 medium-4 large-2 columns">
+      <div class="small-3 medium-2 large-2 columns text-right">
+        <%= f.label :nCodTipMovil, for: 'middle-label' %>
+      </div>
+      <div class="small-9 medium-4 large-3 columns end">
+        <%= f.select :nCodTipMovil, options_from_collection_for_select(TipoLinMovil.all, "nCodTipMovil", "cDescTipoMovil", @lin_movil.nCodTipMovil) %>
+      </div>
+    
+      <div class="small-3 medium-2 large-1 columns text-right">
+        <%= ff.label :dFechaAlta, for: 'middle-label' %>
+      </div>
+      <div class="small-9 medium-4 large-3 columns">
+        <%= ff.date_field :dFechaAlta, for: 'middle-label' %>
+      </div>
+      <div class="small-3 medium-2 large-1 columns text-right">
+        <%= ff.label :dFechaBaja, for: 'middle-label' %>
+      </div>
+      <div class="small-9 medium-4 large-3 columns">
+        <%= ff.date_field :dFechaBaja, for: 'middle-label' %>
+      </div>
+          <div class="small-3 medium-2 large-1 columns text-right">
         <%= ff.label :nCodEstLin, for: 'middle-label' %>
       </div>
-      <div class="small-8 medium-4 large-3 columns">
-      <%= ff.select :nCodEstLin, options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado", :nCodEstLin)  %>      
+      <div class="small-9 medium-4 end large-3 columns">
+      <%= ff.select :nCodEstLin, options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado", @lin_movil.linea.nCodEstLin)  %>      
       </div>
     </div>
-
     <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+          <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">Línea</a>
+          <div class="accordion-content" data-tab-content>     
+              <div class="row">                             
+                <div class="small-4 medium-2 large-2 columns text-right">
+                  <%= f.label :cPerfil %>
+                </div>
+                <div class="small-8 medium-4 large-4 columns">
+                  <%= f.select :cPerfil , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfil) %>
+                </div>
+                <div class="small-4 medium-2 large-2 columns text-right">
+                  <%= f.label :cPerfilAutorizado %>
+                </div>
+                <div class="small-8 medium-4 large-4 columns">
+                  <%= f.select :cPerfilAutorizado , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfilAutorizado) %>
+                </div>
+                <div class="small-4 medium-2 large-2 columns text-right">
+                  <%= f.label :cCoberturaNormativa %>
+                </div>
+                <div class="small-8 medium-4 large-4 columns end">
+                  <%= f.text_field :cCoberturaNormativa  %>
+                </div>
+              </div>
+          </div>
+          </li>
       <!--- SAP -->
       <li class="accordion-item" data-accordion-item>
           <a href="#" class="accordion-title">Empleado</a>
           <div class="accordion-content" data-tab-content >                                  
-            
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
+                <%= fp.label :nempnumper %>
+              </div>
+              <div class="small-8 medium-4 large-2 columns">
+                <%= fp.text_field :nempnumper  %>
+              </div>
+
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cDNI %>
               </div>
-              <div class="small-8 medium-4 large-5 columns">
+              <div class="small-8 medium-4 large-2 columns">
                 <%= fp.text_field :cDNI  %>
               </div>  
           
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cnombre %>
               </div>
               <div class="small-8 medium-4 large-5 columns">
@@ -54,13 +110,13 @@
               </div>
             
               <div class="row">
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cape1 %>
               </div>
               <div class="small-8 medium-4 large-5 columns">
                 <%= fp.text_field :cape1  %>
               </div>
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cape2 %>
               </div>
               <div class="small-8 medium-4 large-5 columns">
@@ -70,29 +126,43 @@
               <div class="row">
 
 
-              <div class="small-4 medium-2 large-1 columns">
-                <%= fp.label :nempnumper %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns">
-                <%= fp.text_field :nempnumper  %>
-              </div>
-              <div class="small-4 medium-2 large-1 columns">
+             
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cempnompuesto %>
               </div>
               <div class="small-8 medium-4 large-4 columns">
                 <%= fp.text_field :cempnompuesto  %>
               </div>
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :cempgrupotit %>
               </div>
               <div class="small-8 medium-4 large-1 columns">
                 <%= fp.text_field :cempgrupotit  %>
               </div>
-              <div class="small-4 medium-2 large-1 columns">
+              <div class="small-4 medium-2 large-1 columns text-right">
                 <%= fp.label :nempnivel %>
               </div>
               <div class="small-8 medium-4 large-1 columns">
                 <%= fp.text_field :nempnivel  %>
+              </div>
+              <div class="small-4 medium-2 large-1 columns text-right">
+                  <%= fp.label :cUsuarioAYRE %>
+              </div>
+              <div class="small-8 medium-4 large-2 columns end">
+                  <%= fp.text_field :cUsuarioAYRE  %>
+              </div>
+
+              <div class="small-4 medium-2 large-1 columns text-right">
+                <%= fp.label :ncoduni %>
+              </div>
+              <div class="small-8 medium-4 large-2 columns end">
+                <%= fp.text_field :ncoduni  %>
+              </div>
+               <div class="small-4 medium-2 large-1 columns text-right">
+                <%= fp.label :ncoduni %>
+              </div>
+              <div class="small-8 medium-4 large-2 columns end">
+                
               </div>
               </div>
           </li>

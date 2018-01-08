@@ -14,11 +14,11 @@ class Ability
             
             if !p.programa.sModelos.nil?
                 if p.sPermiso=="L"            
-                    can :read, p.programa.sModelos.split(",").map { |s| s.constantize }
+                    can :read, p.programa.sModelos.split(",").map { |s| s.constantize rescue nil }
                 elsif p.sPermiso=="W"                                
-                    can :cru, p.programa.sModelos.split(",").map { |s| s.constantize }
+                    can :cru, p.programa.sModelos.split(",").map { |s| s.constantize rescue nil }
                 elsif p.sPermiso=="N"                
-                    cannot :read, p.programa.sModelos.split(",").map { |s| s.constantize }
+                    cannot :read, p.programa.sModelos.split(",").map { |s| s.constantize rescue nil }
                 end        
             end
         end 

@@ -72,18 +72,25 @@ es:
         nCodEstLin: "Estado"
 
       lin_movil:
+        nCodTipMovil: "Tipo"
+        cPerfil: "Perfil"
+        cPerfilAutorizado: "Perfil Autorizado"
+        cCoberturaNormativa: "Cobertura"
         
       persona:
         cDNI: "Documento"
         cnombre: "Nombre"
-        cape1: "Apellido 1"
-        cape2: "Apellido 2"
+        cape1: "Apellido1"
+        cape2: "Apellido2"
         cApellidos: "Apellidos"
         nempnumper: "NumPer"
         cempnompuesto: "Puesto"
         cempgrupotit: "Grupo"
         nempnivel: "Nivel"
+        cUsuarioAYRE: "AYRE"
+        ncoduni: "Cod.Uni"
 
       unidad:
         nCodUni: "Cod.Uni"
         cDenominacion: "Unidad"
+
