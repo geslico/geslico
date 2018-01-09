@@ -5,7 +5,7 @@ class ModelosTerminal < ApplicationRecord
     belongs_to :categoria_terminal, :foreign_key => "nIdCategoria"
     has_many :pedidos_movil, :foreign_key => "nCodModelo"
     
-    ransack_alias :modelos_terminal, :cMarca_or_cModelo_or_cModeloFabricante_or_cSO_or_cCaracteristicas_or_nPulgadas_or_nTipoSIM
+    ransack_alias :modelos_terminal, :cMarca_or_cModelo_or_cModeloFabricante_or_cSO_or_cCaracteristicas
 
     validates :cMarca, presence: true
     validates :cModelo, presence: true
