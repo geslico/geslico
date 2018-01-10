@@ -9,7 +9,7 @@ Usuario.create(cCodUsuario: 'usu001' , cNombre: 'Usuario de Test de Geslico' , c
 
 Programa.create("nCodPrograma"=>1, "sPrograma"=>"MOVIL", "sDescripcion"=>"Gestión de Teléfonos Moviles", "sModelos"=>nil)
 Programa.create("nCodPrograma"=>2, "sPrograma"=>"FIJOS", "sDescripcion"=>"Gestión de Teléfonos Fijos", "sModelos"=>nil)
-Programa.create("nCodPrograma"=>3, "sPrograma"=>"SEDES", "sDescripcion"=>"Gestión de Sedes", "sModelos"=>"TSede,Usuario")
+Programa.create("nCodPrograma"=>3, "sPrograma"=>"SEDES", "sDescripcion"=>"Gestión de Sedes", "sModelos"=>"Sede,Usuario")
 Programa.create("nCodPrograma"=>4, "sPrograma"=>"CENTRALITAS", "sDescripcion"=>"Gestión de Centralitas", "sModelos"=>nil)
 Programa.create("nCodPrograma"=>5, "sPrograma"=>"DATOS", "sDescripcion"=>"Gestión de Datos", "sModelos"=>nil)
 Programa.create("nCodPrograma"=>6, "sPrograma"=>"LOGS", "sDescripcion"=>nil, "sModelos"=>nil)

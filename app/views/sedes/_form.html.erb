@@ -1,10 +1,10 @@
-<%= form_for @t_sede do |f| %>
+<%= form_for @sede do |f| %>
 
-  <% if @t_sede.errors.any? %>  
+  <% if @sede.errors.any? %>  
     <div class="panel warning callout radius">      
-      <strong><%= t('activerecord.errors.template.header', :model => TSede.model_name.human, :count => @t_sede.errors.count) %></strong>
+      <strong><%= t('activerecord.errors.template.header', :model => Sede.model_name.human, :count => @sede.errors.count) %></strong>
       <ul>
-      <% @t_sede.errors.full_messages.each do |message| %>
+      <% @sede.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -25,10 +25,10 @@
       </div>
 
       <div class="small-8 medium-4 large-1 columns">              
-          <% if  @t_sede.nCodCampus.nil?  %>
+          <% if  @sede.nCodCampus.nil?  %>
               <%= f.select :nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0) %>
           <% else %>
-              <% if  @t_sede.nCodCampus == @t_sede.nCodSede  %>
+              <% if  @sede.nCodCampus == @sede.nCodSede  %>
                   <%= f.select :nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1) %>
               <% else %>
                   <%= f.select :nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2) %>
@@ -41,7 +41,7 @@
       </div>
 
       <div class="small-8 medium-4 large-2 columns">
-        <%= f.select :nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @t_sede.nCriticidad) %>
+        <%= f.select :nCriticidad, options_for_select([["",nil],["Normal",0], ["Urgente", 1], ["Crítico", 2]], @sede.nCriticidad) %>
       </div>  
 
       <div class="small-4 medium-2 large-1 columns">
@@ -49,7 +49,7 @@
       </div>
 
       <div class="small-8 medium-4 large-3 columns end">      
-        <%= f.select :nCodEstado, content_tag(:option,"",:value=>"")+options_from_collection_for_select(TEstadosSede.all, "nCodEstado", "cDescripcion", @t_sede.nCodEstado) %>        
+        <%= f.select :nCodEstado, content_tag(:option,"",:value=>"")+options_from_collection_for_select(EstadosSede.all, "nCodEstado", "cDescripcion", @sede.nCodEstado) %>        
       </div>
    </div>
 
@@ -67,7 +67,7 @@
       </div>
 
       <div class="small-8 medium-4 large-3 columns end">
-              <%= f.select  :nDistrito, content_tag(:option,'',:value=>nil)+options_from_collection_for_select(TDistrito.all, "nDistrito", "cDistrito", @t_sede.nDistrito  ) %>
+              <%= f.select  :nDistrito, content_tag(:option,'',:value=>nil)+options_from_collection_for_select(Distrito.all, "nDistrito", "cDistrito", @sede.nDistrito  ) %>
       </div>
   </div>
 
@@ -95,7 +95,7 @@
        </div>
 
        <div class="small-8  medium-4 large-4 columns">          
-        <%= f.select :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TDevicePool.all, "cDevicePool", "cDevicePool", @t_sede.cDevicePool) %>
+        <%= f.select :cDevicePool, content_tag(:option,'',:value=>"")+options_from_collection_for_select(DevicePool.all, "cDevicePool", "cDevicePool", @sede.cDevicePool) %>
 
        </div>
 
@@ -104,8 +104,8 @@
        </div>
 
        <div class="small-8  medium-4 large-2 columns">
-          <% if  !@t_sede.nIdAcronimo.nil?  %>
-              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(AcronimosSedeEdr.all, "nId", "cCodigo", @t_sede.nIdAcronimo)) %>
+          <% if  !@sede.nIdAcronimo.nil?  %>
+              <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(AcronimosSedeEdr.all, "nId", "cCodigo", @sede.nIdAcronimo)) %>
           <% else %>
               <%= select_tag( :nIdAcronimo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(AcronimosSedeEdr.all, "nId", "cCodigo")) %>
           <% end %>
@@ -117,10 +117,10 @@
 
        <div class="small-8  medium-4 large-3 columns end">
 
-          <% if  @t_sede.nCodGestion.nil?  %>
+          <% if  @sede.nCodGestion.nil?  %>
               <%= f.select :nCodGestion, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], 0) %>
           <% else %>
-              <%= f.select :nCodGestion, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @t_sede.nCodGestion) %>
+              <%= f.select :nCodGestion, options_for_select([["Municipal",0],["Privada",1], ["Mixta", 2], ["Otras Administ", 3]], @sede.nCodGestion) %>
           <% end %>
 
        </div>
@@ -133,10 +133,10 @@
 
        <div class="small-8  medium-4 large-4 columns">
 
-          <% if  !@t_sede.nZona.nil?  %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo", @t_sede.nZona)) %>
+          <% if  !@sede.nZona.nil?  %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(Zona.all, "nCodZona", "cGrupo", @sede.nZona)) %>
           <% else %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cGrupo")) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(Zona.all, "nCodZona", "cGrupo")) %>
           <% end %>
        </div>
 
@@ -146,10 +146,10 @@
 
        <div class="small-8  medium-4 large-2 columns">
 
-          <% if  !@t_sede.nZona.nil?  %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona", @t_sede.nZona)) %>
+          <% if  !@sede.nZona.nil?  %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(Zona.all, "nCodZona", "cZona", @sede.nZona)) %>
           <% else %>
-              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TZona.all, "nCodZona", "cZona")) %>
+              <%= select_tag( :nZona, content_tag(:option,'',:value=>"")+options_from_collection_for_select(Zona.all, "nCodZona", "cZona")) %>
           <% end %>
        </div>
 
@@ -159,10 +159,10 @@
 
        <div class="small-8  medium-4 large-3 columns end">   
            
-          <% if  @t_sede.bSedeToIP.nil?  %>
+          <% if  @sede.bSedeToIP.nil?  %>
               <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 0)) %>
           <% else %>
-              <% if @t_sede.bSedeToIP==true %>
+              <% if @sede.bSedeToIP==true %>
                   <%= select_tag(:nCodCampus, options_for_select([["",0],["SÍ",1], ["NO", 2]], 1)) %>
               <% else %>
                   <%= select_tag(:nCodCampus,  options_for_select([["",0],["SÍ",1], ["NO", 2]], 2)) %>
@@ -173,10 +173,10 @@
   </div>
 
   <!-- BOTONES -->
-  <div class="row clearfix">
-      <%= link_to '<< Volver', t_sedes_path, :class => "button float-right" %>        
-      <% if can? :read, TSede %>                     
-        <%= f.submit 'Guardar', class: 'button alert float-right' %>
+  <div class="row text-right">
+      <%= link_to '<< Volver', sedes_path, :class => "button small" %>          
+      <% if can? :read, Sede %>                     
+        <%= f.submit 'Guardar', class: 'button small' %>
       <% end %>      
   </div>
 <% end %>

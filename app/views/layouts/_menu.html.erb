@@ -10,12 +10,12 @@
 
   <div class="top-bar" id="geslico-menu"> 
     <div class="top-bar-left">
-      <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">      
-        <% if can? :read, TSede %>
+      <ul class="menu horizontal medium-horizontal" data-responsive-menu="drilldown medium-dropdown">           
+        <% if can? :read, Sede %>
           <li class="has-submenu">
             <a href="#">Campus</a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><%= link_to "Sedes", t_sedes_path, class: "margin-right" %></li>
+              <li><%= link_to "Sedes", sedes_path, class: "margin-right" %></li>
               <li><%= link_to "Acrónimos", acronimos_sede_edrs_path, class: "margin-right" %></li>
             </ul>
           </li>
@@ -34,7 +34,7 @@
             </ul>
           </li>
         <% end %>
-        
+                
         <li class="has-submenu">
           <a href="#">Móvil</a>
           <ul class="submeno menu vertical" data-submenu>            
@@ -76,14 +76,28 @@
         </li>
 
         <li class="has-submenu">
-        <a href="#">Informes</a>
-        <ul class="submenu menu vertical" data-submenu>
-          <li><%= link_to "Campus", 't_informes/campus', class: "margin-right" %>
-        </ul>
-      </li>
-      
+          <a href="#">Informes</a>
+          <ul class="submenu menu vertical" data-submenu>
+            <% if can? :read, Sede %>
+              <li><%= link_to "Sedes", informes_sedes_url, class: "margin-right" %></li>
+            <% end %>  
+            <% if can? :read, Radio %>
+              <li><%= link_to "Radio", informes_radio_url, class: "margin-right" %></li>
+            <% end %>              
+            <% if can? :read, LinMovil %>
+              <li><%= link_to "Líneas Móviles", informes_movil_url, class: "margin-right" %></li>            
+            <% end %>
+            <% if can? :read, Linea %>
+              <li><%= link_to "Líneas Fijas", informes_fija_url, class: "margin-right" %></li>            
+            <% end %>  
+            <% if can? :read, ElectronicaRed %>
+              <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
+            <% end %>  
+            <% if can? :read, LinDatos %>
+              <li><%= link_to "Datos", informes_datos_url, class: "margin-right" %></li>
+            <% end %>  
+        </li>             
       </ul>
-
     </div>
 
     <div class="top-bar-right">

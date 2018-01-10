@@ -1,16 +1,12 @@
 class VTetraPlanGssi < ApplicationRecord
 	self.table_name ="geslico.dbo.VTetraPlanGSSIs"
 
-	def self.to_csv
-	    attributes = %w{nGSSIInicio nGSSIFin cFlota nDefinidos nActivos nActividadSemana nActividadMes nActividadSemestre }
+	def self.external_column_names_to_csv  
+		return ['Inicio; Fin; Servicio; Definidos; Activos; Activos última semana; Activos último mes; Activos últimos 6 meses']
+	end 
 
-	    CSV.generate(headers: true) do |csv|
-	      csv <<  ['Inicio; Fin; Servicio; Definidos; Activos; Activos última semana; Activos último mes; Activos últimos 6 meses']
-
-	      all.each do |sede|
-	        csv << attributes.map{ |attr| sede.send(attr) }
-	      end
-	    end.encode('iso-8859-1')
-	  end
+	def self.column_names_to_csv 
+		return self.column_names
+	end 
 end
 

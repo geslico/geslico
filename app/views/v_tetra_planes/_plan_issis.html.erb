@@ -2,7 +2,7 @@
   <h3 class="columns">Plan de Numeración ISSI</h3>
 </div>
 <div class="row">
-  <div class="table-scroll">
+  <div class="horizontal-scroll">
         <table>
           <thead  class="color-cabecera">
             <tr>
@@ -32,9 +32,8 @@
             <% end %>
           </tbody>
         </table>
-
   </div>
 </div>  
-<div class="row"> 
-  <%= link_to 'Exportar Plan ISSI', current_url(:format=>:csv, :plan=>"issi") , :class => "button radius" %>
+<div class="text-right"> 
+  <%= link_to 'Exportar Plan ISSI', current_url(:format=>:csv, :plan=>"issi") , :class => "button small" %>
 </div>

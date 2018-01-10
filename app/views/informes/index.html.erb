@@ -1,0 +1,33 @@
+<div class="row"> 
+  <h3 class="columns ">Informes - <%=@title%></h3>
+</div>
+
+<div class="row">
+<ul class="paginate">
+  <%= paginate(@informes) %>
+</ul>
+</div>
+
+<div class="row">
+<%= page_entries_info @informes, :entry_name => 'informes' %>
+</div>
+
+<div class="horizontal-scroll">
+<table>
+  <thead class="color-cabecera">
+    <tr>
+      <th>Código</th>
+      <th><%= sort_link(@q, :cDescripcion, 'Descripción') %></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @informes.each do |informe| %>
+      <tr>
+        <td><%= link_to informe.nId, current_url(:format=>:csv, id: informe.nId) , {:class=>'link'} %></td>
+        <td align="left"><%= informe.cDescripcion %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

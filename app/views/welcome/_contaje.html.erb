@@ -1,0 +1,85 @@
+<div class="orbit" role="region" data-orbit data-use-m-u-i="false">
+
+  <ul class="orbit-container">
+
+    <button class="orbit-previous">&#9664;&#xFE0E;</button>
+    <button class="orbit-next">&#9654;&#xFE0E;</button>
+
+    <li class="is-active orbit-slide" data-slide="0">      
+      <h3 class="text-center">Campus</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=300 && contaje.nCodContaje<399 %> 
+            <div class="medium-2 columns contajes" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p id="contajes"><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+
+    <li class="orbit-slide" data-slide="1">
+      <h3 class="text-center">Radio</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=800 && contaje.nCodContaje<899 %> 
+            <div class="medium-2 columns" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+    <li class="orbit-slide" data-slide="2">      
+      <h3 class="text-center">Móvil</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=120 && contaje.nCodContaje<199 %> 
+            <div class="medium-2 columns" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+    <li class="orbit-slide" data-slide="3">      
+      <h3 class="text-center">Fija</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=200 && contaje.nCodContaje<299 %> 
+            <div class="medium-2 columns" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+    <li class="orbit-slide" data-slide="4">      
+      <h3 class="text-center">Electrónica</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=700 && contaje.nCodContaje<799 %> 
+            <div class="medium-2 columns" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+    <li class="orbit-slide" data-slide="5">      
+      <h3 class="text-center">Datos</h3>
+      <div class="row">
+      <% @contajes.each do |contaje| %>
+        <% if contaje.nCodContaje>=500 && contaje.nCodContaje<599 %> 
+            <div class="medium-2 columns" ><p><%= contaje.cLiteral %></p></div>
+            <div class="medium-2 columns end" ><p><%= contaje.nContador %></p></div>              
+        <% end %>
+      <% end %>
+      </div>
+    </li>
+  </ul>
+
+  <nav class="orbit-bullets">
+    <button class="is-active" data-slide="0"></button>
+    <button data-slide="1"></button>
+    <button data-slide="2"></button>
+    <button data-slide="3"></button>
+    <button data-slide="4"></button>
+    <button data-slide="5"></button>
+  </nav>
+</div>
