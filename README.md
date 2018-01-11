@@ -3,19 +3,26 @@
 [![Build Status](https://travis-ci.org/geslico/geslico.svg?branch=master)](https://travis-ci.org/geslico/geslico)
 [![Code Climate](https://codeclimate.com/github/geslico/geslico/badges/gpa.svg)](https://codeclimate.com/github/geslico/geslico)
 
-Aplicación desarrollada para la Gestión de Líneas de Comunicación del Ayuntamiento de Madrid. La aplicación original está desarrollada en Visual Basic, este nuevo desarrollo responde a nuestro interes en mejorar para nuestros usuarios. 
+Aplicación desarrollada para la Gestión de Líneas de Comunicación del Ayuntamiento de Madrid. La aplicación original está desarrollada en Visual Basic, este nuevo desarrollo responde a nuestro interés en mejorar para nuestros usuarios. 
 
 El modelo de base de datos y la base de datos existente previamente a este nuevo proyecto en RoR condiciona ciertos aspectos en nuestro desarrollo. 
 
 ## Componentes  
 
-Los componentes que estamos utilizando actualemte en nuestro proyecto son las siguientes. 
-- Ruby 2.3.3
-- Rails 5.0.2
-- Tiny_tds 1.1
-- activerecord-sqlserver-adapter 5.0.5
-- Foundation 6
+Los componentes que estamos utilizando actualmente en nuestro proyecto son los siguientes:
+
+- Ruby 2.3.5
+- Rails 5.1.4
+
+Además son necesarias las siguientes gemas de Ruby:
+
+- foundation-rails 6
+- tiny_tds 2.1.0
+- activerecord-sqlserver-adapter 5.1.2
 - ransack 1.8.2
+- cancancan 2.0.0
+- kaminari 1.0.1
+
 
 ## Pruebas Unitarias e Integración Continua
 2017/03/24
