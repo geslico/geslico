@@ -10,7 +10,7 @@ class Informe < ApplicationRecord
         'movil' =>       {'id' => 1, 'title' => 'Líneas Móvils',      'model' => LinMovil},
         'fija'  =>       {'id' => 2, 'title' => 'Líneas Fijas',       'model' => Linea},
         'electronica' => {'id' => 7, 'title' => 'Electrónica de Red', 'model' => ElectronicaRed},
-        'datos' =>       {'id' => 5, 'title' => 'Datos',              'model' => LinDatos}
+        'datos' =>       {'id' => 5, 'title' => 'Datos',              'model' => LinDato}
     }
 
     def self.types()        
