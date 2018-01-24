@@ -29,5 +29,13 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'categoria_terminal', 'categoria_terminales'
 	inflect.irregular 'PedidosMovil', 'PedidosMoviles'
 	inflect.irregular 'pedido_movil', 'pedidos_moviles'	
+	inflect.irregular 'lin_dato', 'lin_datos'
+	inflect.irregular 'LinDato', 'LinDatos'
+	inflect.irregular 'tipo_lin_dato', 'tipo_lin_datos'
+	inflect.irregular 'TipoLinDato', 'TipoLinDatos'
+	inflect.irregular 'lote', 'lotes'
+	inflect.irregular 'Lote', 'Lotes'
+	inflect.irregular 'lin_fijo', 'lin_fijos'
+	inflect.irregular 'LinFijo', 'LinFijos'
 end
 

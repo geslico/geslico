@@ -22,7 +22,7 @@
       <%= f.label :linea_nCodEstLin_eq, t('search_form.title') , for: "middle-label", class: "text-right" %>
     </div>    
     <div class="small-10 medium-2 large-2 columns">      
-      <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado","0")  %>      
+      <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosMoviles, "nCodEstLin", "cDescEstado","0")  %>      
     </div>
   </div>
 
