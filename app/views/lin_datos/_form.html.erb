@@ -78,8 +78,6 @@
         <% end %>
     <% end %>
     
-
-   
      
 
     <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
@@ -291,10 +289,33 @@
             </div>
         </li>
 
-
-
-
-
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title">VLAN</a>
+            <div class="accordion-content" data-tab-content >     
+                
+                <table class="stack">
+                    <thead class="color-cabecera">                                              
+                        <tr>                
+                            <th>IdVlan-IdVPN</th>
+                            <th>VLAN</th>
+                            <th>Rango IP</th>
+                        </tr>
+                    </thead>
+                
+                    <tbody>                
+                        <% @lin_dato.lin_datos_vpn_vlan.each do |t| %>                          
+                            <tr>        
+                                <td><%=  t.nIdVLan.to_s + "-" +  t.nIdVPN.to_s %></td>
+                                <td><%=  t.vpn_vlan.cDenominacionVLan %></td>
+                                <td><%=  t.vpn_vlan.cIPVLan %></td>
+                            </tr>                             
+                        <% end %>                
+                    </tbody>
+                </table>
+                
+            </div>
+        </li>
+        
     </ul>       
 
 <% end %>

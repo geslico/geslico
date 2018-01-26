@@ -37,5 +37,10 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'Lote', 'Lotes'
 	inflect.irregular 'lin_fijo', 'lin_fijos'
 	inflect.irregular 'LinFijo', 'LinFijos'
+	inflect.irregular 'lin_datos_vpn_vlan', 'lin_datos_vpn_vlanes'
+	inflect.irregular 'LinDatosVpnVlan', 'LinDatosVpnVlanes'
+	inflect.irregular 'vpn_vlan', 'vpn_vlanes'
+	inflect.irregular 'VpnVlan', 'VpnVlanes'
+	
 end
 

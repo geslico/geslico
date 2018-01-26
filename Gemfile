@@ -2,12 +2,12 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1', '>= 5.1.2'
+gem 'rails', '~> 5.1', '>= 5.1.4'
 
 # Use sqlserver as the database for Active Record
 gem 'ruby-odbc', '~> 0.99998'
 gem 'tiny_tds', '~> 2.1'
-gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.2'
+gem 'activerecord-sqlserver-adapter', '~> 5.1', '>= 5.1.6'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -52,6 +52,8 @@ gem 'puma', '~> 3.10'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'composite_primary_keys', '~> 10.0', '>= 10.0.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
