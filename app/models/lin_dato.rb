@@ -8,6 +8,9 @@ class LinDato < ApplicationRecord
 	has_one :sedeB, :foreign_key => "nCodSede", :primary_key => "nCodSedeB"	
 	has_one :lin_fijo, :foreign_key => "nLinea" , :primary_key => "nLinea"	
 	
+	has_many	:lin_datos_vpn_vlan, :foreign_key => "nCodLinDatos"
+	has_many	:vpn_vlan, through: :lin_datos_vpn_vlan, :foreign_key => [:nIdVPN, :nIdVLan]
+
 	ransack_alias :lin_dato, :nCodLinDatos_or_nCodTipDatos_or_nCodSedeA_or_nCodSedeB
 	
 end
