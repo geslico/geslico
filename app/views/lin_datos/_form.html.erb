@@ -283,7 +283,7 @@
                         <%= f.label :cObservaciones, for: 'middle-label' %>
                     </div>
                     <div class="small-8 medium-4 large-11 columns">
-                        <%= f.text_field :cObservaciones, for: 'middle-label' %>
+                        <%= f.text_area :cObservaciones, for: 'middle-label' %>
                     </div>
                 </div>
             </div>
@@ -296,20 +296,38 @@
                 <table class="stack">
                     <thead class="color-cabecera">                                              
                         <tr>                
+                            <th></th>
                             <th>IdVlan-IdVPN</th>
                             <th>VLAN</th>
                             <th>Rango IP</th>
                         </tr>
                     </thead>
                 
-                    <tbody>                
-                        <% @lin_dato.lin_datos_vpn_vlan.each do |t| %>                          
+                    <tbody>  
+                        <% LinDatosVpnVlan.vlanEstandar.each do |e| %>               
                             <tr>        
-                                <td><%=  t.nIdVLan.to_s + "-" +  t.nIdVPN.to_s %></td>
-                                <td><%=  t.vpn_vlan.cDenominacionVLan %></td>
-                                <td><%=  t.vpn_vlan.cIPVLan %></td>
-                            </tr>                             
-                        <% end %>                
+                                <td>   
+                                    <% tieneLinea = false %>
+
+                                    <% @lin_dato.lin_datos_vpn_vlan.each do |t| %>   
+                                        <% if e.nIdVLan == t.nIdVLan && e.nIdVPN == t.nIdVPN  %>
+                                            <% tieneLinea = true %>                                       
+                                        <% end %>
+                                    <% end %>
+
+                                    <% if tieneLinea == true %>
+                                        <%= check_box_tag 'checkSelecionado', true, true %>
+                                    <% else %>
+                                        <%= check_box_tag 'checkSelecionado', false, false %>                            
+                                    <% end %>
+                                </td>
+
+                                <td><%=  e.nIdVLan.to_s + "-" +  e.nIdVPN.to_s %></td>
+                                <td><%=  e.vpn_vlan.cDenominacionVLan %></td>
+                                <td><%=  e.vpn_vlan.cIPVLan %></td>                            
+                            </tr>  
+                        <% end %>
+
                     </tbody>
                 </table>
                 
