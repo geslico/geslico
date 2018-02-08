@@ -304,30 +304,23 @@
                     </thead>
                 
                     <tbody>  
-                        <% LinDatosVpnVlan.vlanEstandar.each do |e| %>               
-                            <tr>        
-                                <td>   
-                                    <% tieneLinea = false %>
+                        <% LinDatosVpnVlan.cabecera(@lin_dato.nNodoCabecera).each do |e| %>               
+                            <tr>      
+                                <% tieneLinea = false %>
 
-                                    <% @lin_dato.lin_datos_vpn_vlan.each do |t| %>   
-                                        <% if e.nIdVLan == t.nIdVLan && e.nIdVPN == t.nIdVPN  %>
-                                            <% tieneLinea = true %>                                       
-                                        <% end %>
+                                <% @lin_dato_VPN_VLan.each do |t| %>   
+                                    <% if e.nIdVLan == t.nIdVLan && e.nIdVPN == t.nIdVPN  %>
+                                        <% tieneLinea = true %>                                       
                                     <% end %>
+                                <% end %>
 
-                                    <% if tieneLinea == true %>
-                                        <%= check_box_tag 'checkSelecionado', true, true %>
-                                    <% else %>
-                                        <%= check_box_tag 'checkSelecionado', false, false %>                            
-                                    <% end %>
-                                </td>
-
-                                <td><%=  e.nIdVLan.to_s + "-" +  e.nIdVPN.to_s %></td>
-                                <td><%=  e.vpn_vlan.cDenominacionVLan %></td>
-                                <td><%=  e.vpn_vlan.cIPVLan %></td>                            
+                                <td><%= check_box_tag 'chkVlan[]', value = e.nIdVLan.to_s + "-" +  e.nIdVPN.to_s, checked = tieneLinea %></td>
+                                  
+                                <td><%= e.nIdVLan.to_s + "-" +  e.nIdVPN.to_s %></td>
+                                <td><%= e.vpn_vlan.cDenominacionVLan %></td>
+                                <td><%= e.vpn_vlan.cIPVLan %></td>                            
                             </tr>  
                         <% end %>
-
                     </tbody>
                 </table>
                 
