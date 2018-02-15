@@ -13,20 +13,35 @@
     </div>
 
     <div class="row">   
-        <div class="small-2 medium-1 large-1 columns">
-            <%= f.label :lin_dato_cont, 'Buscar', for: "middle-label", class: "text-right" %>
+        <div class="small-2 medium-1 large-3 columns">
+            <%= f.label :nCodLinDatos_eq, 'Código', for: "middle-label" %>
         </div>
-        <div class="small-10 medium-11 large-8 columns">
-            <%= f.search_field :lin_dato_cont %>
-        </div>     
-
-        <div class="small-2 medium-1 large-1 columns">
-            <%= f.label :linea_nCodEstLin_eq, 'Estado', for: "middle-label", class: "text-right" %>
+        <div class="small-4 medium-2 large-3 columns">
+            <%= f.label :nCodTipDatos, for: 'middle-label' %>
         </div>
-         <div class="small-10 medium-2 large-2 columns">      
-            <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosDatos, "nCodEstLin", "cDescEstado","0")  %>      
+        <div class="small-4 medium-2 large-3 columns">
+            <%= f.label :cAnillo, for: 'middle-label' %>
+        </div>       
+        <div class="small-2 medium-1 large-3 columns">
+            <%= f.label :linea_nCodEstLin_eq, 'Estado', for: "middle-label" %>
         </div>
     </div>
+
+    <div class="row">        
+         <div class="small-10 medium-11 large-3 columns">
+            <%= f.search_field :nCodLinDatos_eq %>
+        </div> 
+        <div class="small-8 medium-4 large-3 columns">            
+            <%= f.select :nCodTipDatos_eq, content_tag(:option,"",:value=>"")+options_from_collection_for_select(TipoLinDato.all, :nCodTipDatos, :cDescTipDatos, @q.nCodTipDatos) %>                    
+        </div>          
+        <div class="small-8 medium-4 large-3 columns end">
+            <%= f.text_field :cAnillo_eq, for: 'middle-label '  %>
+        </div>  
+        <div class="small-10 medium-2 large-3 columns">      
+            <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosDatos, "nCodEstLin", "cDescEstado","0")  %>      
+        </div>          
+    </div>
+
 
     <div class="row" >      
         <div class="small-2 medium-1 large-12 columns">      

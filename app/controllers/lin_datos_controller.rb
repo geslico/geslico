@@ -40,9 +40,11 @@ class LinDatosController < ApplicationController
 
         if @lin_dato.update(lin_dato_params)            
 
-          @lin_dato.lin_datos_vpn_vlan.each { |lineaDato| lineaDato.delete }
+          if  params['chkVlan'] != nil
+            @lin_dato.lin_datos_vpn_vlan.each { |lineaDato| lineaDato.delete }          
           
-          params['chkVlan'].each{ |a| LinDato.insertarVPNLan(@lin_dato.nCodLinDatos,a, @current_user.cCodUsuario)}            
+            params['chkVlan'].each{ |a| LinDato.insertarVPNLan(@lin_dato.nCodLinDatos,a, @current_user.cCodUsuario)}            
+          end 
 
           flash[:success] ='Linea de datos modificada correctamente.' 
           format.html { redirect_to @lin_dato }

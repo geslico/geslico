@@ -22,59 +22,58 @@
     <%= f.fields_for :linea, @lin_dato.linea do |ff| %>
         <%= f.fields_for :lote, @lin_dato.linea.lote do |fl| %>
             <div class="row">
-                <div class="small-4 medium-2 large-1 columns">
+                <div class="small-4 medium-2 large-3 columns">
                     <%= f.label :nCodLinDatos, for: 'middle-label' %>
                 </div>
+                <div class="small-4 medium-2 large-3 columns">
+                    <%= f.label :nCodTipDatos, for: 'middle-label' %>
+                </div>   
+                <div class="small-4 medium-2 large-3 columns">
+                    <%= f.label :cAnillo, for: 'middle-label' %>
+                </div>             
+                <div class="small-4 medium-2 large-3 columns">
+                    <%= f.label :nCodEstLin, for: 'middle-label' %>
+                </div>
+            </div>
+
+            <div class="row">
                 <div class="small-8 medium-4 large-3 columns">
                     <%= f.text_field :nCodLinDatos, for: 'middle-label' %>
-                </div>
-
-                <div class="small-4 medium-2 large-1 columns">
-                    <%= f.label :nCodTipDatos, for: 'middle-label' %>
                 </div>
                 <div class="small-8 medium-4 large-3 columns">            
                     <%= f.select :nCodTipDatos, content_tag(:option,"",:value=>"")+options_from_collection_for_select(TipoLinDato.all, :nCodTipDatos, :cDescTipDatos, @lin_dato.nCodTipDatos) %>                    
                 </div>
-
-                <div class="small-4 medium-2 large-1 columns">
-                    <%= f.label :nCodEstLin, for: 'middle-label' %>
-                </div>
+                <div class="small-8 medium-4 large-3 columns end">
+                    <%= f.text_field :cAnillo, for: 'middle-label '  %>
+                </div>  
                 <div class="small-8 medium-4 large-3 columns">            
                     <%= ff.select :nCodEstLin, content_tag(:option,"",:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosDatos, :nCodEstLin, :cDescEstado, ff.object.nCodEstLin) %>                    
                 </div>                            
             </div>
 
             <div class="row">
-                <div class="small-4 medium-2 large-1 columns">
+                <div class="small-4 medium-2 large-3 columns">
                     <%= ff.label :dFechaAlta, for: 'middle-label' %>
-                </div>
-                <div class="small-8 medium-4 large-3 columns">
-                    <%= ff.date_field :dFechaAlta, for: 'middle-label' %>            
-                </div>
-
-                <div class="small-4 medium-2 large-1 columns">
+                </div>                
+                <div class="small-4 medium-2 large-3 columns">
                     <%= ff.label :dFechaBaja, for: 'middle-label' %>
                 </div>
-                <div class="small-8 medium-4 large-3 columns">
-                    <%= ff.date_field :dFechaBaja, for: 'middle-label' %>            
-                </div>
-                <div class="small-4 medium-2 large-1 columns">
+                <div class="small-4 medium-2 large-3 columns end">
                     <%= fl.label :nCodTipoLote, "Lote", for: 'middle-label' %>
-                </div>
-                <div class="small-8 medium-4 large-3 columns">            
-                    <%= fl.select :nCodTipoLote, content_tag(:option,"",:value=>"")+options_from_collection_for_select(Lote.all, :nCodTipoLote, :cDescripcion, @lin_dato.linea.nCodTipoLote) %>                
                 </div>
             </div>
 
             <div class="row">
-                <div class="small-4 medium-2 large-1 columns">
-                    <%= f.label :cAnillo, for: 'middle-label' %>
+                <div class="small-8 medium-4 large-3 columns">
+                    <%= ff.date_field :dFechaAlta, for: 'middle-label' %>            
                 </div>
-                <div class="small-8 medium-4 large-3 columns end">
-                    <%= f.text_field :cAnillo, for: 'middle-label '  %>
-                </div>            
+                <div class="small-8 medium-4 large-3 columns">
+                    <%= ff.date_field :dFechaBaja, for: 'middle-label' %>            
+                </div>
+                <div class="small-8 medium-4 large-3 columns end">            
+                    <%= fl.select :nCodTipoLote, content_tag(:option,"",:value=>"")+options_from_collection_for_select(Lote.all, :nCodTipoLote, :cDescripcion, @lin_dato.linea.nCodTipoLote) %>                
+                </div>
             </div>
-
         <% end %>
     <% end %>
     
@@ -157,55 +156,71 @@
 
                 <%= f.fields_for :lin_fijo, @lin_dato.lin_fijo do |fl| %>
                     <div class="row">
-                        <div class="small-4 medium-2 large-1 columns">
+                        <div class="small-4 medium-2 large-3 columns">
                             <%= f.label :nNumAdmin, for: 'middle-label' %>
                         </div>
+                        
+                        <div class="small-4 medium-2 large-3 columns">
+                            <%= f.label :nLinea, for: 'middle-label' %>
+                        </div>
+                        <div class="small-4 medium-2 large-3 columns">
+                            <%= f.label :nAccesos,'Accesos', for: 'middle-label' %>
+                        </div>
+                        <div class="small-4 medium-2 large-3 columns">
+                            <%= f.label :bPrincipal, for: 'middle-label' %>
+                        </div>
+                    </div> 
+
+
+                    <div class="row">
                         <div class="small-8 medium-4 large-3 columns">
                             <%= f.text_field :nNumAdmin, for: 'middle-label' %>
-                        </div>
-                        <div class="small-4 medium-2 large-1 columns">
-                            <%= f.label :nLinea, for: 'middle-label' %>
                         </div>
                         <div class="small-8 medium-4 large-3 columns">
                             <%= f.text_field :nLinea, for: 'middle-label' %>
                         </div>
-                        <div class="small-4 medium-2 large-1 columns">
-                            <%= f.label :nAccesos,'Accesos', for: 'middle-label' %>
-                        </div>
                         <div class="small-4 medium-2 large-3 columns end">
                             <%= fl.text_field  :nAccesos, for: 'middle-label' %>
-                        </div>                        
+                        </div>         
+                        <% if  f.object.bPrincipal.nil? || f.object.bPrincipal == ''  %>
+                            <div class="small-8 medium-4 large-3 columns">            
+                                <%= f.select :bPrincipal, options_for_select([["",0],["SÍ",true], ["NO", false]], 0) %>
+                            </div>  
+                        <% else %>
+                            <% if  f.object.bPrincipal == true  %>
+                                <div class="small-8 medium-4 large-3 columns">            
+                                    <%= f.select :bPrincipal, options_for_select([["",0],["SÍ",true], ["NO", false]], true) %>
+                                </div>  
+                            <% else %>
+                                <div class="small-8 medium-4 large-3 columns">            
+                                    <%= f.select :bPrincipal,  options_for_select([["",0],["SÍ",true], ["NO", false]], false) %>
+                                </div>  
+                            <% end %>
+                        <% end %>               
                     </div> 
                 <% end %>
 
                 <div class="row">
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :bPrincipal, for: 'middle-label' %>
+                    
+                    <div class="small-4 medium-2 large-3 columns">
+                        <% if  f.object.bPrincipal == true  %>
+                            <%= f.label :nPrincipal, "Linea Backup", for: 'middle-label' %>
+                        <% else %>
+                            <%= f.label :nPrincipal, "Linea Principal", for: 'middle-label' %>
+                        <% end %>
+                    </div>       
+                     <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :cNemonico, for: 'middle-label' %>
                     </div>
-                    <% if  f.object.bPrincipal.nil? || f.object.bPrincipal == ''  %>
-                        <div class="small-8 medium-4 large-3 columns">            
-                            <%= f.select :bPrincipal, options_for_select([["",0],["SÍ",true], ["NO", false]], 0) %>
-                        </div>  
-                    <% else %>
-                        <% if  f.object.bPrincipal == true  %>
-                            <div class="small-8 medium-4 large-3 columns">            
-                                <%= f.select :bPrincipal, options_for_select([["",0],["SÍ",true], ["NO", false]], true) %>
-                            </div>  
-                        <% else %>
-                            <div class="small-8 medium-4 large-3 columns">            
-                                <%= f.select :bPrincipal,  options_for_select([["",0],["SÍ",true], ["NO", false]], false) %>
-                            </div>  
-                        <% end %>
-                    <% end %>
+                     <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :nAnchoBanda, for: 'middle-label' %>
+                    </div>               
+                    <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :nAnchoBandaVoz, for: 'middle-label' %>
+                    </div>                      
+                </div> 
 
-                
-                    <div class="small-4 medium-2 large-1 columns">
-                        <% if  f.object.bPrincipal == true  %>
-                            <%= f.label :nPrincipal, "Lin.Back.", for: 'middle-label' %>
-                        <% else %>
-                            <%= f.label :nPrincipal, "Lin.Princ.", for: 'middle-label' %>
-                        <% end %>
-                    </div>                        
+                <div class="row">
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.fields_for :lin_dato, @backup do |b| %>
                             <% if  f.object.bPrincipal == true  %>
@@ -215,74 +230,62 @@
                             <% end %>                                
                         <% end %>
                     </div>  
-
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :cNemonico, for: 'middle-label' %>
-                    </div>
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.text_field :cNemonico, for: 'middle-label' %>
-                    </div>                     
-                </div> 
-
-                <div class="row">
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :nAnchoBanda, for: 'middle-label' %>
-                    </div>
+                    </div>   
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.text_field :nAnchoBanda, for: 'middle-label' %>
-                    </div>
-
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :nAnchoBandaVoz, for: 'middle-label' %>
                     </div>
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.text_field :nAnchoBandaVoz, for: 'middle-label' %>
                     </div>
+                </div> 
 
-                    <div class="small-4 medium-2 large-1 columns">
+                <div class="row">
+                    <div class="small-4 medium-2 large-3 columns">
                         <%= f.label :cIP, for: 'middle-label' %>
                     </div>
-                    <div class="small-8 medium-4 large-3 columns">
-                        <%= f.text_field :cIP, for: 'middle-label' %>
+                    <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :nVelocidad, for: 'middle-label' %>
+                    </div>
+                    <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :nCaudal, for: 'middle-label' %>
+                    </div>
+                    <div class="small-4 medium-2 large-3 columns">
+                        <%= f.label :fInstalacion, for: 'middle-label' %>
                     </div>
                 </div> 
 
                 <div class="row">
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :nVelocidad, for: 'middle-label' %>
-                    </div>
+                    <div class="small-8 medium-4 large-3 columns">
+                        <%= f.text_field :cIP, for: 'middle-label' %>
+                    </div>                    
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.text_field :nVelocidad, for: 'middle-label' %>
                     </div>
-
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :nCaudal, for: 'middle-label' %>
-                    </div>
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.text_field :nCaudal, for: 'middle-label' %>
-                    </div>
-                        <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :fInstalacion, for: 'middle-label' %>
-                    </div>
+                    </div>                    
                     <div class="small-8 medium-4 large-3 columns">
                         <%= f.date_field :fInstalacion, for: 'middle-label' %>
                     </div>
                 </div>
                 
                 <div class="row">  
-                    <div class="small-4 medium-2 large-1 columns">
+                    <div class="small-4 medium-2 large-3 columns">
                         <%= f.label :bConcurso, for: 'middle-label' %>
                     </div>
-                    <div class="small-8 medium-4 large-3 columns end">                            
-                        <%= f.select :bConcurso, [["SI", true], ["NO", false]], for: 'middle-label' %>        
+                    <div class="small-4 medium-2 large-3 columns end">
+                        <%= f.label :cObservaciones, for: 'middle-label' %>
                     </div>
+                    
                 </div>
 
                 <div class="row">
-                    <div class="small-4 medium-2 large-1 columns">
-                        <%= f.label :cObservaciones, for: 'middle-label' %>
+                   <div class="small-8 medium-4 large-3 columns end">                            
+                        <%= f.select :bConcurso, [["SI", true], ["NO", false]], for: 'middle-label' %>        
                     </div>
-                    <div class="small-8 medium-4 large-11 columns">
+                    <div class="small-8 medium-4 large-9 columns">
                         <%= f.text_area :cObservaciones, for: 'middle-label' %>
                     </div>
                 </div>
