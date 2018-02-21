@@ -19,9 +19,6 @@ class LinDatosController < ApplicationController
         @lin_dato = LinDato.new()
     end
 
-    def edit
-    end
-
     def create
       @lin_dato = LinDato.new(lin_dato_params)
   
@@ -55,12 +52,13 @@ class LinDatosController < ApplicationController
               #)
               #result.save
             
-            idVlan = a.rpartition('-').first.to_i
-            idVpn = a.rpartition('-').last.to_i
-            t =  Time.now.strftime("%Y/%m/%d %H:%M:%S")
+              idVlan = a.rpartition('-').first.to_i
+              idVpn = a.rpartition('-').last.to_i
+              t =  Time.now.strftime("%Y/%m/%d %H:%M:%S")
 
-            result=ActiveRecord::Base.connection.execute("EXEC geslico.dbo.AutoAltaVpnVlan #{@lin_dato.nCodLinDatos},#{idVlan},#{idVpn},'#{@current_user.cCodUsuario}','#{t}'")
-          }
+              ActiveRecord::Base.connection.execute("EXEC geslico.dbo.AutoAltaVpnVlan #{@lin_dato.nCodLinDatos},#{idVlan},#{idVpn},'#{@current_user.cCodUsuario}','#{t}'")
+            
+            }
 
           end 
 
