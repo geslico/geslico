@@ -36,6 +36,7 @@ class LinDatosController < ApplicationController
   
     # PATCH/PUT /
     def update
+     
       respond_to do |format|
 
         if @lin_dato.update(lin_dato_params)            
@@ -43,7 +44,24 @@ class LinDatosController < ApplicationController
           if  params['chkVlan'] != nil
             @lin_dato.lin_datos_vpn_vlan.each { |lineaDato| lineaDato.delete }          
           
-            params['chkVlan'].each{ |a| LinDato.insertarVPNLan(@lin_dato.nCodLinDatos,a, @current_user.cCodUsuario)}            
+            params['chkVlan'].each{ |a| 
+                      
+              #result = LinDatosVpnVlan.new(
+              #  :nCodLinDatos => @lin_dato.nCodLinDatos, 
+              #  :nIdVLan => a.rpartition('-').first.to_i, 
+              #  :nIdVPN => a.rpartition('-').last.to_i,
+              #  :cUsuarioAlta => @current_user.cCodUsuario, 
+              #  :dFchAlta => Time.now.strftime("%Y/%m/%d %H:%M:%S")
+              #)
+              #result.save
+            
+            idVlan = a.rpartition('-').first.to_i
+            idVpn = a.rpartition('-').last.to_i
+            t =  Time.now.strftime("%Y/%m/%d %H:%M:%S")
+
+            result=ActiveRecord::Base.connection.execute("EXEC geslico.dbo.AutoAltaVpnVlan #{@lin_dato.nCodLinDatos},#{idVlan},#{idVpn},'#{@current_user.cCodUsuario}','#{t}'")
+          }
+
           end 
 
           flash[:success] ='Linea de datos modificada correctamente.' 
@@ -53,6 +71,8 @@ class LinDatosController < ApplicationController
         end
       end
     end
+
+
 
     private
         # Use callbacks to share common setup or constraints between actions.
