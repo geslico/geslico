@@ -13,4 +13,22 @@ class LinDato < ApplicationRecord
 
 	ransack_alias :lin_dato, :nCodLinDatos_or_nCodTipDatos_or_nCodSedeA_or_nCodSedeB
 	
+
+	def self.insertarVPNLan(idLinDatos,idVlanVPN,usuario)
+		
+		t = Time.now 
+		t = t.strftime("%Y/%m/%d %H:%M:%S")
+		
+		idVlan = idVlanVPN.rpartition('-').first
+		idVPN = idVlanVPN.rpartition('-').last
+		result=ActiveRecord::Base.connection.select_all("INSERT INTO TLinDatosVPNVLan (nCodLinDatos, nIdVLan, nIdVPN, cUsuarioAlta, dFchAlta) VALUES (#{idLinDatos},#{idVlan},#{idVPN},'#{usuario}','#{t}')")
+
+		if result.present?
+			return result
+		else
+			return nil
+		end
+		
+	end
+
 end
