@@ -60,9 +60,11 @@
         </li>
 
         <li class="has-submenu">
-          <a href="#">Electrónica</a>
+          <a href="#">Electrónica de Red</a>
           <ul class="submenu menu vertical" data-submenu>
-            <li><a href="#">Almacén</a></li>
+            <% if can? :read, Edr %>
+              <li><%= link_to "Inventario", '/electronica-red/inventario', class: "margin-right" %></li>
+            <% end %>              
             <li><a href="#">Catálogo de Red</a></li>
             <li><a href="#">Reserva Rangos IP</a></li>
           </ul>
@@ -92,7 +94,7 @@
             <% if can? :read, Linea %>
               <li><%= link_to "Líneas Fijas", informes_fija_url, class: "margin-right" %></li>            
             <% end %>  
-            <% if can? :read, ElectronicaRed %>
+            <% if can? :read, Edr %>
               <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
             <% end %>  
             <% if can? :read, LinDato %>
@@ -111,6 +113,6 @@
       </ul>      
     </div>
    
-  </div>
-  
+  </div>  
+
 <% end %>
