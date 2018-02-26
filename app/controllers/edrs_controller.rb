@@ -4,8 +4,8 @@ class EdrsController < ApplicationController
   
   # GET /electronica_red/almacen
   def index         
-    if params[:q] && params[:q].reject { |k, v| v.blank? }.present?
-      @q = RackEdr.ransack params[:q]
+    if params[:q] && params[:q].reject { |_k, v| v.blank? }.present?
+      @q = RackEdr.ransack params[:q]      
       @sedes_racks = @q.result().distinct(:nCodSede).distinct(:nCodRack).order(:nCodSede, :nPlanta)
 
       # Sólo el primer rack de cada sede llevará el nCodSede, el resto se ponen a nil. Así la vista sabrá cuando debe crear y escrbir los 
