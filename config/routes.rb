@@ -23,8 +23,15 @@ Rails.application.routes.draw do
     # resources :v_tetra_plan_gssis
     
     resources :lin_moviles
-    resources :modelos_terminales     
+    resources :modelos_terminales 
     resources :lin_datos 
+    
+    #resources :rack_edrs
+    #resources :edrs    
+    get '/electronica-red/inventario' => 'edrs#index', as: 'rack_edrs'
+    scope '/electronica-red/inventario' do
+      resources :edrs
+    end
 
     resources :usuarios do
       resources :usuarios_programas do
@@ -36,7 +43,7 @@ Rails.application.routes.draw do
     get 'informes/radio' => 'informes#index', as: 'informes_radio'
     get 'informes/movil' => 'informes#index', as: 'informes_movil'
     get 'informes/fija' => 'informes#index', as: 'informes_fija'
-    get 'informes/electronica' => 'informes#index', as: 'informes_electronica'
+    get 'informes/electronica-red' => 'informes#index', as: 'informes_electronica'
     get 'informes/datos' => 'informes#index', as: 'informes_datos'
     
 

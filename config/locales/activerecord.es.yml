@@ -48,6 +48,10 @@ es:
         one: "Unidad"
         other: "Unidades"
 
+      edr:
+        one: "Edr"
+        other: "Edrs"
+  
       modelos_terminal:
         one: "Modelo"
         other: "Modelos"
@@ -104,6 +108,11 @@ es:
         nCodUni: "Cod.Uni"
         cDenominacion: "Unidad"
 
+      edr:        
+        nCodSede: "Codigo Sede"  
+        sede_cDireccion: "Dirección Sede"
+        edrs_cIPGestionedrIP: "Dirección IP"
+        
       lin_dato:
         nCodLinDatos: "Código"
         nCodTipDatos: "Tipo"

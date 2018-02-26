@@ -9,4 +9,8 @@ module CommonHelper
 			end
 		end.encode('utf-8')
 	end
+
+	def human_boolean(boolean)
+		boolean ? 'Yes' : 'No'
+	end	
 end
