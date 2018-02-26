@@ -35,7 +35,8 @@ class ModelosTerminalesController < ApplicationController
       def update
         respond_to do |format|
           if @modelos_terminal.update(modelos_terminal_params)
-            format.html { redirect_to @modelos_terminal, notice: 'Modelo modificado correctamente' }
+            flash[:success] ='Modelo modificado correctamente.' 
+            format.html { redirect_to @modelos_terminal }
           else
             format.html { render :edit }
           end

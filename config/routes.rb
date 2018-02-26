@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     
     resources :lin_moviles
     resources :modelos_terminales 
+    resources :lin_datos 
     
     #resources :rack_edrs
     #resources :edrs    
@@ -44,7 +45,7 @@ Rails.application.routes.draw do
     get 'informes/fija' => 'informes#index', as: 'informes_fija'
     get 'informes/electronica-red' => 'informes#index', as: 'informes_electronica'
     get 'informes/datos' => 'informes#index', as: 'informes_datos'
-      
+    
 
   end
   

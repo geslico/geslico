@@ -73,7 +73,9 @@
         <li class="has-submenu">
           <a href="#">Datos</a>
           <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">Líneas</a></li>              
+              <% if can? :read, LinDato %>
+                <li><%= link_to "Líneas", lin_datos_path, class: "margin_right" %></li>
+              <% end %>              
           </ul>
         </li>
 
@@ -95,7 +97,7 @@
             <% if can? :read, Edr %>
               <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
             <% end %>  
-            <% if can? :read, LinDatos %>
+            <% if can? :read, LinDato %>
               <li><%= link_to "Datos", informes_datos_url, class: "margin-right" %></li>
             <% end %>  
         </li>             

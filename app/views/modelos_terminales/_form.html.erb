@@ -1,22 +1,35 @@
 <%= form_for(@modelos_terminal) do |f| %>
     
-    <div class="row clearfix">      
+    <% if @modelos_terminal.errors.any? %>
+        <div class="panel warning callout radius">
+        <strong><%= t('activerecord.errors.template.header', :model => ModelosTerminal.model_name.human, :count => @modelos_terminal.errors.count) %></strong>
+        <ul>
+        <% @modelos_terminal.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+
+    <div class="row clearfix">
         <% if can? :cru, ModelosTerminal %>                     
-            <%= f.submit 'Guardar', class: 'warning button float-righ' %>
+        <%= f.submit 'Guardar', class: 'button float-right' %>
         <% end %>      
         <%= link_to '<< Volver', modelos_terminales_path, :class => "button float-right" %>        
     </div>
+    
 
     <div class="row">
         <div class="small-4 medium-2 large-1 columns">
-            <%= f.label :Marca, for: 'middle-label' %>
+            <%= f.label :cMarca, for: 'middle-label' %>
         </div>
         <div class="small-8 medium-4 large-5 columns">
             <%= f.text_field :cMarca, for: 'middle-label' %>
         </div>
 
         <div class="small-4 medium-2 large-1 columns">
-            <%= f.label :Modelo, for: 'middle-label' %>
+            <%= f.label :cModelo, for: 'middle-label' %>
         </div>
         <div class="small-8 medium-4 large-5 columns">
             <%= f.text_field :cModelo, for: 'middle-label' %>
@@ -25,14 +38,14 @@
 
     <div class="row">
         <div class="small-4 medium-2 large-1 columns">
-            <%= f.label :Operativo, for: 'middle-label' %>
+            <%= f.label :cSO, for: 'middle-label' %>
         </div>  
         <div class="small-8 medium-4 large-2 columns">            
             <%= f.select :cSO, [ ["", ""], ["Android", "Android"], ["Blackberry", "Blackberry"], ["Firefox OS", "Firefox OS"], ["IOS", "IOS"], ["Symbian", "Symbian"], ["Windows", "Windows"], ["Otros", "Otros"]], for: 'middle-label' %>     
         </div>
 
         <div class="small-4 medium-2 large-1 columns">
-            <%= f.label :Pulgadas, for: 'middle-label' %>
+            <%= f.label :nPulgadas, for: 'middle-label' %>
         </div>
         <div class="small-8 medium-4 large-2 columns">            
             <%= f.select :nPulgadas, [ ["", ""], ["10", 10.0], ["7", 7.0], ["5", 5.0], ["4.5", 4.5], ["4", 4.0], ["3", 3.0]], for: 'middle-label' %>     
@@ -55,17 +68,17 @@
 
     <div class="row">
         <div class="small-4 medium-2 large-1 columns">
-            <%= f.label :Disponible, for: 'middle-label' %>
+            <%= f.label :bDisponibilidad, for: 'middle-label' %>
         </div>  
         <div class="small-8 medium-4 large-2 columns">            
-            <%= f.select :bDisponibilidad, [ ["", -1], ["SÍ", true], ["NO", false]], for: 'middle-label' %>     
+            <%= f.select :bDisponibilidad, [ ["", nil], ["SÍ", true], ["NO",false]], for: 'middle-label' %>     
         </div>
 
         <div class="small-4 medium-2 large-1 columns">
             <%= f.label :Vigente, for: 'middle-label' %>
         </div>  
         <div class="small-8 medium-4 large-2 columns">            
-            <%= f.select :bVigente, [ ["", -1], ["SÍ", true], ["NO", false]], for: 'middle-label' %>     
+            <%= f.select :bVigente, [ ["", nil], ["SÍ", true], ["NO",false]], for: 'middle-label' %>                 
         </div>
 
         <div class="small-4 medium-2 large-1 columns">
@@ -91,7 +104,7 @@
     
     <div class="row">
         <label  class="small-4 medium-2 large-6 columns for="middle-label">PRECIO</label>
-        <%= link_to "Búsqueda terminal", @modelos_terminal.BusquedaModeloGoogle, :class => "small-4 medium-2 large-6 columns text-right" , target: :_blank %>
+        <%= link_to "Búsqueda terminal", @modelos_terminal.BusquedaModeloGoogle, :class => "small-4 medium-2 large-6 columns text-right link" , target: :_blank %>
     </div>
 
     <br>
