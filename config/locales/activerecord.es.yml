@@ -48,6 +48,11 @@ es:
         one: "Unidad"
         other: "Unidades"
 
+      edr:
+        one: "Edr"
+        other: "Edrs"
+  
+
     attributes:
       usuario:
         cCodUsuario: "Código"
@@ -87,3 +92,8 @@ es:
       unidad:
         nCodUni: "Cod.Uni"
         cDenominacion: "Unidad"
+
+      edr:        
+        nCodSede: "Codigo Sede"  
+        sede_cDireccion: "Dirección Sede"
+        edrs_cIPGestionedrIP: "Dirección IP"

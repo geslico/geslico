@@ -1,0 +1,45 @@
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover level2title"><strong><%= rack.cNombre %></strong></a>
+    <div class="accordion-content level2content" data-tab-content > 
+        <div class="row">
+            <div class="small-4 medium-2 large-2 columns">                    
+                <label for="middle-label"><strong>Código:</strong></label>
+            </div>         
+            <div class="small-8 medium-2 large-10 columns text-left">
+                <label for="middle-label"><%= rack.nCodRack%></label>
+            </div>                    
+        </div>                        
+        <div class="row">
+            <div class="small-4 medium-2 large-2 columns">                    
+                <label for="middle-label"><strong>Planta:</strong></label>
+            </div>         
+            <div class="small-8 medium-2 large-10 columns text-left">
+                <label for="middle-label"><%= rack.nPlanta%></label>
+            </div>                    
+        </div>
+        <div class="row">                      
+            <div class="small-4 medium-2 large-2 columns">                    
+                <label for="middle-label"><strong>Ubicación:</strong></label>
+            </div>              
+            <div class="small-8 medium-2 large-10 columns">
+                <label for="middle-label"><%= rack.cUbicacion%></label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-4 medium-2 large-2 columns">                    
+                <label for="middle-label"><strong>Observaciones:</strong></label>
+            </div>              
+            <div class="small-8 medium-10 large-10 columns">
+                <label for="middle-label"><%= rack.cObservaciones%></label>
+            </div>
+        </div>                                    
+        </br>   
+        <% if !ip.empty? %>  
+            <%= render 'edr', edrs: rack.edrs.by_ip(ip) %>
+        <% elsif !name.empty? %>      
+            <%= render 'edr', edrs: rack.edrs.by_name(name) %>
+        <% else %>          
+            <%= render 'edr', edrs: rack.edrs %>
+        <% end %>              
+    </div>  
+</li>                    

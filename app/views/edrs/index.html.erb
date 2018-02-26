@@ -1,0 +1,90 @@
+<div class="row"> 
+    <h3 class="large-1 columns">Inventario</h3>
+</div> 
+
+<div>
+  <%= search_form_for @q do |f| %>
+
+    <div class="row">
+      <div class="small-12 medium-12 large-12 columns">
+        <%= f.label :sede_cNombre_cont, 'Sede' %>
+        <%= f.search_field :sede_cNombre_cont %> 
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="small-12 medium-12 large-12 columns">
+        <%= f.label :sede_cDireccion_cont, 'Direccion' %>
+        <%= f.search_field :sede_cDireccion_cont %> 
+      </div>
+    </div>  
+
+    <div class="row">
+      <div class="small-12 medium-12 large-6 columns">
+        <%= f.label :edrs_cIPGestion_eq, 'IP'%>
+        <%= f.search_field :edrs_cIPGestion_eq %> 
+      </div>
+      <div class="small-12 medium-12 large-6 columns">
+        <%= f.label :edrs_cNombre_cont, 'Nombre'%>
+        <%= f.search_field :edrs_cNombre_cont %> 
+      </div>      
+    </div>        
+
+    <div class="row clearfix" >                 
+      <%= submit_tag "Buscar" , class:"button small float-right" %> 
+      <%= link_to "Limpiar", request.path, :class => "button small float-right" %>                       
+    </div>
+<% end %>   
+                  
+<div>
+    <ul class="accordion margin-bottom test" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+    <% @sedes_racks.each do |sede_rack| %>      
+        <% if !sede_rack.nCodSede.nil? %>  
+            <% if @primeravez != true %>  
+                        <!-- fin ul accordeon rack -->        
+                        </ul>
+                    <!-- fin div accordeon rack -->            
+                    </div>
+                <!-- fin div accordeon content sede -->            
+                </div>
+            <!-- fin li accordeon sede -->    
+            </li>
+            <%else%>    
+                <% @primeravez = false %>
+            <%end%>    
+            <li class="accordion-item" data-accordion-item>          
+                <a href="#" class="accordion-title accordionhover"><%= sede_rack.sede.cNombre %></a>
+                <div class="accordion-content" data-tab-content >                  
+                    <div class="row">
+                        <div class="small-4 medium-2 large-1 columns">                    
+                            <label for="middle-label"><strong>Código:</strong></label>
+                        </div>              
+                        <div class="small-8 medium-2 large-2 columns">
+                            <label for="middle-label"><%= sede_rack.nCodSede%></label>
+                        </div>                                  
+                        <div class="small-4 medium-2 large-1 columns">                    
+                            <label for="middle-label"><strong>Dirección:</strong></label>
+                        </div>              
+                        <div class="small-8 medium-2 large-8 columns">
+                            <label for="middle-label"><%= sede_rack.sede.cDireccion%>, <%= sede_rack.sede.cCodPostal%></label>
+                        </div>                  
+                    </div>
+                    </br> 
+                    <!-- Level 2: rack -->
+                    <div class="row">
+                        <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                                                   
+        <%end%>
+                            <%= render 'rack', rack: sede_rack, ip: params[:q]["edrs_cIPGestion_eq"], name: params[:q]["edrs_cNombre_cont"] %>
+    <% end %>    
+                        <!-- fin ul accordeon rack -->        
+                        </ul>
+                    <!-- fin div accordeon rack -->            
+                    </div>
+                <!-- fin div accordeon content sede -->            
+                </div>
+            <!-- fin li accordeon sede -->    
+            </li>    
+    <!-- fin ul accordeon sede -->
+    </ul>
+</div>
+

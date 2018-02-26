@@ -1,0 +1,44 @@
+
+<div class="row">                  
+<ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover level4title"><strong>Puertos</strong></a>
+            <div class="accordion-content" data-tab-content > 
+                <% if puertos.length > 0 %>
+                    <div class="">                                
+                        <table class="stack">
+                            <thead class="color-cabecera">                                              
+                                <tr>                
+                                    <th>Puerto</th>
+                                    <th>PoE</th>
+                                    <th>PoEOn</th>                                    
+                                    <th>Estado</th>
+                                    <th>Tipo</th>                                    
+                                    <th>VLan</th>
+                                </tr>
+                            </thead>                                
+                            <tbody>                
+                                <% puertos.each do |puerto| %>
+                                    <tr>        
+                                        <td><%=  puerto.cPuerto %></td>           
+                                        <td></td>           
+                                        <td></td>    
+                                        <td><%=  puerto.cStatus %></td>    
+                                        <td><%=  puerto.tipo_puerto.cDescTipoPuerto %></td>    
+                                        <td><%=  puerto.nCodVLan %></td>    
+                                    </tr>                    
+                                <% end %>                
+                            </tbody>
+                        </table>
+                    </div>
+                <% else %>   
+                    <div class="small-8 medium-2 large-12 columns text-left">
+                        <label for="middle-label">No se encontraron puertos asociados</label>
+                    </div> 
+                    </br>   
+                <% end %>  
+            </div>                                                                                
+        </li>                          
+</ul>                      
+
+    
