@@ -31,7 +31,7 @@ before_install:
 
 install:
   - bundle install
-  #- bundle exec rake db:setup RAILS_ENV=test --trace
+  - bundle exec rake db:setup RAILS_ENV=test --trace
 
 
 

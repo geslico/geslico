@@ -11,6 +11,6 @@ module CommonHelper
 	end
 
 	def human_boolean(boolean)
-		boolean ? 'Yes' : 'No'
+		boolean ? 'Si' : 'No'
 	end	
 end

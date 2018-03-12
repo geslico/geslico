@@ -3,38 +3,31 @@
 <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
     <% edrs.each do |edr| %>     
         <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title accordionhover level3title"><strong><%= edr.cIPGestion%></strong> - <%= edr.cNombre%></a>
+            <a href="#" class="accordion-title accordionhover level3title"><strong><%= edr.nCodElectronicaRed%>&nbsp;&nbsp;|&nbsp;&nbsp;<%= edr.cNombre%>&nbsp;&nbsp;|&nbsp;&nbsp;<%= edr.cIPGestion%></strong></a>
             <div class="accordion-content level3content" data-tab-content > 
-                <div class="row">
-                    <div class="small-4 medium-2 large-2 columns">                    
-                        <label for="middle-label"><strong>Código:</strong></label>
-                    </div>         
-                    <div class="small-8 medium-2 large-10 columns text-left">
-                        <label for="middle-label"><%= edr.nCodElectronicaRed%></label>
-                    </div>
-                </div>  
                 <div class="row">                                           
                     <div class="small-4 medium-2 large-2 columns">                    
                         <label for="middle-label"><strong>Crítico:</strong></label>
                     </div>         
-                    <div class="small-8 medium-2 large-10 columns text-left">
+                    <div class="small-8 medium-10 large-10 columns text-left">
                         <label for="middle-label"><%= human_boolean(edr.bCritico) %></label>
                     </div>                                                    
                 </div>
                 <div class="row">
-                    <div class="small-4 medium-2 large-2 columns">                    
+                    <div class="small-12 medium-2 large-2 columns">                    
                         <label for="middle-label"><strong>Observaciones:</strong></label>
                     </div>         
-                    <div class="small-8 medium-2 large-10 columns text-left">
+                    <div class="small-12 medium-10 large-10 columns text-left">
                         <label for="middle-label"><%= edr.cObservaciones%></label>
                     </div>                                                                                  
                 </div>
                 </br>
                 <% if edr.componentes.length > 0 %>
-                    <div class="">                                
-                        <table class="stack">
-                            <thead class="color-cabecera">                                              
-                                <tr>                
+                    <label class="" for="middle-label"><strong>Componentes:</strong></label>
+                    <div class="table-scroll">
+                        <table>
+                            <thead class="color-cabecera">
+                                <tr>
                                     <th>Código</th>
                                     <th>Tipo</th>
                                     <th>Fabricante</th>
@@ -58,12 +51,16 @@
                         </table>
                     </div>
                 <% else %>   
-                    <div class="small-8 medium-2 large-12 columns text-left">
+                    <div class="small-12 medium-12 large-12 columns text-left">
                         <label for="middle-label">No se encontraron componentes asociados</label>
                     </div> 
-                    </br></br></br>
+                    </br></br></br></br>                    
                 <% end %>  
-                <%= render 'puerto', puertos: edr.puertos %>
+                <% if edr.nCodTipoEDR == 3 or edr.nCodTipoEDR == 6 or edr.nCodTipoEDR == 7 %>
+                    <%= render 'endpoint', endpoints: edr.endpoints %>
+                <% else %> 
+                    <%= render 'puerto', puertos: edr.puertos %>
+                <% end %>  
             </div>                                                                                
         </li>                          
     <% end %> 
