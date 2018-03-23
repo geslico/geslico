@@ -10,7 +10,9 @@ class LinDato < ApplicationRecord
 	
 	has_many	:lin_datos_vpn_vlan, :foreign_key => "nCodLinDatos"
 	has_many	:vpn_vlan, through: :lin_datos_vpn_vlan, :foreign_key => [:nIdVPN, :nIdVLan]
-
+	
 	ransack_alias :lin_dato, :nCodLinDatos_or_nCodTipDatos_or_nCodSedeA_or_nCodSedeB
+
+	scope :activas, -> { joins(:linea).where("nCodEstLin IN (0,3)") } 
 	
 end

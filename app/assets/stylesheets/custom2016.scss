@@ -92,7 +92,7 @@ a.accordionhover:hover,a.accordionhover:focus{
 }
 
 .level1content {
-	background:  #f3f1f1ee!important;	
+	background:  #fcf9f9f1!important;	
 }	
 
 .level2title {
@@ -130,3 +130,22 @@ a.accordionhover:hover,a.accordionhover:focus{
 .table-scroll table {
 	width: 100%!important;
 }
+
+i.small { 
+	font-size: 0.8rem; 
+	color: #0a0a0a!important;	
+}
+
+i.medium { 
+	font-size: 1rem; 
+	color: #0a0a0a!important;	
+}
+
+i.large { 
+	font-size: 2.0rem; 	
+}
+
+.icon{
+	color: #0a0a0a!important;
+	margin: 8px;
+ }

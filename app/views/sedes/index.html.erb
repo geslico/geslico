@@ -118,14 +118,14 @@
   <% end %> 
 <hr>
 <div class="row">
-    <ul class="paginate">  
+    <ul class="paginate">   
       <%= paginate(@sedes) %>
     </ul>      
 </div>
 
 <div class="row text-left">
   <%= page_entries_info @sedes, :entry_name => 'sedes' %>
-  <%= link_to image_tag('excel.png', :border=>1, :alt=>"Exportar", :align=> "right"), current_url(:format=>:csv), :class=>"text-right" %>
+  <%= link_to current_url(:format=>:csv), class: "float-right", title: 'Exportar a csv' do %><i class="fi-page-export-csv large icon"></i><% end %>
 </div>
 
 <div class="table-scroll">

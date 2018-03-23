@@ -13,4 +13,21 @@ module CommonHelper
 	def human_boolean(boolean)
 		boolean ? 'Si' : 'No'
 	end	
+
+	def get_adjuntos_url()
+		"http://geslic0"
+	end	
+
+	def sede_edr_map_url(cod_sede)
+		require "net/http"
+		map_url = URI.parse("#{get_adjuntos_url}/#{cod_sede}/#{cod_sede}V.jpg")
+		req = Net::HTTP.new(map_url.host, map_url.port)
+		res = req.request_head(map_url.path)
+	
+		if res.code == "200"
+		  return map_url
+		else
+		  return nil
+		end  	
+	end 	
 end

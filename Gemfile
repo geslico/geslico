@@ -24,6 +24,7 @@ gem 'kaminari'
 # gem 'kaminari-bootstrap'
 gem 'ransack', '~> 1.8', '>= 1.8.2'
 gem 'foundation-rails', '~> 6.2', '>= 6.2.3.0'
+gem 'foundation-icons-sass-rails'
 gem 'cancancan', '~> 2.0'
 
 # Test tools
