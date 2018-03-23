@@ -6,4 +6,4 @@ set :ssh_options, port: deploysecret(:ssh_port)
 set :stage, :production
 set :rails_env, :production
 
-server deploysecret(:server1), user: deploysecret(:user), roles: %w{app web} 
+server deploysecret(:server), user: deploysecret(:user), roles: %w{app web} 
