@@ -1,0 +1,52 @@
+<div class="row expanded">
+  <ul class="vertical menu" data-accordion-menu data-multi-open="false">
+    <% @fotos.each do |id, foto| %>     
+      <li style="max-width: 250px">
+          <span><a href="foto?cod_sede=<%=@codSede%>&idr=<%=id%>" class="folder <%= 'active_folder open_folder' if @idRuta == id and @dir == nil %>"><%= foto['ruta'] %></a></span>
+        <a href="" class="open"></a>
+        <% foto['directorios'].each do |directorio, ficheros| %>   
+          <ul class="menu vertical nested">
+            <li><a href="foto?cod_sede=<%=@codSede%>&idr=<%=id%>&dir=<%=directorio%>" class="folder <%= 'active_folder' if @idRuta == id and @dir == directorio %>"><%=directorio%></a></li>      
+          </ul>
+        <%end%>  
+      </li>
+    <%end%>        
+  </ul>
+</div>
+
+<hr>
+<div class="row">
+    <div class="orbit" role="region" data-orbit data-use-m-u-i="false">
+      <div class="orbit-wrapper">
+        <div class="orbit-controls">
+          <button class="orbit-previous"><span class="show-for-sr">Previo</span>&#9664;&#xFE0E;</button>
+          <button class="orbit-next"><span class="show-for-sr">Siguiente</span>&#9654;&#xFE0E;</button>
+        </div>
+        <div class="row">
+          <ul class="orbit-container text-center">    
+            <% @ficheros.each_with_index do |foto, index| %>        
+              <li class="orbit-slide" data-slide=<%= index %>>
+                <figure class="orbit-figure">
+                  <div style="height:50vh;width:auto"> 
+                    <img class="oooorbit-image" src=<%= foto[1] %> style="height:100% "/>
+                    <figcaption class="orbit-caption"><%= foto[0] %></figcaption>
+                  </div>
+                </figure>
+              </li>
+            <%end%>            
+          </ul>
+        <div>        
+      </div>
+                         
+      <nav class="orbit-bullets">
+          <% for i in 0..(@ficheros.length)-1 do %>
+            <% if i == 0 %>
+              <button class="is-active" data-slide=<%= i %>></button>
+            <%elsif %>  
+              <button data-slide=<%= i %>></button>        
+            <% end %>
+          <% end %>      
+      </nav>                
+    </div>
+  </div>  
+</div>

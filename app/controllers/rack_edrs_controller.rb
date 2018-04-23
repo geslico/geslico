@@ -1,19 +1,21 @@
 include CommonHelper
 
-class EdrsController < ApplicationController
+class RackEdrsController < ApplicationController
 
+  load_and_authorize_resource :except => [:foto]  
   before_action :require_login
-  
-  # GET /electronica_red/almacen
+ 
+  # GET /electronica_red/inventario
   def index         
     if params[:q] && params[:q].reject { |_k, v| v.blank? }.present?
       @q = RackEdr.ransack params[:q]      
-      # El parametro codSede es nil cuando es una búsqueda normal, no exportación a Excel
-      if params[:codSede].nil?
+      # El parametro cod_sede es nil cuando es una búsqueda normal, no exportación a Excel
+      if params[:cod_sede].nil?
         @sedes_racks = @q.result().distinct(:nCodSede).distinct(:nCodRack).order(:nCodSede, :nPlanta)
         # Sólo el primer rack de cada sede llevará el nCodSede, el resto se ponen a nil. Así la vista sabrá cuando debe crear y escrbir los 
         # datos de la sede.
         @primeravez = true
+        @lin_datos = nil
         ultimo_nCodSede = -1
         @sedes_racks.each do |sede_rack|
           if (ultimo_nCodSede == sede_rack.nCodSede)
@@ -24,11 +26,11 @@ class EdrsController < ApplicationController
         end                  
       # Exportación a Excel del contenido según la búsqueda de una sede en concreto.  
       else
-        racks = @q.result().distinct(:nCodRack).where("TRack.nCodSede = #{params[:codSede]}").order(:nCodSede, :nPlanta)
+        racks = @q.result().distinct(:nCodRack).where("TRack.nCodSede = #{params[:cod_sede]}").order(:nCodSede, :nPlanta)
         if !racks.nil?
           respond_to do | format |
             csv_file = to_edr_csv(racks)
-            format.csv { send_data csv_file, :filename => "edr_sede_#{params[:codSede]}.csv" }
+            format.csv { send_data csv_file, :filename => "edr_sede_#{params[:cod_sede]}.csv" }
           end
         end	  	          
       end    
@@ -42,6 +44,51 @@ class EdrsController < ApplicationController
   def show
   end
 
+=begin    
+  # GET /electronica-red/rack/new
+  def new
+    @rack = RackEdr.new
+  end
+
+  # POST /electronica-red/racks
+  def create
+    @rack = RackEdr.new(rack_params)
+
+    respond_to do |format|
+      if @rack.save
+        format.html { redirect_to @rack, notice: 'Rack creado correctamente.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+=end
+
+  # GET /electronica_red/inventario/foto
+  def foto
+
+    authorize! :index, RackEdr
+
+    @codSede = params[:cod_sede]
+    @dir = nil
+    if !params[:idr].nil? and !params[:dir].nil?
+      @idRuta = Integer(params[:idr])
+      @dir = params[:dir]
+    elsif !params[:idr].nil?
+      @idRuta = Integer(params[:idr])        
+    else 
+      @idRuta = RutaAdjunto.rutas_edr[0]
+    end   
+    
+    @fotos = fotos(@codSede, RutaAdjunto.rutas_edr, "\\Fotos\\")
+
+    if (!@dir.nil?)
+      @ficheros = @fotos[@idRuta]['directorios'][@dir]
+    else
+      @ficheros = @fotos[@idRuta]['ficheros']
+    end
+  end
+  
   def to_edr_csv(data) 
     rack_header = ['COD. RACK; NOMBRE RACK; PLANTA;']
     edr_header = [';;;COD. EDR; IP; NOMBRE EDR; CRITICO']
@@ -104,8 +151,7 @@ class EdrsController < ApplicationController
               end
             end                                  
           end  
-			  end
-        
+			  end        
 			end	
 		end.encode('utf-8')
 	end	  

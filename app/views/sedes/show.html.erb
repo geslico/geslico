@@ -199,10 +199,21 @@
 </div>
 
 <!--GESTION DE BOTONES -->
-<div class="row text-right">
+<div class="row">
+  <div class="small-12 medium-6 large-6 columns text-left">                 
+    <% if !@sede.sede_folder.nil? %>
+      <%= link_to @sede.sede_folder.to_s, target: :_blank, title: 'Ficheros adjuntos' do %>
+      <i class="fi-folder xlarge icon"></i><% end %>                         
+    <% end %>  
+      <%= link_to sede_foto_url, title: 'Imágenes Sede' do %>
+      <i class="fi-camera xlarge icon"></i><% end %>                                                         
+  </div>
+  <div class="small-12 medium-6 large-6 columns text-right">                 
     <%= link_to '<< Volver', sedes_path, :class => "button small" %>        
     <% if can? :read, Sede %> 
         <%= link_to 'Editar', edit_sede_path(@sede), :class => "button small" %> 
     <% end %>
-</div>
+  </div>  
+</div>     
+
 <%= render 'accordion' %>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :fechas_cargas
 
     resources :sedes
+    get '/sedes/:id/foto' => 'sedes#foto', as: 'sede_foto'
+
     resources :acronimos_sede_edrs
     resources :unidades
   
@@ -25,13 +27,12 @@ Rails.application.routes.draw do
     resources :lin_moviles
     resources :modelos_terminales 
     resources :lin_datos 
-    
+
+    resources :rack_edrs
+    get '/electronica-red/inventario' => 'rack_edrs#index', as: 'inventario'
+    get '/electronica-red/inventario/foto' => 'rack_edrs#foto', as: 'edr_foto'
+
     #resources :rack_edrs
-    #resources :edrs    
-    get '/electronica-red/inventario' => 'edrs#index', as: 'rack_edrs'
-    scope '/electronica-red/inventario' do
-      resources :edrs
-    end
 
     resources :usuarios do
       resources :usuarios_programas do
