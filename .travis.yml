@@ -30,6 +30,7 @@ before_install:
   - sudo make install
 
 install:
+  - travis_wait 20 mvn install
   - bundle install
   - bundle exec rake db:setup RAILS_ENV=test --trace
 

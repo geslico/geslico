@@ -222,3 +222,4 @@ CREATE unique nonclustered INDEX IX_TetraTerminalesRadioISSI on dbo.TetraTermina
 CREATE unique nonclustered INDEX IX_TetraTerminalesRadioNumSerie on dbo.TetraTerminalesRadio(cNumeroSerie)
 
 ALTER TABLE dbo.TetraTerminalesRadio ADD CONSTRAINT PK_TetraTerminalesRadio PRIMARY KEY clustered (nId)
+
