@@ -25,6 +25,10 @@ class Sede < ApplicationRecord
 		return %w{nCodSede cNombre cDireccion nCodUni}
 	end	
 	
+	def sede_folder
+		sede_folder_url(self.nCodSede)
+	end
+	
 end
 
 class SedeA < Sede

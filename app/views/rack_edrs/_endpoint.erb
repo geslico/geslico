@@ -1,0 +1,38 @@
+
+<div class="row">                  
+<ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover level4title"><strong>EndPoints</strong></a>
+            <div class="accordion-content" data-tab-content > 
+                <% if endpoints.length > 0 %>
+                    <div class="table-scroll">
+                        <table>
+                            <thead class="color-cabecera">
+                                <tr>                
+                                    <th>EndPoint</th>
+                                    <th>Nº Corto</th>
+                                    <th>Regleta</th>                                    
+                                </tr>
+                            </thead>                                
+                            <tbody>                
+                                <% endpoints.each do |endpoint| %>
+                                    <tr>        
+                                        <td><%=  endpoint.cEndPoint %></td>           
+                                        <td><%=  endpoint.cNumCorto %></td>    
+                                        <td><%=  endpoint.nRegleta %></td>    
+                                    </tr>                    
+                                <% end %>                
+                            </tbody>
+                        </table>
+                    </div>
+                <% else %>   
+                    <div class="small-8 medium-2 large-12 columns text-left">
+                        <label for="middle-label">No se encontraron endpoints asociados</label>
+                    </div> 
+                    </br>   
+                <% end %>  
+            </div>                                                                                
+        </li>                          
+</ul>                      
+
+    

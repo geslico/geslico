@@ -24,13 +24,12 @@
         <% if can? :read, VTetraPlanIssi %>
           <li class="has-submenu">
             <a href="#">Radio</a>
-            <ul class="submenu menu vertical" data-submenu>
-            
+            <ul class="submenu menu vertical" data-submenu>            
+              <li><%= link_to "Sites", radio_sites_path, class: "margin-right" %></li>
               <li><%= link_to "Plan de Numeración", v_tetra_planes_path, class: "margin-right" %></li>
               <li><a href="#">Radio</a></li>
               <li><a href="#">Consolas</a></li>
-              <li><a href="#">GSSI</a></li>
-              <li><a href="#">Sites</a></li>
+              <li><a href="#">GSSI</a></li>              
             </ul>
           </li>
         <% end %>
@@ -62,7 +61,10 @@
         <li class="has-submenu">
           <a href="#">Electrónica</a>
           <ul class="submenu menu vertical" data-submenu>
-            <li><a href="#">Almacén</a></li>
+            <% if can? :read, RackEdr %>
+              <li><%= link_to "Electrónica de Red", edr_url, class: "margin-right" %></li>
+            <% end %>              
+            <li><%= link_to "Almacén", almacen_url, class: "margin-right" %></li>
             <li><a href="#">Catálogo de Red</a></li>
             <li><a href="#">Reserva Rangos IP</a></li>
           </ul>
@@ -83,7 +85,7 @@
             <% if can? :read, Sede %>
               <li><%= link_to "Sedes", informes_sedes_url, class: "margin-right" %></li>
             <% end %>  
-            <% if can? :read, Radio %>
+            <% if can? :read, RadioSite %>
               <li><%= link_to "Radio", informes_radio_url, class: "margin-right" %></li>
             <% end %>              
             <% if can? :read, LinMovil %>
@@ -92,7 +94,7 @@
             <% if can? :read, Linea %>
               <li><%= link_to "Líneas Fijas", informes_fija_url, class: "margin-right" %></li>            
             <% end %>  
-            <% if can? :read, ElectronicaRed %>
+            <% if can? :read, Edr %>
               <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
             <% end %>  
             <% if can? :read, LinDato %>
@@ -111,6 +113,6 @@
       </ul>      
     </div>
    
-  </div>
-  
+  </div>  
+
 <% end %>

@@ -70,11 +70,39 @@ div h3{
 th.columna-larga{
 	width: 			300px;
 }
-.tree a{
+.tree {
 	color:			black;    
+	max-width:      200px;
+	margin-left:	1px;
 }
 
 .link{
 	color:          #2895F1;
 	text-decoration: underline;
+}
+
+a.accordionhover:hover,a.accordionhover:focus{
+	color:			rgb(15, 14, 14);    
+}
+
+.table-scroll table {
+	width: 100%!important;
+}
+
+.folder {
+	color:		black;    
+	font-size:  110%;
+	display:    inline-block;	
+	padding:    10px;
+}
+
+.menu.nested {margin-left: 2rem;}
+ul > li > .open { float: right;}
+
+.active_folder {
+	color:			rgba(24, 23, 23, 0.425);    	
+}
+
+input[readonly], textarea[readonly], select:disabled {
+	background-color: #f7f7f7 !important;  
 }

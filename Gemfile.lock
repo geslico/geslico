@@ -107,6 +107,9 @@ GEM
     factory_girl_rails (4.9.0)
       factory_girl (~> 4.9.0)
       railties (>= 3.0.0)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (6.3.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -299,6 +302,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2.1)
   composite_primary_keys (~> 10.0, >= 10.0.2)
   factory_girl_rails (~> 4.9)
+  foundation-icons-sass-rails
   foundation-rails (~> 6.2, >= 6.2.3.0)
   i18n-tasks (~> 0.9.5)
   jbuilder (~> 2.0)

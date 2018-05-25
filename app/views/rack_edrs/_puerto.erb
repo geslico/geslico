@@ -1,0 +1,74 @@
+
+<div class="row">                  
+<ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover level4title"><strong>Puertos</strong></a>
+            <div class="accordion-content" data-tab-content > 
+                <% if puertos.length > 0 %>
+                    <div class="table-scroll">
+                        <table>
+                            <thead class="color-cabecera">
+                                <tr>                
+                                    <th>Puerto</th>
+                                    <th>Tarjeta</th>
+                                    <th>Estado</th>
+                                    <th>Tipo</th>                                    
+                                    <th>VLan</th>
+                                    <th>POE</th>
+                                    <th>POE On</th>                                                                        
+                                    <th>IP Voz</th>
+                                    <th>Nº Corto</th>                                    
+                                    <th>Transceptor</th>
+                                    <th>Nº Serie Transcp.</th>
+                                </tr>
+                            </thead>                                
+                            <tbody>                
+                                <% puertos.each do |puerto| %>
+                                    <tr>        
+                                        <td><%=  puerto.cPuerto %></td>    
+                                        <% if puerto.trcp.nil? %>                                                                 
+                                            <td>-</td>
+                                        <% else %>                                             
+                                            <td><%=  puerto.trcp.cModeloTarjeta + " [" + puerto.trcp.cNumeroSerieTarjeta + "]" %></td>    
+                                        <% end %>                                                                                                  
+                                        <td><%=  puerto.cStatus %></td>    
+                                        <td><%=  puerto.tipo_puerto.cDescTipoPuerto %></td>    
+                                        <td><%=  puerto.nCodVLan %></td>    
+                                        <% if puerto.poe.nil? %>
+                                            <td>No</td>
+                                            <td>-</td>
+                                        <% else %>    
+                                            <td>Si</td>
+                                            <td><%= human_boolean(puerto.poe.bPoeStatus) %></td>  
+                                        <% end %>               
+                                        <% if puerto.dispositivo.nil? %>                                                                 
+                                            <td>-</td>
+                                            <td>-</td>
+                                        <% else %> 
+                                            <td><%= puerto.dispositivo.cIP %></td>
+                                            <td><%= puerto.dispositivo.lineas.first.cNumCorto %></td>
+                                        <% end %>                                                                                    
+                                        <% if puerto.trcp.nil? %>                                                                 
+                                            <td>-</td>
+                                            <td>-</td>                                        
+                                        <% else %>                                             
+                                            <td><%=  puerto.trcp.cTipo + " [" + puerto.trcp.cDescripcion + "]" %></td>
+                                            <td><%=  puerto.trcp.cNumeroSerie %></td>                                                                                
+                                        <% end %>
+                                    </tr>                    
+                                <% end %>                
+                            </tbody>
+                        </table>
+                    </div>
+                <% else %>   
+                    <div class="small-12 medium-12 large-12 columns text-left">
+                        <label for="middle-label">No se encontraron puertos asociados</label>
+                    </div> 
+                    </br>                    
+                    </br>   
+                <% end %>  
+            </div>                                                                                
+        </li>                          
+</ul>                      
+
+    
