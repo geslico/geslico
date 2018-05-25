@@ -8,7 +8,7 @@ class RackEdrsController < ApplicationController
   # GET /electronica_red/inventario
   def index         
     if params[:q] && params[:q].reject { |_k, v| v.blank? }.present?
-      @q = RackEdr.ransack params[:q]      
+      @q = RackEdr.ransack params[:q]
       # El parametro cod_sede es nil cuando es una búsqueda normal, no exportación a Excel
       if params[:cod_sede].nil?
         @sedes_racks = @q.result().distinct(:nCodSede).distinct(:nCodRack).order(:nCodSede, :nPlanta)
@@ -29,7 +29,7 @@ class RackEdrsController < ApplicationController
         racks = @q.result().distinct(:nCodRack).where("TRack.nCodSede = #{params[:cod_sede]}").order(:nCodSede, :nPlanta)
         if !racks.nil?
           respond_to do | format |
-            csv_file = to_edr_csv(racks)
+            csv_file = to_edr_csv(racks, params[:q]["edrs_cIPGestion_eq"], params[:q]["edrs_cNombre_cont"])
             format.csv { send_data csv_file, :filename => "edr_sede_#{params[:cod_sede]}.csv" }
           end
         end	  	          
@@ -87,21 +87,30 @@ class RackEdrsController < ApplicationController
     else
       @ficheros = @fotos[@idRuta]['ficheros']
     end
+
   end
   
-  def to_edr_csv(data) 
+  def to_edr_csv(data, ip, name) 
     rack_header = ['COD. RACK; NOMBRE RACK; PLANTA;']
     edr_header = [';;;COD. EDR; IP; NOMBRE EDR; CRITICO']
     componente_header = [';;;;;;;COD.COMPONENTE; TIPO; FABRICANTE; MODELO; BOCAS; SERIE']
     puerto_header = [';;;;;;;PUERTO; ESTADO; TIPO; VLAN; POE; POE ON; IP VOZ; Nº CORTO; TRANSCEPTOR; Nº SERIE TRANSCP.']
     endpoint_header = [';;;;;;;ENDPOINT; Nº CORTO; REGLETA']    
-
+    
 		CSV.generate(headers: true) do |csv|
 			if data != nil
         data.each do |rack|
           csv <<  rack_header 
           csv << ["#{rack.nCodRack};#{rack.cNombre};#{rack.nPlanta};"]          
-          rack.edrs.each do |edr|
+          edrs = []
+          if !ip.empty?
+            edrs = rack.edrs.by_ip(ip)
+          elsif !name.empty? 
+            edrs = rack.edrs.by_name(name)
+          else
+            edrs = rack.edrs
+          end  
+          edrs.each do |edr|
             csv <<  edr_header           
             csv << ["#{rack.nCodRack};#{rack.cNombre};#{rack.nPlanta};#{edr.nCodElectronicaRed};#{edr.cIPGestion};#{edr.cNombre};"\
                     "#{human_boolean(edr.bCritico)}"]
@@ -151,9 +160,9 @@ class RackEdrsController < ApplicationController
               end
             end                                  
           end  
-			  end        
+        end        
 			end	
 		end.encode('utf-8')
-	end	  
+  end	  
       
 end

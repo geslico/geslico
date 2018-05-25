@@ -19,7 +19,10 @@ Rails.application.routes.draw do
 
     resources :acronimos_sede_edrs
     resources :unidades
-  
+
+    resources :radio_sites
+    #get '/radio/sites' => 'radio_sites#index', as: 'radio_site'
+    
     resources :v_tetra_planes 
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
@@ -29,10 +32,12 @@ Rails.application.routes.draw do
     resources :lin_datos 
 
     resources :rack_edrs
-    get '/electronica-red/inventario' => 'rack_edrs#index', as: 'inventario'
-    get '/electronica-red/inventario/foto' => 'rack_edrs#foto', as: 'edr_foto'
+    get '/electronica-red/edr' => 'rack_edrs#index', as: 'edr'
+    get '/electronica-red/edr/foto' => 'rack_edrs#foto', as: 'edr_foto'
 
-    #resources :rack_edrs
+    resources :componentes
+    get '/electronica-red/almacen' => 'componentes#index', as: 'almacen'
+    
 
     resources :usuarios do
       resources :usuarios_programas do

@@ -29,12 +29,14 @@
             </div>
         </div>                                    
         </br>   
-        <% if !ip.empty? %>  
-            <%= render 'edr', edrs: rack.edrs.by_ip(ip) %>
-        <% elsif !name.empty? %>      
-            <%= render 'edr', edrs: rack.edrs.by_name(name) %>
-        <% else %>          
-            <%= render 'edr', edrs: rack.edrs %>
-        <% end %>              
+        <% if rack.edrs.length > 0 %>   
+            <% if !ip.empty? %>  
+                <%= render 'edr', edrs: rack.edrs.by_ip(ip) %>
+            <% elsif !name.empty? %>      
+                <%= render 'edr', edrs: rack.edrs.by_name(name) %>
+            <% else %>          
+                <%= render 'edr', edrs: rack.edrs %>
+            <% end %>              
+        <% end %>                  
     </div>  
 </li>                    

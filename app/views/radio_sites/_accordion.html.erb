@@ -1,0 +1,512 @@
+<%= form_for @radio_site do |f| %>
+    <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+        <!--- Emplazamiento -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Emplazamiento</a>
+            <div class="accordion-content" data-tab-content >     
+                <div class="row">
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :cPropietarioSite, 'Propietario' %>
+                        <%= f.text_field :cPropietarioSite, readonly: @readonly %>       
+                    </div>    
+                </div>        
+                <div class="row">                    
+                    <div class="small-12 medium-6 large-6 columns">
+                        <%= f.label :cContactoSite, 'Contacto' %>
+                        <%= f.text_field :cContactoSite, readonly: @readonly %>       
+                    </div>
+                    <div class="small-12 medium-6 large-6 columns">
+                        <%= f.label :cTramiacreditaSite, 'Trámite acred.' %>
+                        <%= f.text_field :cTramiacreditaSite, readonly: @readonly %>       
+                    </div>                    
+                </div>
+                <div class="row">                    
+                    <div class="small-12 medium-3 large-3 columns">
+                        <%= f.label :cTfnoconSite, 'Tfno. Contacto' %>
+                        <%= f.text_field :cTfnoconSite, readonly: @readonly %>       
+                    </div>
+                    <div class="small-12 medium-3 large-3 columns">
+                        <%= f.label :cHorarioSite, 'Horario' %>
+                        <%= f.text_field :cHorarioSite, readonly: @readonly %>       
+                    </div>                    
+                    <div class="small-12 medium-6 large-6 columns">
+                        <%= f.label :ceMailContactoSite, 'Email Contacto' %>
+                        <%= f.text_field :ceMailContactoSite, readonly: @readonly %>       
+                    </div>                    
+                </div>                
+                <div class="row">
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :cUbiLlavesSite, 'Ubicación llaves' %>
+                        <%= f.text_field :cUbiLlavesSite, readonly: @readonly %>       
+                    </div>    
+                </div>    
+                <div class="row">
+                    <div class="small-12 medium-9 large-10 columns">
+                        <%= f.label :cInstrucAccesoSite, 'Instrucciones de acceso' %>                        
+                        <%= f.text_area(:cInstrucAccesoSite, rows: 3, readonly: @readonly)%>
+                    </div>    
+                    <div class="small-12 medium-3 large-2 columns">
+                        <%= f.label 'Acceso con' %>                        
+                        <%= f.label :bAcreditacionSite, class: 'checkbox' do %>
+                            <%= f.check_box :bAcreditacionSite, disabled: @readonly %> Acreditación 
+                        <% end %>                    
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bLlavesSite, disabled: @readonly %> Llaves
+                        <% end %>
+                    </div>                        
+                </div>    
+                <div class="row">
+                    <div class="small-12 medium-3 large-3 columns">
+                        <img src=<%= sede_photo_url(@radio_site.nCodSede) %>  style="height:20vh;width:auto"/>                     
+                    </div>                  
+                    <div class="small-12 medium-3 large-3 columns">
+                            <div class="small-12 medium-12 large-12 columns">
+                                <%= f.label :cCoordenadaSiteN, 'Coord N' %>
+                                <%= f.text_field :cCoordenadaSiteN, readonly: @readonly %>       
+                            </div>        
+                            <div class="small-12 medium-12 large-12 columns">
+                                <%= f.label :cCoordenadaSiteO, 'Coord O' %>
+                                <%= f.text_field :cCoordenadaSiteO, readonly: @readonly %>       
+                            </div>        
+                            <div class="small-12 medium-12 large-12 columns">
+                                <%= f.label :nLineaTfno, 'Teléfono del Site' %>
+                                <%= f.text_field :nLineaTfno, readonly: @readonly %>       
+                            </div>                                    
+                    </div>
+                    <div class="small-12 medium-6 large-6 columns">
+                         <div class="row">    
+                            <div class="small-12 medium-4 large-4 columns">
+                                <%= f.label :cCotaTerreno, 'Cota de Terreno' %>
+                                <%= f.text_field :cCotaTerreno, readonly: @readonly %>       
+                            </div>        
+                            <div class="small-12 medium-4 large-4 columns">
+                                <%= f.label :cAlturaTorre, 'Altura Torre' %>
+                                <%= f.text_field :cAlturaTorre, readonly: @readonly %>       
+                            </div>        
+                            <div class="small-12 medium-4 large-4 columns">
+                                <%= f.label :cAlturaEdif, 'Altura edificio' %>
+                                <%= f.text_field :cAlturaEdif, readonly: @readonly %>       
+                            </div>          
+                        </div>    
+                         <div class="row">    
+                            <div class="small-12 medium-12 large-12 columns">
+                                <%= f.label :cUbicaTorre, 'Ubicación Torre' %>
+                                <%= f.text_area(:cUbicaTorre, rows: 5, readonly: @readonly)%>
+                            </div>        
+                        </div>                            
+                    </div>                    
+                </div>                        
+            </div>    
+        </li>    
+        <!--- Datos del Site -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Datos del Site</a>
+            <div class="accordion-content" data-tab-content >     
+                <h5>DATOS GENERALES</h5>
+                <div class="row">
+                    <div class="small-12 medium-6 large-6 columns">
+                        <%= f.label :cUbicaSite, 'Ubicación' %>
+                        <%= f.text_area(:cUbicaSite, rows: 13, readonly: @readonly)%>
+                    </div> 
+                    <div class="small-12 medium-3 large-3 columns">                                            
+                        <div class="small-12 medium-12 large-12 columns">
+                            <%= f.label :cDimensiones, 'Dimensiones' %>
+                            <%= f.text_field :cDimensiones, readonly: @readonly %>       
+                        </div>        
+                        <div class="small-12 medium-12 large-12 columns">
+                            <%= f.label :ctipoTorre, 'Tipo torre' %>
+                            <%= f.text_field :ctipoTorre, readonly: @readonly %>       
+                        </div>        
+                        <div class="small-12 medium-12 large-12 columns">
+                            <%= f.label :cTipoBaliza, 'Tipo Baliza' %>
+                            <%= f.text_field :cTipoBaliza, readonly: @readonly %>       
+                        </div>                              
+                        <div class="small-12 medium-12 large-12 columns">
+                            <%= f.label :nExtinSite, 'Extintores' %>    
+                            <%= f.select :nExtinSite, options_for_select([[1], [2], [3], [4], [5], [6]], @radio_site.nExtinSite), {}, {:disabled => @readonly} %><br>                            
+                        </div>                                                      
+                    </div>
+                    <div class="small-12 medium-3 large-3 columns">
+                        <%= f.label 'Incluye' %>
+                        <%= f.label :bAcreditacionSite, class: 'checkbox' do %>
+                            <%= f.check_box :bTorreLinvida, disabled: @readonly %> Torres con línea de vida
+                        <% end %>                    
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bParaRayos, disabled: @readonly %> Pararrayos
+                        <% end %>
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bTomaTierraPrayos, disabled: @readonly %> Toma tierra pararrayos
+                        <% end %>
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bTomaTierraEq, disabled: @readonly %> Toma tierra equipos
+                        <% end %>
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bClimatizaSite, disabled: @readonly %> Climatización
+                        <% end %>
+                        <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                            <%= f.check_box :bContBaliza, disabled: @readonly %> Controlador de baliza
+                        <% end %>
+                    </div>                        
+                </div>    
+                <hr>
+                <h5>SUMINISTRO ELÉCTRICO</h5>
+                <div class="row">
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cCompEltrec, 'Compañía' %>
+                        <%= f.text_field :cCompEltrec, readonly: @readonly %>       
+                    </div>                              
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cCupsElec, 'CUPs' %>
+                        <%= f.text_field :cCupsElec, readonly: @readonly %>       
+                    </div>                                                                                                                                           
+                    <div class="small-12 medium-2 large-2 columns">
+                        <%= f.label :nNuncontElec, 'Nº Contrato' %>
+                        <%= f.text_field :nNuncontElec, readonly: @readonly %>       
+                    </div>                                                  
+                    <div class="small-12 medium-2 large-2 columns">
+                        <%= f.label :nNumTfnoave, 'Tlf. Averías' %>
+                        <%= f.text_field :nNumTfnoave, readonly: @readonly %>       
+                    </div>                                         
+                </div>                                             
+                <div class="row">
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cTipoElec, 'Tipo' %>
+                        <%= f.select :cTipoElec, options_for_select([['Alta tensión'], ['Media tesión'], ['Baja tensión 3F+N'], ['Baja tesión F+N']], @radio_site.cTipoElec), {}, {:disabled => @readonly} %><br>                            
+                    </div>                              
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cPotenElec, 'Potencia contratada (KW)' %>
+                        <%= f.text_field :cPotenElec, readonly: @readonly %>       
+                    </div>    
+                    <div class="small-12 medium-4 large-4 columns">           
+                        <%= f.label :bMunielec, 'Municipal' %>    
+                        <%= f.select :bMunielec, options_for_select([['Si', true], ['No', false]], @radio_site.bMunielec), {}, {:disabled => @readonly} %><br>                                                           
+                    </div>        
+                </div>    
+                <div class="row">
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cUbicacontador, 'Ubicación contador' %>
+                        <%= f.text_field :cUbicaContador, readonly: @readonly %>       
+                    </div>
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cUbicaInterrup, 'Ubicación interruptor de energía' %>
+                        <%= f.text_field :cUbicaInterrup, readonly: @readonly %>       
+                    </div>                                    
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cLlavescontador, 'Llaves interruptor' %>
+                        <%= f.text_field :cLlavescontador, readonly: @readonly %>       
+                    </div>
+                </div> 
+                <hr>
+                <h5>ELECTRIFICACIÓN</h5>                                   
+                <div class="row">
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cVcaEntrada, 'Vca entrada' %>
+                        <%= f.text_field :cVcaEntrada, readonly: @readonly %>       
+                    </div>
+                    <div class="small-12 medium-8 large-8 columns">
+                        <%= f.label :bReconecatoras, 'Incluye' %>
+                        <%= f.label :bReconecatoras, class: 'checkbox' do %>
+                            <%= f.check_box :bReconecatoras, disabled: @readonly %> Reconectadoras
+                        <% end %>                    
+                        <%= f.label :bTomaGelectro, class: 'checkbox' do %>
+                            <%= f.check_box :bTomaGelectro, disabled: @readonly %> Toma grupo electrónico
+                        <% end %>                                            
+                    </div>                                    
+                </div>                 
+            </div>    
+        </li>    
+        <!--- Infraestructura -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Infraestructura</a>
+            <div class="accordion-content" data-tab-content >     
+                <h5>UPS</h5>                                   
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>                
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Capacidad</th>
+                                <th>VCA entrada</th>                                    
+                                <th>VCA salida</th>
+                                <th>Baterías</th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_upses.each do |ups| %>
+                                <tr>        
+                                    <td><%=  ups.cMarcUPS %></td>    
+                                    <td><%=  ups.cModeloUPS %></td>    
+                                    <td><%=  ups.cCapacidadUPS %></td>    
+                                    <td><%=  ups.cVcaEntUPS %></td>    
+                                    <td><%=  ups.cVcaSalUps %></td>    
+                                    <td><%=  ups.cBateriasUPS %></td>    
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <h5>RECTIFICADORES</h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>               
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Capacidad módulos</th>
+                                <th>Nº módulos</th>                                    
+                                <th>Cap. módulos AH</th>
+                                <th>Módulo control</th>
+                                <th>VCA entrada</th>                                    
+                                <th>VCA salida</th>                                
+                                <th>Baterías</th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_rectificadores.each do |rect| %>
+                                <tr>        
+                                    <td><%=  rect.Cmarcarect %></td>    
+                                    <td><%=  rect.Cmodelorect %></td>    
+                                    <td><%=  rect.Capacidadrect %></td>    
+                                    <td><%=  rect.Cmodulosrec %></td>    
+                                    <td><%=  rect.Cmodulosahrec %></td>    
+                                    <td><%=  rect.Controlrect %></td>    
+                                    <td><%=  rect.Cvcaentrec %></td>    
+                                    <td><%=  rect.Cvccsalrect %></td>    
+                                    <td><%=  rect.Cbatrect %></td>    
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div>     
+                <hr>        
+                <h5>AIRE ACONDICIONADO</h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>                                                 
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Frigorías(KW)</th>
+                                <th>Tipo</th>                                    
+                                <th>Potencia(VCA)</th>
+                                <th>Módulo control</th>
+                                <th>Freecooling</th>                                    
+                                <th>Gas</th>                                
+                                <th>Carga(kg)</th>
+                                <th>Fecha revisión</th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_accs.each do |acc| %>
+                                <tr>        
+                                    <td><%=  acc.cMarca %></td>    
+                                    <td><%=  acc.cModelo %></td>    
+                                    <td><%=  acc.nFrigoriasKw %></td>    
+                                    <td><%=  acc.cTipo %></td>    
+                                    <td><%=  acc.nPotenciaUsadaVCA %></td>    
+                                    <td><%=  acc.cControl %></td>    
+                                    <td><%=  acc.cFreecooling %></td>    
+                                    <td><%=  acc.cTipoGas %></td>    
+                                    <td><%=  acc.nCargaKg %></td>    
+                                    <td><%=  acc.dFchUltimaRevision.strftime("%d/%m/%Y") %></td>    
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div>     
+                <hr>
+                <h5>CENTRAL DE ALARMAS</h5>
+                <div class="row">
+                    <div class="small-12 medium-2 large-2 columns">
+                        <%= f.label :cNomCentralAlarm, 'Nombre' %>
+                        <%= f.text_field :cNomCentralAlarm, readonly: @readonly %>       
+                    </div>                              
+                    <div class="small-12 medium-3 large-3 columns">
+                        <%= f.label :cTipocentralAlarm, 'Tipo' %>
+                        <%= f.text_field :cTipocentralAlarm, readonly: @readonly %>       
+                    </div>                                                                                                                                           
+                    <div class="small-12 medium-3 large-3 columns">
+                        <%= f.label :nLineaAsocAlarm, 'Línea asociada' %>
+                        <%= f.text_field :nLineaAsocAlarm, readonly: @readonly %>       
+                    </div>                                                             
+                    <div class="small-12 medium-2 large-2 columns">
+                        <%= f.label :cAlimenAlarm, 'Alimentación' %>
+                        <%= f.text_field :cAlimenAlarm, readonly: @readonly %>       
+                    </div>                                                  
+                    <div class="small-12 medium-2 large-2 columns">
+                        <%= f.label :bBateriasAlarm, 'Batería' %>
+                        <%= f.select :bBateriasAlarm, options_for_select([['Si', true], ['No', false]], @radio_site.bBateriasAlarm), {}, {:disabled => @readonly} %><br>                            
+                    </div>                                                             
+                </div>                                                             
+                </br>
+                <div class="row">                  
+                    <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+                        <li class="accordion-item" data-accordion-item>
+                            <a href="#" class="accordion-title accordionhover level4title"><strong>Entradas/Salidas Alarmas</strong></a>
+                            <div class="accordion-content" data-tab-content > 
+                                <div class="row"> 
+                                    <div class="small-12 medium-6 large-6 columns">
+                                        <p>Entradas Alarmas</p>
+                                        <div class="table-scroll">
+                                            <table>
+                                                <thead class="color-cabecera">
+                                                    <tr>                                                 
+                                                        <th>Nº Entrada</th>
+                                                        <th>Señal</th>
+                                                    </tr>
+                                                </thead>                                
+                                                <tbody>          
+                                                    <% @radio_site.radio_site_alarma_entradas.each do |ent| %>
+                                                        <tr>        
+                                                            <td><%=  ent.Nentrada %></td>    
+                                                            <td><%=  ent.csenal %></td>    
+                                                        </tr>                    
+                                                    <% end %>                
+                                                </tbody>
+                                            </table>
+                                        </div>     
+                                    </div>
+                                    <div class="small-12 medium-6 large-6 columns">
+                                        <p>Salidas Alarmas</p>
+                                        <div class="table-scroll">
+                                            <table>
+                                                <thead class="color-cabecera">
+                                                    <tr>                                                 
+                                                        <th>Nº Entrada</th>
+                                                        <th>Señal</th>
+                                                    </tr>
+                                                </thead>                                
+                                                <tbody>          
+                                                    <% @radio_site.radio_site_alarma_salidas.each do |sal| %>
+                                                        <tr>        
+                                                            <td><%=  sal.Nsalida %></td>    
+                                                            <td><%=  sal.csenal %></td>    
+                                                        </tr>                    
+                                                    <% end %>                
+                                                </tbody>
+                                            </table>
+                                        </div>     
+                                    </div>                    
+                                </div> 
+                            </div>                                                                                
+                        </li>                          
+                    </ul>                      
+                </div>                           
+            </div>                                                                                                      
+        </li>            
+        <!--- Radioenlaces -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Radioenlaces</a>
+            <div class="accordion-content" data-tab-content >                 
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>
+                                <th>Código</th>
+                                <th>Site A</th>
+                                <th>MPR(A)</th>
+                                <th>Anillo</th>
+                                <th>Potencia Radio (W)</th>                                    
+                                <th>Número de Serie</th>
+                                <th>Fq Tx (Mhz)</th>
+                                <th>Fq Rx (Mhz)</th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_enlaces.each do |enl| %>
+                                <tr>
+                                    <td><%=  enl.nId %></td>            
+                                    <td><%=  enl.cSite %></td>    
+                                    <td><%=  enl.cPuertoMPR %></td>    
+                                    <td><%=  enl.cAnillo %></td>    
+                                    <td><%=  enl.nPotenciaRadioW %></td>    
+                                    <td><%=  enl.cAntenaSN %></td>    
+                                    <td><%=  enl.cFrecuenciaTxMhz %></td>    
+                                    <td><%=  enl.cFrecuenciaRxMhz %></td>    
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">                  
+                    <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+                        <li class="accordion-item" data-accordion-item>
+                            <a href="#" class="accordion-title accordionhover level4title"><strong>Detalle Radioenlaces</strong></a>
+                            <div class="accordion-content" data-tab-content > 
+                                <div class="row"> 
+                                    <div class="table-scroll">
+                                        <table>
+                                            <thead class="color-cabecera">
+                                                <tr>            
+                                                    <th>Código</th>    
+                                                    <th>Modelo Antena</th>
+                                                    <th>Marca IDU/ODU</th>
+                                                    <th>Diámetro (m)</th>
+                                                    <th>Ganancia (dBi)</th>                                    
+                                                    <th>Tx Pow Teórico (dBm)</th>
+                                                    <th>Rx Pow Teórico (dBm)</th>
+                                                    <th>Tx Pow Real (dBm)</th>
+                                                    <th>Rx Pow Real (dBm)</th>
+                                                    <th>APTC Activo</th>
+                                                    <th>Nivel APTC Low Power (dBm)</th>
+                                                    <th>Umbral mínimo APTC (dBm)</th>
+                                                    <th>Umbral máximo APTC (dBm)</th>
+                                                    <th>Site B</th>
+                                                    <th>MPR (B)</th>
+                                                </tr>
+                                            </thead>                                
+                                            <tbody>          
+                                                <% @radio_site.radio_site_enlaces.each do |enl| %>
+                                                    <tr>       
+                                                        <td><%=  enl.nId %></td>             
+                                                        <td><%=  enl.radio_site_antena_modelo.cModelo %></td>
+                                                        <td><%=  enl.cMarcaIDUODU %></td>
+                                                        <td><%=  enl.radio_site_antena_modelo.nDiametro %></td>
+                                                        <td><%=  enl.radio_site_antena_modelo.nGanancia %></td>
+                                                        <td><%=  enl.nTxPowerTeorico %></td>
+                                                        <td><%=  enl.nRxPowerTeorico %></td>
+                                                        <td><%=  enl.nTxPowerReal %></td>
+                                                        <td><%=  enl.nRxPowerReal %></td>
+                                                        <td><%=  human_boolean(enl.bNivelATPC) %></td>
+                                                        <td><%=  enl.nNivelAPTCLowPower %></td>
+                                                        <td><%=  enl.nUmbralMinAPTC %></td>
+                                                        <td><%=  enl.nUmbralMaxAPTC %></td>
+                                                        <td><%=  enl.radio_site_relacion_enlace.radio_site_enlace.cSite %></td>
+                                                        <td><%=  enl.radio_site_relacion_enlace.radio_site_enlace.cPuertoMPR %></td>    
+                                                    </tr>                    
+                                                <% end %>                
+                                            </tbody>
+                                        </table>
+                                    </div> 
+                                </div>                                                                                
+                            </div>                                                                                                                
+                        </li>                          
+                    </ul>                      
+                </div>                           
+            </div>    
+        </li>            
+        <!--- TETRA -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">TETRA</a>
+            <div class="accordion-content" data-tab-content >     
+                <div class="row">
+            </div>    
+        </li>            
+        <!--- Terceros -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Terceros</a>
+            <div class="accordion-content" data-tab-content >     
+                <div class="row">
+            </div>    
+        </li>            
+        <!--- Actuaciones -->
+        <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title accordionhover">Actuaciones</a>
+            <div class="accordion-content" data-tab-content >     
+                <div class="row">
+            </div>    
+        </li>                    
+    </ul>    
+<% end %>

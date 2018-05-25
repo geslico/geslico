@@ -40,7 +40,10 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'lin_datos_vpn_vlan', 'lin_datos_vpn_vlanes'
 	inflect.irregular 'LinDatosVpnVlan', 'LinDatosVpnVlanes'
 	inflect.irregular 'vpn_vlan', 'vpn_vlanes'
-	inflect.irregular 'VpnVlan', 'VpnVlanes'
-	
+	inflect.irregular 'VpnVlan', 'VpnVlanes'	
+	inflect.irregular 'radio_site_ups', 'radio_site_upses'
+	inflect.irregular 'RadioSiteUps', 'RadioSiteUpses'
+	inflect.irregular 'radio_site_rectificador', 'radio_site_rectificadores'
+	inflect.irregular 'RadioSiteRectificador', 'RadioSiteRectificadores'
 end
 

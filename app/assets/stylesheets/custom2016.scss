@@ -103,3 +103,6 @@ ul > li > .open { float: right;}
 	color:			rgba(24, 23, 23, 0.425);    	
 }
 
+input[readonly], textarea[readonly], select:disabled {
+	background-color: #f7f7f7 !important;  
+}

@@ -40,6 +40,11 @@ module CommonHelper
 		photos_url = URI.parse("#{get_adjuntos_url}/#{cod_sede}/Fotos/")
 		check_url(photos_url)
 	end	
+
+	def sede_photo_url(cod_sede)
+		map_url = URI.parse("#{get_adjuntos_url}/#{cod_sede}/#{cod_sede}.jpg")
+		check_url(map_url)
+	end	
 	
 	def sede_edr_map_url(cod_sede)
 		map_url = URI.parse("#{get_adjuntos_url}/#{cod_sede}/#{cod_sede}V.jpg")
@@ -56,11 +61,12 @@ module CommonHelper
 			directorios = {}
 			ruta_ficheros.each do |fichero|
 				# Fichero con path relativo delante (subdirectorio)
-				if (!fichero.index("\\").nil?)
+				if (!fichero.index("\\").nil? and fichero.last(3).casecmp("jpg") == 0)
 					if (directorios[fichero.first(fichero.index("\\"))].nil?)
 						directorios[fichero.first(fichero.index("\\"))] = [] 
 					end  
-					directorios[fichero.first(fichero.index("\\"))] << [fichero, URI.escape(get_adjuntos_url() + "/" + cod_sede + ruta_fotos.cRuta + "/" + fichero)]
+					directorios[fichero.first(fichero.index("\\"))] << 
+    							[fichero, URI.escape(get_adjuntos_url() + "/" + cod_sede + ruta_fotos.cRuta + "/" + fichero)]
 				# Subdirectorio sin fichero  
 				elsif !fichero.include? "." 
 					directorios << fichero      

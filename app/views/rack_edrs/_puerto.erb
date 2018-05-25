@@ -10,6 +10,7 @@
                             <thead class="color-cabecera">
                                 <tr>                
                                     <th>Puerto</th>
+                                    <th>Tarjeta</th>
                                     <th>Estado</th>
                                     <th>Tipo</th>                                    
                                     <th>VLan</th>
@@ -24,7 +25,12 @@
                             <tbody>                
                                 <% puertos.each do |puerto| %>
                                     <tr>        
-                                        <td><%=  puerto.cPuerto %></td>           
+                                        <td><%=  puerto.cPuerto %></td>    
+                                        <% if puerto.trcp.nil? %>                                                                 
+                                            <td>-</td>
+                                        <% else %>                                             
+                                            <td><%=  puerto.trcp.cModeloTarjeta + " [" + puerto.trcp.cNumeroSerieTarjeta + "]" %></td>    
+                                        <% end %>                                                                                                  
                                         <td><%=  puerto.cStatus %></td>    
                                         <td><%=  puerto.tipo_puerto.cDescTipoPuerto %></td>    
                                         <td><%=  puerto.nCodVLan %></td>    
@@ -45,8 +51,8 @@
                                         <% if puerto.trcp.nil? %>                                                                 
                                             <td>-</td>
                                             <td>-</td>                                        
-                                        <% else %> 
-                                            <td><%=  puerto.trcp.cTipo %> / <%=  puerto.trcp.cDescripcion %></td>
+                                        <% else %>                                             
+                                            <td><%=  puerto.trcp.cTipo + " [" + puerto.trcp.cDescripcion + "]" %></td>
                                             <td><%=  puerto.trcp.cNumeroSerie %></td>                                                                                
                                         <% end %>
                                     </tr>                    

@@ -28,10 +28,6 @@ class Sede < ApplicationRecord
 	def sede_folder
 		sede_folder_url(self.nCodSede)
 	end
-
-	def sede_edr_photos
-		sede_edr_photos_url(self.nCodSede)
-	end	
 	
 end
 

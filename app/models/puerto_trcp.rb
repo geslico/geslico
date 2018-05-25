@@ -5,7 +5,7 @@ class PuertoTRCP < ApplicationRecord
 	belongs_to :edr , :foreign_key => "nCodElectronicaRed"
 
 	def self.trcp (nCodElectronicaRed, cPuerto)
-		self.select(:cTipo, :cDescripcion, :cNumeroSerie).where("nCodElectronicaRed = #{nCodElectronicaRed} AND cPuerto = '#{cPuerto}'").first
+		self.select(:cTipo, :cDescripcion, :cNumeroSerie, :cModeloTarjeta, :cNumeroSerieTarjeta).where("nCodElectronicaRed = #{nCodElectronicaRed} AND cPuerto = '#{cPuerto}'").first
 	end
 
 end

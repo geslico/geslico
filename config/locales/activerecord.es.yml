@@ -136,3 +136,7 @@ es:
 
       lin_fijo:
         nAccesos: "Accesos"
+
+      radio_site:
+        nCodSite: "Código"
+        cNombreSite: "Nombre Site"

@@ -27,7 +27,7 @@
             <% @ficheros.each_with_index do |foto, index| %>        
               <li class="orbit-slide" data-slide=<%= index %>>
                 <figure class="orbit-figure">
-                  <div style="height:50vh;width:auto"> 
+                 <div style="height:35vh;width:auto">                  
                     <img class="oooorbit-image" src=<%= foto[1] %> style="height:100% "/>
                     <figcaption class="orbit-caption"><%= foto[0] %></figcaption>
                   </div>
@@ -36,17 +36,16 @@
             <%end%>            
           </ul>
         <div>        
+        <nav class="orbit-bullets">
+            <% for i in 0..(@ficheros.length)-1 do %>
+              <% if i == 0 %>
+                <button class="is-active" data-slide=<%= i %>></button>
+              <%elsif %>  
+                <button data-slide=<%= i %>></button>        
+              <% end %>
+            <% end %>      
+        </nav>                        
       </div>
-                         
-      <nav class="orbit-bullets">
-          <% for i in 0..(@ficheros.length)-1 do %>
-            <% if i == 0 %>
-              <button class="is-active" data-slide=<%= i %>></button>
-            <%elsif %>  
-              <button data-slide=<%= i %>></button>        
-            <% end %>
-          <% end %>      
-      </nav>                
-    </div>
-  </div>  
+    </div>    
+  </div>        
 </div>

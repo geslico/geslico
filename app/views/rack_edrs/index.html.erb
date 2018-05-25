@@ -1,5 +1,5 @@
 <div class="row"> 
-    <h3 class="large-1 columns">Inventario</h3>
+    <h3 class="large-4 columns">Electrónica de Red</h3>
 </div> 
 
 <div>
@@ -36,14 +36,17 @@
     </div>        
 
     <div class="row clearfix" >                 
-      <%= submit_tag "Buscar" , class:"button small float-right" %> 
-      <%= link_to "Limpiar", request.path, :class => "button small float-right" %>
+        <div class="small-12 medium-12 large-12 columns">
+            <%= submit_tag "Buscar" , class:"button small float-right" %> 
+            <%= link_to "Limpiar", request.path, :class => "button small float-right" %>
+        </div>        
     </div>
 <% end %>   
                   
 <div>
+    <div class="small-12 medium-12 large-12 columns">
     <ul class="accordion margin-bottom test" data-accordion data-multi-expand="true" data-allow-all-closed="true">
-    <% @sedes_racks.each do |sede_rack| %>      
+    <% @sedes_racks.each do |sede_rack| %>              
         <% if !sede_rack.nCodSede.nil? %>  
             <% if @primeravez != true %>  
                         <!-- fin ul accordeon rack -->        
@@ -150,5 +153,6 @@
             </li>    
     <!-- fin ul accordeon sede -->
     </ul>
+    </div>
 </div>
 
