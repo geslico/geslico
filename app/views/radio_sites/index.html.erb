@@ -53,8 +53,8 @@
 
     <div class="row clearfix" >                 
       <div class="small-12 medium-12 large-12 columns">
-        <%= submit_tag "Buscar" , class:"button small float-right" %> 
-        <%= link_to "Limpiar", request.path, :class => "button small float-right" %>                       
+        <%= submit_tag t('search_form.search') , class:"button small float-right" %> 
+        <%= link_to t('search_form.clear'), request.path, :class => "button small float-right" %>                       
       </div>  
     </div>
   <% end %> 
@@ -67,7 +67,7 @@
 
 <div class="row text-left">
   <%= page_entries_info @sites, :entry_name => 'sites' %>
-  <%= link_to current_url(:format=>:csv), class: "float-right", title: 'Exportar a csv' do %>
+  <%= link_to current_url(:format=>:csv), class: "float-right", title: t('application.export') do %>
       <i class="fi-page-export-csv large icon"></i><% end %>
 </div>
 

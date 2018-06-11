@@ -45,5 +45,10 @@ ActiveSupport::Inflector.inflections(:en) do |inflect|
 	inflect.irregular 'RadioSiteUps', 'RadioSiteUpses'
 	inflect.irregular 'radio_site_rectificador', 'radio_site_rectificadores'
 	inflect.irregular 'RadioSiteRectificador', 'RadioSiteRectificadores'
+	inflect.irregular 'radio_site_estacion_base', 'radio_site_estaciones_base'
+	inflect.irregular 'RadioSiteEstacionBase', 'RadioSiteEstacionesBase'
+	inflect.irregular 'radio_site_extensor', 'radio_site_extensores'
+	inflect.irregular 'RadioSiteExtension', 'RadioSiteExtensiones'
+	
 end
 

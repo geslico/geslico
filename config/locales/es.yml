@@ -19,23 +19,89 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-es:
-  hello: "Hola Mundo"
+es:  
 
   application:
     close: "Cerrar"
-    "yes": "Sí"
-    "no": "No"         
+    yes_value: "Sí"
+    no: "No"         
+    export: 'Exportar a csv' 
+
 
   form_for:
     save: "Guardar"
+    edit: "Editar"
     return: "<< Volver"
 
   search_form:
-    button: "Buscar"
-    title: "Buscar"    
+    search: "Buscar"
     clear: "Limpiar"
 
   unauthorized:
     manage:
       all: "Acceso no autorizado. Debe iniciar sesión."
+
+  site:
+    emplazamiento: 'Emplazamiento'
+    acceso: 'Acceso con'
+    acreditacion: 'Acreditación'
+    llaves: 'Llaves'
+    datos: 'Datos del Site'
+    torres: "Torres con línea de vida"
+    pararrayos: "Pararrayos"
+    tierra_pararrayos: "Toma tierra pararrayos"
+    tierra_equipos: "Toma tierra equipos"
+    climatizacion: "Climatización"
+    controlador: "Controlador de baliza"
+    suministro: "SUMINISTRO ELÉCTRICO"
+    alta_tension: "Alta tensión"
+    media_tension: "Media tensión"
+    baja_tension_3fn: "Baja tensión 3F+N"
+    baja_tension_fn: "Baja tesión F+N"
+    incluye: "Incluye"
+    reconectadoras: "Reconectadoras"
+    grupo_elect: "Toma grupo electrónico"
+    electrificacion: "ELECTRIFICACIÓN"
+    ups: "UPS"
+    ups_marca: "Marca"
+    ups_modelo: "Modelo"
+    ups_capacidad: "Capacidad"
+    ups_vca_entrada: "VCA entrada"
+    ups_vca_salida: "VCA salida"
+    ups_baterias: "Baterías"
+    tetra: "TETRA"
+    la_pipa: "Z8 - La Pipa"
+    manuel_becerra: "Z8 - Manuel Becerra"
+    fibra: "Pto a Pto Fibra"
+    utr: "Pto a Pto UTR"
+    v35: "V.35"
+    x21: "X.21"
+    canal: "Canal"
+    nbr: "Nº Br"
+    transmision: "Transmisión"
+    recepcion: "Recepción"
+    canalmot: "Canal MOT"
+    potencia_br: "Potencia BR"
+    potencia_antena: "Potencia Antena"
+    desensibilizacion: "Desensibilización"
+    cod_site: "Código Site"
+    nombre: "Nombre"
+    plan_frecuencia: "PLAN DE FRECUENCIA"
+    frecuencias_compartidas: "FRECUENCIAS COMPARTIDAS"
+    extensor_coberturas: "EXTENSOR DE COBERTURAS"
+    terceros: "Terceros"
+    usuarios: "USUARIOS"
+    compañia: "Compañía"
+    tipo: "Tipo"
+    ocupacion: "Ocupación"
+    num_antenas: "Nº Antenas y Tipo"
+    alimentacion: "Alimentación"
+    linea: "Línea"
+    dedicacion: "Dedicación"
+    tlfn_contacto: "Teléfono de Contacto"
+    responsable: "Responsable"
+    email: "Email"
+    equip_municipales: "OTROS EQUIPAMIENTOS MUNICIPALES"
+    usuario: "Usuario"
+    antenas: "Antenas"
+    persona: "Persona"
