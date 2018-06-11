@@ -12,13 +12,14 @@ class UsuariosController < ApplicationController
 
   # GET /usuarios/1
   def show
-    @usuario = Usuario.find(params[:id])    
-    @usuarios_programas = @usuario.usuarios_programas.order(:sPrograma) 
+    @usuario = Usuario.find(params[:id])
+    @usuario.usuarios_programas.order(:sPrograma)     
   end
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new()
+    @usuario = Usuario.new()    
+    build_usuario_programas_permisos
   end
 
   # GET /usuarios/1/edit
@@ -27,11 +28,11 @@ class UsuariosController < ApplicationController
 
   # POST /usuarios
   def create
-    @usuario_new = Usuario.new(usuario_params)
-
+    @usuario = Usuario.new(usuario_params)
+    
     respond_to do |format|
-      if (@usuario_new.save())
-        add_usuario_programas_permisos
+      if (@usuario.save())        
+        
         flash[:success] ='Usuario creado correctamente.' 
         format.html { redirect_to @usuario }        
       else
@@ -46,8 +47,7 @@ class UsuariosController < ApplicationController
     params[:usuario].delete(:password) if params[:usuario][:password].blank?
     
     respond_to do |format|
-      if @usuario.update(usuario_params)
-        add_usuario_programas_permisos
+      if @usuario.update(usuario_params)        
         flash[:success] ='Usuario modificado correctamente.' 
         format.html { redirect_to @usuario }        
       else
@@ -77,8 +77,10 @@ class UsuariosController < ApplicationController
                                 programas_attributes:[ :nCodPrograma, :sPrograma, :sDescripcion, :sModelos ]])
     end
     
-    def add_usuario_programas_permisos
-      # Defino esta llamada al procedimiento almacenado para que actualice junto con el alta de los usuarios
-      ActiveRecord::Base.connection.execute('EXEC geslico.dbo.AutoAltaUsuariosProgramas')
+    def build_usuario_programas_permisos
+      @programas = Programa.all
+      @programas.each do |p|  
+        @usuario.usuarios_programas.build(:nCodPrograma => p.nCodPrograma, :sPermiso => p.nCodPrograma==3 ? 'L':'N' )    
+      end
     end 
 end
