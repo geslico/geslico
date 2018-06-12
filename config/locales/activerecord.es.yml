@@ -70,13 +70,21 @@ es:
         dFechaAlta: "Fch.Alta"
         dFechaBaja: "Fch.Baja"
         nCodEstLin: "Estado"
-
+        bListadoVIP: "ListadoVIP"
+        
       lin_movil:
+        cNumero: "Número"
+        cNumCorto: "Extensión"
         nCodTipMovil: "Tipo"
         cPerfil: "Perfil"
         cPerfilAutorizado: "Perfil Autorizado"
         cCoberturaNormativa: "Cobertura"
-        
+        bHorarioExtendido: "Atención Horario Extendido"
+        bPrincipal: "Principal"
+        cSoloEmergencia: "Supervisión consumo"
+        cUsuarioIntranet: "Usuario Intranet"
+        cIPm2m: "IP"
+
       persona:
         cDNI: "Documento"
         cnombre: "Nombre"

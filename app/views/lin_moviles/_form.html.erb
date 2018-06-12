@@ -15,158 +15,94 @@
     <%= f.submit 'Guardar', class: 'button' %>        
   </div>
 
-
   <%= f.fields_for :linea, @lin_movil.linea do |ff| %>
-  <%= f.fields_for :persona, @lin_movil.persona do |fp| %>
+
     <div class="row">
-      <div class="small-3 medium-2 large-1 columns text-right">
-       <%= ff.label :cNumero, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns">
+      <div class="small-3 medium-2 large-3 columns">
+       <%= ff.label :cNumero, for: 'middle-label' %>      
         <%= ff.text_field :cNumero  %>
       </div>
 
-      <div class="small-3 medium-2 large-1 columns text-right">
-        <%= ff.label :cNumCorto, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-2 columns">
+      <div class="small-3 medium-2 large-3 columns">
+        <%= ff.label :cNumCorto, for: 'middle-label' %>      
         <%= ff.text_field :cNumCorto, for: 'middle-label' %>
       </div>
-      <div class="small-3 medium-2 large-2 columns text-right">
+      <div class="small-3 medium-2 large-3 columns">
         <%= f.label :nCodTipMovil, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns end">
         <%= f.select :nCodTipMovil, options_from_collection_for_select(TipoLinMovil.all, "nCodTipMovil", "cDescTipoMovil", @lin_movil.nCodTipMovil) %>
       </div>
-    
-      <div class="small-3 medium-2 large-1 columns text-right">
-        <%= ff.label :dFechaAlta, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns">
-        <%= ff.date_field :dFechaAlta, for: 'middle-label' %>
-      </div>
-      <div class="small-3 medium-2 large-1 columns text-right">
-        <%= ff.label :dFechaBaja, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns">
-        <%= ff.date_field :dFechaBaja, for: 'middle-label' %>
-      </div>
-          <div class="small-3 medium-2 large-1 columns text-right">
-        <%= ff.label :nCodEstLin, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 end large-3 columns">
-      <%= ff.select :nCodEstLin, options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado", @lin_movil.linea.nCodEstLin)  %>      
+      <div class="small-3 medium-2 large-3 columns">
+        <%= ff.label :nCodEstLin, for: 'middle-label' %>      
+        <%= ff.select :nCodEstLin, options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado", @lin_movil.linea.nCodEstLin)  %>      
       </div>
     </div>
+    <div class="row">
+      <div class="small-3 medium-2 large-3 columns">
+        <%= ff.label :dFechaAlta, for: 'middle-label' %>      
+        <%= ff.date_field :dFechaAlta, for: 'middle-label' %>
+      </div>
+      <div class="small-3 medium-2 large-3 columns">
+        <%= ff.label :dFechaBaja, for: 'middle-label' %>
+        <%= ff.date_field :dFechaBaja, for: 'middle-label' %>
+      </div>              
+      <div class="small-3 medium-2 large-3 columns">
+        <%= f.label :bHorarioExtendido, for: 'middle-label' %>
+        <%= f.select :bHorarioExtendido, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.bHorarioExtendido)   %>      
+      </div>
+      <div class="small-3 medium-2 large-2 columns ">
+        <%= ff.label :bListadoVIP, for: 'middle-label' %>      
+        <%= ff.select :bListadoVIP, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.linea.bListadoVIP)   %>      
+      </div>      
+      </div>
+    <div class="row">
+      <div class="small-3 medium-2 large-2 columns ">
+        <%= f.label :bPrincipal, for: 'middle-label' %>      
+        <%= f.select :bPrincipal, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.bPrincipal) %>
+      </div>
+    
+      <div class="small-3 medium-2 large-2 columns">
+        <%= f.label :cSoloEmergencia, for: 'middle-label' %>      
+        <%= f.select :cSoloEmergencia, options_for_select([["",nil],["SÍ",1], ["NO", 0]], @lin_movil.cSoloEmergencia.to_i) %>
+      </div>
+    </div>
+
     <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
-          <li class="accordion-item" data-accordion-item>
+          <li class="accordion-item is-active" data-accordion-item>
           <a href="#" class="accordion-title">Línea</a>
           <div class="accordion-content" data-tab-content>     
               <div class="row">                             
-                <div class="small-4 medium-2 large-2 columns text-right">
-                  <%= f.label :cPerfil %>
-                </div>
-                <div class="small-8 medium-4 large-4 columns">
+                <div class="small-4 medium-4 large-4 columns">
+                  <%= f.label :cPerfil %>              
                   <%= f.select :cPerfil , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfil) %>
                 </div>
-                <div class="small-4 medium-2 large-2 columns text-right">
-                  <%= f.label :cPerfilAutorizado %>
-                </div>
-                <div class="small-8 medium-4 large-4 columns">
+                <div class="small-4 medium-4 large-4 columns">
+                  <%= f.label :cPerfilAutorizado %>                
                   <%= f.select :cPerfilAutorizado , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfilAutorizado) %>
                 </div>
-                <div class="small-4 medium-2 large-2 columns text-right">
-                  <%= f.label :cCoberturaNormativa %>
-                </div>
-                <div class="small-8 medium-4 large-4 columns end">
+                <div class="small-4 medium-4 large-4 columns">
+                  <%= f.label :cCoberturaNormativa %>                
                   <%= f.text_field :cCoberturaNormativa  %>
                 </div>
               </div>
+              <div class="row">                             
+                <div class="small-4 medium-4 large-4 columns">
+                  <%= f.label :cPerfil %>              
+                  <%= f.select :cPerfil , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfil) %>
+                </div>
+                <div class="small-4 medium-4 large-3 columns">
+                  <%= f.label :cUsuarioIntranet %>              
+                  <%= f.text_field :cUsuarioIntranet %>
+                </div>
+                <div class="small-4 medium-4 large-2 columns">
+                  <%= f.label :cIPm2m %>              
+                  <%= f.text_field :cIPm2m %>
+                </div>
+              </div>
           </div>
-          </li>
-      <!--- SAP -->
-      <li class="accordion-item" data-accordion-item>
-          <a href="#" class="accordion-title">Empleado</a>
-          <div class="accordion-content" data-tab-content >                                  
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :nempnumper %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns">
-                <%= fp.text_field :nempnumper  %>
-              </div>
+          </li>            
+            <%= render 'persona', persona: @lin_movil.persona %>      
 
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cDNI %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns">
-                <%= fp.text_field :cDNI  %>
-              </div>  
-          
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cnombre %>
-              </div>
-              <div class="small-8 medium-4 large-5 columns">
-                <%= fp.text_field :cnombre  %>
-              </div>
-            
-              <div class="row">
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cape1 %>
-              </div>
-              <div class="small-8 medium-4 large-5 columns">
-                <%= fp.text_field :cape1  %>
-              </div>
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cape2 %>
-              </div>
-              <div class="small-8 medium-4 large-5 columns">
-                <%= fp.text_field :cape2  %>
-              </div>
-              </div>
-              <div class="row">
-
-
-             
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cempnompuesto %>
-              </div>
-              <div class="small-8 medium-4 large-4 columns">
-                <%= fp.text_field :cempnompuesto  %>
-              </div>
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :cempgrupotit %>
-              </div>
-              <div class="small-8 medium-4 large-1 columns">
-                <%= fp.text_field :cempgrupotit  %>
-              </div>
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :nempnivel %>
-              </div>
-              <div class="small-8 medium-4 large-1 columns">
-                <%= fp.text_field :nempnivel  %>
-              </div>
-              <div class="small-4 medium-2 large-1 columns text-right">
-                  <%= fp.label :cUsuarioAYRE %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns end">
-                  <%= fp.text_field :cUsuarioAYRE  %>
-              </div>
-
-              <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :ncoduni %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns end">
-                <%= fp.text_field :ncoduni  %>
-              </div>
-               <div class="small-4 medium-2 large-1 columns text-right">
-                <%= fp.label :ncoduni %>
-              </div>
-              <div class="small-8 medium-4 large-2 columns end">
-                
-              </div>
-              </div>
-          </li>
         </ul>
-  <% end %>  
-  <% end %>        
+
+  <% end %>
 <% end %>

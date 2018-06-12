@@ -14,5 +14,4 @@ class Unidad < ApplicationRecord
 	belongs_to :unidad, :foreign_key => "nIdArea", :primary_key => "nCodUni"
 	belongs_to :unidad, :foreign_key => "nCodUniPadre", :primary_key => "nCodUni"
 	
-
 end

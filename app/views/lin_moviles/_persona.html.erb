@@ -1,0 +1,64 @@
+<li class="accordion-item  is-active" data-accordion-item>
+    <a href="#" class="accordion-title">Empleado</a>
+        <div class="accordion-content" data-tab-content >                                  
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">
+                    <label> Documento <label>
+                    <label> <%= persona.cDNI rescue nil %></label>
+                </div>  
+                <div class="small-4 medium-2 large-3 columns">
+                    <label> Nombre <label>
+                    <label> <%= persona.cnombre rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-3 columns">                
+                    <label> Apellido 1 <label>
+                    <label> <%= persona.cape1 rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-3 columns">
+                    <label> Apellido 2 <label>
+                    <label> <%= persona.cape2 rescue nil %></label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-1 columns">                
+                    <label> Grupo <label>
+                    <label> <%= persona.cempgrupotit rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-1 columns">                
+                    <label> Nivel <label>
+                    <label> <%= persona.nempnivel rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-4 columns">
+                    <label> Puesto <label>
+                    <label> <%= persona.cempnompuesto rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-4 columns">                
+                    <label> Correo <label>
+                    <label> <%= mail_to persona.cemail rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-2 columns">                
+                    <label> UsuarioAYRE <label>
+                    <label> <%= persona.cUsuarioAYRE rescue nil %></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 medium-2 large-1 columns">                
+                    <label> CodUni <label>
+                    <label> <%= persona.ncoduni rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-5 columns">                
+                    <label> Unidad <label>
+                    <label> <%= persona.unidad.cDenominacion rescue nil %></label>
+                </div>
+                    <div class="small-4 medium-2 large-1 columns">                
+                    <label> IdArea <label>
+                    <label> <%= persona.unidad.nIdArea rescue nil %></label>
+                </div>
+                <div class="small-4 medium-2 large-5 columns end">                
+                    <label> Unidad <label>
+                    <label> <%= persona.unidad.area.cDenominacion rescue nil %></label>
+                </div>
+            </div>
+    </div>
+</li>

@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     # resources :v_tetra_plan_gssis
     
     resources :lin_moviles
+
     resources :modelos_terminales 
     
     resources :usuarios do
