@@ -2,10 +2,10 @@ include CommonHelper
 
 class SedesController < ApplicationController
   
-  load_and_authorize_resource
-  before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy]
-  before_action :set_sede, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource :except => [:foto]  
+  before_action :require_login, only: [:index, :new, :create, :show, :edit, :update, :destroy, :foto]
+  before_action :set_sede, only: [:show, :edit, :update, :destroy, :foto]
+  
   # GET /sedes
   def index    
 
@@ -65,6 +65,32 @@ class SedesController < ApplicationController
     end
   end
 
+  # GET /sedes/1/foto
+  def foto
+
+    authorize! :index, Sede
+
+    @codSede = params[:id]
+    @dir = nil
+    if !params[:idr].nil? and !params[:dir].nil?
+      @idRuta = Integer(params[:idr])
+      @dir = params[:dir]
+    elsif !params[:idr].nil?
+      @idRuta = Integer(params[:idr])        
+    else 
+      @idRuta = 15
+    end    
+
+    @fotos = fotos(@codSede, RutaAdjunto.rutas_sedes, "\\")
+
+    if (!@dir.nil?)
+      @ficheros = @fotos[@idRuta]['directorios'][@dir]
+    else
+      @ficheros = @fotos[@idRuta]['ficheros']
+    end
+  end
+
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sede

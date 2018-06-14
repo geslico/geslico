@@ -1,0 +1,35 @@
+
+<%= form_for @rack do |f| %>
+    <div class="row">
+        <div class="small-12 medium-2 large-2 columns">
+            <label for="middle-label">Código Rack</label>
+            <%= f.text_field :nCodRack %>
+        </div>
+        <div class="small-12 medium-10 large-10 columns">
+            <label for="middle-label">Nombre Rack</label>
+            <%= f.text_field :cNombre %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 medium-2 large-2 columns">
+            <label for="middle-label">Planta</label>
+            <%= f.text_field :nCodRack %>
+        </div>
+        <div class="small-12 medium-10 large-10 columns">
+            <label for="middle-label">Ubicación</label>
+            <%= f.text_field :cNombre %>
+        </div>
+    </div>
+
+
+  </div>
+
+  <!-- BOTONES -->
+  <div class="row text-right">
+      <%= link_to '<< Volver', sedes_path, :class => "button small" %>          
+      <% if can? :read, Sede %>                     
+        <%= f.submit 'Guardar', class: 'button small' %>
+      <% end %>      
+  </div>
+
+<% end %>

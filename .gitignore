@@ -16,13 +16,22 @@
 !/log/.keep
 /tmp
 
+# Ignore config
 /config/database.yml
 /config/secrets.yml
-.idea
-.byebug_history
+/config/deploy-secrets.yml
 
-/db/structure.sql
-/db/seed_*.sql
+# Ignore IDE file
+.idea
 .vscode
 
+# Ignore log files
+.byebug_history
+
+# Ignore sql files
+/db/structure.sql
+/db/seed_*.sql
+/db/*.sql
+
 informe.csv
+

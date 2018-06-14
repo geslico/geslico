@@ -15,9 +15,14 @@ Rails.application.routes.draw do
     resources :fechas_cargas
 
     resources :sedes
+    get '/sedes/:id/foto' => 'sedes#foto', as: 'sede_foto'
+
     resources :acronimos_sede_edrs
     resources :unidades
-  
+
+    resources :radio_sites
+    #get '/radio/sites' => 'radio_sites#index', as: 'radio_site'
+    
     resources :v_tetra_planes 
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
@@ -25,7 +30,16 @@ Rails.application.routes.draw do
     resources :lin_moviles
 
     resources :modelos_terminales 
+    resources :lin_datos 
+
+    resources :rack_edrs
+    get '/electronica-red/edr' => 'rack_edrs#index', as: 'edr'
+    get '/electronica-red/edr/foto' => 'rack_edrs#foto', as: 'edr_foto'
+
+    resources :componentes
+    get '/electronica-red/almacen' => 'componentes#index', as: 'almacen'
     
+
     resources :usuarios do
       resources :usuarios_programas do
         resources :programas 
@@ -36,9 +50,9 @@ Rails.application.routes.draw do
     get 'informes/radio' => 'informes#index', as: 'informes_radio'
     get 'informes/movil' => 'informes#index', as: 'informes_movil'
     get 'informes/fija' => 'informes#index', as: 'informes_fija'
-    get 'informes/electronica' => 'informes#index', as: 'informes_electronica'
+    get 'informes/electronica-red' => 'informes#index', as: 'informes_electronica'
     get 'informes/datos' => 'informes#index', as: 'informes_datos'
-      
+    
 
   end
   

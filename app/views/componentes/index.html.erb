@@ -1,0 +1,112 @@
+<div class="row"> 
+    <h3 class="large-1 columns">Almacén</h3>
+</div>
+
+  <%= search_form_for @q do |f| %>
+
+    <div class="row">
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :catalogo_cFabricante_eq, 'Marca' %>
+        <% if !params[:q].nil?  %>
+          <%= f.select :catalogo_cFabricante_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                    Catalogo.marca, "cFabricante", "cFabricante", params[:q][:catalogo_cFabricante_eq]) %>
+        <% elsif %>
+          <%= f.select :catalogo_cFabricante_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                    Catalogo.marca, "cFabricante", "cFabricante") %>
+        <% end %>
+      </div>    
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :catalogo_cModelo_eq, 'Modelo' %>
+        <% if !params[:q].nil?  %>
+          <%= f.select :catalogo_cModelo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                    Catalogo.modelo, "cModelo", "cModelo", params[:q][:catalogo_cModelo_eq]) %>
+        <% elsif %>
+          <%= f.select :catalogo_cModelo_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                    Catalogo.modelo, "cModelo", "cModelo") %>
+        <% end %>          
+      </div>
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :tipo_ubicacion_cDescripcion_eq, 'Ubicación' %>
+        <% if !params[:q].nil?  %>        
+          <%= f.select :tipo_ubicacion_cDescripcion_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                     TipoUbicacion.almacen, "cDescripcion", "cDescripcion", params[:q][:tipo_ubicacion_cDescripcion_eq]) %>
+        <% elsif %>
+          <%= f.select :tipo_ubicacion_cDescripcion_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                     TipoUbicacion.almacen, "cDescripcion", "cDescripcion") %>
+        <% end %>          
+      </div>      
+    </div>        
+
+    <div class="row">
+      <div class="small-12 medium-2 large-4 columns">
+        <%= f.label :cSerie_cont, 'Nº Serie' %>
+        <%= f.search_field :cSerie_cont %> 
+      </div>    
+      <div class="small-12 medium-2 large-4 columns">
+        <%= f.label :cExpediente_cont, 'Nº Expediente' %>
+        <%= f.search_field :cExpediente_cont %> 
+      </div>    
+      <div class="small-12 medium-2 large-4 columns">
+        <%= f.label :cBien_cont, 'Nº Bien' %>
+        <%= f.search_field :cBien_cont %> 
+      </div>          
+    </div>        
+
+    <div class="row clearfix" >                 
+      <%= submit_tag "Buscar" , class:"button small float-right" %> 
+      <%= link_to "Limpiar", request.path, :class => "button small float-right" %>                       
+    </div>
+
+
+  <% end %> 
+<hr>
+<div class="row">
+    <ul class="paginate">   
+      <%= paginate(@componentes) %>
+    </ul>      
+</div>
+
+<div class="row text-left">
+  <%= page_entries_info @componentes, :entry_name => 'componentes' %>
+  <%= link_to current_url(:format=>:csv), class: "float-right", title: 'Exportar a csv' do %>
+      <i class="fi-page-export-csv large icon"></i><% end %>
+</div>
+
+<div class="table-scroll">
+  <table>
+    <thead class="color-cabecera">
+      <tr>
+        <th><%= sort_link(@q, :nCodComponente, 'Código') %></th>
+        <th><%= sort_link(@q, :catalogo_super_tipo_componente_cDescripcion, 'Tipo') %></th>    
+        <th><%= sort_link(@q, :catalogo_cFabricante, 'Marca') %></th>
+        <th><%= sort_link(@q, :catalogo_cModelo, 'Modelo') %></th>
+        <th><%= sort_link(@q, :catalogo_nBocasRed, 'Nº Bocas') %></th>
+        <th><%= sort_link(@q, :cSerie, 'Nº Serie') %></th>
+        <th><%= sort_link(@q, :cBien, 'Nº Bien') %></th>
+      </tr>
+    </thead>
+    <tbody>                
+      <% @componentes.each do |componente| %>
+          <tr>        
+              <td><%= link_to componente.nCodComponente, componente, {:class=>'link'} %></td>
+              <td><%=  componente.catalogo.super_tipo_componente.cDescripcion %></td>           
+              <td><%=  componente.catalogo.cFabricante %></td>    
+              <td><%=  componente.catalogo.cModelo %></td>    
+              <td><%=  componente.catalogo.nBocasRed %></td>    
+              <td><%=  componente.cSerie %></td>                                
+              <td><%=  componente.cBien %></td>                                
+          </tr>                    
+      <% end %>                
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <ul class="paginate">
+    <%= paginate(@componentes) %>
+  </ul>
+</div>
+
+<div class="row text-left">
+  <%= page_entries_info @componentes, :entry_name => 'componentes' %>
+</div>

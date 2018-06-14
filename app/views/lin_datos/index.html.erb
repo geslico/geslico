@@ -1,0 +1,104 @@
+<%= search_form_for @q do |f| %>
+    
+    <div class="row">
+        <div class="small-2 medium-1 large-6 columns">
+            <h3 class="columns">Lineas de Datos</h3>
+        </div>   
+        
+        <div class="small-2 medium-1 large-6 columns">            
+            <% if can? :cru, LinDato %>    
+                <%= link_to 'Nueva Linea', new_lin_dato_path, :class => "button float-right"  %>
+            <% end %>            
+        </div>
+    </div>
+
+    <div class="row">   
+        <div class="small-2 medium-1 large-3 columns">
+            <%= f.label :nCodLinDatos_eq, 'Código', for: "middle-label" %>
+        </div>
+        <div class="small-4 medium-2 large-3 columns">
+            <%= f.label :nCodTipDatos, for: 'middle-label' %>
+        </div>
+        <div class="small-4 medium-2 large-3 columns">
+            <%= f.label :cAnillo, for: 'middle-label' %>
+        </div>       
+        <div class="small-2 medium-1 large-3 columns">
+            <%= f.label :linea_nCodEstLin_eq, 'Estado', for: "middle-label" %>
+        </div>
+    </div>
+
+    <div class="row">        
+         <div class="small-10 medium-11 large-3 columns">
+            <%= f.search_field :nCodLinDatos_eq %>
+        </div> 
+        <div class="small-8 medium-4 large-3 columns">            
+            <%= f.select :nCodTipDatos_eq, content_tag(:option,"",:value=>"")+options_from_collection_for_select(TipoLinDato.all, :nCodTipDatos, :cDescTipDatos, @q.nCodTipDatos) %>                    
+        </div>          
+        <div class="small-8 medium-4 large-3 columns end">
+            <%= f.text_field :cAnillo_eq, for: 'middle-label '  %>
+        </div>  
+        <div class="small-10 medium-2 large-3 columns">      
+            <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosDatos, "nCodEstLin", "cDescEstado","0")  %>      
+        </div>          
+    </div>
+
+
+    <div class="row" >      
+        <div class="small-2 medium-1 large-12 columns">      
+            <%= f.submit :class => "button float-right" %>      
+            <%= link_to "Limpiar", request.path, :class => "button float-right" %>
+        </div>
+    </div>
+
+<% end %>
+
+<hr>
+
+<div class="row clearfix">
+    <ul class="paginate">
+        <%= paginate(@lin_datos) %>
+    </ul>
+</div>
+
+<div class="row text-right">
+    <%= page_entries_info @lin_datos, :entry_name => 'lineas' %><br/><br/>
+</div>
+
+<div class="table-scroll-horizontal">
+    <table>
+        <thead class="color-cabecera">
+            <tr>
+                <th><%= sort_link(@q, :nCodLinDatos, 'Código') %></th>  
+                <th><%= sort_link(@q, :cDescTipoDatos, 'Tecnología') %></th>  
+                <th><%= sort_link(@q, :nCodSedeA, 'Cod. Sede A') %></th>  
+                <th><%= sort_link(@q, :cNombre, 'Sede A') %></th>  
+                <th><%= sort_link(@q, :nCodSedeB, 'Cod. Sede B') %></th>  
+                <th><%= sort_link(@q, :cNombre, 'Sede B') %></th>  
+            </tr>
+        </thead>
+
+        <tbody>
+            <%  @lin_datos.each do |lin_dato| %>
+                <tr>
+                    <td><%= link_to lin_dato.nCodLinDatos, lin_dato, :class => 'link' %></td>                                    
+                    <td><%= lin_dato.tipo_lin_dato.cDescTipDatos %></td>
+                    <td><%= lin_dato.nCodSedeA %></td>
+                    <td><%= lin_dato.sedeA.cNombre %></td>
+                    <td><%= lin_dato.nCodSedeB %></td>
+                    <td><%= lin_dato.sedeB.cNombre rescue nil %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+<div class="row text-right">
+    <%= page_entries_info @lin_datos, :entry_name => 'lineas' %>
+    <br/><br/>
+</div>
+
+<div class="row">
+    <ul class="paginate">
+        <%= paginate(@lin_datos) %>
+    </ul>
+</div>

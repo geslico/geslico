@@ -51,6 +51,14 @@ es:
         one: "Unidad"
         other: "Unidades"
 
+      edr:
+        one: "Edr"
+        other: "Edrs"
+  
+      modelos_terminal:
+        one: "Modelo"
+        other: "Modelos"
+
     attributes:
       usuario:
         cCodUsuario: "Código"
@@ -62,11 +70,23 @@ es:
       sede:
         nCodSede: "Código"
         nCodEstado: "Estado"
+        cNombre: "Nombre"
+        cDireccion: "Dirección"
 
       acronimos_sede_edr:
         cCodigo: "Código"
         cDescripcion: "Descripción"
 
+      modelos_terminal:
+        cMarca: "Marca"
+        cModelo: "Modelo"
+        cSO: "S.O."
+        nPulgadas: "Pulgadas"
+        nIdCategoria: "Categoria"
+        cTipo: "Tipo"
+        bDisponibilidad: "Disponible"
+        bVigente: "Vigente"
+        
       linea:
         cNumero: "Número"
         cNumCorto: "Extensión"
@@ -115,3 +135,35 @@ es:
         nCodUni: "Cod.Uni"
         cDenominacion: "Unidad"
 
+      edr:        
+        nCodSede: "Codigo Sede"  
+        sede_cDireccion: "Dirección Sede"
+        edrs_cIPGestionedrIP: "Dirección IP"
+        
+      lin_dato:
+        nCodLinDatos: "Código"
+        nCodTipDatos: "Tipo"
+        nCodSedeA: "Cod.SedeA"
+        nCodSedeB: "Cod.SedeB"
+        nCodEstLin: "Estado"
+        cAnillo: "Anillo"
+        nNumAdmin: "Núm. Administrativo"
+        nLinea: "Linea Asociada"
+        nCodTipDatos: "Tecnología"
+        bPrincipal: "Principal"
+        cNemonico: "Nemónico"
+        nAnchoBanda: "BW (Kbps)"
+        nAnchoBandaVoz: "BW Voz(Kbps)"
+        cIP: "IP"
+        nVelocidad: "Velocidad"
+        nCaudal: "Caudal"
+        fInstalacion: "Fch. Instalación"
+        bConcurso: "Concurso"
+        cObservaciones: "Observaciones"
+
+      lin_fijo:
+        nAccesos: "Accesos"
+
+      radio_site:
+        nCodSite: "Código"
+        cNombreSite: "Nombre Site"

@@ -11,7 +11,7 @@ class Sede < ApplicationRecord
 
 	belongs_to :zona, :foreign_key => "nZona"
 	has_many   :sicam_persona_grupos, through: :zona, :foreign_key => "SUPPORT_GROUP_NAME"
-	
+		
 	validates :nCodSede, presence: true, uniqueness: true
 	validates :nCodEstado, presence: true
 
@@ -23,6 +23,18 @@ class Sede < ApplicationRecord
 	
 	def self.column_names_to_csv
 		return %w{nCodSede cNombre cDireccion nCodUni}
+	end	
+	
+	def sede_folder
+		sede_folder_url(self.nCodSede)
 	end
 	
+end
+
+class SedeA < Sede
+	has_many   :lin_dato, :foreign_key => "nCodSedeA", :primary_key=> "nCodSede"
+end
+
+class SedeB < Sede
+	has_many   :lin_dato, :foreign_key => "nCodSedeB", :primary_key=> "nCodSede"
 end
