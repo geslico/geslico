@@ -1,7 +1,7 @@
 <%= form_for(@lin_movil) do |f| %>
   <% if @lin_movil.errors.any? %>
     <div class="panel warning callout radius">
-      <strong><%= t('activerecord.errors.template.header', :model => Usuario.model_name.human, :count => @lin_movil.errors.count) %></strong>
+      <strong><%= t('activerecord.errors.template.header', :model => LinMovil.model_name.human, :count => @lin_movil.errors.count) %></strong>
       <ul>
       <% @lin_movil.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,9 +10,17 @@
     </div>
   <% end %>
   
-  <div class="row text-right">    
-    <%= link_to '<< Volver', lin_moviles_path, :class => "button" %>        
-    <%= f.submit 'Guardar', class: 'button' %>        
+  <div class="row"> 
+    <div class="small-3 medium-2 large-6 columns">
+      <h3><%= t('activerecord.models.lin_movil.other') %></h3>
+    </div>
+
+    <div class="small-3 medium-2 large-6 columns text-right">    
+      <%= link_to '<< Volver', lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), :class => 'button small' %>        
+      <% if can? :cru, LinMovil %>  
+        <%= f.submit 'Guardar', class: 'button small' %>        
+      <% end %>
+    </div>
   </div>
 
   <%= f.fields_for :linea, @lin_movil.linea do |ff| %>
@@ -20,7 +28,7 @@
     <div class="row">
       <div class="small-3 medium-2 large-3 columns">
        <%= ff.label :cNumero, for: 'middle-label' %>      
-        <%= ff.text_field :cNumero  %>
+        <%= ff.telephone_field :cNumero  %>
       </div>
 
       <div class="small-3 medium-2 large-3 columns">
@@ -66,43 +74,14 @@
       </div>
     </div>
 
-    <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
-          <li class="accordion-item is-active" data-accordion-item>
-          <a href="#" class="accordion-title">Línea</a>
-          <div class="accordion-content" data-tab-content>     
-              <div class="row">                             
-                <div class="small-4 medium-4 large-4 columns">
-                  <%= f.label :cPerfil %>              
-                  <%= f.select :cPerfil , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfil) %>
-                </div>
-                <div class="small-4 medium-4 large-4 columns">
-                  <%= f.label :cPerfilAutorizado %>                
-                  <%= f.select :cPerfilAutorizado , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfilAutorizado) %>
-                </div>
-                <div class="small-4 medium-4 large-4 columns">
-                  <%= f.label :cCoberturaNormativa %>                
-                  <%= f.text_field :cCoberturaNormativa  %>
-                </div>
-              </div>
-              <div class="row">                             
-                <div class="small-4 medium-4 large-4 columns">
-                  <%= f.label :cPerfil %>              
-                  <%= f.select :cPerfil , options_from_collection_for_select(PerfilesMovil.all, "cPerfil", "cPerfil", @lin_movil.cPerfil) %>
-                </div>
-                <div class="small-4 medium-4 large-3 columns">
-                  <%= f.label :cUsuarioIntranet %>              
-                  <%= f.text_field :cUsuarioIntranet %>
-                </div>
-                <div class="small-4 medium-4 large-2 columns">
-                  <%= f.label :cIPm2m %>              
-                  <%= f.text_field :cIPm2m %>
-                </div>
-              </div>
-          </div>
-          </li>            
-            <%= render 'persona', persona: @lin_movil.persona %>      
-
-        </ul>
+    <div class="row">
+      <div class="small-12 medium-12 large-12 columns">
+      <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+        <%= render 'linea', f: f %>      
+        <%= render 'persona', persona: @lin_movil.persona %>      
+      </ul>
+      </div>
+    </div>
 
   <% end %>
 <% end %>

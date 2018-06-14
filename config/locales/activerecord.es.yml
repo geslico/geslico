@@ -7,6 +7,8 @@ es:
       too_long: "demasiado largo"
       confirmation: "requiere confirmacion"
       taken: "debe ser único"
+      invalid: "tiene un valor no valido"
+      not_a_number: "no es un valor numérico valido"
 
   activerecord:
     errors:
@@ -39,6 +41,7 @@ es:
       lin_movil:
         one: "Línea Móvil"
         other: "Líneas Móviles"
+        new:  "Nueva Línea Móvil" 
 
       persona:
         one: "Empleado"
@@ -84,6 +87,16 @@ es:
         cSoloEmergencia: "Supervisión consumo"
         cUsuarioIntranet: "Usuario Intranet"
         cIPm2m: "IP"
+        nNumFaxAsoc: "Núm.Fax/Datos"
+        cInternet: "Internet"
+        cInternetG: "Internet"
+        cIntranet: "Intranet"
+        cIntranetG: "Intranet"
+        cDual: "Dual"
+        cDualG: "Dual"
+        cMultisim: "Multisim"
+        cMultisimG: "Multisim"
+        cObserva: "Observaciones"
 
       persona:
         cDNI: "Documento"

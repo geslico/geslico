@@ -2,11 +2,11 @@
   
   <div class="row">
     <div class="small-6 medium-6 large-6 columns">
-      <h3 class="float-left columns"><%= t('activerecord.models.lin_movil.other') %></h3>
+      <h3><%= t('activerecord.models.lin_movil.other') %></h3>
     </div>
     <div class="small-6 medium-6 large-6 columns">
-      <% if can? :cru, Usuario %>    
-        <%= link_to t('activerecord.models.lin_movil.new'), new_usuario_path, :class => "button float-right"  %>
+      <% if can? :cru, LinMovil %>    
+        <%= link_to t('activerecord.models.lin_movil.new'), new_lin_movil_path, :class => "button small float-right"  %>
       <% end %>
     </div>
   </div>
@@ -53,7 +53,7 @@
   <div class="row" >      
     <div class="small-12 medium-12 large-12 columns">      
       <%= f.submit :class => "button float-right" %>      
-      <%= link_to  t('search_form.clear') , request.path, :class => "button float-right" %>
+      <%= link_to  t('search_form.clear') , request.path, :class => "button small float-right" %>
     </div>
   </div>
       
