@@ -1,19 +1,21 @@
 <%= render 'search' %>
 
 
-<div class="row clearfix">
+<div class="row">
   <ul class="paginate">
   <%= paginate(@lin_moviles) %>
   </ul>
 </div>
 
 <div class="row text-left">
-<%= page_entries_info @lin_moviles %><br/><br/>
+  <%= page_entries_info @lin_moviles %>
+  <!-- <%= link_to current_url(:format=>:csv), class: "float-right", title: 'Exportar a csv' do %>
+      <i class="fi-page-export-csv large icon"></i><% end %>-->
 </div>
 
 <div class="table-scroll">
   <table>
-    <thead>
+    <thead class="color-cabecera">
       <tr>        
         <th><%= sort_link(@q, :linea_cNumero ) %></th>        
         <th><%= sort_link(@q, :linea_cNumCorto ) %></th>                  
