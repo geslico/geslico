@@ -19,6 +19,12 @@ class ComponentesController < ApplicationController
 
   def show
     @componente = Componente.find(params[:id])                   
+    @readonly = true    
+  end
+
+  def edit
+    @componente = Componente.find(params[:id])                   
+    @readonly = false    
   end
 
 end  

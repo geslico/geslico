@@ -193,6 +193,11 @@ es:
         radiante_captador: "Sist. radiante captador"
         radiante_donante: "Sist. radiante donante"
         alimentacion: "Alimentación"
+        cNomCentralAlarm: "Nombre"
+        cTipocentralAlarm: "Tipo"
+        nLineaAsocAlarm: "Línea asociada"
+        cAlimenAlarm: "Alimentación"
+        bBateriasAlarm: "Batería"
 
 
 

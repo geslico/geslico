@@ -1,0 +1,82 @@
+<!--- Terceros -->
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover"><%=t('site.terceros')%></a>
+    <div class="accordion-content" data-tab-content >     
+        <div class="row"> 
+            <div class="small-12 medium-12 large-12 columns">
+                <h5><%= t('site.usuarios')%></h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>            
+                                <th><%= t('site.compañia') %></th>    
+                                <th><%= t('site.tipo') %></th>
+                                <th><%= t('site.ocupacion') %></th>    
+                                <th><%= t('site.num_antenas') %></th>    
+                                <th><%= t('site.alimentacion') %></th>    
+                                <th><%= t('site.linea') %></th>    
+                                <th><%= t('site.dedicacion') %></th>    
+                                <th><%= t('site.tlfn_contacto') %></th>    
+                                <th><%= t('site.responsable') %></th>
+                                <th><%= t('site.email') %></th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_terceros.each do |terc| %>
+                                <tr>       
+                                    <td><%=  terc.CompaTerceros %></td>
+                                    <td><%=  terc.CtipoTerceros %></td>
+                                    <td><%=  terc.CocupacionTerceros %></td>
+                                    <td><%=  terc.CantenasTerceros %></td>
+                                    <td><%=  terc.CAlimentaTerceros %></td>
+                                    <td><%=  terc.NLineaTerceros %></td>
+                                    <td><%=  terc.CdedicaTerceros %></td>
+                                    <td><%=  terc.CTfnoconTerceros %></td>
+                                    <td><%=  terc.Cresponsableterceros %></td>                                                                                                                                                                                                                                                                                                                    
+                                    <td><%=  terc.cemailterceros %></td>                                            
+                                </tr>
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            </div>     
+        </div>
+        </br>
+        </br>
+        <div class="row"> 
+            <div class="small-12 medium-12 large-12 columns">
+                <h5><%= t('site.equip_municipales') %></h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>
+                                <th><%= t('site.usuario') %></th>    
+                                <th><%= t('site.tipo') %></th>
+                                <th><%= t('site.ocupacion') %></th>    
+                                <th><%= t('site.antenas') %></th>    
+                                <th><%= t('site.alimentacion') %></th>    
+                                <th><%= t('site.persona') %></th>    
+                                <th><%= t('site.tlfn_contacto') %></th> 
+                                <th><%= t('site.email') %></th>   
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_equipamientos.each do |equi| %>
+                                <tr>       
+                                    <td><%=  equi.CusuarioEq %></td>
+                                    <td><%=  equi.CtipoEq %></td>
+                                    <td><%=  equi.CocupEq %></td>
+                                    <td><%=  equi.CAntenasEq %></td>
+                                    <td><%=  equi.CAlimenEq %></td>
+                                    <td><%=  equi.CPersonaEq %></td>
+                                    <td><%=  equi.CtfncontacEq %></td>
+                                    <td><%=  equi.Cemaileq %></td>                                                                                                                                                                                                                                                                                                                    
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            </div>     
+        </div>                
+    </div>    
+</li>            

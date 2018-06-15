@@ -4,10 +4,10 @@
             <h3>Site</h3>
         </div>    
         <!--GESTION DE BOTONES -->    
-        <div class="small-10 medium-10 large-10 columns text-right">
+        <div class="small-8 medium-8 large-8 columns text-right">
             <%= link_to t('form_for.return'), radio_sites_path, :class => "button small" %>        
-            <%= link_to t('form_for.edit'), edit_radio_site_path(@radio_site), :class => "button small" %> 
+            <%= f.submit t('form_for.save'), class: 'button small float-right' %>
         </div>       
     </div>
     <%= render 'form', f: f %>
-<% end %>     
+<%end%>    

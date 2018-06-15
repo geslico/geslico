@@ -1,74 +1,65 @@
-<%= form_for(@radio_site) do |f| %>
-
-  <% if @radio_site.errors.any? %>  
-    <div class="panel warning callout radius">      
-      <strong><%= t('activerecord.errors.template.header', :model => RadioSite.model_name.human, :count => @radio_site.errors.count) %></strong>
-      <ul>
-      <% @radio_site.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %> 
-
-  <div class="row">
-    <div class="small-12 medium-2 large-2 columns">
-      <%= f.label :nCodSite %>
-      <%= f.number_field :nCodSite, readonly: true %>       
-    </div>    
-    <div class="small-12 medium-4 large-4 columns">
-      <%= f.label :cNombreSite %>
-      <%= f.text_field :cNombreSite, readonly: @readonly %>       
-    </div>      
-    <div class="small-12 medium-2 large-2 columns">
-      <%= f.label :nBCC %>
-      <%= f.number_field :nBCC, readonly: @readonly %>       
-    </div>            
-    <div class="small-12 medium-2 large-2 columns">
-      <%= f.label @radio_site.tipo_site.nCodTipo, 'Tipo Site' %>
-      <%= f.collection_select(:nCodTipo, TipoSite.all, :nCodTipo, :cDescripcion, {},{:disabled => @readonly}) %>
-    </div>      
-    <div class="small-12 medium-2 large-2 columns">         
-      <%= f.label :nCodEstado %>     
-      <%= f.select :nCodEstado, options_for_select([["Activa",1], ["Baja", 2]], @radio_site.nCodEstado), {}, {:disabled => @readonly} %><br>
-    </div>      
-  </div>  
-
-  <div class="row">
-    <div class="small-12 medium-2 large-2 columns">
-      <%= f.label :nCodSede %>
-      <%= f.number_field :nCodSede, readonly: @readonly %> 
-    </div>    
-
-    <%= f.fields_for :sede, @radio_site.sede do |fs| %>
-      <div class="small-12 medium-4 large-4 columns">
-        <%= fs.label :cNombre %>
-        <%= fs.text_field :cNombre, readonly: true %> 
-      </div>
-      <div class="small-12 medium-6 large-6 columns">
-        <%= fs.label :cDireccion %>        
-        <%= fs.text_field :cDireccion, readonly: true %> 
-      </div>      
+<% if @radio_site.errors.any? %>  
+  <div class="panel warning callout radius">      
+    <strong><%= t('activerecord.errors.template.header', :model => RadioSite.model_name.human, :count => @radio_site.errors.count) %></strong>
+    <ul>
+    <% @radio_site.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
     <% end %>
-  </div>        
-  </br>  
-  <div class="row">
-    <div class="small-12 medium-12 large-12 columns">
-      <%= render 'accordion', f: f %>
-    </div>    
+    </ul>
+  </div>
+<% end %> 
+
+<div class="row">
+  <div class="small-12 medium-2 large-2 columns">
+    <%= f.label :nCodSite %>
+    <%= f.number_field :nCodSite, readonly: true %>       
+  </div>    
+  <div class="small-12 medium-4 large-4 columns">
+    <%= f.label :cNombreSite %>
+    <%= f.text_field :cNombreSite, readonly: @readonly %>       
+  </div>      
+  <div class="small-12 medium-2 large-2 columns">
+    <%= f.label :nBCC %>
+    <%= f.number_field :nBCC, readonly: @readonly %>       
+  </div>            
+  <div class="small-12 medium-2 large-2 columns">
+    <%= f.label @radio_site.tipo_site.nCodTipo, 'Tipo Site' %>
+    <%= f.collection_select(:nCodTipo, TipoSite.all, :nCodTipo, :cDescripcion, {},{:disabled => @readonly}) %>
+  </div>      
+  <div class="small-12 medium-2 large-2 columns">         
+    <%= f.label :nCodEstado %>     
+    <%= f.select :nCodEstado, options_for_select([["Activa",1], ["Baja", 2]], @radio_site.nCodEstado), {}, {:disabled => @readonly} %><br>
+  </div>      
+</div>  
+
+<div class="row">
+  <div class="small-12 medium-2 large-2 columns">
+    <%= f.label :nCodSede %>
+    <%= f.number_field :nCodSede, readonly: @readonly %> 
   </div>    
 
-  <!--GESTION DE BOTONES -->
-  <div class="row text-right">
-    <div class="small-12 medium-12 large-12 columns">
-      <%= link_to t('form_for.return'), radio_sites_path, :class => "button small" %>        
-      <% if can? :read, RadioSite and @readonly %> 
-          <%= link_to t('form_for.edit'), edit_radio_site_path(@radio_site), :class => "button small" %> 
-      <% end %>
-      <% if can? :cru, RadioSite and !@readonly %> 
-          <%= f.submit t('form_for.save'), class: 'button small float-right' %>
-      <% end %>      
-    </div>   
-  </div> 
-</div>   
-<% end %>   
+  <%= f.fields_for :sede, @radio_site.sede do |fs| %>
+    <div class="small-12 medium-4 large-4 columns">
+      <%= fs.label :cNombre %>
+      <%= fs.text_field :cNombre, readonly: true %> 
+    </div>
+    <div class="small-12 medium-6 large-6 columns">
+      <%= fs.label :cDireccion %>        
+      <%= fs.text_field :cDireccion, readonly: true %> 
+    </div>      
+  <% end %>
+</div>        
+</br>  
+<div class="row">
+  <div class="small-12 medium-12 large-12 columns">
+    <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
+        <%= render 'emplazamiento', f: f %>
+        <%= render 'datos_site', f: f %>
+        <%= render 'infraestructura', f: f %>
+        <%= render 'radioenlaces', f: f %>    
+        <%= render 'tetra', f: f %>    
+        <%= render 'terceros', f: f %>        
+    </ul>    
+  </div>    
+</div>    
+
