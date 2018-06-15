@@ -27,13 +27,16 @@
 
     <div class="row">
       <div class="small-3 medium-2 large-3 columns">
-       <%= ff.label :cNumero, for: 'middle-label' %>      
+       <%= ff.label :cNumero, for: 'middle-label'%>
         <%= ff.telephone_field :cNumero  %>
       </div>
 
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-3 medium-2 large-2 columns">
         <%= ff.label :cNumCorto, for: 'middle-label' %>      
         <%= ff.text_field :cNumCorto, for: 'middle-label' %>
+      </div>
+      <div class="small-3 medium-2 large-1 columns">                
+        <%= clicktocallwithedit_to @lin_movil.linea.cNumCorto, "large" %>             
       </div>
       <div class="small-3 medium-2 large-3 columns">
         <%= f.label :nCodTipMovil, for: 'middle-label' %>
