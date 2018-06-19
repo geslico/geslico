@@ -9,6 +9,7 @@ es:
       taken: "debe ser único"
       invalid: "tiene un valor no valido"
       not_a_number: "no es un valor numérico valido"
+      inclusion: "no tiene un valor permitido"
 
   activerecord:
     errors:
@@ -94,6 +95,7 @@ es:
         dFechaBaja: "Fch.Baja"
         nCodEstLin: "Estado"
         bListadoVIP: "ListadoVIP"
+        nCodUni: "Cód.Uni"
         
       lin_movil:
         cNumero: "Número"

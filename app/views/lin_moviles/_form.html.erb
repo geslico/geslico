@@ -33,10 +33,10 @@
 
       <div class="small-3 medium-2 large-2 columns">
         <%= ff.label :cNumCorto, for: 'middle-label' %>      
-        <%= ff.text_field :cNumCorto, for: 'middle-label' %>
+        <%= ff.text_field :cNumCorto , for: 'middle-label' %>
       </div>
       <div class="small-3 medium-2 large-1 columns">                
-        <%= clicktocallwithedit_to @lin_movil.linea.cNumCorto, "large" %>             
+        <%= clicktocallwithedit_to @lin_movil.linea.cNumCorto, "large" rescue nil %>             
       </div>
       <div class="small-3 medium-2 large-3 columns">
         <%= f.label :nCodTipMovil, for: 'middle-label' %>
@@ -62,7 +62,7 @@
       </div>
       <div class="small-3 medium-2 large-2 columns ">
         <%= ff.label :bListadoVIP, for: 'middle-label' %>      
-        <%= ff.select :bListadoVIP, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.linea.bListadoVIP)   %>      
+        <%= ff.select :bListadoVIP, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.linea.bListadoVIP.to_bool)   %>      
       </div>      
       </div>
     <div class="row">
@@ -87,4 +87,5 @@
     </div>
 
   <% end %>
+  
 <% end %>

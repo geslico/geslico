@@ -4,7 +4,7 @@ class Unidad < ApplicationRecord
 	self.table_name ="geslico.dbo.TUnidades"		
 	self.primary_key = "nCodUni" 
 
-	has_one :area, :foreign_key => "nIdArea"
+	belongs_to :area, :foreign_key => "nIdArea", :primary_key => "nCodUni" 
 	has_one :unidad, :foreign_key => "nCodUniPadre"
 
 	has_many :lineas, :foreign_key => "nCodUni"	

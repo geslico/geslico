@@ -55,6 +55,7 @@ gem 'puma', '~> 3.10'
 # gem 'capistrano-rails', group: :development
 
 gem 'composite_primary_keys', '~> 10.0', '>= 10.0.2'
+gem 'to_bool', '~> 1.0', '>= 1.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

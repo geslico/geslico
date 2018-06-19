@@ -19,7 +19,7 @@
                     <input type="text" readonly="true" value="<%= persona.cape2 rescue nil %>"></input>                                        
                 </div>
                 <div class="small-4 medium-2 large-1 columns">
-                    <br/><%= ciscoim_to persona.cemail, "large" %>
+                    <br/><%= ciscoim_to persona.cemail, "large" rescue nil %>
                 </div>
             </div>
 
@@ -56,13 +56,14 @@
                     <input type="text" readonly="true" value="<%= persona.unidad.cDenominacion rescue nil %>"></input>                                        
                     
                 </div>
-                    <div class="small-4 medium-2 large-2 columns">                
+                <div class="small-4 medium-2 large-2 columns">                
                     <label> IdArea <label>
                     <input type="text" readonly="true" value="<%= persona.unidad.nIdArea rescue nil %>"></input>                                        
                     
                 </div>
                 <div class="small-4 medium-2 large-5 columns end">                
-                    
+                    <label> Área <label>
+                    <input type="text" readonly="true" value="<%= persona.unidad.area.cDenominacion rescue nil %>"></input>                                        
                 </div>
             </div>
     </div>
