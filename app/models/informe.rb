@@ -6,7 +6,7 @@ class Informe < ApplicationRecord
 
     @@types = { 
         'sedes' =>           {'id' => 3, 'title' => 'Sedes',              'model' => Sede},
-        'radio' =>           {'id' => 75,'title' => 'Radio',              'model' => Radio},
+        'radio' =>           {'id' => 75,'title' => 'Radio',              'model' => RadioSite},
         'movil' =>           {'id' => 1, 'title' => 'Líneas Móvils',      'model' => LinMovil},
         'fija'  =>           {'id' => 2, 'title' => 'Líneas Fijas',       'model' => Linea},
         'electronica-red' => {'id' => 7, 'title' => 'Electrónica de Red', 'model' => Edr},

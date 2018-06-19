@@ -1,1 +1,69 @@
-Working on...
+<%= form_for(@componente) do |f| %>
+
+    <% if @componente.errors.any? %>  
+        <div class="panel warning callout radius">      
+        <strong><%= t('activerecord.errors.template.header', :model => Componente.model_name.human, :count => @componente.errors.count) %></strong>
+        <ul>
+        <% @componente.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+        </div>
+    <% end %> 
+
+    <div class="row">
+        <%= f.fields_for :catalogo, @componente.catalogo do |fc| %>    
+            <div class="small-12 medium-4 large-4 columns">
+                <%= fc.label :cFabricante, 'Marca' %>
+                <%= fc.select :cFabricante, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                            Catalogo.marca, "cFabricante", "cFabricante", @componente.catalogo.cFabricante), {}, {:disabled => @readonly} %>
+            </div>    
+            <div class="small-12 medium-4 large-4 columns">
+                <%= fc.label :cModelo, 'Modelo' %>
+                <%= fc.select :cModelo, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                            Catalogo.modelo, "cModelo", "cModelo", @componente.catalogo.cModelo), {}, {:disabled => @readonly} %>
+            </div>
+        <% end %>     
+        <%= f.fields_for :tipo_ubicacion, @componente.tipo_ubicacion do |ftu| %>         
+            <div class="small-12 medium-4 large-4 columns">
+                <%= ftu.label :cDescripcion, 'Ubicación' %>
+                <%= ftu.select :cDescripcion, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+                            TipoUbicacion.almacen, "cDescripcion", "cDescripcion", @componente.tipo_ubicacion.cDescripcion), {}, {:disabled => @readonly} %>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="row">
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :cSerie, 'Nº Serie' %>
+        <%= f.text_field :cSerie, readonly: @readonly %> 
+      </div>    
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :cExpediente, 'Nº Expediente' %>
+        <%= f.text_field :cExpediente, readonly: @readonly %> 
+      </div>    
+      <div class="small-12 medium-4 large-4 columns">
+        <%= f.label :cBien, 'Nº Bien' %>
+        <%= f.text_field :cBien, readonly: @readonly %> 
+      </div>          
+    </div>        
+
+    <div class="row">
+        <div class="small-12 medium-4 large-4 columns">
+            <%= f.label :dFchEntrada, 'Fecha Entrada' %>
+            <%= f.date_field :dFchEntrada, :value => localize(@componente.dFchEntrada), readonly: @readonly  %>                        
+        </div>
+        <div class="small-12 medium-4 large-4 columns">
+            <%= f.label :dFchSalida, 'Fecha Salida' %>
+            <%= f.date_field :dFchSalida, :value => localize(@componente.dFchSalida), readonly: @readonly %>            
+        </div>
+        <div class="small-12 medium-4 large-4 columns">
+            <%= f.label :bUsado, 'Usado' %>
+            <%= f.select :bUsado, options_for_select([['Si', true], ['No', false]], @componente.bUsado), 
+                            {}, {:disabled => @readonly} %><br>                            
+                </div>                                                                     
+    </div>                
+
+
+<% end %> 
+

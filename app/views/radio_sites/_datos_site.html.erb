@@ -1,0 +1,120 @@
+<!--- Datos del Site -->
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover"><%=t('site.datos')%></a>
+    <div class="accordion-content" data-tab-content >     
+        <h5>DATOS GENERALES</h5>
+        <div class="row">
+            <div class="small-12 medium-6 large-6 columns">
+                <%= f.label :cUbicaSite %>
+                <%= f.text_area(:cUbicaSite, rows: 13, readonly: @readonly)%>
+            </div> 
+            <div class="small-12 medium-3 large-3 columns">                                            
+                <div class="small-12 medium-12 large-12 columns">
+                    <%= f.label :cDimensiones %>
+                    <%= f.text_field :cDimensiones, readonly: @readonly %>       
+                </div>        
+                <div class="small-12 medium-12 large-12 columns">
+                    <%= f.label :ctipoTorre %>
+                    <%= f.text_field :ctipoTorre, readonly: @readonly %>       
+                </div>        
+                <div class="small-12 medium-12 large-12 columns">
+                    <%= f.label :cTipoBaliza %>
+                    <%= f.text_field :cTipoBaliza, readonly: @readonly %>       
+                </div>                              
+                <div class="small-12 medium-12 large-12 columns">
+                    <%= f.label :nExtinSite %>    
+                    <%= f.select :nExtinSite, options_for_select([[1], [2], [3], [4], [5], [6]], @radio_site.nExtinSite), 
+                                            {}, {:disabled => @readonly} %><br>                            
+                </div>                                                      
+            </div>
+            <div class="small-12 medium-3 large-3 columns">
+                <%= f.label t('site.incluye') %>                        
+                <%= f.label :bTorreLinvida, class: 'checkbox' do %>
+                    <%= f.check_box :bTorreLinvida, disabled: @readonly %> <%=t('site.torres')%>
+                <% end %>                    
+                <%= f.label :bParaRayos, class: 'checkbox' do %>
+                    <%= f.check_box :bParaRayos, disabled: @readonly %> <%=t('site.pararrayos')%>
+                <% end %>
+                <%= f.label :bTomaTierraPrayos, class: 'checkbox' do %>
+                    <%= f.check_box :bTomaTierraPrayos, disabled: @readonly %> <%=t('site.tierra_pararrayos')%>
+                <% end %>
+                <%= f.label :bTomaTierraEq, class: 'checkbox' do %>
+                    <%= f.check_box :bTomaTierraEq, disabled: @readonly %> <%=t('site.tierra_equipos')%>
+                <% end %>
+                <%= f.label :bClimatizaSite, class: 'checkbox' do %>
+                    <%= f.check_box :bClimatizaSite, disabled: @readonly %> <%=t('site.climatizacion')%>
+                <% end %>
+                <%= f.label :bContBaliza, class: 'checkbox' do %>
+                    <%= f.check_box :bContBaliza, disabled: @readonly %> <%=t('site.controlador')%>
+                <% end %>
+            </div>                        
+        </div>    
+        <hr>
+        <h5><%=t('site.suministro')%></h5>
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cCompEltrec %>
+                <%= f.text_field :cCompEltrec, readonly: @readonly %>       
+            </div>                              
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cCupsElec %>
+                <%= f.text_field :cCupsElec, readonly: @readonly %>       
+            </div>                                                                                                                                           
+            <div class="small-12 medium-2 large-2 columns">
+                <%= f.label :nNuncontElec %>
+                <%= f.text_field :nNuncontElec, readonly: @readonly %>       
+            </div>                                                  
+            <div class="small-12 medium-2 large-2 columns">
+                <%= f.label :nNumTfnoave %>
+                <%= f.text_field :nNumTfnoave, readonly: @readonly %>       
+            </div>                                         
+        </div>                                             
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cTipoElec %>
+                <%= f.select :cTipoElec, options_for_select([[t('site.alta_tension')], [t('site.media_tension')], 
+                [t('site.baja_tension_3fn')], t(['site.baja_tension_fn'])], @radio_site.cTipoElec), {}, {:disabled => @readonly} %><br>                            
+            </div>                              
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cPotenElec %>
+                <%= f.text_field :cPotenElec, readonly: @readonly %>       
+            </div>    
+            <div class="small-12 medium-4 large-4 columns">           
+                <%= f.label :bMunielec %>    
+                <%= f.select :bMunielec, options_for_select([ [t('application.yes_value'), true], [t('application.no'), false]], 
+                    @radio_site.bMunielec), {}, {:disabled => @readonly} %><br>                                                           
+            </div>        
+        </div>    
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cUbicaContador %>
+                <%= f.text_field :cUbicaContador, readonly: @readonly %>       
+            </div>
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cUbicaInterrup %>
+                <%= f.text_field :cUbicaInterrup, readonly: @readonly %>       
+            </div>                                    
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cLlavescontador %>
+                <%= f.text_field :cLlavescontador, readonly: @readonly %>       
+            </div>
+        </div> 
+        <hr>
+        <h5><%=t('site.electrificacion')%></h5>                                   
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cVcaEntrada %>
+                <%= f.text_field :cVcaEntrada, readonly: @readonly %>       
+            </div>
+            <div class="small-12 medium-8 large-8 columns">
+                <%= f.label :bReconecatoras, t('site.incluye') %>
+                <%= f.label :bReconecatoras, class: 'checkbox' do %>
+                    <%= f.check_box :bReconecatoras, disabled: @readonly %> <%=t('site.reconectadoras')%>
+                <% end %>                    
+                <%= f.label :bTomaGelectro, class: 'checkbox' do %>
+                    <%= f.check_box :bTomaGelectro, disabled: @readonly %> <%=t('site.grupo_elect')%>
+                <% end %>                                            
+            </div>                                    
+        </div>                 
+    </div>    
+</li>    

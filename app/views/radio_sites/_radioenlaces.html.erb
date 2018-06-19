@@ -1,0 +1,91 @@
+<!--- Radioenlaces -->
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover">Radioenlaces</a>
+    <div class="accordion-content" data-tab-content >                 
+        <div class="table-scroll">
+            <table>
+                <thead class="color-cabecera">
+                    <tr>
+                        <th><%= t('site.codigo') %></th>
+                        <th><%= t('site.siteA') %></th>
+                        <th><%= t('site.mprA') %></th>
+                        <th><%= t('site.anillo') %></th>
+                        <th><%= t('site.potencia_radio') %></th>
+                        <th><%= t('site.numero_serie') %></th>
+                        <th><%= t('site.fq_tx') %></th>
+                        <th><%= t('site.fq_rx') %></th>
+                    </tr>
+                </thead>                                
+                <tbody>          
+                    <% @radio_site.radio_site_enlaces.each do |enl| %>
+                        <tr>
+                            <td><%=  enl.nId %></td>            
+                            <td><%=  enl.cSite %></td>    
+                            <td><%=  enl.cPuertoMPR %></td>    
+                            <td><%=  enl.cAnillo %></td>    
+                            <td><%=  enl.nPotenciaRadioW %></td>    
+                            <td><%=  enl.cAntenaSN %></td>    
+                            <td><%=  enl.cFrecuenciaTxMhz %></td>    
+                            <td><%=  enl.cFrecuenciaRxMhz %></td>    
+                        </tr>                    
+                    <% end %>                
+                </tbody>
+            </table>
+        </div>
+        <div class="row">                  
+            <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+                <li class="accordion-item" data-accordion-item>
+                    <a href="#" class="accordion-title accordionhover level4title"><strong><%= t('site.detalle') %></strong></a>
+                    <div class="accordion-content" data-tab-content > 
+                        <div class="row"> 
+                            <div class="table-scroll">
+                                <table>
+                                    <thead class="color-cabecera">
+                                        <tr>            
+                                            <th><%= t('site.codigo') %></th>
+                                            <th><%= t('site.modelo_antena') %></th>
+                                            <th><%= t('site.marca_idu') %></th>
+                                            <th><%= t('site.diametro') %></th>
+                                            <th><%= t('site.ganancia') %></th>
+                                            <th><%= t('site.tx_pow_t') %></th>
+                                            <th><%= t('site.rx_pow_t') %></th>
+                                            <th><%= t('site.tx_pow_r') %></th>
+                                            <th><%= t('site.rx_pow_r') %></th>
+                                            <th><%= t('site.aptc') %></th>
+                                            <th><%= t('site.nivel') %></th>
+                                            <th><%= t('site.umbral_min') %></th>
+                                            <th><%= t('site.umbral_max') %></th>
+                                            <th><%= t('site.siteB') %></th>
+                                            <th><%= t('site.mpr') %></th>
+                                        </tr>
+                                    </thead>                                
+                                    <tbody>          
+                                        <% @radio_site.radio_site_enlaces.each do |enl| %>
+                                            <tr>       
+                                                <td><%=  enl.nId %></td>             
+                                                <td><%=  enl.radio_site_antena_modelo.cModelo %></td>
+                                                <td><%=  enl.cMarcaIDUODU %></td>
+                                                <td><%=  enl.radio_site_antena_modelo.nDiametro %></td>
+                                                <td><%=  enl.radio_site_antena_modelo.nGanancia %></td>
+                                                <td><%=  enl.nTxPowerTeorico %></td>
+                                                <td><%=  enl.nRxPowerTeorico %></td>
+                                                <td><%=  enl.nTxPowerReal %></td>
+                                                <td><%=  enl.nRxPowerReal %></td>
+                                                <td><%=  human_boolean(enl.bNivelATPC) %></td>
+                                                <td><%=  enl.nNivelAPTCLowPower %></td>
+                                                <td><%=  enl.nUmbralMinAPTC %></td>
+                                                <td><%=  enl.nUmbralMaxAPTC %></td>
+                                                <td><%=  enl.radio_site_relacion_enlace.radio_site_enlace.cSite %></td>
+                                                <td><%=  enl.radio_site_relacion_enlace.radio_site_enlace.cPuertoMPR %></td>    
+                                            </tr>                    
+                                        <% end %>                
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>                                                                                
+                    </div>                                                                                                                
+                </li>                          
+            </ul>                      
+        </div>                           
+    </div>    
+</li>            
