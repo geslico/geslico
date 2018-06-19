@@ -13,16 +13,17 @@ class LinMovilesController < ApplicationController
   end
     
   def show    
+    @readonly = true
   end
 
   def new
     @lin_movil = LinMovil.new()        
     @lin_movil.linea = Linea.new()        
-    @lin_movil.linea.nCodEstLin = 3    
-    
+    @lin_movil.linea.nCodEstLin = 3        
   end
   
   def edit    
+    @readonly = false
   end 
 
   def create
