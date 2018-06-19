@@ -5,8 +5,8 @@ require "capistrano/setup"
 require "capistrano/deploy"
 
 # Load the SCM plugin
-require "capistrano/scm/git"
-install_plugin Capistrano::SCM::Git
+# require "capistrano/scm/git"
+# install_plugin Capistrano::SCM::Git
 
 require "capistrano/rails"
 require "capistrano/rvm"
