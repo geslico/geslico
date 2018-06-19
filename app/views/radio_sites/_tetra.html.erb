@@ -1,0 +1,152 @@
+<!--- TETRA -->
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover"><%=t('site.tetra')%></a>
+    <div class="accordion-content" data-tab-content >     
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cNomRadioM%>
+                <%= f.text_field :cNomRadioM, readonly: @readonly %>       
+            </div>                              
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cTipoEquRedMovil%>
+                <%= f.select :cTipoEquRedMovil, options_for_select([[''], ['EBTS'], ['MTS'], ['Extensor Cobertura Tunel']], 
+                        @radio_site.cTipoEquRedMovil), {}, {:disabled => @readonly} %><br>
+            </div>                                                                                                                                           
+            <div class="small-12 medium-2 large-2 columns">
+                <%= f.label :cFabricRadioM%>
+                <%= f.text_field :cFabricRadioM, readonly: @readonly %>       
+            </div>                                                             
+            <div class="small-12 medium-2 large-2 columns">
+                <%= f.label :cNumEbt%>
+                <%= f.text_field :cNumEbt, readonly: @readonly %>       
+            </div>                                                  
+        </div>
+        <div class="row">
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cSwmi %>
+                <%= f.select :cSwmi, options_for_select([[""], [t('site.la_pipa')], [t('site.manuel_becerra')]], 
+                @radio_site.cSwmi), {}, {:disabled => @readonly} %><br>                            
+            </div>                                              
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cTipoEnlace %>
+                <%= f.select :cTipoEnlace, options_for_select([[""], [t('site.fibra')], [t('site.utr')], [t('site.v35')], [t('site.x21')]], 
+                @radio_site.cTipoEnlace), {}, {:disabled => @readonly} %><br>                            
+            </div>                          
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :nNumPorteadoras %>
+                <%= f.number_field :nNumPorteadoras, :value => @radio_site.radio_site_estaciones_base.count %>
+            </div>                                                                                  
+        </div>               
+        <div class="row">                                        
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cTipoAntenRx%>
+                <%= f.text_field :cTipoAntenRx, readonly: @readonly %>       
+            </div>                              
+            <div class="small-12 medium-4 large-4 columns">
+                <%= f.label :cTipoAntenTx%>
+                <%= f.text_field :cTipoAntenTx, readonly: @readonly %>       
+            </div> 
+            <div class="small-12 medium-4 large-4 columns">           
+                <%= f.label :bDiveridadRx %>    
+                <%= f.select :bDiveridadRx, options_for_select([ [t('application.yes_value'), true], [t('no'), false]], 
+                    @radio_site.bDiveridadRx), {}, {:disabled => @readonly} %><br>                                                           
+            </div>                            
+        </div>
+        </br>
+        <div class="row"> 
+            <div class="small-12 medium-8 large-8 columns">
+                <h5><%= t('site.plan_frecuencia')%></h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>            
+                                <th><%= t('site.canal') %></th>    
+                                <th><%= t('site.nbr') %></th>
+                                <th><%= t('site.transmision') %></th>    
+                                <th><%= t('site.recepcion') %></th>    
+                                <th><%= t('site.canalmot') %></th>    
+                                <th><%= t('site.potencia_br') %></th>    
+                                <th><%= t('site.potencia_antena') %></th>    
+                                <th><%= t('site.desensibilizacion') %></th>    
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_estaciones_base.each do |estb| %>
+                                <tr>       
+                                    <td><%=  estb.nCodCanal %></td>             
+                                    <td><%=  estb.nBR %></td>
+                                    <td><%=  estb.radio_site_canal.nTx %></td>
+                                    <td><%=  estb.radio_site_canal.nRx %></td>
+                                    <td><%=  estb.radio_site_canal.nCanalMOT %></td>
+                                    <td><%=  estb.nPotenciaBR || '0,00' %></td>
+                                    <td><%=  estb.nPotenciaAntena || '0,00' %></td>
+                                    <td><%=  estb.nDesensibilizacion || '0,00' %></td>
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            </div>     
+            <div class="small-12 medium-4 large-4 columns">
+                <h5><%= t('site.frecuencias_compartidas')%></h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>            
+                                <th><%= t('site.cod_site') %></th>    
+                                <th><%= t('site.nombre') %></th>
+                                <th><%= t('site.canal') %></th>    
+                                <th><%= t('site.nbr') %></th>    
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% RadioSiteEstacionBase.frecuencias_compartidas(@radio_site.nCodSite).each do |frec| %>
+                                <tr>       
+                                    <td><%=  frec.nCodSite %></td>             
+                                    <td><%=  frec.cNombreSite %></td>
+                                    <td><%=  frec.nCodCanal %></td>
+                                    <td><%=  frec.nBR %></td>
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            </div>                         
+        </div>
+        </br>
+        </br>
+        <div class="row"> 
+            <div class="small-12 medium-12 large-12 columns">
+                <h5><%= t('site.extensor_coberturas') %></h5>
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                            <tr>
+                                <th><%= t('site.ubicacion') %></th>    
+                                <th><%= t('site.fabricante') %></th>
+                                <th><%= t('site.tipo') %></th>    
+                                <th><%= t('site.replica') %></th>    
+                                <th><%= t('site.radiante_captador') %></th>    
+                                <th><%= t('site.radiante_donante') %></th>    
+                                <th><%= t('site.alimentacion') %></th>    
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% @radio_site.radio_site_extensores.each do |ext| %>
+                                <tr>       
+                                    <td><%=  ext.CubicaExtencor %></td>
+                                    <td><%=  ext.CfabriExtencor %></td>     
+                                    <td><%=  ext.Ctipoextencor %></td>
+                                    <td><%=  ext.Cebtextencor %></td>
+                                    <td><%=  ext.Cradiacapextencor %></td>
+                                    <td><%=  ext.Cradiantedonextencor %></td>
+                                    <td><%=  ext.Cradiantedonextencor %></td>
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            </div>     
+        </div>                
+    </div>    
+</li>            

@@ -1,0 +1,184 @@
+    <!--- Infraestructura -->
+    <li class="accordion-item" data-accordion-item>
+        <a href="#" class="accordion-title accordionhover">Infraestructura</a>
+        <div class="accordion-content" data-tab-content >     
+            <h5><%= t('site.ups') %></h5>
+            <div class="table-scroll">
+                <table>
+                    <thead class="color-cabecera">
+                        <tr>                
+                            <th><%= t('site.marca') %></th>
+                            <th><%= t('site.modelo') %></th>
+                            <th><%= t('site.ups_capacidad') %></th>
+                            <th><%= t('site.vca_entrada') %></th>                                    
+                            <th><%= t('site.vca_salida') %></th>
+                            <th><%= t('site.ups_baterias') %></th>
+                        </tr>
+                    </thead>                                
+                    <tbody>          
+                        <% @radio_site.radio_site_upses.each do |ups| %>
+                            <tr>        
+                                <td><%=  ups.cMarcUPS %></td>    
+                                <td><%=  ups.cModeloUPS %></td>    
+                                <td><%=  ups.cCapacidadUPS %></td>    
+                                <td><%=  ups.cVcaEntUPS %></td>    
+                                <td><%=  ups.cVcaSalUps %></td>    
+                                <td><%=  ups.cBateriasUPS %></td>    
+                            </tr>                    
+                        <% end %>                
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <h5><%= t('site.rectificadores') %></h5>
+            <div class="table-scroll">
+                <table>
+                    <thead class="color-cabecera">
+                        <tr>               
+                            <th><%= t('site.marca') %></th>
+                            <th><%= t('site.modelo') %></th>                            
+                            <th><%= t('site.capacidad_modulos') %></th>
+                            <th><%= t('site.modulos') %></th>                            
+                            <th><%= t('site.capacidad_modulos_ah') %></th>                            
+                            <th><%= t('site.modulo_control') %></th>                            
+                            <th><%= t('site.vca_entrada') %></th>                                    
+                            <th><%= t('site.vca_salida') %></th>
+                            <th><%= t('site.baterias') %></th>
+                        </tr>
+                    </thead>                                
+                    <tbody>          
+                        <% @radio_site.radio_site_rectificadores.each do |rect| %>
+                            <tr>        
+                                <td><%=  rect.Cmarcarect %></td>    
+                                <td><%=  rect.Cmodelorect %></td>    
+                                <td><%=  rect.Capacidadrect %></td>    
+                                <td><%=  rect.Cmodulosrec %></td>    
+                                <td><%=  rect.Cmodulosahrec %></td>    
+                                <td><%=  rect.Controlrect %></td>    
+                                <td><%=  rect.Cvcaentrec %></td>    
+                                <td><%=  rect.Cvccsalrect %></td>    
+                                <td><%=  rect.Cbatrect %></td>    
+                            </tr>                    
+                        <% end %>                
+                    </tbody>
+                </table>
+            </div>     
+            <hr>        
+            <h5><%= t('site.aire') %></h5>
+            <div class="table-scroll">
+                <table>
+                    <thead class="color-cabecera">
+                        <tr>                                                 
+                            <th><%= t('site.marca') %></th>
+                            <th><%= t('site.modelo') %></th>                            
+                            <th><%= t('site.frigorias') %></th>
+                            <th><%= t('site.tipo') %></th>
+                            <th><%= t('site.potencia') %></th>
+                            <th><%= t('site.modulo_control') %></th>                            
+                            <th><%= t('site.freecooling') %></th>
+                            <th><%= t('site.gas') %></th>
+                            <th><%= t('site.carga') %></th>
+                            <th><%= t('site.fecha_revision') %></th>
+                        </tr>
+                    </thead>                                
+                    <tbody>          
+                        <% @radio_site.radio_site_accs.each do |acc| %>
+                            <tr>        
+                                <td><%=  acc.cMarca %></td>    
+                                <td><%=  acc.cModelo %></td>    
+                                <td><%=  acc.nFrigoriasKw %></td>    
+                                <td><%=  acc.cTipo %></td>    
+                                <td><%=  acc.nPotenciaUsadaVCA %></td>    
+                                <td><%=  acc.cControl %></td>    
+                                <td><%=  acc.cFreecooling %></td>    
+                                <td><%=  acc.cTipoGas %></td>    
+                                <td><%=  acc.nCargaKg %></td>   
+                                <% if !acc.dFchUltimaRevision.nil? %> 
+                                    <td><%=  localize(acc.dFchUltimaRevision) %></td>    
+                                <% end%>
+                            </tr>                    
+                        <% end %>                
+                    </tbody>
+                </table>
+            </div>     
+            <hr>
+            <h5><%= t('site.alarmas') %></h5>
+            <div class="row">
+                <div class="small-12 medium-2 large-2 columns">
+                    <%= f.label :cNomCentralAlarm %>
+                    <%= f.text_field :cNomCentralAlarm, readonly: @readonly %>       
+                </div>                              
+                <div class="small-12 medium-3 large-3 columns">
+                    <%= f.label :cTipocentralAlarm %>
+                    <%= f.text_field :cTipocentralAlarm, readonly: @readonly %>       
+                </div>                                                                                                                                           
+                <div class="small-12 medium-3 large-3 columns">
+                    <%= f.label :nLineaAsocAlarm %>
+                    <%= f.text_field :nLineaAsocAlarm, readonly: @readonly %>       
+                </div>                                                             
+                <div class="small-12 medium-2 large-2 columns">
+                    <%= f.label :cAlimenAlarm %>
+                    <%= f.text_field :cAlimenAlarm, readonly: @readonly %>       
+                </div>                                                  
+                <div class="small-12 medium-2 large-2 columns">
+                    <%= f.label :bBateriasAlarm %>
+                    <%= f.select :bBateriasAlarm, options_for_select([[t('application.yes_value'), true], [t('application.no'), false]], 
+                         @radio_site.bBateriasAlarm), {}, {:disabled => @readonly} %><br>                            
+                </div>                                                             
+            </div>                                                             
+            </br>
+            <div class="row">                  
+                <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">                      
+                    <li class="accordion-item" data-accordion-item>
+                        <a href="#" class="accordion-title accordionhover level4title"><strong><%= t('site.ent_sal_alarmas') %></strong></a>
+                        <div class="accordion-content" data-tab-content > 
+                            <div class="row"> 
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <p><%= t('site.ent_alarmas') %></p>
+                                    <div class="table-scroll">
+                                        <table>
+                                            <thead class="color-cabecera">
+                                                <tr>                                                 
+                                                    <th><%= t('site.entrada') %></th>
+                                                    <th><%= t('site.senal') %></th>
+                                                </tr>
+                                            </thead>                                
+                                            <tbody>          
+                                                <% @radio_site.radio_site_alarma_entradas.each do |ent| %>
+                                                    <tr>        
+                                                        <td><%=  ent.Nentrada %></td>    
+                                                        <td><%=  ent.csenal %></td>    
+                                                    </tr>                    
+                                                <% end %>                
+                                            </tbody>
+                                        </table>
+                                    </div>     
+                                </div>
+                                <div class="small-12 medium-6 large-6 columns">
+                                    <p><%= t('site.sal_alarmas') %></p>
+                                    <div class="table-scroll">
+                                        <table>
+                                            <thead class="color-cabecera">
+                                                <tr>                                                 
+                                                    <th><%= t('site.entrada') %></th>
+                                                    <th><%= t('site.senal') %></th>
+                                                </tr>
+                                            </thead>                                
+                                            <tbody>          
+                                                <% @radio_site.radio_site_alarma_salidas.each do |sal| %>
+                                                    <tr>        
+                                                        <td><%=  sal.Nsalida %></td>    
+                                                        <td><%=  sal.csenal %></td>    
+                                                    </tr>                    
+                                                <% end %>                
+                                            </tbody>
+                                        </table>
+                                    </div>     
+                                </div>                    
+                            </div> 
+                        </div>                                                                                
+                    </li>                          
+                </ul>                      
+            </div>                           
+        </div>                                                                                                      
+    </li>            

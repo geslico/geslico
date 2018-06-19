@@ -22,7 +22,7 @@
       <label for="middle-label" class="text-right "><%= t('activerecord.attributes.usuario.bActivo') %></label>
     </div>
     <div class="small-10 medium-2 large-2 columns">      
-      <%= f.select :bActivo_eq, [["",nil], [t('application.yes'), true], [t('application.no'), false]] %>
+      <%= f.select :bActivo_eq, [["",nil], [t('application.yes_value'), true], [t('application.no'), false]] %>
     </div>
   </div>
 
@@ -67,7 +67,7 @@
           <td><%= link_to t.cCodUsuario, t, :class => 'link' %></td>
           <td><%= t.cNombre %></td>
           <td><%= t.cCorreo %></td>
-          <td><%= t.bActivo ? t('application.yes'): t('application.no')  %></td>                
+          <td><%= t.bActivo ? t('application.yes_value'): t('application.no')  %></td>                
           
         </tr>
       <% end %>

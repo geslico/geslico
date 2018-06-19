@@ -1,0 +1,98 @@
+<!--- Emplazamiento -->
+<li class="accordion-item" data-accordion-item>
+    <a href="#" class="accordion-title accordionhover"><%=t('site.emplazamiento')%></a>
+    <div class="accordion-content" data-tab-content >     
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+                <%= f.label :cPropietarioSite %>
+                <%= f.text_field :cPropietarioSite, readonly: @readonly %>       
+            </div>    
+        </div>        
+        <div class="row">                    
+            <div class="small-12 medium-6 large-6 columns">
+                <%= f.label :cContactoSite %>
+                <%= f.text_field :cContactoSite, readonly: @readonly %>       
+            </div>
+            <div class="small-12 medium-6 large-6 columns">
+                <%= f.label :cTramiacreditaSite %>
+                <%= f.text_field :cTramiacreditaSite, readonly: @readonly %>       
+            </div>                    
+        </div>
+        <div class="row">                    
+            <div class="small-12 medium-3 large-3 columns">
+                <%= f.label :cTfnoconSite %>
+                <%= f.text_field :cTfnoconSite, readonly: @readonly %>       
+            </div>
+            <div class="small-12 medium-3 large-3 columns">
+                <%= f.label :cHorarioSite %>
+                <%= f.text_field :cHorarioSite, readonly: @readonly %>       
+            </div>                    
+            <div class="small-12 medium-6 large-6 columns">
+                <%= f.label :ceMailContactoSite %>
+                <%= f.text_field :ceMailContactoSite, readonly: @readonly %>       
+            </div>                    
+        </div>                
+        <div class="row">
+            <div class="small-12 medium-12 large-12 columns">
+                <%= f.label :cUbiLlavesSite %>
+                <%= f.text_field :cUbiLlavesSite, readonly: @readonly %>       
+            </div>    
+        </div>    
+        <div class="row">
+            <div class="small-12 medium-9 large-10 columns">
+                <%= f.label :cInstrucAccesoSite %>                        
+                <%= f.text_area(:cInstrucAccesoSite, rows: 3, readonly: @readonly)%>
+            </div>    
+            <div class="small-12 medium-3 large-2 columns">
+                <%= f.label t('site.acceso') %>                        
+                <%= f.label :bAcreditacionSite, class: 'checkbox' do %>
+                    <%= f.check_box :bAcreditacionSite, disabled: @readonly %> <%=t('site.acreditacion')%> 
+                <% end %>                    
+                <%= f.label :bLlavesSite, class: 'checkbox' do %>
+                    <%= f.check_box :bLlavesSite, disabled: @readonly %> <%=t('site.llaves')%>
+                <% end %>
+            </div>                        
+        </div>    
+        <div class="row">
+            <div class="small-12 medium-3 large-3 columns">
+                <img src=<%= sede_photo_url(@radio_site.nCodSede) %>  style="height:20vh;width:auto"/>                     
+            </div>                  
+            <div class="small-12 medium-3 large-3 columns">
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :cCoordenadaSiteN %>
+                        <%= f.text_field :cCoordenadaSiteN, readonly: @readonly %>       
+                    </div>        
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :cCoordenadaSiteO %>
+                        <%= f.text_field :cCoordenadaSiteO, readonly: @readonly %>       
+                    </div>        
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :nLineaTfno %>
+                        <%= f.text_field :nLineaTfno, readonly: @readonly %>       
+                    </div>                                    
+            </div>
+            <div class="small-12 medium-6 large-6 columns">
+                    <div class="row">    
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cCotaTerreno %>
+                        <%= f.text_field :cCotaTerreno, readonly: @readonly %>       
+                    </div>        
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cAlturaTorre %>
+                        <%= f.text_field :cAlturaTorre, readonly: @readonly %>       
+                    </div>        
+                    <div class="small-12 medium-4 large-4 columns">
+                        <%= f.label :cAlturaEdif %>
+                        <%= f.text_field :cAlturaEdif, readonly: @readonly %>       
+                    </div>          
+                </div>    
+                    <div class="row">    
+                    <div class="small-12 medium-12 large-12 columns">
+                        <%= f.label :cUbicaTorre %>
+                        <%= f.text_area(:cUbicaTorre, rows: 5, readonly: @readonly)%>
+                    </div>        
+                </div>                            
+            </div>                    
+        </div>                        
+    </div>    
+</li>    
