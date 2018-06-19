@@ -3,7 +3,7 @@ lock "~> 3.10.1"
 
 # defininimos el método deploysecret para que extraiga del fichero deploy-secrets.yml los valores para pre y pro
 def deploysecret(key)
-    @deploy_secrets_yml ||=  YAML.loadfile('config/deploy-secrets.yml')[fetch(:stage).to_s]
+    @deploy_secrets_yml ||=  YAML.load_file('config/deploy-secrets.yml')[fetch(:stage).to_s]
     @deploy_secrets_yml[key.to_s]
 end
 
