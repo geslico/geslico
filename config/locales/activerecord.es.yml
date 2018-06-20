@@ -7,6 +7,9 @@ es:
       too_long: "demasiado largo"
       confirmation: "requiere confirmacion"
       taken: "debe ser único"
+      invalid: "tiene un valor no valido"
+      not_a_number: "no es un valor numérico valido"
+      inclusion: "no tiene un valor permitido"
 
   activerecord:
     errors:
@@ -39,6 +42,7 @@ es:
       lin_movil:
         one: "Línea Móvil"
         other: "Líneas Móviles"
+        new:  "Nueva Línea Móvil" 
 
       persona:
         one: "Empleado"
@@ -83,26 +87,51 @@ es:
         cTipo: "Tipo"
         bDisponibilidad: "Disponible"
         bVigente: "Vigente"
+        
       linea:
         cNumero: "Número"
         cNumCorto: "Extensión"
         dFechaAlta: "Fch.Alta"
         dFechaBaja: "Fch.Baja"
         nCodEstLin: "Estado"
-        nCodTipoLote: "Lote"
-
-      lin_movil:
+        bListadoVIP: "ListadoVIP"
+        nCodUni: "Cód.Uni"
         
+      lin_movil:
+        cNumero: "Número"
+        cNumCorto: "Extensión"
+        nCodTipMovil: "Tipo"
+        cPerfil: "Perfil"
+        cPerfilAutorizado: "Perfil Autorizado"
+        cCoberturaNormativa: "Cobertura"
+        bHorarioExtendido: "Atención Horario Extendido"
+        bPrincipal: "Principal"
+        cSoloEmergencia: "Supervisión consumo"
+        cUsuarioIntranet: "Usuario Intranet"
+        cIPm2m: "IP"
+        nNumFaxAsoc: "Núm.Fax/Datos"
+        cInternet: "Internet"
+        cInternetG: "Internet"
+        cIntranet: "Intranet"
+        cIntranetG: "Intranet"
+        cDual: "Dual"
+        cDualG: "Dual"
+        cMultisim: "Multisim"
+        cMultisimG: "Multisim"
+        cObserva: "Observaciones"
+
       persona:
         cDNI: "Documento"
         cnombre: "Nombre"
-        cape1: "Apellido 1"
-        cape2: "Apellido 2"
+        cape1: "Apellido1"
+        cape2: "Apellido2"
         cApellidos: "Apellidos"
         nempnumper: "NumPer"
         cempnompuesto: "Puesto"
         cempgrupotit: "Grupo"
         nempnivel: "Nivel"
+        cUsuarioAYRE: "AYRE"
+        ncoduni: "Cod.Uni"
 
       unidad:
         nCodUni: "Cod.Uni"
@@ -198,7 +227,3 @@ es:
         nLineaAsocAlarm: "Línea asociada"
         cAlimenAlarm: "Alimentación"
         bBateriasAlarm: "Batería"
-
-
-
-        

@@ -1,0 +1,70 @@
+<li class="accordion-item  is-active" data-accordion-item>
+    <a href="#" class="accordion-title">Empleado</a>
+        <div class="accordion-content" data-tab-content >                                  
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">                    
+                    <label> Documento <label>
+                    <input type="text" readonly="true" value="<%= persona.cDNI rescue nil %>"></input>                    
+                </div>  
+                <div class="small-4 medium-2 large-3 columns">
+                    <label> Nombre <label>
+                    <input type="text" readonly="true" value="<%= persona.cnombre rescue nil %>"></input>                                        
+                </div>
+                <div class="small-4 medium-2 large-3 columns">                
+                    <label> Apellido 1 <label>
+                    <input type="text" readonly="true" value="<%= persona.cape1 rescue nil %>"></input>                                        
+                </div>
+                <div class="small-4 medium-2 large-3 columns">
+                    <label> Apellido 2 <label>
+                    <input type="text" readonly="true" value="<%= persona.cape2 rescue nil %>"></input>                                        
+                </div>
+                <div class="small-4 medium-2 large-1 columns">
+                    <br/><%= ciscoim_to persona.cemail, "large" rescue nil %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-4 medium-2 large-1 columns">                
+                    <label> Grupo <label>
+                    <input type="text" readonly="true" value="<%= persona.cempgrupotit rescue nil %>"></input>                                        
+                </div>
+                <div class="small-4 medium-2 large-1 columns">                
+                    <label> Nivel <label>
+                    <input type="text" readonly="true" value="<%= persona.nempnivel rescue nil %>"></input>                                                            
+                </div>
+                <div class="small-4 medium-2 large-4 columns">
+                    <label> Puesto <label>
+                    <input type="text" readonly="true" value="<%= persona.cempnompuesto rescue nil %>"></input>                                                            
+                </div>
+                <div class="small-4 medium-2 large-4 columns">                
+                    <label> Correo <label>                                        
+                    <input type="text" readonly="true" value="<%= persona.cemail rescue nil %>"></input>
+                </div>
+                <div class="small-4 medium-2 large-2 columns">                
+                    <label> UsuarioAYRE <label>
+                    <input type="text" readonly="true" value="<%= persona.cUsuarioAYRE rescue nil %>"></input>                                                            
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-4 medium-2 large-2 columns">                
+                    <label> CodUni <label>
+                    <input type="text" readonly="true" value="<%= persona.ncoduni rescue nil %>"></input>                                        
+                    
+                </div>
+                <div class="small-4 medium-2 large-5 columns">                
+                    <label> Unidad <label>
+                    <input type="text" readonly="true" value="<%= persona.unidad.cDenominacion rescue nil %>"></input>                                        
+                    
+                </div>
+                <div class="small-4 medium-2 large-2 columns">                
+                    <label> IdArea <label>
+                    <input type="text" readonly="true" value="<%= persona.unidad.nIdArea rescue nil %>"></input>                                        
+                    
+                </div>
+                <div class="small-4 medium-2 large-5 columns end">                
+                    <label> Área <label>
+                    <input type="text" readonly="true" value="<%= persona.unidad.area.cDenominacion rescue nil %>"></input>                                        
+                </div>
+            </div>
+    </div>
+</li>

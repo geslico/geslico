@@ -30,7 +30,7 @@ gem 'cancancan', '~> 2.0'
 # Test tools
 gem 'rspec', '~> 3.5'
 gem 'capybara', '~> 2.10', '>= 2.10.1'
-gem 'factory_girl_rails', '~> 4.9'
+gem "factory_bot_rails", "~> 4.0"
 gem 'i18n-tasks', '~> 0.9.5'
 
 gem 'ancestry'
@@ -55,6 +55,7 @@ gem 'puma', '~> 3.10'
 # gem 'capistrano-rails', group: :development
 
 gem 'composite_primary_keys', '~> 10.0', '>= 10.0.2'
+gem 'to_bool', '~> 1.0', '>= 1.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

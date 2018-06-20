@@ -1,25 +1,27 @@
 <%= render 'search' %>
 
 
-<div class="row clearfix">
+<div class="row">
   <ul class="paginate">
   <%= paginate(@lin_moviles) %>
   </ul>
 </div>
 
-<div class="row text-right">
-<%= page_entries_info @lin_moviles %><br/><br/>
+<div class="row text-left">
+  <%= page_entries_info @lin_moviles %>
+  <!-- <%= link_to current_url(:format=>:csv), class: "float-right", title: 'Exportar a csv' do %>
+      <i class="fi-page-export-csv large icon"></i><% end %>-->
 </div>
 
-<div class="table-scroll-horizontal">
+<div class="table-scroll">
   <table>
-    <thead>
+    <thead class="color-cabecera">
       <tr>        
         <th><%= sort_link(@q, :linea_cNumero ) %></th>        
-        <th><%= sort_link(@q, :linea_cNumCorto ) %></th>          
-        <th><%= sort_link(@q, :persona_cDNI  ) %></th>  
+        <th><%= sort_link(@q, :linea_cNumCorto ) %></th>                  
         <th><%= sort_link(@q, :persona_cnombre  ) %></th>  
         <th><%= sort_link(@q, :persona_cApellidos  ) %></th>
+        <th><%= sort_link(@q, :persona_cempnompuesto  ) %></th>
         <th><%= sort_link(@q, :linea_unidad_nCodUni ) %></th>
         <th><%= sort_link(@q, :linea_unidad_cDenominacion  ) %></th>
       </tr>
@@ -29,10 +31,10 @@
       <% @lin_moviles.each do |t| %>
         <tr>            
           <td><%= link_to t.linea.cNumero==nil ? '' : t.linea.cNumero , t, :class => 'link' %></td>                    
-          <td><%= link_to t.linea.cNumCorto==nil ? '' : t.linea.cNumCorto , t, :class => 'link' %></td>                              
-          <td><%= t.persona.cDNI rescue nil %></td>
+          <td><%= link_to t.linea.cNumCorto==nil ? '' : t.linea.cNumCorto , t, :class => 'link' %></td>                                        
           <td><%= t.persona.cnombre rescue nil %></td>          
           <td><%= t.persona.cApellidos rescue nil %></td>
+          <td><%= t.persona.cempnompuesto rescue nil %></td>
           <td><%= t.linea.unidad.nCodUni rescue nil %></td>
           <td><%= t.linea.unidad.cDenominacion rescue nil %></td>
         </tr>
@@ -41,7 +43,7 @@
   </table>
 </div>
 
-<div class="row text-right">
+<div class="row text-left">
 <%= page_entries_info @lin_moviles %><br/><br/>
 </div>
 

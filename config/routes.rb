@@ -27,7 +27,14 @@ Rails.application.routes.draw do
     # resources :plan_issis
     # resources :v_tetra_plan_gssis
     
-    resources :lin_moviles
+    resources :lin_moviles do 
+      resources :personas do
+        resources :unidades do
+          resources :areas
+        end
+      end
+    end 
+
     resources :modelos_terminales 
     resources :lin_datos 
 
