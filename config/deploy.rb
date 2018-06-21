@@ -17,7 +17,7 @@ set :full_app_name, fetch(:application)
 set :repo_url, "https://github.com/geslico/geslico.git"
 
 # Default branch is :master
-set :scm, :git
+# set :scm, :git
 
 set :deploy_to, "/aytomad/app/gslic"
 
