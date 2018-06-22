@@ -77,5 +77,6 @@ group :development do
   gem 'capistrano', '~> 3.10', '>= 3.10.1', require: false
   gem 'capistrano-bundler', '~> 1.3', require: false
   gem 'capistrano-rails', '~> 1.3', '>= 1.3.1', require: false
+  gem "capistrano-rvm",                require: false
 end
 
