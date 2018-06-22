@@ -40,6 +40,7 @@ es:
   search_form:
     search: "Buscar"
     clear: "Limpiar"
+    status: "Estado"
 
   unauthorized:
     manage:

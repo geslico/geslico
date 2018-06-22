@@ -18,8 +18,8 @@ class LinMovilesController < ApplicationController
 
   def new
     @lin_movil = LinMovil.new()        
-    @lin_movil.linea = Linea.new()        
-    @lin_movil.linea.nCodEstLin = 3        
+    @lin_movil.linea = Linea.new()            
+    before_new_linea 
   end
   
   def edit    
@@ -56,6 +56,18 @@ class LinMovilesController < ApplicationController
       @lin_movil = LinMovil.find(params[:id])                    
     end
     
+    def before_new_linea 
+      @lin_movil.linea.nCodEstLin = 3   
+      @lin_movil.cInternet = 0
+      @lin_movil.cInternetG = 0
+      @lin_movil.cIntranet = 0
+      @lin_movil.cIntranetG = 0
+      @lin_movil.cDual = 0
+      @lin_movil.cDualG = 0
+      @lin_movil.cMultisim = 0
+      @lin_movil.cMultisimG = 0
+    end
+
     def before_create_linea      
       #Recurrimos a una función para autogenera el id (numero de línea)      
       nLinea=Linea.get_new_linea(@lin_movil.linea.cNumero!=nil ? @lin_movil.linea.cNumero : @lin_movil.linea.cNumCorto).to_i
@@ -69,7 +81,7 @@ class LinMovilesController < ApplicationController
     def lin_movil_params
       params.require(:lin_movil).permit(:id, :nCodTipMovil, :bHorarioExtendido, :bPrincipal, :cSoloEmergencia, :cPerfil, 
         :cPerfilAutorizado, :cCoberturaNormativa, :cUsuarioIntranet, :cIPm2m, :nNumFaxAsoc, :cInternetG, :cIntranetG, :cDualG, :cMultisimG,
-        :cObserva, :bHorarioExtendido,
+        :cObserva, :bHorarioExtendido, :cDNI,
         linea_attributes: [:id, :cNumero, :cNumCorto, :nCodEstLin, :dFechaAlta, :dFechaBaja, :bListadoVIP, :bVIP, :nCodUni ])
     end
 end

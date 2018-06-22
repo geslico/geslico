@@ -13,14 +13,14 @@
 
   <div class="row">
     <div class="small-2 medium-2 large-1 columns">
-      <%= f.label :lin_movil_cont, t('search_form.title') , for: "middle-label", class: "text-right" %>
+      <%= f.label :lin_movil_cont, t('search_form.search') , for: "middle-label", class: "text-right" %>
     </div>
     <div class="small-10 medium-6 large-8 columns">
       <%= f.search_field :lin_movil_cont %>
     </div>
     
     <div class="small-2 medium-2 large-1 columns">
-      <%= f.label :linea_nCodEstLin_eq, t('search_form.title') , for: "middle-label", class: "text-right" %>
+      <%= f.label :linea_nCodEstLin, t('search_form.status') , for: "middle-label", class: "text-right" %>
     </div>    
     <div class="small-10 medium-2 large-2 columns">      
       <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosMoviles, "nCodEstLin", "cDescEstado","0")  %>      
@@ -52,7 +52,7 @@
 
   <div class="row" >      
     <div class="small-12 medium-12 large-12 columns">      
-      <%= f.submit :class => "button float-right" %>      
+      <%= f.submit :class => "button small float-right" %>      
       <%= link_to  t('search_form.clear') , request.path, :class => "button small float-right" %>
     </div>
   </div>

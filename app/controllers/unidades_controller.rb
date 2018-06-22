@@ -13,7 +13,7 @@ class UnidadesController < ApplicationController
 
   # GET /unidades/new
   # def new
-    @unidad = Unidad.new
+  #  @unidad = Unidad.new
   # end
 
   # GET /unidades/1/edit

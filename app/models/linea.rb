@@ -4,7 +4,7 @@ class Linea < ApplicationRecord
 	self.primary_key="nLinea"
 	
 	NULL_ATTRS = %w( cNumero cNumCorto )
-	before_save :nil_if_blank	
+	before_save :nil_if_blank, on: [ :create, :update ]
 
 	belongs_to :estados_linea, :foreign_key => "nCodEstLin"
 	belongs_to :unidad, :foreign_key => "nCodUni", :primary_key=> "nCodUni"

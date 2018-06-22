@@ -97,9 +97,8 @@ es:
         bListadoVIP: "ListadoVIP"
         nCodUni: "Cód.Uni"
         
-      lin_movil:
-        cNumero: "Número"
-        cNumCorto: "Extensión"
+      lin_movil:        
+        cDNI: "Documento"
         nCodTipMovil: "Tipo"
         cPerfil: "Perfil"
         cPerfilAutorizado: "Perfil Autorizado"
