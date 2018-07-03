@@ -49,5 +49,5 @@ namespace :deploy do
     after :finishing, 'deploy:cleanup'
     # Reiniciar servidor de aplicaciones
     after 'deploy:publishing', 'deploy:restart'
-    after 'deploy:restart', 'sidekiq:restart'
+    # after 'deploy:restart', 'sidekiq:restart'
 end
