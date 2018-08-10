@@ -13,92 +13,93 @@
       <ul class="menu horizontal medium-horizontal" data-responsive-menu="drilldown medium-dropdown">           
         <% if can? :read, Sede %>
           <li class="has-submenu">
-            <a href="#">Campus</a>
+            <a href="#"><%= t('menu.campus')%></a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><%= link_to "Sedes", sedes_path, class: "margin-right" %></li>
-              <li><%= link_to "Acrónimos", acronimos_sede_edrs_path, class: "margin-right" %></li>
+              <li><%= link_to t('menu.sedes'), sedes_path, class: "margin-right" %></li>
+              <li><%= link_to t('menu.acronimos'), acronimos_sede_edrs_path, class: "margin-right" %></li>
             </ul>
           </li>
         <% end %>
         
         <% if can? :read, VTetraPlanIssi %>
           <li class="has-submenu">
-            <a href="#">Radio</a>
+            <a href="#"><%= t('menu.radio')%></a>
             <ul class="submenu menu vertical" data-submenu>            
-              <li><%= link_to "Sites", radio_sites_path, class: "margin-right" %></li>
-              <li><%= link_to "Plan de Numeración", v_tetra_planes_path, class: "margin-right" %></li>
-              <li><a href="#">Radio</a></li>
-              <li><a href="#">Consolas</a></li>
-              <li><a href="#">GSSI</a></li>              
+              <li><%= link_to t('menu.sites'), radio_sites_path, class: "margin-right" %></li>
+              <li><%= link_to t('menu.plan_num'), v_tetra_planes_path, class: "margin-right" %></li>
+              <li><a href="#"><%= t('menu.radio')%></a></li>
+              <li><a href="#"><%= t('menu.consolas')%></a></li>
+              <li><a href="#"><%= t('menu.gssi')%></a></li>              
             </ul>
           </li>
         <% end %>
                 
         <li class="has-submenu">
-          <a href="#">Móvil</a>
+          <a href="#"><%= t('menu.movil')%></a>
           <ul class="submeno menu vertical" data-submenu>            
-            <li><%= link_to "Líneas Móvil", lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), class: "margin-right" %></li>
-            <li><a href="#">Terminales</a></li>
-            <li><a href="#">Tarjetas</a></li>
-            <li><a href="#">Afaria</a></li>
-            <li><a href="#">Pedidos</a></li>
-            
+            <li><%= link_to t('menu.lineas'), lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), class: "margin-right" %></li>
+            <li><a href="#"><%= t('menu.terminales')%></a></li>
+            <li><a href="#"><%= t('menu.tarjetas')%></a></li>
+            <li><a href="#"><%= t('menu.afaria')%></a></li>
+            <li><a href="#"><%= t('menu.pedidos')%></a></li>            
             <% if can? :read, ModelosTerminal %> 
-              <li><%= link_to "Catálogo", modelos_terminales_path, class: "margin_right" %></li>
+              <li><%= link_to t('menu.catalogo'), modelos_terminales_path, class: "margin_right" %></li>
             <% end %>
                         
           </ul>
         </li>
 
         <li class="has-submenu">
-          <a href="#">Fija</a>
+          <a href="#"><%= t('menu.fija')%></a>
             <ul class="submenu menu vertical" data-submenu>
-              <li><a href="#">Líneas</a></li>
-              <li><a href="#">Gestión de dispositivos</a></li>
+              <li><a href="#"><%= t('menu.lineas')%></a></li>
+              <li><a href="#"><%= t('menu.ges_disp')%></a></li>
             </ul>
         </li>
 
         <li class="has-submenu">
-          <a href="#">Electrónica</a>
+          <a href="#"><%= t('menu.electronica')%></a>
           <ul class="submenu menu vertical" data-submenu>
             <% if can? :read, RackEdr %>
-              <li><%= link_to "Electrónica de Red", edr_url, class: "margin-right" %></li>
+              <li><%= link_to t('menu.electronica_red'), edr_url, class: "margin-right" %></li>
             <% end %>              
-            <li><%= link_to "Almacén", almacen_url, class: "margin-right" %></li>
-            <li><a href="#">Catálogo de Red</a></li>
-            <li><a href="#">Reserva Rangos IP</a></li>
+            <% if can? :read, Componente %>
+              <li><%= link_to  t('menu.inventario'), inventario_url, class: "margin-right" %></li>
+              <li><a href="#"><%= t('menu.catalogo')%></a></li>
+            <% end %>                
+            <li><a href="#"><%= t('menu.reserva_ips')%></a></li>
           </ul>
         </li>
 
         <li class="has-submenu">
-          <a href="#">Datos</a>
+          <a href="#"><%= t('menu.datos') %></a>
           <ul class="submenu menu vertical" data-submenu>
               <% if can? :read, LinDato %>
-                <li><%= link_to "Líneas", lin_datos_path, class: "margin_right" %></li>
+                <li><%= link_to t('menu.lineas'), lin_datos_path, class: "margin_right" %></li>
               <% end %>              
           </ul>
         </li>
 
         <li class="has-submenu">
-          <a href="#">Informes</a>
+          <a href="#"><%= t('menu.informes') %></a>
           <ul class="submenu menu vertical" data-submenu>
             <% if can? :read, Sede %>
-              <li><%= link_to "Sedes", informes_sedes_url, class: "margin-right" %></li>
+              <li><%= link_to t('menu.sedes'), informes_sedes_url, class: "margin-right" %></li>
             <% end %>  
             <% if can? :read, RadioSite %>
-              <li><%= link_to "Radio", informes_radio_url, class: "margin-right" %></li>
+              <li><%= link_to t('menu.radio'), informes_radio_url, class: "margin-right" %></li>
             <% end %>              
             <% if can? :read, LinMovil %>
-              <li><%= link_to "Líneas Móviles", informes_movil_url, class: "margin-right" %></li>            
+              <li><%= link_to t('menu.lin_moviles'), informes_movil_url, class: "margin-right" %></li>            
             <% end %>
             <% if can? :read, Linea %>
-              <li><%= link_to "Líneas Fijas", informes_fija_url, class: "margin-right" %></li>            
+              <li><%= link_to t('menu.lin_fijas'), informes_fija_url, class: "margin-right" %></li>            
             <% end %>  
             <% if can? :read, Edr %>
-              <li><%= link_to "Electronica de Red", informes_electronica_url, class: "margin-right" %></li>
+              <li><%= link_to t('menu.electronica_red'), informes_electronica_url, class: "margin-right" %></li>
             <% end %>  
             <% if can? :read, LinDato %>
-              <li><%= link_to "Datos", informes_datos_url, class: "margin-right" %></li>
+              <li><%= link_to t('menu.datos'), informes_datos_url, class: "margin-right" %></li>
             <% end %>  
         </li>             
       </ul>
@@ -107,9 +108,9 @@
     <div class="top-bar-right">
       <ul class="menu">
         <% if can? :read, Usuario %>
-        <li><%= link_to "Usuarios", usuarios_path %></li>
+        <li><%= link_to t('menu.usuarios'), usuarios_path %></li>
         <% end %>
-        <li><%= link_to "Cerrar Sesión", logout_path, method: "delete" %></li>
+        <li><%= link_to t('menu.cerrar_sesion'), logout_path, method: "delete" %></li>
       </ul>      
     </div>
    

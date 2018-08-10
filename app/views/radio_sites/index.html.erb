@@ -18,22 +18,14 @@
       </div>            
       <div class="small-12 medium-2 large-2 columns">
         <%= f.label :tipo_site_cDescripcion_eq, 'Tipo Site' %>
-        <% if !params[:q].nil?  %>        
-          <%= f.select :tipo_site_cDescripcion_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
-                     TipoSite.all, "cDescripcion", "cDescripcion", params[:q][:tipo_site_cDescripcion_eq]) %>
-        <% elsif %>
-          <%= f.select :tipo_site_cDescripcion_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
-                     TipoSite.all, "cDescripcion", "cDescripcion") %>
-        <% end %>          
+        <%= f.select :tipo_site_cDescripcion_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(
+              TipoSite.all, "cDescripcion", "cDescripcion", !params[:q].nil?? params[:q][:tipo_site_cDescripcion_eq] : '') %>
       </div>      
       <div class="small-12 medium-2 large-2 columns">         
         <%= f.label :nCodEstado_eq, 'Estado' %>     
-        <% if  !params[:q].nil?  %>
-          <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_for_select([["Activa",1], ["Baja", 2]], params[:q][:nCodEstado_eq]) %><br>
-        <% else %>
-          <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_for_select([["Activa",1], ["Baja", 2]]) %><br>
-        <% end %>
-      </div>      
+        <%= f.select :nCodEstado_eq, content_tag(:option,'',:value=>"")+options_for_select([["Activa",1], ["Baja", 2]], 
+              !params[:q].nil?? params[:q][:nCodEstado_eq] : '') %><br>
+        </div>      
     </div>  
 
     <div class="row">

@@ -43,7 +43,7 @@ Rails.application.routes.draw do
     get '/electronica-red/edr/foto' => 'rack_edrs#foto', as: 'edr_foto'
 
     resources :componentes
-    get '/electronica-red/almacen' => 'componentes#index', as: 'almacen'
+    get '/electronica-red/inventario' => 'componentes#index', as: 'inventario'
     
 
     resources :usuarios do

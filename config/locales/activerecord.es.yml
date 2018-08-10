@@ -166,6 +166,25 @@ es:
       lin_fijo:
         nAccesos: "Accesos"
 
+      catalogo:
+        cFabricante: "Marca"
+        cModelo: "Modelo"
+        nBocasRed: "Nº Bocas"
+
+      componente:
+        nCodComponente: "Código"
+        cPrefijoMAC: "Prefijo MAC"
+        nCodUbicacion: "Ubicación"
+        cSerie: "Nº Serie"
+        cExpediente: "Nº Expediente"
+        cBien: "Nº Bien"
+        dFchEntrada: "Fecha Entrada"
+        dFchSalida: "Fecha Salida"
+        bUsado: "Usado"
+        cObservaciones: "Observaciones"
+        dFchFinGarantia: "Fecha Fin Garantía"
+        dFchFinMantenimiento: "Fecha Fin Mantenimiento"
+
       radio_site:
         nCodSite: "Código"
         cNombreSite: "Nombre Site"
@@ -227,3 +246,4 @@ es:
         nLineaAsocAlarm: "Línea asociada"
         cAlimenAlarm: "Alimentación"
         bBateriasAlarm: "Batería"
+
