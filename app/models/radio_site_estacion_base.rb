@@ -5,6 +5,10 @@ class RadioSiteEstacionBase < ApplicationRecord
 	belongs_to :radio_site, :foreign_key => "nCodSite"
 	belongs_to :radio_site_canal, :foreign_key => "nCodCanal"
 	
+	validates :nCodSite, presence: true
+	validates :nBR, presence: true
+	validates :nCodCanal, presence: true
+
 	def self.frecuencias_compartidas(cod_site)
 		joins(:radio_site).
 		select("TSiteEstacionesBase.nCodSite, TSiteRadio.cNombreSite, nCodCanal, nBR")

@@ -28,11 +28,12 @@ class RadioSitesController < ApplicationController
   end
 
   # PATCH/PUT /
-  def update
-    
+  def update    
       respond_to do |format|
-
-      if @radio_site.update(radio_site_params)      
+      data = radio_site_params
+      data['cUsuarioModificacion'] = current_user['cCodUsuario']
+      data['dFchModifciacion'] = Time.now.strftime("%Y/%m/%d %H:%M:%S")
+      if @radio_site.update(data)      
         flash[:success] ='Linea de datos modificada correctamente.' 
         format.html { redirect_to @radio_site }
       else
@@ -58,7 +59,8 @@ class RadioSitesController < ApplicationController
         :cCompEltrec, :cCupsElec, :nNuncontElec, :nNumTfnoave, :cTipoElec, :cPotenElec, :bMunielec, :cUbicaContador,
         :cUbicaInterrup, :cLlavescontador, :cVcaEntrada, :bReconecatoras, :bTomaGelectro, :bTomaGelectro, :cNomCentralAlarm, 
         :cTipocentralAlarm, :nLineaAsocAlarm, :cAlimenAlarm, :bBateriasAlarm, :cNomRadioM, :cTipoEquRedMovil, :cFabricRadioM, 
-        :cNumEbt, :cSwmi, :cTipoEnlace, :nNumPorteadoras, :cTipoAntenRx, :cTipoAntenTx, :bDiveridadRx)        
+        :cNumEbt, :cSwmi, :cTipoEnlace, :nNumPorteadoras, :cTipoAntenRx, :cTipoAntenTx, :bDiveridadRx, :cUsuarioAlta, :dFchAlta,
+        :cUsuarioModificacion, :dFchModifciacion)        
     end  
     
 end  

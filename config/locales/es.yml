@@ -23,7 +23,7 @@ es:
 
   time:
     formats:
-      default: "%d-%m-%Y"
+      default: "%Y-%m-%d"
 
   application:
     close: "Cerrar"
@@ -44,6 +44,44 @@ es:
   unauthorized:
     manage:
       all: "Acceso no autorizado. Debe iniciar sesión."
+
+  menu:
+    campus: "Campus"
+    sedes: "Sedes"
+    acronimos: "Acrónimos"
+    radio: "Radio"
+    sites: "Sites"
+    plan_num: "Plan de Numeración"
+    consolas: "Consolas"
+    gssi: "GSSI"
+    movil: "Móvil"
+    lineas: "Líneas"
+    terminales: "Terminales"
+    tarjetas: "Tarjetas"
+    afaria: "Afaria"
+    pedidos: "Pedidos"
+    catalogo: "Catálogo"
+    fija: "Fija"
+    ges_disp: "Gestión de dispositivos"
+    electronica: "Electrónica"
+    electronica_red: "Electrónica de Red"
+    inventario: "Inventario"
+    reserva_ips: "Reserva Rangos IP"
+    datos: "Datos"
+    informes: "Informes"
+    lin_moviles: "Líneas Móviles"
+    lin_fijas: "Líneas Fijas"
+    usuarios: "Usuarios"
+    cerrar_sesion: "Cerrar Sesión"
+
+  componente:
+    titulo_listado: "Inventario"
+    titulo: "Componente"
+    titulo_editar: "Editar Componente"
+    titulo_nuevo: "Nuevo Componente"
+    nuevo: "Nuevo componente"
+    tipo: "Tipo"
+    sede: "Nombre Sede"
 
   site:
     emplazamiento: 'Emplazamiento'
