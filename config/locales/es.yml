@@ -46,6 +46,8 @@ es:
     manage:
       all: "Acceso no autorizado. Debe iniciar sesión."
 
+  estado_terminales_movil:
+    cEstado: "Estado"
 
   modelos_terminal:
     cMarca: "Marca"
