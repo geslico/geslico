@@ -15,7 +15,16 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require show_results
 
 
-$(function(){ $(document).foundation(); });
+var initialize_modules = function() {        
+    App.ShowResults.initialize();
+ };
 
+$(function(){    
+    $(document).foundation();  
+    $(document).ready(initialize_modules);
+    $(document).on('page:load', initialize_modules);
+    $(document).on('ajax:complete', initialize_modules);    
+  });

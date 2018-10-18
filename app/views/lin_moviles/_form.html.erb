@@ -11,18 +11,18 @@
   <% end %>
     
     <div class="row"> 
-      <div class="small-3 medium-2 large-6 columns">
+      <div class="small-12 medium-6 large-6 columns">
           <h3><%= t('activerecord.models.lin_movil.other') %></h3>
       </div>
 
-      <div class="small-3 medium-2 large-6 columns text-right">              
+      <div class="small-12 medium-6 large-6 columns text-right">              
           <% if can? :cru, LinMovil %>          
             <% if @readonly==true %>   
-              <%= link_to '<< Volver', lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), :class => 'button small' %>
-              <%= link_to 'Editar', edit_lin_movil_path(@lin_movil), :class => "button small" %>        
+              <%= link_to t('form_for.return'), lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), :class => 'button small' %>
+              <%= link_to t('form_for.edit'), edit_lin_movil_path(@lin_movil), :class => "button small" %>        
             <% else %>
-              <%= link_to '<< Volver', @lin_movil, :class => 'button small' %>
-              <%= f.submit 'Guardar' , :class => "button small" %> 
+              <%= link_to t('form_for.return'), @lin_movil, :class => 'button small' %>
+              <%= f.submit t('form_for.save') , :class => "button small" %> 
             <% end %>
           <% end %>
       </div>
@@ -30,52 +30,52 @@
   <%= f.fields_for :linea, @lin_movil.linea do |ff| %>
 
     <div class="row">
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-12 medium-3 large-3 columns">
        <%= ff.label :cNumero, for: 'middle-label'%>
         <%= ff.telephone_field :cNumero, :readonly => @readonly  %>
       </div>
 
-      <div class="small-3 medium-2 large-2 columns">
+      <div class="small-8 medium-2 large-2 columns">
         <%= ff.label :cNumCorto, for: 'middle-label' %>      
         <%= ff.text_field :cNumCorto , for: 'middle-label', :readonly => @readonly %>
       </div>
-      <div class="small-3 medium-2 large-1 columns">                
-        <%= clicktocallwithedit_to @lin_movil.linea.cNumCorto, "large" rescue nil %>             
+      <div class="small-4 medium-1 large-1 columns">                        
+        <%= clicktocallwithedit_to @lin_movil.linea.cNumCorto==nil ? @lin_movil.linea.cNumero : @lin_movil.linea.cNumCorto , "medium"  %>             
       </div>
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-6 medium-3 large-3 columns">
         <%= f.label :nCodTipMovil, for: 'middle-label' %>
         <%= f.select :nCodTipMovil, options_from_collection_for_select(TipoLinMovil.all, "nCodTipMovil", "cDescTipoMovil", @lin_movil.nCodTipMovil) , {}, {:disabled => @readonly} %>
       </div>
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-6 medium-3 large-3 columns">
         <%= ff.label :nCodEstLin, for: 'middle-label' %>      
         <%= ff.select :nCodEstLin, options_from_collection_for_select(EstadosLinea.all, "nCodEstLin", "cDescEstado", @lin_movil.linea.nCodEstLin) , {}, {:disabled => @readonly}  %>      
       </div>
     </div>
     <div class="row">
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-12 medium-3 large-3 columns">
         <%= ff.label :dFechaAlta, for: 'middle-label' %>      
         <%= ff.date_field :dFechaAlta, for: 'middle-label', :readonly => @readonly  %>
       </div>
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-12 medium-3 large-3 columns">
         <%= ff.label :dFechaBaja, for: 'middle-label' %>
         <%= ff.date_field :dFechaBaja, for: 'middle-label', :readonly => @readonly %>
       </div>              
-      <div class="small-3 medium-2 large-3 columns">
+      <div class="small-12 medium-4 large-3 columns">
         <%= f.label :bHorarioExtendido, for: 'middle-label' %>
         <%= f.select :bHorarioExtendido, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.bHorarioExtendido), {}, {:disabled => @readonly}  %>      
       </div>
-      <div class="small-3 medium-2 large-2 columns ">
+      <div class="small-12 medium-2 large-2 columns ">
         <%= ff.label :bListadoVIP, for: 'middle-label' %>      
         <%= ff.select :bListadoVIP, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.linea.bListadoVIP.to_bool), {}, {:disabled => @readonly}  %>      
       </div>      
       </div>
     <div class="row">
-      <div class="small-3 medium-2 large-2 columns ">
+      <div class="small-12 medium-2 large-2 columns ">
         <%= f.label :bPrincipal, for: 'middle-label' %>      
         <%= f.select :bPrincipal, options_for_select([["",nil],["SÍ",true], ["NO", false]], @lin_movil.bPrincipal), {}, {:disabled => @readonly}  %>
       </div>
     
-      <div class="small-3 medium-2 large-2 columns">
+      <div class="small-12 medium-2 large-2 columns">
         <%= f.label :cSoloEmergencia, for: 'middle-label' %>      
         <%= f.select :cSoloEmergencia, options_for_select([["",nil],["SÍ",1], ["NO", 0]], @lin_movil.cSoloEmergencia.to_i), {}, {:disabled => @readonly}  %>
       </div>
@@ -85,7 +85,8 @@
       <div class="small-12 medium-12 large-12 columns">
       <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
         <%= render 'linea', f: f %>      
-        <%= render 'persona', persona: @lin_movil.persona %>      
+        <%= render 'persona', persona: @lin_movil.persona, f: f %>      
+        <%= render 'terminales', terminal_moviles: @lin_movil.terminal_movil.where('nCodEstado in (2,4,6,9)').order('dFchUltimaAsignacion desc'), f: f %>      
       </ul>
       </div>
     </div>

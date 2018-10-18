@@ -40,10 +40,31 @@ es:
   search_form:
     search: "Buscar"
     clear: "Limpiar"
+    status: "Estado"
 
   unauthorized:
     manage:
       all: "Acceso no autorizado. Debe iniciar sesión."
+
+  estado_terminales_movil:
+    cEstado: "Estado"
+
+  modelos_terminal:
+    cMarca: "Marca"
+    cModelo: "Modelo"
+    cSO: "S.O."
+    nPulgadas: "Pulgadas"
+    nIdCategoria: "Categoria"
+    cTipo: "Tipo"
+    bDisponibilidad: "Disponible"
+    bVigente: "Vigente"
+
+
+  sede:
+    nCodSede: "Código"
+    nCodEstado: "Estado"
+    cNombre: "Sede"
+    cDireccion: "Dirección"
 
   site:
     emplazamiento: 'Emplazamiento'
@@ -151,3 +172,8 @@ es:
     umbral_max: "Umbral máximo APTC (dBm)"
     siteB: "Site B"
     mpr: "MPR (B)"
+
+  terminal_movil:
+    cImei: "Imei"
+    cImei2: "Imei2"
+    dFchUltimaAsignacion: "Fch.Asignación"
