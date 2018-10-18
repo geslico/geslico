@@ -1,0 +1,48 @@
+<li class="accordion-item  is-active" data-accordion-item>
+    <a href="#" class="accordion-title">Terminal</a>
+        <div class="accordion-content" data-tab-content >                                  
+                       
+            <div class="table-scroll">
+                <table>
+                    <thead class="color-cabecera">
+                            <tr>            
+                                <th><%= t('terminal_movil.cImei') %></th>
+                                <th><%= t('terminal_movil.cImei2') %></th>
+                                <th><%= t('modelos_terminal.cMarca') %></th>
+                                <th><%= t('modelos_terminal.cModelo') %></th>
+                                <th><%= t('terminal_movil.dFchUltimaAsignacion') %></th>
+                                <th><%= t('modelos_terminal.cModelo') %></th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% terminal_moviles.each do |term| %>
+                                <tr>       
+                                    <td><%=  term.cImei %></td>             
+                                    <td><%=  term.cImei2 %></td>
+                                    <td><%=  term.modelos_terminal.cMarca %></td>
+                                    <td><%=  term.modelos_terminal.cModelo %></td>
+                                    <td><%=  term.dFchUltimaAsignacion.strftime("%d-%m-%Y") %></td>
+                                    <td><%=  term.estado_terminales_movil.cEstado %></td>
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div> 
+            
+        
+            <div class="row">                
+                <div class="small-12 medium-3 large-2 columns">                
+                    <%= f.label 'sede.nCodSede', for: 'middle-label' %>      
+                    <%= f.text_field :nCodSede , for: 'middle-label', :readonly => @readonly %>
+                </div>
+                <div class="small-12 medium-3 large-5 columns">
+                    <label> <%= t('sede.cNombre') %> <label>
+                    <input type="text" readonly="true" value="<%= sede.cNombre rescue nil %>"></input>                                        
+                </div>                
+                <div class="small-12 medium-3 large-5 columns">
+                    <label>  <%= t('sede.cDireccion') %> <label>
+                    <input type="text" readonly="true" value="<%= sede.cDireccion rescue nil %>"></input>                                        
+                </div>
+            </div>            
+        </div>
+</li>

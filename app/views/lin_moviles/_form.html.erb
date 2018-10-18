@@ -86,6 +86,7 @@
       <ul class="accordion margin-bottom" data-accordion data-multi-expand="true" data-allow-all-closed="true">
         <%= render 'linea', f: f %>      
         <%= render 'persona', persona: @lin_movil.persona, f: f %>      
+        <%= render 'terminales', terminal_moviles: @lin_movil.terminal_movil.where('nCodEstado in (2,4,6,9)').order('dFchUltimaAsignacion desc'), f: f %>      
       </ul>
       </div>
     </div>

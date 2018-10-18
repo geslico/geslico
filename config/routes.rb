@@ -34,6 +34,7 @@ Rails.application.routes.draw do
         end
       end
     end 
+    get 'personas/show_results' => 'personas#show_results'
 
     resources :modelos_terminales 
     resources :lin_datos 

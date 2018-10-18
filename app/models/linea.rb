@@ -16,8 +16,8 @@ class Linea < ApplicationRecord
 	
 	accepts_nested_attributes_for :lin_movil
 
-	validates :cNumero, :uniqueness => true, :numericality => true, :length => { :minimum => 9, :maximum => 15 }, :unless => "cNumero.blank?"
-	validates :cNumCorto, :uniqueness => true, :numericality => true, :length => { :minimum => 3, :maximum => 8 }, :unless => "cNumCorto.blank?"	
+	validates :cNumero, :uniqueness => true, :numericality => true, :length => { :minimum => 9, :maximum => 15 }, unless: :cNumCorto?
+	validates :cNumCorto, :uniqueness => true, :numericality => true, :length => { :minimum => 3, :maximum => 8 }, unless: :cNumero?
 	validates :nCodUni, presence: true	
 	validates :dFechaAlta, presence: true	
 	validates :nCodEstLin, presence: true	

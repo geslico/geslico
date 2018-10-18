@@ -71,7 +71,7 @@ es:
       sede:
         nCodSede: "Código"
         nCodEstado: "Estado"
-        cNombre: "Nombre"
+        cNombre: "Sede"
         cDireccion: "Dirección"
 
       acronimos_sede_edr:

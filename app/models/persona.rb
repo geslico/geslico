@@ -15,5 +15,6 @@ class Persona < ApplicationRecord
     end
 
     accepts_nested_attributes_for :lin_moviles, :unidad
-
+    
+    ransack_alias :persona, :cDNI
 end

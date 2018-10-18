@@ -50,7 +50,7 @@ class LinMovilesController < ApplicationController
       end
     end
   end
-
+  
   private
     def set_lin_movil
       @lin_movil = LinMovil.find(params[:id])                    

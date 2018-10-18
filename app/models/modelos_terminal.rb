@@ -3,8 +3,10 @@ class ModelosTerminal < ApplicationRecord
     self.table_name ="geslico.dbo.TModelosTerminales"
 
     belongs_to :categoria_terminal, :foreign_key => "nIdCategoria"
+    has_many :terminal_movil, :foreign_key => "nCodModelo", :primary_key => "nId"
     has_many :pedidos_movil, :foreign_key => "nCodModelo"
     
+
     ransack_alias :modelos_terminal, :cMarca_or_cModelo_or_cModeloFabricante_or_cSO_or_cCaracteristicas
 
     validates :cMarca, presence: true
