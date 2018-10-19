@@ -12,48 +12,94 @@
   </div>
 
   <div class="row">
-    <div class="small-2 medium-2 large-1 columns">
-      <%= f.label :lin_movil_cont, t('search_form.search') , for: "middle-label", class: "text-right" %>
+    <div class="small-3 medium-2 large-2 columns">
+      <%= f.label t('activerecord.attributes.linea.cNumero'), for: 'middle-label' %>    
+      <%= f.search_field :linea_cNumero_cont  %>
     </div>
-    <div class="small-10 medium-6 large-8 columns">
-      <%= f.search_field :lin_movil_cont %>
+    <div class="small-3 medium-2 large-2 columns">
+      <%= f.label t('activerecord.attributes.linea.cNumCorto'), for: 'middle-label' %>
+      <%= f.search_field :linea_cNumCorto_cont, for: 'middle-label' %>
     </div>
-    
-    <div class="small-2 medium-2 large-1 columns">
-      <%= f.label :linea_nCodEstLin, t('search_form.status') , for: "middle-label", class: "text-right" %>
+    <div class="small-3 medium-2 large-2 large-offset-2 columns">
+      <%= f.label :bPrincipal, for: 'middle-label' %>
+      <%= f.select :bPrincipal, options_for_select([["",nil],["SÍ",true], ["NO", false]])  %>
     </div>    
-    <div class="small-10 medium-2 large-2 columns">      
+    <div class="small-3 medium-2 large-2 columns">
+      <%= f.label :nCodTipMovil, for: 'middle-label' %>
+      <%= f.select :nCodTipMovil_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TipoLinMovil.all, "nCodTipMovil", "cDescTipoMovil") %>
+    </div>
+    <div class="small-2 medium-2 large-2 columns">
+      <%= f.label :linea_nCodEstLin, t('activerecord.attributes.linea.nCodEstLin') , for: "middle-label" %>    
       <%= f.select :linea_nCodEstLin_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(EstadosLinea.EstadosMoviles, "nCodEstLin", "cDescEstado","0")  %>      
     </div>
   </div>
 
-    <div class="row" style="display:none;">
-      <div class="small-3 medium-2 large-1 columns text-right">
-       <%= f.label :cNumero, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns">
-        <%= f.search_field :linea_cNumero_cont  %>
-      </div>
-
-      <div class="small-3 medium-2 large-1 columns text-right">
-        <%= f.label :cNumCorto, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-2 columns">
-        <%= f.search_field :linea_cNumCorto_cont, for: 'middle-label' %>
-      </div>
-      <div class="small-3 medium-2 large-2 columns text-right">
-        <%= f.label :nCodTipMovil, for: 'middle-label' %>
-      </div>
-      <div class="small-9 medium-4 large-3 columns end">
-        <%= f.select :nCodTipMovil_eq, content_tag(:option,'',:value=>"")+options_from_collection_for_select(TipoLinMovil.all, "nCodTipMovil", "cDescTipoMovil") %>
-      </div>
-    
+<div class="row">
+    <div class="small-3 medium-2 large-2 columns">      
+      <%= f.label :linea_bListadoVIP, t('activerecord.attributes.linea.bListadoVIP') , for: "middle-label" %>    
+      <%= f.select :linea_bListadoVIP, options_for_select([["",nil],["SÍ",true], ["NO", false]])  %>      
     </div>
+    <div class="small-3 medium-2 large-3 columns end">
+      <%= f.label :bHorarioExtendido, for: 'middle-label' %>
+      <%= f.select :bHorarioExtendido, options_for_select([["",nil],["SÍ",true], ["NO", false]])  %>
+    </div>
+    <div class="small-12 medium-2 large-2 columns">
+      <%= f.label :cSoloEmergencia, for: 'middle-label' %>      
+      <%= f.select :cSoloEmergencia, options_for_select([["",nil],["SÍ",1], ["NO", 0]]) %>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="small-3 medium-2 large-2 columns">      
+      <%= f.label :cDNI, for: "middle-label" %>    
+      <%= f.search_field :cDNI_cont %>
+    </div>
+    <div class="small-3 medium-2 large-3 large-offset-1 columns">
+      <%= f.label :persona_cnombre, t('activerecord.attributes.persona.cnombre'), for: "middle-label" %>    
+      <%= f.search_field :persona_cnombre_cont %>
+    </div>
+    <div class="small-3 medium-2 large-3 columns">
+      <%= f.label :persona_cape1, t('activerecord.attributes.persona.cape1'), for: "middle-label" %>    
+      <%= f.search_field :persona_cape1_cont %>
+    </div>
+    <div class="small-3 medium-2 large-3 columns">
+      <%= f.label :persona_cape2, t('activerecord.attributes.persona.cape2'), for: "middle-label" %>    
+      <%= f.search_field :persona_cape2_cont %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-3 medium-2 large-3 columns">
+      <%= f.label :persona_cempnompuesto, t('activerecord.attributes.persona.cempnompuesto'), for: "middle-label" %>    
+      <%= f.search_field :persona_cempnompuesto_cont %>
+    </div>
+    <div class="small-3 medium-2 large-1 columns">
+      <%= f.label :persona_cempgrupotit, t('activerecord.attributes.persona.cempgrupotit'), for: "middle-label" %>    
+      <%= f.search_field :persona_cempgrupotit_cont %>
+    </div>
+    <div class="small-3 medium-2 large-1 columns">
+      <%= f.label :persona_nempnivel, t('activerecord.attributes.persona.nempnivel'), for: "middle-label" %>    
+      <%= f.search_field :persona_nempnivel_eq %>
+    </div>
+    <div class="small-3 medium-2 large-2 columns">
+      <%= f.label :linea_nCodUni, t('activerecord.attributes.linea.nCodUni'), for: "middle-label" %>    
+      <%= f.search_field :linea_nCodUni_eq %>
+    </div>
+    <div class="small-3 medium-2 large-5 columns">
+      <%= f.label :linea_unidad_cDenominacion, t('activerecord.attributes.unidad.cDenominacion'), for: "middle-label" %>    
+      <%= f.search_field :linea_unidad_cDenominacion_cont %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-2 medium-2 large-12 columns">
+      <%= f.label :lin_movil_cont, t('search_form.search') , for: "middle-label" %>    
+      <%= f.search_field :lin_movil_cont %>
+    </div>      
+  </div>
 
   <div class="row" >      
     <div class="small-12 medium-12 large-12 columns">      
       <%= f.submit :class => "button small float-right" %>      
-      <%= link_to  t('search_form.clear') , request.path, :class => "button small float-right" %>
+      <%= link_to  t('search_form.clear') , lin_moviles_path(:'q[linea_nCodEstLin_eq]' => '0'), :class => "button small float-right" %>
     </div>
   </div>
       
