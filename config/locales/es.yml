@@ -173,6 +173,14 @@ es:
     siteB: "Site B"
     mpr: "MPR (B)"
 
+  tarjeta_movil:
+    cICC: "ICC"
+    dFechaEntrega: "Fch.Activación"
+    dFechaDevolu: "Fch.Devolución"
+    bDual: "Dual"
+    bActiva: "Activa"
+    cCodClase: "Clase Tarjeta"
+
   terminal_movil:
     cImei: "Imei"
     cImei2: "Imei2"

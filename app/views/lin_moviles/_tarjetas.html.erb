@@ -1,0 +1,32 @@
+<li class="accordion-item  is-active" data-accordion-item>
+    <a href="#" class="accordion-title">Tarjetas SIM</a>
+        <div class="accordion-content" data-tab-content >                                  
+                       
+            <div class="table-scroll">
+                <table>
+                    <thead class="color-cabecera">
+                            <tr>            
+                                <th><%= t('tarjeta_movil.cICC') %></th>
+                                <th><%= t('tarjeta_movil.dFechaEntrega') %></th>
+                                <th><%= t('tarjeta_movil.dFechaDevolu') %></th>
+                                <th><%= t('tarjeta_movil.bDual') %></th>
+                                <th><%= t('tarjeta_movil.bActiva') %></th>
+                                <th><%= t('tarjeta_movil.cCodClase') %></th>
+                            </tr>
+                        </thead>                                
+                        <tbody>          
+                            <% tarjetas.each do |t| %>
+                                <tr>       
+                                    <td><%= t.cICC %></td>
+                                    <td><%= t.dFechaEntrega.strftime("%d-%m-%Y") rescue nil %></td>
+                                    <td><%= t.dFechaDevolu.strftime("%d-%m-%Y") rescue nil %></td>
+                                    <td><%= t.bDual %></td>
+                                    <td><%= t.bActiva %></td>
+                                    <td><%= t.cCodClase %></td>
+                                </tr>                    
+                            <% end %>                
+                        </tbody>
+                    </table>
+                </div>         
+        </div>
+</li>
