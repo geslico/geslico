@@ -60,6 +60,15 @@ es:
         one: "Modelo"
         other: "Modelos"
 
+      tarjeta_movil:
+        one: "Tarjeta SIM"
+        other: "Tarjetas SIM"
+
+      terminal_movil:
+        one: "Terminal"
+        other: "Terminal Móviles"
+
+
     attributes:
       usuario:
         cCodUsuario: "Código"
