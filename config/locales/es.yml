@@ -46,6 +46,17 @@ es:
     manage:
       all: "Acceso no autorizado. Debe iniciar sesión."
 
+  consumo_movil:
+    nAnno: "Año"
+    cMes: "Mes"
+    nNumLlamadas: "Llamadas"
+    nSMS: "SMS"
+    nMegabytes: "Volumen"
+    Cuota: "Cuota"
+    Voz: "Voz"
+    Datos: "Datos"
+    Total: "Total"
+
   estado_terminales_movil:
     cEstado: "Estado"
 

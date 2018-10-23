@@ -13,6 +13,7 @@ class LinMovil < ApplicationRecord
     has_one :sede, :foreign_key => "nCodSede", :primary_key => "nCodSede"
     has_many :terminal_movil, :foreign_key => "nLinea", :primary_key => "nLinea"    
     has_many :tarjeta_movil, :foreign_key => "nLineaMovil", :primary_key => "nLinea"    
+    has_many :consumo_movil, :foreign_key => "nLinea", :primary_key => "nLinea"    
 
     ransack_alias :lin_movil, :linea_cNumero_or_linea_cNumCorto_or_cObserva_or_cPerfil_or_cPerfilAutorizado_or_cCoberturaNormativa_or_cDNI_or_persona_cnombre_or_persona_cape1_or_persona_cape2_or_linea_unidad_cDenominacion_or_tipo_lin_movil_cDescTipoMovil_or_sede_cNombre
     

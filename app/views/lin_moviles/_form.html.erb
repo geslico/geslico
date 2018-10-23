@@ -87,7 +87,10 @@
         <%= render 'linea', f: f %>      
         <%= render 'persona', persona: @lin_movil.persona, f: f %>      
         <%= render 'terminales', terminal_moviles: @lin_movil.terminal_movil.where('nCodEstado in (2,4,6,9)').order('dFchUltimaAsignacion desc'), f: f %>      
-        <%= render 'tarjetas', tarjetas: @lin_movil.tarjeta_movil.order('dFechaEntrega desc'), f: f %>      
+        <%= render 'tarjetas', tarjetas: @lin_movil.tarjeta_movil.order('dFechaEntrega desc'), f: f %>
+        <% if can? :cru, ConsumoMovil %>
+          <%= render 'consumos', consumos: @lin_movil.consumo_movil.where('dFechaFactura >= dateadd(m,-13, getdate())').order('dFechaFactura desc'), f: f %>
+        <% end %>
       </ul>
       </div>
     </div>

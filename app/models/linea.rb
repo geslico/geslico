@@ -14,6 +14,8 @@ class Linea < ApplicationRecord
 	has_many :lin_fijos_puestos, :foreign_key => "nLineaFija", :primary_key=> "nLinea"
 	has_one :lin_dato, :foreign_key => "nLinea"
 	
+	has_many :consumo_movil, :foreign_key => "nLinea", :primary_key => "nLinea"
+
 	accepts_nested_attributes_for :lin_movil
 
 	validates :cNumero, :uniqueness => true, :numericality => true, :length => { :minimum => 9, :maximum => 15 }, unless: :cNumCorto?
