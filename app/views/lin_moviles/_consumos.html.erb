@@ -1,0 +1,40 @@
+<% if can? :cru, ConsumoMovil %>
+    <li class="accordion-item  is-active" data-accordion-item>
+        <a href="#" class="accordion-title"><%= t('activerecord.models.consumo_movil.one') %></a>
+            <div class="accordion-content" data-tab-content >                                  
+                        
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                                <tr>            
+                                    <th><%= t('consumo_movil.nAnno') %></th>
+                                    <th><%= t('consumo_movil.cMes') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.nNumLlamadas') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.nSMS') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.nMegabytes') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.Cuota') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.Voz') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.Datos') %></th>
+                                    <th class="text-right"><%= t('consumo_movil.Total') %></th>
+                                </tr>
+                            </thead>                                
+                            <tbody>          
+                                <% consumos.each do |c| %>
+                                    <tr>       
+                                        <td><%= c.nAnno %></td>
+                                        <td><%= c.cMes %></td>
+                                        <td class="text-right"><%= c.nNumLlamadas rescue nil %></td>
+                                        <td class="text-right"><%= c.nSMS rescue nil %></td>
+                                        <td class="text-right"><%= number_to_human(c.nMegabytes, units: {unit: "Mb", thousand: "Gb"}, :format => "%n %u  ", separator: ",", delimiter: ".") rescue nil %></td>
+                                        <td class="text-right"><%= number_to_currency(c.Cuota, :unit => "€", :format => "%n %u  ", separator: ",", delimiter: ".") rescue nil %></td>
+                                        <td class="text-right"><%= number_to_currency(c.Voz, :unit => "€", :format => "%n %u  ", separator: ",", delimiter: ".") rescue nil %></td>
+                                        <td class="text-right"><%= number_to_currency(c.Datos, :unit => "€", :format => "%n %u  ", separator: ",", delimiter: ".") rescue nil %></td>
+                                        <td class="text-right"><%= number_to_currency(c.Total, :unit => "€", :format => "%n %u  ", separator: ",", delimiter: ".")  rescue nil %></td>
+                                    </tr>                    
+                                <% end %>                
+                            </tbody>
+                        </table>
+                    </div>         
+            </div>
+    </li>
+<% end %>

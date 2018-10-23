@@ -35,6 +35,10 @@ es:
         other: "Acrónimos"
         new:  "Nuevo Acrónimo" 
 
+      consumo_movil:
+        one: "Consumo móvil"
+        other: "Consumos móviles"
+
       linea:
         one: "Línea"
         other: "Líneas"
