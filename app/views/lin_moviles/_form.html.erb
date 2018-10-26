@@ -91,6 +91,9 @@
         <% if can? :cru, ConsumoMovil %>
           <%= render 'consumos', consumos: @lin_movil.consumo_movil.where('dFechaFactura >= dateadd(m,-13, getdate())').order('dFechaFactura desc'), f: f %>
         <% end %>
+        <% if can? :cru, ActuacionesLinea %>
+          <%= render 'actuaciones_linea', actuaciones_linea: @lin_movil.linea.actuaciones_linea.order('dFchAlta desc'), f: f %>
+        <% end %>
       </ul>
       </div>
     </div>

@@ -1,0 +1,32 @@
+<% if can? :cru, ActuacionesLinea %>
+    <li class="accordion-item" data-accordion-item>
+        <a href="#" class="accordion-title"><%= t('activerecord.models.actuaciones_linea.other') %></a>
+            <div class="accordion-content" data-tab-content >                                  
+                        
+                <div class="table-scroll">
+                    <table>
+                        <thead class="color-cabecera">
+                                <tr>            
+                                    <th><%= t('activerecord.attributes.actuaciones_linea.dFchAlta') %></th>
+                                    <th><%= t('activerecord.attributes.actuaciones_linea.nNumTicket') %></th>
+                                    <th><%= t('activerecord.attributes.actuaciones_linea.cUsuarioAlta') %></th>
+                                    <th><%= t('activerecord.attributes.actuaciones_linea.dFchAviso') %></th>
+                                    <th><%= t('activerecord.attributes.actuaciones_linea.cDescripcion') %></th>
+                                </tr>
+                            </thead>                                
+                            <tbody>          
+                                <% actuaciones_linea.each do |a| %>
+                                    <tr>       
+                                        <td class="nowrap"><%= a.dFchAlta.strftime("%d-%m-%Y") %></td>
+                                        <td><%= a.nNumTicket rescue nil unless a.nNumTicket==0 %></td>
+                                        <td><%= a.cUsuarioAlta rescue nil %></td>
+                                        <td><%= a.dFchAviso.strftime("%d-%m-%Y") rescue nil  %></td>
+                                        <td><%= a.cDescripcion rescue nil %></td>                                        
+                                    </tr>                    
+                                <% end %>                
+                            </tbody>
+                        </table>
+                    </div>         
+            </div>
+    </li>
+<% end %>
