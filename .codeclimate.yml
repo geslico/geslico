@@ -43,3 +43,6 @@ exclude_paths:
 - db/
 - test/
 - vendor/
+plugins:
+  bundler-audit:
+    enabled: true
