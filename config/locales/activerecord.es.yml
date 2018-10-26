@@ -104,6 +104,8 @@ es:
       linea:
         cNumero: "Número"
         cNumCorto: "Extensión"
+        nullbusterNumero: "Número"
+        nullbusterCorto: "Extensión"
         dFechaAlta: "Fch.Alta"
         dFechaBaja: "Fch.Baja"
         nCodEstLin: "Estado"
