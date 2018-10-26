@@ -18,8 +18,9 @@ class Linea < ApplicationRecord
 
 	accepts_nested_attributes_for :lin_movil
 
-	validates :cNumero, :uniqueness => true, :numericality => true, :length => { :minimum => 9, :maximum => 15 }, unless: :cNumCorto?
-	validates :cNumCorto, :uniqueness => true, :numericality => true, :length => { :minimum => 3, :maximum => 8 }, unless: :cNumero?
+	validates :cNumero, :uniqueness => true, :numericality => true, :length => { :minimum => 9, :maximum => 15 }, if: :cNumero?
+	validates :cNumCorto, :uniqueness => true, :numericality => true, :length => { :minimum => 3, :maximum => 8 }, if: :cNumCorto?
+	validate :plan_numeracion
 	validates :nCodUni, presence: true	
 	validates :dFechaAlta, presence: true	
 	validates :nCodEstLin, presence: true	
@@ -34,5 +35,12 @@ class Linea < ApplicationRecord
 
 	def nil_if_blank
 		NULL_ATTRS.each { |attr| self[attr] = nil if self[attr].blank? }
+	end
+
+	def plan_numeracion
+		if cNumero.blank? && cNumCorto.blank?			
+			errors.add(:cNumero, :blank)
+			errors.add(:cNumCorto, :blank)
+		  end
 	end
 end
