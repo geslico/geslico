@@ -13,9 +13,7 @@ plugins:
     config:
       languages:
       - ruby
-      - javascript
-      - python
-      - php
+      - javascript      
   eslint:
     enabled: true
   fixme:
