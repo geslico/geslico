@@ -1,6 +1,4 @@
 # Geslico
-
-[![Build Status](https://travis-ci.org/geslico/geslico.svg?branch=master)](https://travis-ci.org/geslico/geslico)
 [![Code Climate](https://codeclimate.com/github/geslico/geslico/badges/gpa.svg)](https://codeclimate.com/github/geslico/geslico)
 
 Aplicación desarrollada para la Gestión de Líneas de Comunicación del Ayuntamiento de Madrid. La aplicación original está desarrollada en Visual Basic, este nuevo desarrollo responde a nuestro interés en mejorar para nuestros usuarios. 
