@@ -24,6 +24,8 @@ class LinMovil < ApplicationRecord
     validates :bPrincipal, inclusion: { in: [ true, false, "true", "false", 1, 0 ] }
     validates :bHorarioExtendido, inclusion: { in: [ true, false ] }
     validate :dni_exists
+    
+    default_scope { order(dFchModificacion: :desc) }
 
     protected
 
